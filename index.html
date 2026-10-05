@@ -18,17 +18,15 @@
         <a href="./" class="brand-logo-text" title="Pedaleo.cl">
           Pedaleo<span>.cl</span>
         </a>
-        <span class="brand-badge">Chile 🇨🇱</span>
       </div>
 
       <div class="header-actions">
+        <button class="btn-header" id="nav-contact">
+          <span>Contacto</span>
+        </button>
         <button class="btn-header btn-header-primary" id="nav-publish">
           <span>+ Publicar Carrera</span>
         </button>
-        <a href="https://github.com/jqnmunozdiaz/pedaleo.cl" target="_blank" rel="noopener" class="btn-header" title="Repositorio en GitHub">
-          <svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-          <span>GitHub</span>
-        </a>
       </div>
     </div>
   </header>
@@ -209,14 +207,65 @@
     </div>
   </div>
 
+  <!-- Modal Contacto -->
+  <div class="modal-overlay" id="modal-contact">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Contacto — Pedaleo.cl</h3>
+        <button class="modal-close-btn" id="modal-close-contact">&times;</button>
+      </div>
+      <form id="contact-form">
+        <div class="modal-body">
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.5">
+            ¿Tienes dudas, sugerencias sobre el sitio, o detectaste información desactualizada? Escríbenos directamente o contáctanos a <a href="mailto:contacto@pedaleo.cl" style="color:var(--brand-green); font-weight:600">contacto@pedaleo.cl</a>.
+          </p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Tu Nombre *</label>
+              <input type="text" id="contact-name" name="name" class="form-control" required placeholder="Ej: Juan Pérez">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Tu Email *</label>
+              <input type="email" id="contact-email" name="email" class="form-control" required placeholder="tu@email.cl">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contact-subject">Motivo del Mensaje *</label>
+            <select id="contact-subject" name="subject" class="form-control" required>
+              <option value="Consulta general">Consulta general</option>
+              <option value="Sugerencia o feedback">Sugerencia o feedback del sitio</option>
+              <option value="Reportar error en carrera">Reportar error o cambio de fecha en una carrera</option>
+              <option value="Productora o Alianza">Productora / Club / Alianza</option>
+              <option value="Otro">Otro asunto</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contact-message">Mensaje *</label>
+            <textarea id="contact-message" name="message" class="form-control" rows="4" required placeholder="Escribe tu mensaje aquí..."></textarea>
+          </div>
+
+          <div id="contact-feedback" style="display:none; padding:0.6rem 0.8rem; border-radius:4px; font-size:0.85rem; margin-top:0.5rem"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="cal-btn-mini" onclick="document.getElementById('modal-contact').classList.remove('active')">Cerrar</button>
+          <button type="submit" class="btn-action-primary" id="btn-submit-contact">Enviar Mensaje &rarr;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- Footer Sobrio -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
         <strong>Pedaleo.cl</strong> — Calendario independiente y abierto de ciclismo en Chile.
       </div>
-      <div>
-        Actualizado automáticamente con datos de Bicineta, GUCA y productoras locales.
+      <div style="display:flex; align-items:center; gap:1.25rem">
+        <span>Actualizado con fuentes oficiales de Chile.</span>
+        <a href="#" id="footer-contact-link" style="color:#cbd5e1; text-decoration:underline">Contacto</a>
       </div>
     </div>
   </footer>

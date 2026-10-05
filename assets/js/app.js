@@ -170,9 +170,20 @@ document.addEventListener('DOMContentLoaded', () => {
         this.openPublishModal();
       });
 
+      // Contacto Modal
+      document.getElementById('nav-contact')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.openContactModal();
+      });
+      document.getElementById('footer-contact-link')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.openContactModal();
+      });
+
       // Modals
       document.getElementById('modal-close-detail')?.addEventListener('click', () => this.closeModals());
       document.getElementById('modal-close-publish')?.addEventListener('click', () => this.closeModals());
+      document.getElementById('modal-close-contact')?.addEventListener('click', () => this.closeModals());
       document.querySelectorAll('.modal-overlay').forEach(ov => {
         ov.addEventListener('click', (e) => {
           if (e.target === ov) this.closeModals();
@@ -185,6 +196,15 @@ document.addEventListener('DOMContentLoaded', () => {
         publishForm.addEventListener('submit', (e) => {
           e.preventDefault();
           this.handlePublishFormSubmit(publishForm);
+        });
+      }
+
+      // Form Submit Contact
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          this.handleContactFormSubmit(contactForm);
         });
       }
     },
@@ -324,27 +344,41 @@ document.addEventListener('DOMContentLoaded', () => {
             : '';
           const elevText = ev.elevation_gain_m ? `+${ev.elevation_gain_m.toLocaleString('es-CL')}m` : '';
 
+          // Clean locality to avoid repeating region
+          let rawLoc = ev.commune || ev.location || '';
+          let cleanLoc = rawLoc
+            .split(',')[0]
+            .split('-')[0]
+            .replace(/\b(Regi[oó]n\s+[A-Za-z\s]+|RM|XV|XVI|XIV|XII|XI|VIII|VII|VI|IV|III|II|I|X|V)\b/gi, '')
+            .trim();
+          if (!cleanLoc) cleanLoc = ev.region_name || 'Chile';
+
           html += `
             <article class="event-item" data-id="${ev.id}">
-              <div class="event-date-chip">
+              <!-- Columna 1: Fecha -->
+              <div class="event-col-date">
                 <span class="chip-day">${dayNum}</span>
                 <span class="chip-meta">${monthShort} · ${dowShort}</span>
               </div>
 
-              <div class="event-info">
-                <div class="event-headline">
-                  <a href="#" class="event-link" data-id="${ev.id}">${ev.name}</a>
-                  <span class="badge-discipline ${discClass}">${ev.disciplines[0] || 'MTB'}</span>
-                </div>
+              <!-- Columna 2: Disciplina (Columna separada para alinear los títulos) -->
+              <div class="event-col-disc">
+                <span class="badge-discipline ${discClass}">${ev.disciplines[0] || 'MTB'}</span>
+              </div>
+
+              <!-- Columna 3: Información de Carrera -->
+              <div class="event-col-info">
+                <a href="#" class="event-link" data-id="${ev.id}">${ev.name}</a>
                 <div class="event-submeta">
-                  <span class="meta-location">📍 ${ev.commune || ev.location}</span>
-                  <span class="badge-reg">${ev.region_name || ev.region}</span>
+                  <span class="meta-location">📍 ${cleanLoc}</span>
+                  <span class="badge-reg">${ev.region}</span>
                   ${distText ? `<span class="dist-meta">🏁 ${distText}</span>` : ''}
                   ${elevText ? `<span class="elev-meta">⛰️ ${elevText}</span>` : ''}
                 </div>
               </div>
 
-              <div class="event-actions">
+              <!-- Columna 4: Acciones -->
+              <div class="event-col-actions">
                 <div class="dropdown-calendar">
                   <button class="btn-cal-export" title="Agendar en Google o Apple Calendar">
                     📅 <span class="hide-mobile">Agendar</span>
@@ -475,6 +509,48 @@ document.addEventListener('DOMContentLoaded', () => {
     openPublishModal() {
       const modal = document.getElementById('modal-publish');
       if (modal) modal.classList.add('active');
+    },
+
+    openContactModal() {
+      const modal = document.getElementById('modal-contact');
+      const feedback = document.getElementById('contact-feedback');
+      if (feedback) feedback.style.display = 'none';
+      if (modal) modal.classList.add('active');
+    },
+
+    handleContactFormSubmit(form) {
+      const formData = new FormData(form);
+      const name = formData.get('name') || '';
+      const email = formData.get('email') || '';
+      const subject = formData.get('subject') || 'Contacto Pedaleo.cl';
+      const message = formData.get('message') || '';
+
+      const mailtoSubject = encodeURIComponent(`[Pedaleo.cl] ${subject} - ${name}`);
+      const mailtoBody = encodeURIComponent(
+        `Nombre: ${name}\n` +
+        `Email: ${email}\n` +
+        `Motivo: ${subject}\n\n` +
+        `Mensaje:\n${message}\n\n` +
+        `---\nEnviado desde Pedaleo.cl`
+      );
+
+      // Open email client
+      window.location.href = `mailto:contacto@pedaleo.cl?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+      const feedback = document.getElementById('contact-feedback');
+      if (feedback) {
+        feedback.style.display = 'block';
+        feedback.style.background = '#dcfce7';
+        feedback.style.color = '#166534';
+        feedback.style.border = '1px solid #bbf7d0';
+        feedback.innerHTML = `¡Gracias por tu mensaje, <strong>${name}</strong>! Se ha generado tu correo hacia <strong>contacto@pedaleo.cl</strong>.`;
+      }
+
+      setTimeout(() => {
+        this.closeModals();
+        form.reset();
+        if (feedback) feedback.style.display = 'none';
+      }, 3500);
     },
 
     closeModals() {
