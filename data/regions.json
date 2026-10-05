@@ -1,0 +1,18 @@
+[
+  { "id": "RM", "roman": "RM", "name": "Metropolitana de Santiago", "short": "Metropolitana" },
+  { "id": "XV", "roman": "XV", "name": "Arica y Parinacota", "short": "Arica y Parinacota" },
+  { "id": "I", "roman": "I", "name": "Tarapacá", "short": "Tarapacá" },
+  { "id": "II", "roman": "II", "name": "Antofagasta", "short": "Antofagasta" },
+  { "id": "III", "roman": "III", "name": "Atacama", "short": "Atacama" },
+  { "id": "IV", "roman": "IV", "name": "Coquimbo", "short": "Coquimbo" },
+  { "id": "V", "roman": "V", "name": "Valparaíso", "short": "Valparaíso" },
+  { "id": "VI", "roman": "VI", "name": "Libertador General Bernardo O'Higgins", "short": "O'Higgins" },
+  { "id": "VII", "roman": "VII", "name": "Maule", "short": "Maule" },
+  { "id": "XVI", "roman": "XVI", "name": "Ñuble", "short": "Ñuble" },
+  { "id": "VIII", "roman": "VIII", "name": "Biobío", "short": "Biobío" },
+  { "id": "IX", "roman": "IX", "name": "La Araucanía", "short": "La Araucanía" },
+  { "id": "XIV", "roman": "XIV", "name": "Los Ríos", "short": "Los Ríos" },
+  { "id": "X", "roman": "X", "name": "Los Lagos", "short": "Los Lagos" },
+  { "id": "XI", "roman": "XI", "name": "Aysén del Gral. Carlos Ibáñez del Campo", "short": "Aysén" },
+  { "id": "XII", "roman": "XII", "name": "Magallanes y de la Antártica Chilena", "short": "Magallanes" }
+]

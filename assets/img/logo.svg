@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 80" width="380" height="80">
+  <defs>
+    <linearGradient id="pedaleoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#e11d48" />
+    </linearGradient>
+  </defs>
+
+  <!-- Bicycle Emblem -->
+  <g transform="translate(15, 14)">
+    <!-- Back Wheel -->
+    <circle cx="16" cy="36" r="14" stroke="#059669" stroke-width="3" fill="none"/>
+    <circle cx="16" cy="36" r="3" fill="#059669"/>
+    <!-- Front Wheel -->
+    <circle cx="56" cy="36" r="14" stroke="#059669" stroke-width="3" fill="none"/>
+    <circle cx="56" cy="36" r="3" fill="#059669"/>
+    <!-- Frame Tubes -->
+    <!-- Chainstay -->
+    <line x1="16" y1="36" x2="34" y2="36" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
+    <!-- Seatstay -->
+    <line x1="16" y1="36" x2="28" y2="18" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
+    <!-- Seat tube -->
+    <line x1="34" y1="36" x2="26" y2="14" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
+    <!-- Down tube -->
+    <line x1="34" y1="36" x2="48" y2="18" stroke="#059669" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Top tube -->
+    <line x1="28" y1="18" x2="48" y2="18" stroke="#059669" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Fork -->
+    <line x1="48" y1="18" x2="56" y2="36" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
+    <!-- Saddle -->
+    <line x1="22" y1="12" x2="30" y2="12" stroke="#e11d48" stroke-width="3" stroke-linecap="round"/>
+    <!-- Handlebar -->
+    <path d="M 46 14 Q 52 10 52 14 Q 52 18 50 18" stroke="#1f2937" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="96" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="34" fill="#0f172a" letter-spacing="-0.5">
+    Pedaleo<tspan fill="#059669">.cl</tspan>
+  </text>
+  <text x="98" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="600" font-size="10.5" fill="#64748b" letter-spacing="1.2">
+    CALENDARIO DE CICLISMO EN CHILE
+  </text>
+</svg>

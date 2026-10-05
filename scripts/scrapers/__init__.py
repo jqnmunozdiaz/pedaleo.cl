@@ -1,0 +1,1 @@
+# Pedaleo.cl Scrapers Module

@@ -1,0 +1,592 @@
+[
+  {
+    "id": "gravel-del-cobre-2026",
+    "name": "Gravel del Cobre 2026",
+    "date": "2026-10-10",
+    "end_date": "2026-10-10",
+    "disciplines": [
+      "Gravel",
+      "MTB"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Machalí",
+    "location": "Machalí - Coya",
+    "distances": [
+      "45 km",
+      "85 km"
+    ],
+    "distance_min_km": 45,
+    "distance_max_km": 85,
+    "elevation_gain_m": 1250,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Ciclismo Cobre",
+    "url": "https://guca.cl",
+    "registration_url": "https://guca.cl",
+    "description": "Desafío de gravel de alta exigencia por caminos precordilleranos de la cuenca del Río Cachapoal y sector Coya.",
+    "featured": true,
+    "source": "guca"
+  },
+  {
+    "id": "gran-fondo-matanzas-2026",
+    "name": "Gran Fondo Matanzas 2026",
+    "date": "2026-10-17",
+    "end_date": "2026-10-17",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Navidad",
+    "location": "Matanzas, Navidad",
+    "distances": [
+      "60 km",
+      "115 km"
+    ],
+    "distance_min_km": 60,
+    "distance_max_km": 115,
+    "elevation_gain_m": 1450,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Costa Ciclismo",
+    "url": "https://guca.cl",
+    "registration_url": "https://guca.cl",
+    "description": "Gran fondo costero con vistas al océano Pacífico recorriendo Pupuya, Matanzas y sectores rurales de Navidad.",
+    "featured": true,
+    "source": "guca"
+  },
+  {
+    "id": "andina-race-mtb-2026",
+    "name": "Andina Race MTB 2026",
+    "date": "2026-10-18",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Lonquimay",
+    "location": "Cuesta de las Raíces, Lonquimay",
+    "distances": [
+      "20 km",
+      "33 km"
+    ],
+    "distance_min_km": 20,
+    "distance_max_km": 33,
+    "elevation_gain_m": 950,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Andina Sports / GUCA",
+    "url": "https://guca.cl",
+    "registration_url": "https://guca.cl",
+    "description": "Competencia de MTB y E-Bike entre bosques de araucarias milenarias y senderos volcánicos en Lonquimay.",
+    "featured": false,
+    "source": "guca"
+  },
+  {
+    "id": "mtb-tour-chicureo-2026",
+    "name": "MTB Tour 2026 - Fecha Chicureo",
+    "date": "2026-10-24",
+    "end_date": "2026-10-24",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Colina",
+    "location": "Chicureo, Colina",
+    "distances": [
+      "20 km",
+      "35 km"
+    ],
+    "distance_min_km": 20,
+    "distance_max_km": 35,
+    "elevation_gain_m": 600,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "MTB Tour Chile",
+    "url": "https://www.mtbtour.cl",
+    "registration_url": "https://welcu.com",
+    "description": "Circuito tradicional del MTB Tour en los cerros de Chicureo con categorías competitivas y promocionales.",
+    "featured": true,
+    "source": "welcu"
+  },
+  {
+    "id": "desafio-trek-subaru-2026",
+    "name": "Desafío Trek Subaru 2026",
+    "date": "2026-11-08",
+    "end_date": "2026-11-08",
+    "disciplines": [
+      "Ruta",
+      "MTB",
+      "Gravel"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Lo Barnechea",
+    "location": "Mall Sport a Farellones / Valle Nevado",
+    "distances": [
+      "16 km",
+      "24 km",
+      "33 km",
+      "45 km"
+    ],
+    "distance_min_km": 16,
+    "distance_max_km": 45,
+    "elevation_gain_m": 2400,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Demaria Marketing Deportivo",
+    "url": "https://www.desafiotreksubaru.cl",
+    "registration_url": "https://ticketplus.cl",
+    "description": "La clásica escalada a la cordillera de Los Andes con llegada a Corralco, Farellones y Valle Nevado con más de 3.000 ciclistas.",
+    "featured": true,
+    "source": "ticketplus"
+  },
+  {
+    "id": "gran-fondo-fin-del-mundo-2026",
+    "name": "Gran Fondo Fin del Mundo 2026",
+    "date": "2026-11-14",
+    "end_date": "2026-11-14",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Colbún",
+    "location": "Lago Colbún - Paso Pehuenche",
+    "distances": [
+      "117 km",
+      "153 km"
+    ],
+    "distance_min_km": 117,
+    "distance_max_km": 153,
+    "elevation_gain_m": 2200,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Gran Fondo Fin del Mundo",
+    "url": "https://www.gffindelmundo.cl",
+    "registration_url": "https://welcu.com",
+    "description": "Una de las pruebas de ruta más imponentes de Sudamérica bordeando el Lago Colbún y escalando la cordillera del Maule.",
+    "featured": true,
+    "source": "welcu"
+  },
+  {
+    "id": "pioneros-xcm-conguillio-2026",
+    "name": "Pioneros XCM Conguillío 2026",
+    "date": "2026-11-15",
+    "end_date": "2026-11-15",
+    "disciplines": [
+      "MTB",
+      "Gravel"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Melipeuco",
+    "location": "Parque Nacional Conguillío, Melipeuco",
+    "distances": [
+      "30 km",
+      "55 km"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 55,
+    "elevation_gain_m": 1100,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "TicketSport / Club Pioneros",
+    "url": "https://ticketsport.cl",
+    "registration_url": "https://ticketsport.cl",
+    "description": "Maratón XCM y categoría Gravel a los pies del volcán Llaima recorriendo los senderos de lava y bosques de coigües.",
+    "featured": false,
+    "source": "ticketsport"
+  },
+  {
+    "id": "patagonia-gravel-2026",
+    "name": "Patagonia Gravel 2026",
+    "date": "2026-11-21",
+    "end_date": "2026-11-22",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "Puerto Varas",
+    "location": "Lago Llanquihue, Puerto Varas",
+    "distances": [
+      "65 km",
+      "120 km"
+    ],
+    "distance_min_km": 65,
+    "distance_max_km": 120,
+    "elevation_gain_m": 1600,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Patagonia Gravel Expeditions",
+    "url": "https://www.patagoniagravel.com",
+    "registration_url": "https://welcu.com",
+    "description": "Aventura de gravel con vistas a los volcanes Osorno y Calbuco, caminos rurales de colonos y lagos del sur de Chile.",
+    "featured": true,
+    "source": "welcu"
+  },
+  {
+    "id": "copa-chile-mtb-xco-santiago-2026",
+    "name": "Copa Chile MTB XCO 2026 - Fecha Parque Metropolitano",
+    "date": "2026-11-28",
+    "end_date": "2026-11-29",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Recoleta",
+    "location": "Cerro San Cristóbal, Santiago",
+    "distances": [
+      "4.5 km circuito olímpico"
+    ],
+    "distance_min_km": 20,
+    "distance_max_km": 30,
+    "elevation_gain_m": 750,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Federación Nacional de Ciclismo de Chile (FEDENACICH)",
+    "url": "https://fdnciclismochile.cl",
+    "registration_url": "https://fdnciclismochile.cl/eventos",
+    "description": "Fecha oficial de la Copa Chile XCO puntuable para el ranking nacional UCI en el Parque Metropolitano de Santiago.",
+    "featured": false,
+    "source": "fedenacich"
+  },
+  {
+    "id": "across-andes-2026",
+    "name": "Across Andes 2026 (Ultraciclismo Gravel)",
+    "date": "2026-11-29",
+    "end_date": "2026-12-05",
+    "disciplines": [
+      "Ultra/Bikepacking",
+      "Gravel"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Pucón",
+    "location": "Pucón - Cordillera de los Andes",
+    "distances": [
+      "1000 km"
+    ],
+    "distance_min_km": 1000,
+    "distance_max_km": 1000,
+    "elevation_gain_m": 15000,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Across Andes Gravel",
+    "url": "https://acrossandes.cc",
+    "registration_url": "https://acrossandes.cc/inscripciones",
+    "description": "La carrera de ultraciclismo y autosuficiencia en gravel más emblemática del continente, cruzando pasos andinos y lagos.",
+    "featured": true,
+    "source": "organizer"
+  },
+  {
+    "id": "mtb-tour-vina-matetic-2026",
+    "name": "MTB Tour 2026 - Fecha Viña Matetic",
+    "date": "2026-12-05",
+    "end_date": "2026-12-05",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "V",
+    "region_name": "Valparaíso",
+    "commune": "Casablanca",
+    "location": "Valle del Rosario, Viña Matetic",
+    "distances": [
+      "25 km",
+      "45 km"
+    ],
+    "distance_min_km": 25,
+    "distance_max_km": 45,
+    "elevation_gain_m": 850,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "MTB Tour Chile",
+    "url": "https://www.mtbtour.cl",
+    "registration_url": "https://welcu.com",
+    "description": "Pedaleo entre viñedos orgánicos y senderos de bosque nativo con tercer tiempo y degustaciones en el Valle de Casablanca.",
+    "featured": false,
+    "source": "welcu"
+  },
+  {
+    "id": "gran-fondo-lago-ranco-uci-2026",
+    "name": "Gran Fondo Lago Ranco UCI World Series 2026",
+    "date": "2026-12-12",
+    "end_date": "2026-12-12",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Lago Ranco",
+    "location": "Bahía Coique, Lago Ranco",
+    "distances": [
+      "114 km"
+    ],
+    "distance_min_km": 114,
+    "distance_max_km": 114,
+    "elevation_gain_m": 1600,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Gran Fondo Lago Ranco / Andeschile",
+    "url": "https://www.gflagoranco.cl",
+    "registration_url": "https://welcu.com",
+    "description": "Fecha oficial de la UCI Gran Fondo World Series. Vuelta completa al Lago Ranco con pavimento impecable y paisajes paradisíacos.",
+    "featured": true,
+    "source": "welcu"
+  },
+  {
+    "id": "desafio-el-carbon-2026",
+    "name": "Desafío El Carbón MTB 2026",
+    "date": "2026-12-13",
+    "end_date": "2026-12-13",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VIII",
+    "region_name": "Biobío",
+    "commune": "Curanilahue",
+    "location": "Curanilahue - Cordillera de Nahuelbuta",
+    "distances": [
+      "30 km",
+      "55 km"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 55,
+    "elevation_gain_m": 1300,
+    "price_type": "paid",
+    "status": "upcoming",
+    "organizer": "Club Ciclismo Nahuelbuta",
+    "url": "https://guca.cl",
+    "registration_url": "https://guca.cl",
+    "description": "Desafiante trazado por las históricas rutas mineras y bosques de la cordillera de Nahuelbuta.",
+    "featured": false,
+    "source": "guca"
+  },
+  {
+    "id": "cronoescalada-farellones-2027",
+    "name": "Cronoescalada Lo Barnechea - Farellones 2027",
+    "date": "2027-01-09",
+    "end_date": "2027-01-09",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Lo Barnechea",
+    "location": "Curva 1 a Curva 40, Farellones",
+    "distances": [
+      "32 km"
+    ],
+    "distance_min_km": 32,
+    "distance_max_km": 32,
+    "elevation_gain_m": 1850,
+    "price_type": "paid",
+    "status": "upcoming",
+    "organizer": "Club Ciclista Santiago",
+    "url": "https://ticketsport.cl",
+    "registration_url": "https://ticketsport.cl",
+    "description": "Prueba contrarreloj individual para escaladores enfrentando las míticas 40 curvas hacia el pueblo de Farellones.",
+    "featured": false,
+    "source": "ticketsport"
+  },
+  {
+    "id": "transandes-challenge-2027",
+    "name": "TransAndes Challenge 2027 (MTB Etapas)",
+    "date": "2027-01-18",
+    "end_date": "2027-01-23",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Panguipulli",
+    "location": "Reserva Biológica Huilo Huilo a Pucón",
+    "distances": [
+      "320 km (5 etapas)"
+    ],
+    "distance_min_km": 320,
+    "distance_max_km": 320,
+    "elevation_gain_m": 8500,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "TransAndes Mountain Bike Race",
+    "url": "https://transandeschallenge.com",
+    "registration_url": "https://transandeschallenge.com/inscripcion",
+    "description": "La legendaria carrera por etapas en la Patagonia chilena, recorriendo volcanes, bosques húmedos templados y termas naturales.",
+    "featured": true,
+    "source": "organizer"
+  },
+  {
+    "id": "desafio-huilo-huilo-2027",
+    "name": "Desafío Huilo Huilo MTB 2027",
+    "date": "2027-01-30",
+    "end_date": "2027-01-31",
+    "disciplines": [
+      "MTB",
+      "Gravel"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Neltume",
+    "location": "Reserva Huilo Huilo, Neltume",
+    "distances": [
+      "35 km",
+      "60 km"
+    ],
+    "distance_min_km": 35,
+    "distance_max_km": 60,
+    "elevation_gain_m": 1500,
+    "price_type": "paid",
+    "status": "upcoming",
+    "organizer": "Club Huilo Huilo Aventura",
+    "url": "https://ticketsport.cl",
+    "registration_url": "https://ticketsport.cl",
+    "description": "Competencia de MTB y Gravel dentro del corazón de la selva valdiviana con pasadas por ríos, cascadas y puentes colgantes.",
+    "featured": false,
+    "source": "ticketsport"
+  },
+  {
+    "id": "red-bull-valparaiso-cerro-abajo-2027",
+    "name": "Red Bull Valparaíso Cerro Abajo 2027",
+    "date": "2027-02-14",
+    "end_date": "2027-02-14",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "V",
+    "region_name": "Valparaíso",
+    "commune": "Valparaíso",
+    "location": "Cerro Cárcel y Plaza Aníbal Pinto",
+    "distances": [
+      "2 km Downhill Urbano"
+    ],
+    "distance_min_km": 2,
+    "distance_max_km": 2,
+    "elevation_gain_m": -300,
+    "price_type": "free",
+    "status": "upcoming",
+    "organizer": "Red Bull Chile",
+    "url": "https://www.redbull.com/cl-es/events/valparaiso-cerro-abajo",
+    "registration_url": "https://www.redbull.com",
+    "description": "El descenso urbano en bicicleta más famoso del mundo por las escaleras, techos y callejones empinados de Valparaíso.",
+    "featured": true,
+    "source": "organizer"
+  },
+  {
+    "id": "vuelta-ciclista-chiloe-2027",
+    "name": "Vuelta Ciclista a Chiloé 2027",
+    "date": "2027-02-24",
+    "end_date": "2027-02-28",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "Castro",
+    "location": "Isla Grande de Chiloé (Castro, Ancud, Quellón)",
+    "distances": [
+      "420 km (4 etapas)"
+    ],
+    "distance_min_km": 420,
+    "distance_max_km": 420,
+    "elevation_gain_m": 4800,
+    "price_type": "paid",
+    "status": "upcoming",
+    "organizer": "Club Ciclista Chiloé / UCI",
+    "url": "https://vueltachiloe.cl",
+    "registration_url": "https://vueltachiloe.cl",
+    "description": "Vuelta por etapas de categoría internacional por las desafiantes colinas, vientos y bordemar del archipiélago de Chiloé.",
+    "featured": true,
+    "source": "organizer"
+  },
+  {
+    "id": "atacama-challenger-2027",
+    "name": "Atacama Challenger 2027 (3 Días MTB)",
+    "date": "2027-03-12",
+    "end_date": "2027-03-14",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "II",
+    "region_name": "Antofagasta",
+    "commune": "San Pedro de Atacama",
+    "location": "Valle de la Luna, San Pedro de Atacama",
+    "distances": [
+      "33 km",
+      "70 km",
+      "60 km"
+    ],
+    "distance_min_km": 163,
+    "distance_max_km": 163,
+    "elevation_gain_m": 3100,
+    "price_type": "paid",
+    "status": "upcoming",
+    "organizer": "Atacama Race Producciones",
+    "url": "https://atacamachallenger.cl",
+    "registration_url": "https://welcu.com",
+    "description": "Tres etapas desafiando el desierto más árido del planeta, dunas de arena, salares y la imponente Cordillera de la Sal.",
+    "featured": true,
+    "source": "welcu"
+  },
+  {
+    "id": "gran-rally-mtb-otono-ranquino-2027",
+    "name": "Gran Rally MTB: Otoño Ranquino 2027",
+    "date": "2027-04-10",
+    "end_date": "2027-04-10",
+    "disciplines": [
+      "MTB",
+      "Gravel"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Lago Ranco",
+    "location": "Costanera Lago Ranco",
+    "distances": [
+      "35 km",
+      "65 km"
+    ],
+    "distance_min_km": 35,
+    "distance_max_km": 65,
+    "elevation_gain_m": 1200,
+    "price_type": "paid",
+    "status": "upcoming",
+    "organizer": "TicketSport / Ranco Riders",
+    "url": "https://ticketsport.cl",
+    "registration_url": "https://ticketsport.cl",
+    "description": "Tradicional XCM otoñal entre bosques nativos y cerros con vista panorámica a la cuenca del Ranco.",
+    "featured": false,
+    "source": "ticketsport"
+  },
+  {
+    "id": "clasica-primero-de-mayo-2027",
+    "name": "Clásica Ciclista 1 de Mayo 2027",
+    "date": "2027-05-01",
+    "end_date": "2027-05-01",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Santiago",
+    "location": "Circuito Parque O'Higgins / Cerrillos",
+    "distances": [
+      "80 km Criterium"
+    ],
+    "distance_min_km": 80,
+    "distance_max_km": 80,
+    "elevation_gain_m": 200,
+    "price_type": "paid",
+    "status": "upcoming",
+    "organizer": "Asociación de Ciclismo Metropolitana",
+    "url": "https://fdnciclismochile.cl",
+    "registration_url": "https://fdnciclismochile.cl",
+    "description": "La clásica de velocidad más longeva del ciclismo de ruta en Chile, reuniendo a pelotones de élite y máster.",
+    "featured": false,
+    "source": "fedenacich"
+  }
+]
