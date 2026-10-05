@@ -97,10 +97,10 @@ Pedaleo.cl/
 Dado que el sitio es estático, basta con abrir `index.html` en cualquier navegador web o iniciar un servidor local:
 
 ```powershell
-# En PowerShell
-python -m http.server 8000
+# En PowerShell (puerto 8080 en localhost)
+python -m http.server 8080 --bind 127.0.0.1
 ```
-Luego visita `http://localhost:8000` en tu navegador.
+Luego visita `http://localhost:8080` en tu navegador.
 
 ### 2. Ejecutar la sincronización y scrapers (Entorno `py313`)
 Para ejecutar los scripts de actualización en tu terminal local, activa primero el entorno `py313`:
