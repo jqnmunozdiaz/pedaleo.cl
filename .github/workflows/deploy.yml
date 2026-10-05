@@ -1,24 +1,36 @@
-name: Sincronización Automática del Calendario
+name: Despliegue en GitHub Pages y Actualización Automática
 
 on:
-  schedule:
-    # Ejecutar todos los días a las 06:00 UTC (03:00 hora de Chile)
-    - cron: '0 6 * * *'
-  workflow_dispatch: # Permite ejecutar manualmente con un clic en GitHub Actions
   push:
-    paths:
-      - 'scripts/**'
+    branches:
+      - main
+  schedule:
+    # Corre todos los días a las 06:00 UTC (03:00 hora de Chile)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
 
+# Permisos requeridos para desplegar en GitHub Pages y hacer commit de datos actualizados
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
 
 jobs:
-  update-calendar:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout del repositorio
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Configurar Python
         uses: actions/setup-python@v5
@@ -39,7 +51,7 @@ jobs:
         run: |
           python scripts/validate_events.py
 
-      - name: Comprobar cambios y hacer commit
+      - name: Guardar cambios si hay carreras nuevas
         run: |
           git config --local user.email "bot@pedaleo.cl"
           git config --local user.name "PedaleoBot"
@@ -49,5 +61,17 @@ jobs:
             git commit -m "[auto] Actualizar calendario de carreras [skip ci]"
             git push
           else
-            echo "No hay carreras nuevas para actualizar hoy."
+            echo "No hay cambios nuevos en el calendario hoy."
           fi
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir artefacto estático
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
