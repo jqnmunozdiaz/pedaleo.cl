@@ -1,5 +1,280 @@
 [
   {
+    "id": "1-desafio-aniversario-de-ciclismo-de-ruta-lanpubike-2026",
+    "name": "1° Desafío Aniversario de Ciclismo de Ruta LanpuBike",
+    "date": "2026-10-04",
+    "end_date": "2026-10-04",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Arauco",
+    "location": "Arauco, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/752/10-desafio-aniversario-de-ciclismo-de-ruta-lanpubike",
+    "registration_url": "https://guca.cl/att_tickets/public/e/752/10-desafio-aniversario-de-ciclismo-de-ruta-lanpubike",
+    "description": "Competencia de Ruta cronometrada por GUCA en Arauco.",
+    "featured": false,
+    "source": "guca"
+  },
+  {
+    "id": "atacamaspirits-ultrabikepacking-2026",
+    "name": "Atacamaspirits Ultrabikepacking 2026",
+    "date": "2026-10-09",
+    "end_date": "2026-10-11",
+    "disciplines": [
+      "MTB",
+      "Ultra/Bikepacking"
+    ],
+    "region": "II",
+    "region_name": "Antofagasta",
+    "commune": "Calama",
+    "location": "Calama - II. Antofagasta",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Atacama Spirits",
+    "url": "https://www.instagram.com/atacamaspirits_ultracycling",
+    "registration_url": "https://www.instagram.com/atacamaspirits_ultracycling",
+    "description": "Evento de ultraciclismo en Atacama. 350K/52 horas. Del 9 al 11 de Octubre del 2026. Calama - Alto el Loa -...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "brevet-1000-la-ruta-de-los-molinos-2026",
+    "name": "Brevet 1000 - La ruta de los Molinos",
+    "date": "2026-10-09",
+    "end_date": "2026-10-12",
+    "disciplines": [
+      "MTB",
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Santiago",
+    "location": "Santiago - RM. Santiago",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Brevet Chile",
+    "url": "https://www.brevet.cl/eventos/la-ruta-de-los-molinos",
+    "registration_url": "https://www.brevet.cl/eventos/la-ruta-de-los-molinos",
+    "description": "Recorre la costa y los valles de Chile central, siguiendo caminos de viento, historia y resistencia. Una...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "dhs-2026-serie-5-puchuncavi",
+    "name": "DHS 2026 / Serie 5 / Puchuncaví",
+    "date": "2026-10-09",
+    "end_date": "2026-10-11",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "V",
+    "region_name": "Valparaíso",
+    "commune": "Puchuncaví",
+    "location": "Puchuncaví - V. Valparaíso",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Deache Series",
+    "url": "https://deache-series.cl/serie-5-puchuncavi-2026/",
+    "registration_url": "https://deache-series.cl/serie-5-puchuncavi-2026/",
+    "description": "La final del Campeonato Deache Series 2026 se disputará en Puchuncaví, en una localidad ya conocida y...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "epic-bikepaking-linares-2026",
+    "name": "Epic Bikepaking Linares 2026",
+    "date": "2026-10-09",
+    "end_date": "2026-10-12",
+    "disciplines": [
+      "MTB",
+      "Ultra/Bikepacking"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Colbún",
+    "location": "Colbún - VII. Maule",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.choikebags.cl/epic-bikepacking-maule-2026",
+    "registration_url": "https://www.choikebags.cl/epic-bikepacking-maule-2026",
+    "description": "El Epic Bikepacking, en su segunda versión, es una invitación a la aventura por los valles precordilleranos...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "travesia-lonquimay-2026",
+    "name": "Travesía Lonquimay",
+    "date": "2026-10-09",
+    "end_date": "2026-10-12",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Lonquimay",
+    "location": "Lonquimay - IX. Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Pedal Sur",
+    "url": "https://www.instagram.com/pedalsur/",
+    "registration_url": "https://www.instagram.com/pedalsur/",
+    "description": "Pronto más info ...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "circuito-downhill-chile-central-2026-2",
+    "name": "Circuito Downhill Chile Central 2026 #2",
+    "date": "2026-10-10",
+    "end_date": "2026-10-11",
+    "disciplines": [
+      "MTB",
+      "Enduro"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "El Rulo, Coinco",
+    "location": "El Rulo, Coinco - VI. Rancagua",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://timingfp.com/public/?c=PublicoEventos&m=ver&id=48",
+    "registration_url": "https://timingfp.com/public/?c=PublicoEventos&m=ver&id=48",
+    "description": "Prepárate para vivir toda la adrenalina de la primera edición del Circuito Downhill Chile Central 2026, un...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "desafio-alto-power-4-2026",
+    "name": "Desafío Alto Power 4",
+    "date": "2026-10-10",
+    "end_date": "2026-10-10",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "San Rafael",
+    "location": "San Rafael, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/775/desafio-alto-power-4",
+    "registration_url": "https://guca.cl/att_tickets/public/e/775/desafio-alto-power-4",
+    "description": "Competencia de MTB cronometrada por GUCA en San Rafael.",
+    "featured": false,
+    "source": "guca"
+  },
+  {
+    "id": "don-armando-xcm-2026",
+    "name": "Don Armando XCM",
+    "date": "2026-10-10",
+    "end_date": "2026-10-10",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "II",
+    "region_name": "Antofagasta",
+    "commune": "Calama",
+    "location": "Calama - II. Antofagasta",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.xebent.com/ver_evento/maraton-series-2026",
+    "registration_url": "https://www.xebent.com/ver_evento/maraton-series-2026",
+    "description": "Tenemos el agrado de invitarlos a nuestro Ranking modalidad Cross Country Marathon (XCM), el cual se...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "gran-fondo-nevados-de-chillan-2026",
+    "name": "Gran Fondo Nevados de Chillán 2026",
+    "date": "2026-10-10",
+    "end_date": "2026-10-10",
+    "disciplines": [
+      "MTB",
+      "Ruta"
+    ],
+    "region": "XVI",
+    "region_name": "Ñuble",
+    "commune": "Chillán",
+    "location": "Chillán - XVI. Ñuble",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.granfondonevados.cl/",
+    "registration_url": "https://www.granfondonevados.cl/",
+    "description": "Prepárate para disfrutar nuevamente de una experiencia épica en el corazón de la cordillera 🚲🏔️",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
     "id": "gravel-del-cobre-2026",
     "name": "Gravel del Cobre 2026",
     "date": "2026-10-10",
@@ -29,6 +304,225 @@
     "source": "guca"
   },
   {
+    "id": "tour-dh-cup-los-rios-5-lanco-2026",
+    "name": "Tour DH Cup Los Ríos #5 Lanco",
+    "date": "2026-10-10",
+    "end_date": "2026-10-11",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Lanco",
+    "location": "Lanco - X. Los Lagos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Tour DH Cup Los Ríos",
+    "url": "https://www.instagram.com/losriosdhcup/",
+    "registration_url": "https://www.instagram.com/losriosdhcup/",
+    "description": "🌲⛰️ Pistas rápidas, técnicas , físicas y de buen Desnivel 💎\r\n⚡ Corredores al límite\r\n🔊 Ambiente de...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "5to-desafio-zona-7-2026",
+    "name": "5to Desafío Zona 7",
+    "date": "2026-10-11",
+    "end_date": "2026-10-11",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Cauquenes",
+    "location": "Cauquenes - VII. Maule",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.bikerace.cl/evento?id=3114",
+    "registration_url": "https://www.bikerace.cl/evento?id=3114",
+    "description": "!No te quedes fuera de este 5to desafío de nuestro club !!",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "campeonato-zona-sur-xco-2-2026",
+    "name": "Campeonato Zona Sur XCO #2",
+    "date": "2026-10-11",
+    "end_date": "2026-10-11",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Panguipulli",
+    "location": "Panguipulli - XIV. Los Ríos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/campeonatoxcozonasur/",
+    "registration_url": "https://www.instagram.com/campeonatoxcozonasur/",
+    "description": "La emoción del Cross Country Olímpico vuelve a nuestra comuna y estamos preparando una fecha que ¡NO TE...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "desafio-las-minas-2026",
+    "name": "Desafio las Minas 2026",
+    "date": "2026-10-11",
+    "end_date": "2026-10-11",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Chancón",
+    "location": "Chancón - VI. Rancagua",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.tocketicket.cl/events/6a18a9432ea8b3cea58c0cfa",
+    "registration_url": "https://www.tocketicket.cl/events/6a18a9432ea8b3cea58c0cfa",
+    "description": "El Team Rancagua Bike te invita a su 5ta version Desafio las Minas.\r\nLa presente invitación se extiende...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "la-minga-2026",
+    "name": "La Minga",
+    "date": "2026-10-11",
+    "end_date": "2026-10-11",
+    "disciplines": [
+      "Gravel",
+      "MTB"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "Puerto Varas",
+    "location": "Puerto Varas - X. Los Lagos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Gravel al Sur",
+    "url": "https://welcu.com/gravel-al-sur/minga",
+    "registration_url": "https://welcu.com/gravel-al-sur/minga",
+    "description": "📍El próximo 11 de octubre de 2026, Puerto Varas será el escenario de LA MINGA, una carrera de gravel que...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "ruta-huepil-3-2026",
+    "name": "Ruta Huepil #3",
+    "date": "2026-10-11",
+    "end_date": "2026-10-11",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Tucapel",
+    "location": "Tucapel - IX. Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Copa Ruta Series BBM",
+    "url": "https://www.instagram.com/p/DbGe3-TpCM2/",
+    "registration_url": "https://www.instagram.com/p/DbGe3-TpCM2/",
+    "description": "El Club de ciclismo Huepil tiene el honor de invitarte a la tercera fecha: la Competencia Ruta Huepil. ¡Te...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "brevet-300-ultra-gravel-nuble-2026",
+    "name": "Brevet 300 - Ultra Gravel Ñuble",
+    "date": "2026-10-17",
+    "end_date": "2026-10-17",
+    "disciplines": [
+      "Gravel",
+      "Ultra/Bikepacking"
+    ],
+    "region": "XVI",
+    "region_name": "Ñuble",
+    "commune": "Chillán",
+    "location": "Chillán - XVI. Ñuble",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Ultra Gravel Ñuble",
+    "url": "https://www.instagram.com/ultra_gravel_nuble/",
+    "registration_url": "https://www.instagram.com/ultra_gravel_nuble/",
+    "description": "Primera fecha brevet de 300 km en el Ñuble",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "copa-chile-downhill-sur-1-2026",
+    "name": "Copa Chile Downhill Sur #1",
+    "date": "2026-10-17",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "MTB",
+      "Enduro"
+    ],
+    "region": "VIII",
+    "region_name": "Biobío",
+    "commune": "Santa Bárbara",
+    "location": "Santa Bárbara - VIII. Biobío",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/rcchdownhill/",
+    "registration_url": "https://www.instagram.com/rcchdownhill/",
+    "description": "🔴 SANTA BÁRBARA 17-18 de Octubre\r\n🔴 SANTA BÁRBARA 05-06 Diciembre\r\n🔴 VIÑA 12-13 de Diciembre",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
     "id": "gran-fondo-matanzas-2026",
     "name": "Gran Fondo Matanzas 2026",
     "date": "2026-10-17",
@@ -54,6 +548,115 @@
     "registration_url": "https://guca.cl",
     "description": "Gran fondo costero con vistas al océano Pacífico recorriendo Pupuya, Matanzas y sectores rurales de Navidad.",
     "featured": true,
+    "source": "guca"
+  },
+  {
+    "id": "montenbaik-enduro-series-4-2026",
+    "name": "Montenbaik Enduro Series #4",
+    "date": "2026-10-17",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "MTB",
+      "Enduro"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Lo Barnechea",
+    "location": "Lo Barnechea - RM. Santiago",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Montenbaik Enduro",
+    "url": "https://enduroseries.cl/4-lo-barnechea/",
+    "registration_url": "https://enduroseries.cl/4-lo-barnechea/",
+    "description": "Fecha Enduro Series",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "4to-rally-los-cristales-2026",
+    "name": "4to Rally Los Cristales",
+    "date": "2026-10-18",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Talca",
+    "location": "Talca - VII. Maule",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.bikerace.cl/evento?id=2949",
+    "registration_url": "https://www.bikerace.cl/evento?id=2949",
+    "description": "¡Te invitamos a ser parte de un nuevo desafío! Prepara tu bicicleta y únete a nuestra gran carrera de...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "amt-xco-1-temuco-2026",
+    "name": "AMT XCO #1 Temuco",
+    "date": "2026-10-18",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Temuco",
+    "location": "Temuco - IX. Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Campeonato Araucanía MTB Tour XCO",
+    "url": "https://www.instagram.com/p/DWRbK8mEWEa/",
+    "registration_url": "https://www.instagram.com/p/DWRbK8mEWEa/",
+    "description": "Araucanía MountainBike Tour – XCO Series 🏆\r\nFecha #1 🔸 18 Octubre – Temuco",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "amt-xco-series-2026-temuco",
+    "name": "AMT XCO SERIES 2026 - Temuco",
+    "date": "2026-10-18",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Temuco",
+    "location": "Temuco, Región La Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/810/amt-xco-series-2026-temuco",
+    "registration_url": "https://guca.cl/att_tickets/public/e/810/amt-xco-series-2026-temuco",
+    "description": "Competencia de MTB cronometrada por GUCA en Temuco.",
+    "featured": false,
     "source": "guca"
   },
   {
@@ -85,6 +688,357 @@
     "source": "guca"
   },
   {
+    "id": "circuito-primavera-1-2026",
+    "name": "Circuito Primavera #1",
+    "date": "2026-10-18",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Araucanía",
+    "location": "Araucanía - IX. Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/p/Dc6GaQVxSUI/",
+    "registration_url": "https://www.instagram.com/p/Dc6GaQVxSUI/",
+    "description": "Cuatro fechas para volver a encontrarnos en la ruta, medir fuerzas y disfrutar de lo que más nos gusta:...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "copa-chile-desafio-los-leones-quinta-fecha-cro-2026",
+    "name": "Copa Chile Desafío Los Leones - quinta fecha CRO",
+    "date": "2026-10-18",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Requinoa",
+    "location": "Requinoa, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/813/desafio-los-leones",
+    "registration_url": "https://guca.cl/att_tickets/public/e/813/desafio-los-leones",
+    "description": "Competencia de Ruta cronometrada por GUCA en Requinoa.",
+    "featured": false,
+    "source": "guca"
+  },
+  {
+    "id": "copa-chile-mtb-xcm-6-2026",
+    "name": "Copa Chile MTB XCM #6",
+    "date": "2026-10-18",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Requinoa",
+    "location": "Requinoa - VI. Rancagua",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/copachilexcm/",
+    "registration_url": "https://www.instagram.com/copachilexcm/",
+    "description": "Fecha Requinoa",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "desafio-columpio-de-los-deseos-2026",
+    "name": "DESAFÍO COLUMPIO DE LOS DESEOS 2026",
+    "date": "2026-10-18",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "San Rosendo",
+    "location": "San Rosendo, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/787/desafio-columpio-de-los-deseos-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/787/desafio-columpio-de-los-deseos-2026",
+    "description": "Competencia de Ruta cronometrada por GUCA en San Rosendo.",
+    "featured": false,
+    "source": "guca"
+  },
+  {
+    "id": "desafio-4-fechas-mtb-3-2026",
+    "name": "Desafío 4 Fechas MTB #3",
+    "date": "2026-10-18",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "XI",
+    "region_name": "Aysén",
+    "commune": "Puerto Aysén",
+    "location": "Puerto Aysén - XI. Aysén",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Productora Patagonia Indómita",
+    "url": "https://www.instagram.com/productora_patagonia_indomita/",
+    "registration_url": "https://www.instagram.com/productora_patagonia_indomita/",
+    "description": "Este 18 de octubre volvemos a encontrarnos para vivir una nueva jornada del Desafío 4 Fechas MTB.",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "desafio-los-leones-cro-5-2026",
+    "name": "Desafío Los Leones CRO #5",
+    "date": "2026-10-18",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Requinoa",
+    "location": "Requinoa - VI. Rancagua",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.guca.cl/event_detail.php?id=1257",
+    "registration_url": "https://www.guca.cl/event_detail.php?id=1257",
+    "description": "Con el objetivo de fomentar y dar a conocer nuestro deporte, además de mostrar las zonas y cada uno de los...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "raid-nahuelbuta-2-2026",
+    "name": "Raid Nahuelbuta #2 2026",
+    "date": "2026-10-18",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Contulmo",
+    "location": "Contulmo - IX. Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://guca.cl/att_tickets/public/e/814/raid-mtb-nahuelbuta-4ta-edicion-contulmo",
+    "registration_url": "https://guca.cl/att_tickets/public/e/814/raid-mtb-nahuelbuta-4ta-edicion-contulmo",
+    "description": "​➡️ 2ª Fecha, el 18 de Octubre en Contulmo por el club @sociosbike\r\nEl \"RAID MTB NAHUELBUTA\" es un...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "pistoleros-gravel-2026",
+    "name": "Pistoleros Gravel 2026",
+    "date": "2026-10-23",
+    "end_date": "2026-10-27",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Bolivia",
+    "location": "Bolivia",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.pistolerosgravel.com/",
+    "registration_url": "https://www.pistolerosgravel.com/",
+    "description": "🌵 Inspirada en la ultima fuga de Butch Cassidy & Sundance Kid",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "travesia-el-volcan-2026",
+    "name": "Travesía El Volcán",
+    "date": "2026-10-23",
+    "end_date": "2026-10-25",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Malalcahuello",
+    "location": "Malalcahuello - IX. Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Pedal Sur",
+    "url": "https://www.instagram.com/pedalsur/",
+    "registration_url": "https://www.instagram.com/pedalsur/",
+    "description": "Pronto más info ...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "1-desafio-la-sepultura-2026",
+    "name": "1° Desafío La Sepultura",
+    "date": "2026-10-24",
+    "end_date": "2026-10-24",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Trail Running",
+    "location": "Trail Running, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/779/10-desafio-la-sepultura",
+    "registration_url": "https://guca.cl/att_tickets/public/e/779/10-desafio-la-sepultura",
+    "description": "Competencia de Ruta cronometrada por GUCA en Trail Running.",
+    "featured": false,
+    "source": "guca"
+  },
+  {
+    "id": "copa-chile-mtb-xco-2026",
+    "name": "Copa Chile MTB XCO 2026",
+    "date": "2026-10-24",
+    "end_date": "2026-10-25",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Parque Metropolitano",
+    "location": "Parque Metropolitano - RM. Santiago",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/copachilexco/",
+    "registration_url": "https://www.instagram.com/copachilexco/",
+    "description": "El fin de semana 24 y 25 de Octubre se llevará a cabo la segunda fecha de la Copa Chile MTB XCO 2026. Esta...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "copa-chile-xco-santiago-2026-2",
+    "name": "Copa Chile Xco Santiago 2026 2",
+    "date": "2026-10-24",
+    "end_date": "2026-10-24",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Santiago",
+    "location": "Santiago, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/818/copa-chile-xco-santiago-2026-2",
+    "registration_url": "https://guca.cl/att_tickets/public/e/818/copa-chile-xco-santiago-2026-2",
+    "description": "Competencia de MTB cronometrada por GUCA en Santiago.",
+    "featured": false,
+    "source": "guca"
+  },
+  {
+    "id": "el-antiatajo-primavera-2026",
+    "name": "El Antiatajo Primavera 2026",
+    "date": "2026-10-24",
+    "end_date": "2026-10-25",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "XI",
+    "region_name": "Aysén",
+    "commune": "Coyhaique",
+    "location": "Coyhaique - XI. Aysén",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Ripio.cc",
+    "url": "https://antiatajo.ripio.cc/v/manihuales-primavera-2026",
+    "registration_url": "https://antiatajo.ripio.cc/v/manihuales-primavera-2026",
+    "description": "El sábado pedaleamos de Coyhaique a Villa Mañihuales por Villa Ortega y seguimos hasta el Camping de Don...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
     "id": "mtb-tour-chicureo-2026",
     "name": "MTB Tour 2026 - Fecha Chicureo",
     "date": "2026-10-24",
@@ -111,6 +1065,333 @@
     "description": "Circuito tradicional del MTB Tour en los cerros de Chicureo con categorías competitivas y promocionales.",
     "featured": true,
     "source": "welcu"
+  },
+  {
+    "id": "ultra-gravel-andacollo-2026",
+    "name": "Ultra Gravel Andacollo",
+    "date": "2026-10-24",
+    "end_date": "2026-10-24",
+    "disciplines": [
+      "Gravel",
+      "Ruta",
+      "Ultra/Bikepacking"
+    ],
+    "region": "IV",
+    "region_name": "Coquimbo",
+    "commune": "El Peñón",
+    "location": "El Peñón - IV. Coquimbo",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Giro Biciados",
+    "url": "https://biciadostienda.sumupstore.com/product/andacollo-ultra-gravel-general",
+    "registration_url": "https://biciadostienda.sumupstore.com/product/andacollo-ultra-gravel-general",
+    "description": "💣Más altímetria que cualquier GraveL Race\r\n👟Segmento aventura de trekking (500M)\r\n📷 fotografía en ruta +...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "vuelta-femenina-oficial-molina-2026",
+    "name": "Vuelta Femenina Oficial Molina 2026",
+    "date": "2026-10-24",
+    "end_date": "2026-10-25",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Molina",
+    "location": "Molina - VII. Maule",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/vueltafemeninaoficialmolina/",
+    "registration_url": "https://www.instagram.com/vueltafemeninaoficialmolina/",
+    "description": "La  12ª Vuelta Femenina de Molina, vuelve para reunir a ciclistas de todo el país en una competencia...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "10-desafio-xcm-los-maitenes-2026",
+    "name": "10° Desafío XCM Los Maitenes 2026",
+    "date": "2026-10-25",
+    "end_date": "2026-10-25",
+    "disciplines": [
+      "MTB",
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Los Angeles",
+    "location": "Los Angeles, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/795/100-desafio-xcm-los-maitenes-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/795/100-desafio-xcm-los-maitenes-2026",
+    "description": "Competencia de MTB, Ruta cronometrada por GUCA en Los Angeles.",
+    "featured": false,
+    "source": "guca"
+  },
+  {
+    "id": "push-bike-cup-empedrado-2026",
+    "name": "Push Bike Cup Empedrado 2026",
+    "date": "2026-10-25",
+    "end_date": "2026-10-25",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Empedrado",
+    "location": "Empedrado, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/799/push-bike-cup-empedrado-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/799/push-bike-cup-empedrado-2026",
+    "description": "Competencia de MTB cronometrada por GUCA en Empedrado.",
+    "featured": false,
+    "source": "guca"
+  },
+  {
+    "id": "trans-ecuador-2026",
+    "name": "Trans Ecuador 2026",
+    "date": "2026-10-31",
+    "end_date": "2026-11-03",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Ecuador",
+    "location": "Ecuador",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bikepacking Ecuador",
+    "url": "https://www.instagram.com/p/DRcXrybAPFF?img_index=7",
+    "registration_url": "https://www.instagram.com/p/DRcXrybAPFF?img_index=7",
+    "description": "El Feriado del Día de Difuntos y del Día de Cuenca, vuelve ese monstruo, la bestia, Trans Ecuador.",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "l-etape-chile-by-tour-de-france-2026",
+    "name": "L'Étape Chile by Tour de France",
+    "date": "2026-11-01",
+    "end_date": "2026-11-01",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Valdivia",
+    "location": "Valdivia - XIV. Los Ríos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.eventrid.cl/eventos/worldcentricgroup/l-etape-chile-by-tour-de-france-2026",
+    "registration_url": "https://www.eventrid.cl/eventos/worldcentricgroup/l-etape-chile-by-tour-de-france-2026",
+    "description": "Desde la organización Tour de France, se creó L’Étape du Tour, una versión destinada a ciclistas amateurs...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "death-road-2026",
+    "name": "Death Road 2026",
+    "date": "2026-11-02",
+    "end_date": "2026-11-06",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "La Paz, Bolivia",
+    "location": "La Paz, Bolivia",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.andeanraid.com/deathroad",
+    "registration_url": "https://www.andeanraid.com/deathroad",
+    "description": "El calor, la humedad y la altitud definitivamente te pondrán los nervios de punta después de un tiempo, e...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "titan-forest-2026",
+    "name": "Titan Forest 2026",
+    "date": "2026-11-02",
+    "end_date": "2026-11-05",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "XI",
+    "region_name": "Aysén",
+    "commune": "Aysén",
+    "location": "Aysén - XI. Aysén",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://tusdesafios.com/events/titan-forest-patagonia-2026",
+    "registration_url": "https://tusdesafios.com/events/titan-forest-patagonia-2026",
+    "description": "Del 2 al 5 de noviembre, la Titan Forest Patagonia vuelve con una experiencia única en la Región de Aysén,...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "travesia-laguna-blanca-2026",
+    "name": "Travesía Laguna Blanca",
+    "date": "2026-11-06",
+    "end_date": "2026-11-08",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Malalcahuello",
+    "location": "Malalcahuello - IX. Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Pedal Sur",
+    "url": "https://www.instagram.com/pedalsur/",
+    "registration_url": "https://www.instagram.com/pedalsur/",
+    "description": "Pronto más info ...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "brevet-200-2026",
+    "name": "Brevet 200",
+    "date": "2026-11-07",
+    "end_date": "2026-11-07",
+    "disciplines": [
+      "Ultra/Bikepacking"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Santiago",
+    "location": "Santiago - RM. Santiago",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Brevet Chile",
+    "url": "https://www.brevet.cl",
+    "registration_url": "https://www.brevet.cl",
+    "description": "Última fecha de 200 km del 2026 en Santiago",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "grand-prix-lago-ranco-2026",
+    "name": "Grand Prix Lago Ranco 2026",
+    "date": "2026-11-07",
+    "end_date": "2026-11-07",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Lago Ranco, Futrono",
+    "location": "Lago Ranco, Futrono - XIV. Los Ríos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Grand Prix Lago Ranco",
+    "url": "httphttps://tickets.grandprixlagoranco.cl/actividades/160164",
+    "registration_url": "httphttps://tickets.grandprixlagoranco.cl/actividades/160164",
+    "description": "Un recorrido de 114 kilómetros desafiante y exigente que te llevará por los más hermosos paisajes de la...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "circuito-primavera-2-2026",
+    "name": "Circuito Primavera #2",
+    "date": "2026-11-08",
+    "end_date": "2026-11-08",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Araucanía",
+    "location": "Araucanía - IX. Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/p/Dc6GaQVxSUI/",
+    "registration_url": "https://www.instagram.com/p/Dc6GaQVxSUI/",
+    "description": "Cuatro fechas para volver a encontrarnos en la ruta, medir fuerzas y disfrutar de lo que más nos gusta:...",
+    "featured": false,
+    "source": "bicineta"
   },
   {
     "id": "desafio-trek-subaru-2026",
@@ -145,6 +1426,61 @@
     "source": "ticketplus"
   },
   {
+    "id": "iii-ruta-del-los-indios-2026",
+    "name": "III Ruta del los Indios",
+    "date": "2026-11-08",
+    "end_date": "2026-11-08",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "III",
+    "region_name": "Atacama",
+    "commune": "Ciclismo",
+    "location": "Ciclismo, Región Atacama",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/803/iii-ruta-de-los-indios",
+    "registration_url": "https://guca.cl/att_tickets/public/e/803/iii-ruta-de-los-indios",
+    "description": "Competencia de Ruta cronometrada por GUCA en Ciclismo.",
+    "featured": false,
+    "source": "guca"
+  },
+  {
+    "id": "atacamaspirits-xtreme-mtb-race-2026",
+    "name": "Atacamaspirits Xtreme MTB Race 2026",
+    "date": "2026-11-09",
+    "end_date": "2026-11-16",
+    "disciplines": [
+      "MTB",
+      "Ultra/Bikepacking"
+    ],
+    "region": "II",
+    "region_name": "Antofagasta",
+    "commune": "Calama",
+    "location": "Calama - II. Antofagasta",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Atacama Spirits",
+    "url": "https://atacamaspirits.com/ultramaraton/",
+    "registration_url": "https://atacamaspirits.com/ultramaraton/",
+    "description": "MTB Stagerace. 7 days, 6 stages, >550K.\r\nReaching 5700 meters above sea level, we are the\r\nHighest MTB race...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
     "id": "gran-fondo-fin-del-mundo-2026",
     "name": "Gran Fondo Fin del Mundo 2026",
     "date": "2026-11-14",
@@ -171,6 +1507,33 @@
     "description": "Una de las pruebas de ruta más imponentes de Sudamérica bordeando el Lago Colbún y escalando la cordillera del Maule.",
     "featured": true,
     "source": "welcu"
+  },
+  {
+    "id": "pucon-deamiles-2026",
+    "name": "Pucón Deamiles",
+    "date": "2026-11-14",
+    "end_date": "2026-11-14",
+    "disciplines": [
+      "Ultra/Bikepacking"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Pucón",
+    "location": "Pucón - IX. Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Deamiles",
+    "url": "https://deamiles.cl/",
+    "registration_url": "https://deamiles.cl/",
+    "description": "Descubre las cimas que tiene Pucón sobre los 1000 msnm. En esta versión se incluyen 1 cima sorpresa además...",
+    "featured": false,
+    "source": "bicineta"
   },
   {
     "id": "pioneros-xcm-conguillio-2026",
@@ -202,6 +1565,33 @@
     "source": "ticketsport"
   },
   {
+    "id": "brevet-600k-desafio-4-lagos-2026",
+    "name": "Brevet 600K Desafío 4 Lagos",
+    "date": "2026-11-21",
+    "end_date": "2026-11-22",
+    "disciplines": [
+      "Ultra/Bikepacking"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Valdivia",
+    "location": "Valdivia - XIV. Los Ríos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Brevet Sur",
+    "url": "https://www.brevetsur.com/proximos-eventos/desafio-4-lagos-600-km-2026",
+    "registration_url": "https://www.brevetsur.com/proximos-eventos/desafio-4-lagos-600-km-2026",
+    "description": "Para  la Brevet de 600 tendrás un tiempo de 40 horas para finalizar.",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
     "id": "patagonia-gravel-2026",
     "name": "Patagonia Gravel 2026",
     "date": "2026-11-21",
@@ -230,6 +1620,169 @@
     "source": "welcu"
   },
   {
+    "id": "epica-gravel-pde-2026",
+    "name": "Épica Gravel PDE",
+    "date": "2026-11-21",
+    "end_date": "2026-11-21",
+    "disciplines": [
+      "Gravel",
+      "Ultra/Bikepacking"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Uruguay",
+    "location": "Uruguay",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://redtickets.uy/evento/EPICA-GRAVEL-2026--Punta-del-Este-Uruguay/28720/",
+    "registration_url": "https://redtickets.uy/evento/EPICA-GRAVEL-2026--Punta-del-Este-Uruguay/28720/",
+    "description": "Los mejores caminos de gravel de la región te esperan nuevamente en la cuarta edicion de la EPICA GRAVEL,...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "brevet-sur-200-los-puentes-de-valdivia-2026",
+    "name": "Brevet Sur 200 Los Puentes de Valdivia",
+    "date": "2026-11-22",
+    "end_date": "2026-11-22",
+    "disciplines": [
+      "Ultra/Bikepacking"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Valdivia",
+    "location": "Valdivia - XIV. Los Ríos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Brevet Sur",
+    "url": "https://welcu.com/ciclismoenvaldivia/brevet-200-los-puentes-de-valdivia",
+    "registration_url": "https://welcu.com/ciclismoenvaldivia/brevet-200-los-puentes-de-valdivia",
+    "description": "Si ya corriste una pre brevet o una brevet, sabes qué la nueva fecha  será epica, y no se suspende por...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "giro-del-lago-2026",
+    "name": "Giro del Lago 2026",
+    "date": "2026-11-22",
+    "end_date": "2026-11-22",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "Puerto Varas",
+    "location": "Puerto Varas - X. Los Lagos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Giro del Lago",
+    "url": "https://welcu.com/chile-finisher/girodellago2026",
+    "registration_url": "https://welcu.com/chile-finisher/girodellago2026",
+    "description": "El domingo 22 de noviembre, el Giro del Lago 2026, es un emocionante circuito de ciclismo de ruta alrededor...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "1er-desafio-copa-xco-k2-2026-final",
+    "name": "1er Desafio Copa XCO K2 2026 - FINAL",
+    "date": "2026-11-28",
+    "end_date": "2026-11-28",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Calama",
+    "location": "Calama, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/766/1er-desafio-copa-xco-k2-2026-final",
+    "registration_url": "https://guca.cl/att_tickets/public/e/766/1er-desafio-copa-xco-k2-2026-final",
+    "description": "Competencia de MTB cronometrada por GUCA en Calama.",
+    "featured": false,
+    "source": "guca"
+  },
+  {
+    "id": "brevet-300-2026",
+    "name": "Brevet 300",
+    "date": "2026-11-28",
+    "end_date": "2026-11-28",
+    "disciplines": [
+      "Ultra/Bikepacking"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Santiago",
+    "location": "Santiago - RM. Santiago",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Brevet Chile",
+    "url": "https://www.brevet.cl",
+    "registration_url": "https://www.brevet.cl",
+    "description": "Última fecha de 300 km del 2026 en Santiago",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "brevet-300-patagonia-2026",
+    "name": "Brevet 300 Patagonia",
+    "date": "2026-11-28",
+    "end_date": "2026-11-28",
+    "disciplines": [
+      "Ultra/Bikepacking"
+    ],
+    "region": "XI",
+    "region_name": "Aysén",
+    "commune": "Coyhaique",
+    "location": "Coyhaique - XI. Aysén",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Ripio.cc",
+    "url": "https://www.ripio.cc/brevet-patagonia-28-nov",
+    "registration_url": "https://www.ripio.cc/brevet-patagonia-28-nov",
+    "description": "Dos distancias el mismo día: 300 km · +4.330 m y 130 km · +1.640 m",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
     "id": "copa-chile-mtb-xco-santiago-2026",
     "name": "Copa Chile MTB XCO 2026 - Fecha Parque Metropolitano",
     "date": "2026-11-28",
@@ -255,6 +1808,34 @@
     "description": "Fecha oficial de la Copa Chile XCO puntuable para el ranking nacional UCI en el Parque Metropolitano de Santiago.",
     "featured": false,
     "source": "fedenacich"
+  },
+  {
+    "id": "3er-desafio-xcm-cholchol-2026",
+    "name": "3ER DESAFIO XCM CHOLCHOL 2026",
+    "date": "2026-11-29",
+    "end_date": "2026-11-29",
+    "disciplines": [
+      "MTB",
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Cholchol",
+    "location": "Cholchol, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/801/3er-desafio-xcm-cholchol-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/801/3er-desafio-xcm-cholchol-2026",
+    "description": "Competencia de MTB, Ruta cronometrada por GUCA en Cholchol.",
+    "featured": false,
+    "source": "guca"
   },
   {
     "id": "across-andes-2026",
@@ -285,6 +1866,33 @@
     "source": "organizer"
   },
   {
+    "id": "circuito-primavera-3-2026",
+    "name": "Circuito Primavera #3",
+    "date": "2026-11-29",
+    "end_date": "2026-11-29",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Araucanía",
+    "location": "Araucanía - IX. Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/p/Dc6GaQVxSUI/",
+    "registration_url": "https://www.instagram.com/p/Dc6GaQVxSUI/",
+    "description": "Cuatro fechas para volver a encontrarnos en la ruta, medir fuerzas y disfrutar de lo que más nos gusta:...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
     "id": "mtb-tour-vina-matetic-2026",
     "name": "MTB Tour 2026 - Fecha Viña Matetic",
     "date": "2026-12-05",
@@ -311,6 +1919,33 @@
     "description": "Pedaleo entre viñedos orgánicos y senderos de bosque nativo con tercer tiempo y degustaciones en el Valle de Casablanca.",
     "featured": false,
     "source": "welcu"
+  },
+  {
+    "id": "brevet-400-2026",
+    "name": "Brevet 400",
+    "date": "2026-12-12",
+    "end_date": "2026-12-12",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Santiago",
+    "location": "Santiago - RM. Santiago",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Brevet Chile",
+    "url": "https://www.brevet.cl",
+    "registration_url": "https://www.brevet.cl",
+    "description": "Última fecha de 400 km del 2026 en Santiago",
+    "featured": false,
+    "source": "bicineta"
   },
   {
     "id": "gran-fondo-lago-ranco-uci-2026",
@@ -395,6 +2030,33 @@
     "source": "ticketsport"
   },
   {
+    "id": "clasica-curico-iloca-2027",
+    "name": "Clásica Curicó - Iloca 2027",
+    "date": "2027-01-10",
+    "end_date": "2027-01-10",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Iloca",
+    "location": "Iloca - VII. Maule",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/p/DcbMZfalm6W/?img_index=1",
+    "registration_url": "https://www.instagram.com/p/DcbMZfalm6W/?img_index=1",
+    "description": "SOL, PLAYA, ARENA Y VELOCIDAD 🔥\r\nLA COPA DEL MUNDO 🫣\r\nCURICO -ILOCA 2027\r\nTODAS LAS CATEGORIAS.",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
     "id": "transandes-challenge-2027",
     "name": "TransAndes Challenge 2027 (MTB Etapas)",
     "date": "2027-01-18",
@@ -420,6 +2082,33 @@
     "description": "La legendaria carrera por etapas en la Patagonia chilena, recorriendo volcanes, bosques húmedos templados y termas naturales.",
     "featured": true,
     "source": "organizer"
+  },
+  {
+    "id": "desafio-de-los-canales-aguas-abiertas-san-juan-dalcahue-2027",
+    "name": "Desafío de los Canales Aguas Abiertas - San Juan - Dalcahue",
+    "date": "2027-01-22",
+    "end_date": "2027-01-22",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Dalcahue",
+    "location": "Dalcahue, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/746/desafio-de-los-canales-aguas-abiertas-san-juan-dalcahue-2027",
+    "registration_url": "https://guca.cl/att_tickets/public/e/746/desafio-de-los-canales-aguas-abiertas-san-juan-dalcahue-2027",
+    "description": "Competencia de Ruta cronometrada por GUCA en Dalcahue.",
+    "featured": false,
+    "source": "guca"
   },
   {
     "id": "desafio-huilo-huilo-2027",
@@ -534,6 +2223,61 @@
     "source": "welcu"
   },
   {
+    "id": "gran-fondo-puchuncavi-2027",
+    "name": "Gran Fondo Puchuncaví 2027",
+    "date": "2027-03-20",
+    "end_date": "2027-03-20",
+    "disciplines": [
+      "Gravel",
+      "Ruta"
+    ],
+    "region": "V",
+    "region_name": "Valparaíso",
+    "commune": "Puchuncaví",
+    "location": "Puchuncaví - V. Valparaíso",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Gran Fondo Puchuncaví",
+    "url": "https://guca.cl/att_tickets/public/e/756/gfp-2027",
+    "registration_url": "https://guca.cl/att_tickets/public/e/756/gfp-2027",
+    "description": "La Gran Fondo Puchuncaví (GFP) es una carrera que se desarrolla en bicicletas de Ruta, Gravel y...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
+    "id": "desafio-al-limite-2027",
+    "name": "Desafío Al Límite",
+    "date": "2027-04-10",
+    "end_date": "2027-04-10",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Mall Plaza Maule",
+    "location": "Mall Plaza Maule - VII. Maule",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Desafío Maule",
+    "url": "https://desafiomaule.cl/",
+    "registration_url": "https://desafiomaule.cl/",
+    "description": "Desde el corazón de Talca hasta la inmensidad de la cordillera. Un viaje de resistencia, desnivel y...",
+    "featured": false,
+    "source": "bicineta"
+  },
+  {
     "id": "gran-rally-mtb-otono-ranquino-2027",
     "name": "Gran Rally MTB: Otoño Ranquino 2027",
     "date": "2027-04-10",
@@ -588,5 +2332,32 @@
     "description": "La clásica de velocidad más longeva del ciclismo de ruta en Chile, reuniendo a pelotones de élite y máster.",
     "featured": false,
     "source": "fedenacich"
+  },
+  {
+    "id": "paris-brest-paris-2027",
+    "name": "Paris Brest Paris 2027",
+    "date": "2027-08-22",
+    "end_date": "2027-08-26",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Francia",
+    "location": "Francia",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.paris-brest-paris.org/",
+    "registration_url": "https://www.paris-brest-paris.org/",
+    "description": "Paris-Brest-Paris Randonneur es la prueba de larga distancia más antigua del mundo. Su primera edición fue...",
+    "featured": false,
+    "source": "bicineta"
   }
 ]

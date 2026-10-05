@@ -1,6 +1,6 @@
 """
-Scraper for GUCA.cl (Cronometraje deportivo y plataforma de inscripciones en Chile)
-Fetches cycling, MTB, gravel, and multisport races.
+Scraper for GUCA.cl (Cronometraje deportivo y plataforma de tickets en Chile)
+Fetches cycling, MTB, gravel, and multisport races with direct registration links.
 """
 
 import re
@@ -17,7 +17,7 @@ class GucaScraper(BaseScraper):
     def fetch_events(self):
         events = []
         try:
-            res = self.session.get(f"{self.base_url}", timeout=10)
+            res = self.session.get(self.base_url, timeout=12)
             if res.status_code == 200:
                 soup = BeautifulSoup(res.text, "html.parser")
                 events = self.parse_html(soup)
@@ -28,62 +28,80 @@ class GucaScraper(BaseScraper):
 
     def parse_html(self, soup):
         events = []
-        # GUCA features upcoming cards or list items
-        event_cards = soup.select(".event-item, .card, .post-item, .product__item, article")
+        seen_links = set()
 
-        for card in event_cards:
-            text = card.get_text(" ", strip=True)
+        for a in soup.select('a[href*="/att_tickets/public/e/"]'):
+            href = a.get("href", "")
+            if not href or href in seen_links:
+                continue
+
+            parent = a.find_parent("div", class_=re.compile(r"col|property|item|card|owl-item"))
+            if not parent:
+                continue
+
+            text = parent.get_text(" | ", strip=True)
             text_lower = text.lower()
 
-            # Filter for cycling terms
-            if not any(k in text_lower for k in ["ciclismo", "mtb", "gravel", "ruta", "pedaleo", "gran fondo", "desafío", "desafio"]):
+            # Filter for cycling / bike keywords (avoid pure trail running without bikes)
+            if not any(k in text_lower for k in ["ciclismo", "gravel", "mtb", "ruta", "pedaleo", "xco", "xcm", "downhill", "desafio", "desafío"]):
                 continue
 
-            # Extract title
-            title_el = card.select_one("h2, h3, h4, h5, .title, .event-title")
-            title = title_el.get_text(strip=True) if title_el else ""
-            if not title or len(title) < 5:
+            # Extract date in DD-MM-YYYY format
+            date_match = re.search(r"(\d{2})[-/](\d{2})[-/](\d{4})", text)
+            if not date_match:
                 continue
+            day, month, year = date_match.groups()
+            date_iso = f"{year}-{month}-{day}"
 
-            # Link
-            link_el = card.select_one("a[href]")
-            link = link_el["href"] if link_el else self.base_url
-            if link.startswith("/"):
-                link = f"{self.base_url}{link}"
+            parts = [p.strip() for p in text.split("|") if p.strip()]
 
-            # Date extraction regex
-            # e.g., "10-10-2026", "17/10/2026", "10 de octubre"
-            date_match = re.search(r"(\d{1,2})[-/](\d{1,2})[-/](\d{4})", text)
-            if date_match:
-                day, month, year = date_match.groups()
-                date_str = f"{year}-{month.zfill(2)}-{day.zfill(2)}"
-            else:
-                date_str = "2026-10-15"
+            # Extract Title
+            title = ""
+            for p in parts:
+                if any(c in p.lower() for c in ["ciclismo", "gravel", "mtb", "ruta", "desafio", "desafío", "fondo", "race", "tour", "series"]) and len(p) > 8:
+                    title = p
+                    break
+            if not title:
+                slug_part = href.split("/")[-1].replace("-", " ").title()
+                title = slug_part
 
+            # Clean Title
+            title = re.sub(r"\s+", " ", title).strip()
+
+            # Commune / Location
+            commune = "Chile"
+            for p in parts:
+                if p.lower() in ["inscribete acá", "inscríbete acá", "ticket", "crono", "ver más", "gratis"]:
+                    continue
+                if not re.search(r"\d", p) and len(p) < 25 and p != title:
+                    commune = p
+                    break
+
+            region_code, region_name = self.resolve_region(f"{commune} {title}")
             disciplines = self.detect_disciplines(f"{title} {text}")
-            region_code, region_name = self.resolve_region(text)
-            slug = self.generate_slug(title, date_str)
+            slug = self.generate_slug(title, date_iso)
 
+            seen_links.add(href)
             events.append({
                 "id": slug,
                 "name": title,
-                "date": date_str,
-                "end_date": date_str,
+                "date": date_iso,
+                "end_date": date_iso,
                 "disciplines": disciplines,
                 "region": region_code,
                 "region_name": region_name,
-                "commune": "Chile",
-                "location": region_name,
-                "distances": ["Por confirmar"],
+                "commune": commune,
+                "location": f"{commune}, Región {region_name}",
+                "distances": ["Ver bases"],
                 "distance_min_km": 30,
                 "distance_max_km": 60,
                 "elevation_gain_m": 0,
                 "price_type": "paid",
                 "status": "open",
-                "organizer": "GUCA",
-                "url": link,
-                "registration_url": link,
-                "description": f"Evento de ciclismo publicado en GUCA.cl: {title}",
+                "organizer": "GUCA / Club Organizador",
+                "url": href,
+                "registration_url": href,
+                "description": f"Competencia de {', '.join(disciplines)} cronometrada por GUCA en {commune}.",
                 "featured": False,
                 "source": "guca"
             })
