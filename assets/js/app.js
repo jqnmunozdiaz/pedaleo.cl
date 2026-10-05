@@ -1,6 +1,6 @@
 /**
  * Pedaleo.cl - Main Application Controller
- * Inspired by corre.cl: fast, simple, responsive, lightweight
+ * Sober, clean, fast cycling race catalog for Chile
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,18 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
       search: '',
       region: '',
       discipline: '',
-      distance: 'all',
-      price: 'all',
-      status: 'all'
+      distance: 'all'
     },
 
-    currentView: 'agenda', // 'agenda' | 'calendar' | 'planner'
+    currentView: 'agenda', // 'agenda' | 'calendar'
 
     async init() {
       await this.loadData();
       this.initFiltersFromURL();
       this.setupDOMListeners();
-      Planner.updateBadge();
       this.applyFilters();
     },
 
@@ -39,18 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
         this.populateRegionSelect();
       } catch (err) {
         console.error('Error cargando los datos:', err);
-        document.getElementById('events-container').innerHTML = `
-          <div class="planner-empty-state">
-            <p>Error al cargar el calendario de carreras. Por favor recarga la página.</p>
-          </div>
-        `;
+        const container = document.getElementById('events-container');
+        if (container) {
+          container.innerHTML = `
+            <div class="empty-state">
+              <p>Error al cargar el calendario. Por favor recarga la página.</p>
+            </div>
+          `;
+        }
       }
     },
 
     populateRegionSelect() {
       const select = document.getElementById('filter-region');
       if (!select) return;
-      select.innerHTML = '<option value="">Todas las regiones...</option>';
+      select.innerHTML = '<option value="">Todas las regiones</option>';
       this.regions.forEach(reg => {
         const opt = document.createElement('option');
         opt.value = reg.id;
@@ -141,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
           this.filters.region = '';
           this.filters.discipline = '';
           this.filters.distance = 'all';
-          this.filters.price = 'all';
 
           if (searchInput) searchInput.value = '';
           if (regionSelect) regionSelect.value = '';
@@ -165,23 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
-      // Top Nav Links
-      document.getElementById('nav-calendar')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.currentView = 'agenda';
-        this.updateViewButtons();
-        this.render();
-        this.updateURL();
-      });
-
-      document.getElementById('nav-planner')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.currentView = 'planner';
-        this.updateViewButtons();
-        this.render();
-        this.updateURL();
-      });
-
+      // Publicar Carrera Modal
       document.getElementById('nav-publish')?.addEventListener('click', (e) => {
         e.preventDefault();
         this.openPublishModal();
@@ -196,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
-      // Form Submit Race
+      // Form Submit Race -> GitHub Issue
       const publishForm = document.getElementById('publish-race-form');
       if (publishForm) {
         publishForm.addEventListener('submit', (e) => {
@@ -210,21 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.view-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.view === this.currentView);
       });
-      document.querySelectorAll('.nav-btn').forEach(btn => {
-        if (btn.id === 'nav-calendar') btn.classList.toggle('active', this.currentView === 'agenda' || this.currentView === 'calendar');
-        if (btn.id === 'nav-planner') btn.classList.toggle('active', this.currentView === 'planner');
-      });
-
-      // Filter bar visibility: hide filters on "planner" view if desired, or keep available
-      const filterBar = document.getElementById('filter-bar-container');
-      if (filterBar) {
-        filterBar.style.display = this.currentView === 'planner' ? 'none' : 'block';
-      }
     },
 
     applyFilters() {
       this.filteredEvents = this.events.filter(ev => {
-        // Search query
+        // Search text
         if (this.filters.search) {
           const q = this.filters.search;
           const matchName = ev.name.toLowerCase().includes(q);
@@ -258,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
       });
 
-      // Sort chronologically by date
+      // Sort chronologically
       this.filteredEvents.sort((a, b) => a.date.localeCompare(b.date));
 
       this.updateURL();
@@ -268,11 +241,11 @@ document.addEventListener('DOMContentLoaded', () => {
     render() {
       const container = document.getElementById('events-container');
       const countEl = document.getElementById('results-count');
-      if (countEl) countEl.textContent = `${this.filteredEvents.length} carrera${this.filteredEvents.length === 1 ? '' : 's'}`;
+      if (countEl) {
+        countEl.textContent = `${this.filteredEvents.length} carrera${this.filteredEvents.length === 1 ? '' : 's'}`;
+      }
 
-      if (this.currentView === 'planner') {
-        this.renderPlannerView(container);
-      } else if (this.currentView === 'calendar') {
+      if (this.currentView === 'calendar') {
         CalendarView.render(container, this.filteredEvents, (ev) => this.openDetailModal(ev));
       } else {
         this.renderAgendaView(container);
@@ -280,18 +253,16 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     /**
-     * Agenda View (corre.cl style list grouped by Month and Day)
+     * Sober Agenda View grouped by Month and Day
      */
     renderAgendaView(container) {
       if (this.filteredEvents.length === 0) {
         container.innerHTML = `
-          <div class="planner-panel">
-            <div class="planner-empty-state">
-              <div class="planner-empty-icon">🚴</div>
-              <h3>No se encontraron carreras con los filtros seleccionados</h3>
-              <p style="margin-top:0.5rem">Intenta ajustar tu búsqueda, cambiar la región o limpiar los filtros.</p>
-              <button class="cal-nav-btn" style="margin-top:1rem" id="empty-clear-btn">Limpiar Filtros</button>
-            </div>
+          <div class="empty-state">
+            <div style="font-size:2rem; margin-bottom:0.5rem">🚴</div>
+            <h3 style="font-weight:700">No se encontraron carreras con los filtros seleccionados</h3>
+            <p style="margin-top:0.25rem; font-size:0.9rem">Prueba seleccionando otra región, disciplina o restablece los filtros.</p>
+            <button class="cal-btn" style="margin-top:1rem" id="empty-clear-btn">Restablecer Filtros</button>
           </div>
         `;
         document.getElementById('empty-clear-btn')?.addEventListener('click', () => {
@@ -300,10 +271,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Group events by Month ("YYYY-MM")
+      // Group by Month ("YYYY-MM")
       const groups = {};
       this.filteredEvents.forEach(ev => {
-        const monthKey = ev.date.substring(0, 7); // e.g. "2026-10"
+        const monthKey = ev.date.substring(0, 7);
         if (!groups[monthKey]) groups[monthKey] = [];
         groups[monthKey].push(ev);
       });
@@ -320,12 +291,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const monthTitle = `${monthNames[month - 1]} ${year}`;
 
         html += `
-          <div class="month-group">
-            <div class="month-header">
-              <span>📅 ${monthTitle}</span>
-              <span class="month-badge">${monthEvents.length} carrera${monthEvents.length === 1 ? '' : 's'}</span>
-            </div>
-            <div class="month-events-container">
+          <section class="month-block">
+            <header class="month-heading">
+              <span class="month-name">${monthTitle}</span>
+              <span class="month-count">${monthEvents.length} carrera${monthEvents.length === 1 ? '' : 's'}</span>
+            </header>
+            <div class="month-card">
         `;
 
         // Subgroup by date
@@ -337,205 +308,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (const [dateStr, dayEvents] of Object.entries(dateSubgroups)) {
           const dObj = new Date(dateStr + 'T12:00:00');
-          const dayFormatted = `${String(dObj.getDate()).padStart(2, '0')}/${String(dObj.getMonth() + 1).padStart(2, '0')} - ${dayNames[dObj.getDay()]}`;
+          const dayFormatted = `${String(dObj.getDate()).padStart(2, '0')}/${String(dObj.getMonth() + 1).padStart(2, '0')} — ${dayNames[dObj.getDay()]}`;
 
-          html += `<div class="day-header">📌 ${dayFormatted}</div>`;
+          html += `<div class="day-subheading">${dayFormatted}</div>`;
 
           dayEvents.forEach(ev => {
-            const isPlanned = Planner.isPlanned(ev.id);
             const discMain = (ev.disciplines[0] || 'MTB').toLowerCase().split('/')[0];
             const discClass = `badge-${discMain}`;
 
-            let distText = ev.distances && ev.distances.length ? ev.distances.join(' y ') : '';
+            let distText = ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases'
+              ? ev.distances.join(' &bull; ')
+              : '';
             let elevText = ev.elevation_gain_m ? `+${ev.elevation_gain_m.toLocaleString('es-CL')}m` : '';
 
             html += `
-              <div class="event-row" data-id="${ev.id}">
-                <div>
+              <article class="event-item" data-id="${ev.id}">
+                <div class="event-col-tag">
                   <span class="badge-discipline ${discClass}">${ev.disciplines.join(' / ')}</span>
                 </div>
-                <div class="event-info">
-                  <a href="#" class="event-name-link" data-id="${ev.id}">${ev.name}</a>
-                  <div class="event-meta">
-                    <span class="event-location">📍 ${ev.location || ev.commune}</span>
-                    <span class="badge-region">Región ${ev.region_name || ev.region}</span>
-                    ${distText ? `<span class="event-dist">🏁 ${distText}</span>` : ''}
-                    ${elevText ? `<span class="event-elev">⛰️ ${elevText}</span>` : ''}
-                    ${ev.price_type === 'free' ? '<span class="badge-price-free">GRATIS</span>' : ''}
+                <div class="event-col-info">
+                  <a href="#" class="event-link" data-id="${ev.id}">${ev.name}</a>
+                  <div class="event-submeta">
+                    <span>📍 ${ev.location || ev.commune}</span>
+                    <span class="badge-reg">Región ${ev.region_name || ev.region}</span>
+                    ${distText ? `<span class="dist-meta">🏁 ${distText}</span>` : ''}
+                    ${elevText ? `<span class="elev-meta">⛰️ ${elevText}</span>` : ''}
                   </div>
                 </div>
-                <div class="event-actions">
-                  <button class="btn-star-plan ${isPlanned ? 'planned' : ''}" data-id="${ev.id}" title="${isPlanned ? 'Quitar de Mi Temporada' : 'Agregar a Mi Temporada (Planificar)'}">
-                    ★
-                  </button>
-                  <a href="${ev.registration_url || ev.url}" target="_blank" rel="noopener" class="btn-race-link">
-                    Inscripción / Info &rarr;
+                <div class="event-col-actions">
+                  <!-- Per-Race Calendar Export Dropdown -->
+                  <div class="dropdown-calendar">
+                    <button class="btn-cal-export" title="Agregar a tu calendario personal">
+                      📅 Agendar
+                    </button>
+                    <div class="cal-dropdown-menu">
+                      <button class="cal-dropdown-item btn-export-google" data-id="${ev.id}">
+                        Google Calendar
+                      </button>
+                      <button class="cal-dropdown-item btn-export-apple" data-id="${ev.id}">
+                        Apple Calendar / Outlook (.ics)
+                      </button>
+                    </div>
+                  </div>
+
+                  <a href="${ev.registration_url || ev.url}" target="_blank" rel="noopener" class="btn-action-primary">
+                    Inscripción &rarr;
                   </a>
                 </div>
-              </div>
+              </article>
             `;
           });
         }
 
         html += `
             </div>
-          </div>
+          </section>
         `;
       }
 
       container.innerHTML = html;
-      this.attachEventRowListeners(container);
-    },
-
-    /**
-     * Planner View ("Mi Temporada / Mis Carreras")
-     */
-    renderPlannerView(container) {
-      const planned = Planner.getPlannedRaces();
-      const plannedMap = new Map(planned.map(p => [p.id, p]));
-      const userEvents = this.events.filter(e => plannedMap.has(e.id));
-      userEvents.sort((a, b) => a.date.localeCompare(b.date));
-
-      // Calculate Metrics
-      let totalKm = 0;
-      let totalElev = 0;
-      userEvents.forEach(e => {
-        totalKm += e.distance_max_km || 0;
-        totalElev += e.elevation_gain_m || 0;
-      });
-
-      // Days to next race
-      let daysToNext = '-';
-      const today = new Date().toISOString().split('T')[0];
-      const nextRace = userEvents.find(e => e.date >= today);
-      if (nextRace) {
-        const diff = Math.ceil((new Date(nextRace.date) - new Date(today)) / (1000 * 60 * 60 * 24));
-        daysToNext = `${diff} día${diff === 1 ? '' : 's'}`;
-      }
-
-      let html = `
-        <div class="planner-panel">
-          <div class="planner-header">
-            <div>
-              <div class="planner-title">🚴 Mi Temporada de Carreras</div>
-              <p style="color:var(--text-muted); font-size:0.9rem; margin-top:0.25rem">
-                Organiza tu calendario de competencias, define prioridades (Objetivos A, B, C) y sincroniza con tu calendario personal.
-              </p>
-            </div>
-            <div class="planner-actions">
-              <button class="btn-export-ics" id="btn-export-ics">
-                📅 Exportar a Google / Apple Calendar (.ics)
-              </button>
-            </div>
-          </div>
-
-          <div class="planner-kpis">
-            <div class="kpi-card">
-              <div class="kpi-label">Carreras Planificadas</div>
-              <div class="kpi-value">${userEvents.length}</div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-label">Kilómetros Totales</div>
-              <div class="kpi-value">${totalKm.toLocaleString('es-CL')} km</div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-label">Desnivel Acumulado</div>
-              <div class="kpi-value">+${totalElev.toLocaleString('es-CL')} m</div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-label">Próxima Carrera en</div>
-              <div class="kpi-value">${daysToNext}</div>
-            </div>
-          </div>
-      `;
-
-      if (userEvents.length === 0) {
-        html += `
-          <div class="planner-empty-state">
-            <div class="planner-empty-icon">⭐</div>
-            <h3>No tienes carreras en tu temporada todavía</h3>
-            <p style="margin-top:0.5rem">
-              Explora el <a href="#" id="planner-go-calendar" style="color:var(--primary); font-weight:700">Calendario</a> y haz clic en la estrella (★) para agregar carreras a tus objetivos.
-            </p>
-          </div>
-        `;
-      } else {
-        html += '<div class="month-events-container" style="border:1px solid var(--border-color); border-radius:var(--radius-sm)">';
-
-        userEvents.forEach(ev => {
-          const planInfo = plannedMap.get(ev.id);
-          const discMain = (ev.disciplines[0] || 'MTB').toLowerCase().split('/')[0];
-          const discClass = `badge-${discMain}`;
-
-          html += `
-            <div class="event-row" data-id="${ev.id}">
-              <div>
-                <span class="badge-discipline ${discClass}">${ev.disciplines.join(' / ')}</span>
-              </div>
-              <div class="event-info">
-                <a href="#" class="event-name-link" data-id="${ev.id}">${ev.name}</a>
-                <div class="event-meta">
-                  <span>📅 ${ev.date}</span>
-                  <span>📍 ${ev.location || ev.commune}</span>
-                  <span class="event-dist">🏁 ${ev.distances.join(', ')}</span>
-                  ${ev.elevation_gain_m ? `<span class="event-elev">⛰️ +${ev.elevation_gain_m}m</span>` : ''}
-                </div>
-              </div>
-              <div>
-                <div style="display:flex; flex-direction:column; gap:0.35rem">
-                  <div style="font-size:0.75rem; color:var(--text-muted); font-weight:600">Prioridad:</div>
-                  <div class="priority-selector">
-                    <span class="priority-opt ${planInfo.priority === 'A' ? 'active-A' : ''}" data-p="A" data-id="${ev.id}">Obj. A</span>
-                    <span class="priority-opt ${planInfo.priority === 'B' ? 'active-B' : ''}" data-p="B" data-id="${ev.id}">Obj. B</span>
-                    <span class="priority-opt ${planInfo.priority === 'C' ? 'active-C' : ''}" data-p="C" data-id="${ev.id}">Obj. C</span>
-                  </div>
-                </div>
-              </div>
-              <div class="event-actions">
-                <button class="btn-star-plan planned" data-id="${ev.id}" title="Quitar de mi temporada">
-                  ✕
-                </button>
-                <a href="${ev.registration_url || ev.url}" target="_blank" rel="noopener" class="btn-race-link">
-                  Inscripción &rarr;
-                </a>
-              </div>
-            </div>
-          `;
-        });
-
-        html += '</div>';
-      }
-
-      html += '</div>';
-      container.innerHTML = html;
-
-      // Listeners
-      document.getElementById('btn-export-ics')?.addEventListener('click', () => {
-        Planner.exportToICS(this.events);
-      });
-
-      document.getElementById('planner-go-calendar')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.currentView = 'agenda';
-        this.updateViewButtons();
-        this.render();
-      });
-
-      container.querySelectorAll('.priority-opt').forEach(opt => {
-        opt.addEventListener('click', (e) => {
-          const id = e.currentTarget.dataset.id;
-          const priority = e.currentTarget.dataset.p;
-          Planner.setPriority(id, priority);
-          this.render();
-        });
-      });
-
       this.attachEventRowListeners(container);
     },
 
     attachEventRowListeners(container) {
-      // Name click -> Detail modal
-      container.querySelectorAll('.event-name-link').forEach(link => {
+      // Event title click -> Detail Modal
+      container.querySelectorAll('.event-link').forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
           const id = e.currentTarget.dataset.id;
@@ -544,18 +381,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
-      // Star toggle
-      container.querySelectorAll('.btn-star-plan').forEach(btn => {
+      // Per-Race Google Calendar Export
+      container.querySelectorAll('.btn-export-google').forEach(btn => {
         btn.addEventListener('click', (e) => {
+          e.stopPropagation();
           const id = e.currentTarget.dataset.id;
-          Planner.toggleRace(id);
-          this.render();
+          const ev = this.events.find(item => item.id === id);
+          if (ev) CalendarExporter.exportToGoogle(ev);
+        });
+      });
+
+      // Per-Race Apple Calendar (.ics) Export
+      container.querySelectorAll('.btn-export-apple').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const id = e.currentTarget.dataset.id;
+          const ev = this.events.find(item => item.id === id);
+          if (ev) CalendarExporter.exportToICS(ev);
         });
       });
     },
 
     openDetailModal(ev) {
-      const isPlanned = Planner.isPlanned(ev.id);
       const modal = document.getElementById('modal-detail');
       const body = document.getElementById('modal-detail-body');
       const title = document.getElementById('modal-detail-title');
@@ -563,40 +410,44 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!modal || !body || !title) return;
 
       title.textContent = ev.name;
+
       body.innerHTML = `
-        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem">
+        <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem">
           <span class="badge-discipline badge-${(ev.disciplines[0]||'mtb').toLowerCase().split('/')[0]}">${ev.disciplines.join(', ')}</span>
-          <span class="badge-region">Región ${ev.region_name || ev.region}</span>
-          ${ev.price_type === 'free' ? '<span class="badge-price-free">GRATUITA</span>' : ''}
+          <span class="badge-reg">Región ${ev.region_name || ev.region}</span>
+          ${ev.price_type === 'free' ? '<span class="badge-reg" style="color:#166534; font-weight:700">GRATIS</span>' : ''}
         </div>
 
-        <p style="margin-bottom:1.25rem; font-size:0.95rem; color:#334155; line-height:1.6">
+        <p style="margin-bottom:1.25rem; font-size:0.92rem; color:#334155; line-height:1.6">
           ${ev.description || 'Sin descripción detallada disponible.'}
         </p>
 
-        <div style="background:var(--bg-subtle); padding:1rem; border-radius:var(--radius-sm); margin-bottom:1.25rem; display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; font-size:0.88rem">
+        <div class="detail-grid">
           <div><strong>Fecha:</strong> ${ev.date} ${ev.end_date && ev.end_date !== ev.date ? 'al ' + ev.end_date : ''}</div>
           <div><strong>Lugar:</strong> ${ev.location || ev.commune}</div>
-          <div><strong>Distancias:</strong> ${ev.distances.join(', ')}</div>
+          <div><strong>Distancias:</strong> ${ev.distances ? ev.distances.join(', ') : 'Ver bases'}</div>
           <div><strong>Desnivel:</strong> ${ev.elevation_gain_m ? '+' + ev.elevation_gain_m + ' m' : 'No especificado'}</div>
           <div><strong>Organizador:</strong> ${ev.organizer || 'Organización oficial'}</div>
           <div><strong>Fuente:</strong> ${ev.source ? ev.source.toUpperCase() : 'Pedaleo.cl'}</div>
         </div>
 
-        <div style="display:flex; gap:0.75rem; align-items:center; justify-content:space-between">
-          <button class="cal-nav-btn" id="modal-star-btn" style="display:flex; align-items:center; gap:0.4rem">
-            ${isPlanned ? '★ Quitar de Mi Temporada' : '☆ Agregar a Mi Temporada'}
-          </button>
-          <a href="${ev.registration_url || ev.url}" target="_blank" rel="noopener" class="btn-primary-action nav-btn">
-            Ir a Inscripciones Oficiales &rarr;
+        <div style="display:flex; flex-wrap:wrap; gap:0.6rem; align-items:center; justify-content:space-between; margin-top:1.5rem">
+          <div style="display:flex; gap:0.4rem">
+            <button class="cal-btn-mini" id="modal-export-google">📅 Google Calendar</button>
+            <button class="cal-btn-mini" id="modal-export-apple">🍏 Apple Calendar (.ics)</button>
+          </div>
+          <a href="${ev.registration_url || ev.url}" target="_blank" rel="noopener" class="btn-action-primary">
+            Inscripción Oficial &rarr;
           </a>
         </div>
       `;
 
-      document.getElementById('modal-star-btn')?.addEventListener('click', () => {
-        Planner.toggleRace(ev.id);
-        this.openDetailModal(ev);
-        this.render();
+      document.getElementById('modal-export-google')?.addEventListener('click', () => {
+        CalendarExporter.exportToGoogle(ev);
+      });
+
+      document.getElementById('modal-export-apple')?.addEventListener('click', () => {
+        CalendarExporter.exportToICS(ev);
       });
 
       modal.classList.add('active');
@@ -611,30 +462,46 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.modal-overlay').forEach(ov => ov.classList.remove('active'));
     },
 
+    /**
+     * Sends race submission as a structured GitHub Issue
+     * Triggers immediate notification to Joaquin (jqnmunozdiaz)
+     */
     handlePublishFormSubmit(form) {
       const formData = new FormData(form);
-      const name = formData.get('name');
-      const date = formData.get('date');
-      const region = formData.get('region');
-      const commune = formData.get('commune');
-      const discipline = formData.get('discipline');
-      const distances = formData.get('distances');
-      const url = formData.get('url');
+      const name = formData.get('name') || '';
+      const date = formData.get('date') || '';
+      const region = formData.get('region') || '';
+      const commune = formData.get('commune') || '';
+      const discipline = formData.get('discipline') || '';
+      const distances = formData.get('distances') || '';
+      const url = formData.get('url') || '';
+      const contact = formData.get('contact') || 'No provisto';
 
-      const mailSubject = encodeURIComponent(`[Nueva Carrera] ${name}`);
-      const mailBody = encodeURIComponent(
-        `Hola Pedaleo.cl,\n\nSolicito agregar la siguiente carrera al calendario:\n\n` +
-        `Nombre: ${name}\n` +
-        `Fecha: ${date}\n` +
-        `Región: ${region}\n` +
-        `Comuna: ${commune}\n` +
-        `Disciplina: ${discipline}\n` +
-        `Distancias: ${distances}\n` +
-        `Link de Inscripción: ${url}\n`
+      const issueTitle = encodeURIComponent(`[Nueva Carrera] ${name} (${date})`);
+      const issueBody = encodeURIComponent(
+        `### Solicitud de Publicación de Carrera en Pedaleo.cl\n\n` +
+        `- **Nombre de la Carrera:** ${name}\n` +
+        `- **Fecha:** ${date}\n` +
+        `- **Región:** ${region}\n` +
+        `- **Comuna / Lugar:** ${commune}\n` +
+        `- **Disciplina:** ${discipline}\n` +
+        `- **Distancias:** ${distances}\n` +
+        `- **Web / Inscripción Oficial:** ${url}\n` +
+        `- **Contacto / Productora:** ${contact}\n\n` +
+        `_Enviado desde el formulario oficial de Pedaleo.cl_`
       );
 
-      window.open(`mailto:contacto@pedaleo.cl?subject=${mailSubject}&body=${mailBody}`, '_blank');
-      alert('¡Gracias por enviar la carrera! Se abrirá tu cliente de correo para validar la solicitud.');
+      // GitHub Issues URL with pre-filled title, template, and label
+      const githubIssueUrl = `https://github.com/jqnmunozdiaz/pedaleo.cl/issues/new?title=${issueTitle}&body=${issueBody}&labels=nueva-carrera`;
+
+      window.open(githubIssueUrl, '_blank', 'noopener,noreferrer');
+
+      alert(
+        `¡Excelente! Se ha generado tu solicitud de publicación.\n\n` +
+        `Se abrirá la página de GitHub Issue en una pestaña nueva para confirmarla. ` +
+        `Esto notificará de inmediato al mantenedor de Pedaleo.cl.`
+      );
+
       this.closeModals();
       form.reset();
     }

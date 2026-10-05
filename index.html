@@ -3,125 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pedaleo.cl - Calendario de Carreras de Ciclismo en Chile | MTB, Ruta, Gravel</title>
-  <meta name="description" content="Calendario completo y actualizado de carreras y eventos de ciclismo en Chile. Filtra por región, disciplina (MTB, Ruta, Gravel, Enduro) y organiza tu temporada.">
+  <title>Pedaleo.cl — Calendario de Ciclismo en Chile | MTB, Ruta, Gravel</title>
+  <meta name="description" content="Calendario sobrio y actualizado de carreras de ciclismo en Chile. Filtra por región, disciplina y agéndalas directamente en Google Calendar o Apple Calendar.">
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
+  <!-- Header Sobrio -->
   <header class="site-header">
-    <div class="header-inner">
-      <a href="./" class="brand-link" title="Pedaleo.cl - Inicio">
-        <img src="assets/img/logo.svg" alt="Pedaleo.cl" class="site-logo">
-      </a>
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <a href="./" class="brand-logo-text" title="Pedaleo.cl">
+          Pedaleo<span>.cl</span>
+        </a>
+        <span class="brand-badge">Chile 🇨🇱</span>
+      </div>
 
-      <nav>
-        <ul class="nav-links">
-          <li>
-            <a href="#calendario" class="nav-btn active" id="nav-calendar">
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              <span>Calendario</span>
-            </a>
-          </li>
-          <li>
-            <a href="#temporada" class="nav-btn" id="nav-planner">
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
-              <span>Mi Temporada</span>
-              <span class="planner-counter-badge" id="planner-counter" style="display:none">0</span>
-            </a>
-          </li>
-          <li>
-            <a href="#publicar" class="nav-btn btn-primary-action" id="nav-publish">
-              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-              <span>Publicar Carrera</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <div class="header-actions">
+        <button class="btn-header btn-header-primary" id="nav-publish">
+          <span>+ Publicar Carrera</span>
+        </button>
+        <a href="https://github.com/jqnmunozdiaz/pedaleo.cl" target="_blank" rel="noopener" class="btn-header" title="Repositorio en GitHub">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Banner -->
-  <section class="hero-banner">
-    <div class="hero-inner">
-      <h1 class="hero-title">Calendario de Ciclismo en Chile 🇨🇱</h1>
-      <p class="hero-subtitle">
-        Todas las carreras de MTB, Ruta, Gran Fondo, Gravel, Enduro y Descenso en un solo lugar. Planifica tus objetivos y sincroniza tu temporada con Google o Apple Calendar.
-      </p>
-      <div class="hero-stats">
-        <span>🚴 <strong>Todas las disciplinas</strong> (MTB, Ruta, Gravel, Ultra)</span>
-        <span>📍 <strong>16 Regiones</strong> de Arica a Magallanes</span>
-        <span>🔄 <strong>Actualizado automáticamente</strong></span>
+  <!-- Hero Minimalista -->
+  <section class="hero-minimal">
+    <div class="hero-content">
+      <div>
+        <h1 class="hero-heading">Calendario Nacional de Ciclismo</h1>
+        <div class="hero-stats-line">
+          Competencias de <strong>MTB</strong>, <strong>Ruta</strong>, <strong>Gravel</strong>, <strong>Ultra</strong> y <strong>Descenso</strong> en todo Chile.
+        </div>
+      </div>
+      <div class="hero-stats-line">
+        Mostrando <span class="results-count" id="results-count">cargando...</span>
       </div>
     </div>
   </section>
 
-  <!-- Filter & Search Bar (Inspired by corre.cl) -->
-  <div class="filter-bar-container" id="filter-bar-container">
-    <div class="filter-bar">
-      <!-- Search Input -->
-      <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="search" id="search-input" class="search-input" placeholder="Buscar por nombre, comuna o productor...">
+  <!-- Barra de Filtros Compacta y Ordenada -->
+  <section class="filter-wrapper">
+    <div class="filter-card">
+      <!-- Búsqueda -->
+      <div class="filter-search-box">
+        <span class="filter-search-icon">🔍</span>
+        <input type="search" id="search-input" class="filter-search-input" placeholder="Buscar por nombre, comuna o productor...">
       </div>
 
-      <!-- Region Selector -->
+      <!-- Región -->
       <select id="filter-region" class="filter-select">
-        <option value="">Todas las regiones...</option>
+        <option value="">Todas las regiones</option>
       </select>
 
-      <!-- Discipline Selector -->
+      <!-- Disciplina -->
       <select id="filter-discipline" class="filter-select">
         <option value="">Todas las disciplinas</option>
-        <option value="MTB">MTB (XCM, XCO, Maratón)</option>
+        <option value="MTB">MTB (XCM, XCO)</option>
         <option value="Ruta">Ruta / Gran Fondo</option>
         <option value="Gravel">Gravel</option>
         <option value="Ultra">Ultraciclismo / Bikepacking</option>
-        <option value="Enduro">Enduro / Descenso</option>
+        <option value="Enduro">Enduro / Descenso (DH)</option>
       </select>
 
-      <!-- Distance Quick Pills -->
-      <div class="filter-pills">
-        <button class="pill-btn pill-distance active" data-distance="all">Todas dist.</button>
-        <button class="pill-btn pill-distance" data-distance="short">&lt; 40 km</button>
-        <button class="pill-btn pill-distance" data-distance="mid">40 - 90 km</button>
-        <button class="pill-btn pill-distance" data-distance="long">&gt; 90 km</button>
-        <button class="pill-btn pill-distance" data-distance="ultra">Ultra (&gt;200 km)</button>
+      <!-- Distancias -->
+      <div class="distance-group">
+        <button class="pill-distance active" data-distance="all">Todas dist.</button>
+        <button class="pill-distance" data-distance="short">&lt; 40 km</button>
+        <button class="pill-distance" data-distance="mid">40 - 90 km</button>
+        <button class="pill-distance" data-distance="long">&gt; 90 km</button>
+        <button class="pill-distance" data-distance="ultra">Ultra (&gt;200 km)</button>
       </div>
 
-      <button class="clear-filters-btn" id="clear-filters" title="Restablecer filtros">
+      <button class="btn-filter-reset" id="clear-filters" title="Restablecer filtros">
         Limpiar
       </button>
 
-      <!-- View Switcher -->
-      <div class="view-switcher">
-        <button class="view-btn active" data-view="agenda" title="Vista Agenda">
-          📋 Agenda
+      <!-- Selector de Vista -->
+      <div class="view-toggle-group">
+        <button class="view-btn active" data-view="agenda" title="Vista Lista Agenda">
+          📋 Lista
         </button>
-        <button class="view-btn" data-view="calendar" title="Vista Mes">
+        <button class="view-btn" data-view="calendar" title="Vista Calendario Mensual">
           📆 Mes
         </button>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Main Content Area -->
-  <main class="main-wrapper">
-    <div class="active-filters-summary">
-      <div>Mostrando <span class="results-count" id="results-count">cargando...</span></div>
-    </div>
-
-    <!-- Container for Agenda / Calendar / Planner views -->
+  <!-- Contenedor Principal (Agenda / Calendario) -->
+  <main class="main-content">
     <div id="events-container">
-      <div class="planner-empty-state">
+      <div class="empty-state">
         <p>Cargando carreras...</p>
       </div>
     </div>
   </main>
 
-  <!-- Event Detail Modal -->
+  <!-- Modal Detalle de Carrera -->
   <div class="modal-overlay" id="modal-detail">
     <div class="modal-card">
       <div class="modal-header">
@@ -129,12 +113,12 @@
         <button class="modal-close-btn" id="modal-close-detail">&times;</button>
       </div>
       <div class="modal-body" id="modal-detail-body">
-        <!-- Injected via JS -->
+        <!-- Contenido dinámico inyectado por JS -->
       </div>
     </div>
   </div>
 
-  <!-- Publish Event Modal -->
+  <!-- Modal Publicar Carrera (GitHub Issue / Notificación) -->
   <div class="modal-overlay" id="modal-publish">
     <div class="modal-card">
       <div class="modal-header">
@@ -143,29 +127,28 @@
       </div>
       <form id="publish-race-form">
         <div class="modal-body">
-          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem">
-            ¿Organizas una carrera o conoces una fecha que aún no está en el calendario? Envíanos los datos para agregarla gratis al sitio.
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.5">
+            ¿Organizas una competencia o conoces una fecha confirmada? Completa los datos. Al enviar se creará una solicitud vía <strong>GitHub Issue</strong> para notificarnos de inmediato y validar la carrera.
           </p>
 
           <div class="form-group">
-            <label class="form-label" for="pub-name">Nombre del Evento *</label>
-            <input type="text" id="pub-name" name="name" class="form-control" required placeholder="Ej: Gran Fondo del Valle 2026">
+            <label class="form-label" for="pub-name">Nombre de la Carrera *</label>
+            <input type="text" id="pub-name" name="name" class="form-control" required placeholder="Ej: Gran Fondo del Maule 2026">
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label" for="pub-date">Fecha de la Carrera *</label>
+              <label class="form-label" for="pub-date">Fecha del Evento *</label>
               <input type="date" id="pub-date" name="date" class="form-control" required>
             </div>
             <div class="form-group">
-              <label class="form-label" for="pub-discipline">Disciplina Principal *</label>
+              <label class="form-label" for="pub-discipline">Disciplina *</label>
               <select id="pub-discipline" name="discipline" class="form-control" required>
                 <option value="MTB">MTB (XCM / XCO)</option>
                 <option value="Ruta">Ruta / Gran Fondo</option>
                 <option value="Gravel">Gravel</option>
                 <option value="Ultra/Bikepacking">Ultraciclismo / Bikepacking</option>
                 <option value="Enduro">Enduro / Descenso</option>
-                <option value="Cicloturismo">Cicloturismo / Recreativo</option>
               </select>
             </div>
           </div>
@@ -200,59 +183,42 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label" for="pub-distances">Distancias (km)</label>
+              <label class="form-label" for="pub-distances">Distancias</label>
               <input type="text" id="pub-distances" name="distances" class="form-control" placeholder="Ej: 45 km, 80 km">
             </div>
             <div class="form-group">
-              <label class="form-label" for="pub-url">Link de Inscripción / Web Oficial *</label>
+              <label class="form-label" for="pub-url">Web Oficial / Inscripción *</label>
               <input type="url" id="pub-url" name="url" class="form-control" required placeholder="https://...">
             </div>
           </div>
+
+          <div class="form-group">
+            <label class="form-label" for="pub-contact">Organizador o Contacto (opcional)</label>
+            <input type="text" id="pub-contact" name="contact" class="form-control" placeholder="Club / Productora / Email">
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="cal-nav-btn" onclick="document.getElementById('modal-publish').classList.remove('active')">Cancelar</button>
-          <button type="submit" class="btn-primary-action nav-btn">Enviar para Publicación</button>
+          <button type="button" class="cal-btn-mini" onclick="document.getElementById('modal-publish').classList.remove('active')">Cancelar</button>
+          <button type="submit" class="btn-action-primary">Enviar Solicitud a GitHub &rarr;</button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- Footer -->
+  <!-- Footer Sobrio -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:2rem">
-        <div style="max-width:400px">
-          <div style="font-size:1.15rem; font-weight:800; color:white; margin-bottom:0.5rem">Pedaleo.cl</div>
-          <p>
-            Plataforma abierta e independiente dedicada a recopilar y difundir todas las competencias ciclistas en Chile. Inspirado en el espíritu simple y directo de corre.cl, hecho por y para ciclistas.
-          </p>
-        </div>
-        <div>
-          <div style="font-weight:700; color:white; margin-bottom:0.5rem">Disciplinas</div>
-          <ul style="list-style:none; line-height:1.8">
-            <li><a href="./?disciplina=MTB">Mountain Bike (MTB)</a></li>
-            <li><a href="./?disciplina=Ruta">Ruta y Gran Fondo</a></li>
-            <li><a href="./?disciplina=Gravel">Gravel</a></li>
-            <li><a href="./?disciplina=Ultra">Ultraciclismo</a></li>
-          </ul>
-        </div>
-        <div>
-          <div style="font-weight:700; color:white; margin-bottom:0.5rem">Mantenimiento y Automatización</div>
-          <p style="font-size:0.82rem; line-height:1.6">
-            Este sitio es estático, ultra liviano y se mantiene al día mediante sincronización automática en Python vía GitHub Actions.
-          </p>
-        </div>
+      <div>
+        <strong>Pedaleo.cl</strong> — Calendario independiente y abierto de ciclismo en Chile.
       </div>
-
-      <div class="footer-bottom">
-        <div>&copy; 2026 Pedaleo.cl — Calendario de Carreras en Chile. Todos los derechos reservados.</div>
-        <div>Hecho con pasión por el ciclismo.</div>
+      <div>
+        Actualizado automáticamente con datos de Bicineta, GUCA y productoras locales.
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="assets/js/planner.js"></script>
+  <script src="assets/js/calendar-exporter.js"></script>
   <script src="assets/js/calendar-view.js"></script>
   <script src="assets/js/app.js"></script>
 </body>

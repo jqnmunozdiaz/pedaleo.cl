@@ -20,16 +20,12 @@ Inspirado directamente en la simplicidad, velocidad y funcionalidad de **corre.c
    - **Búsqueda en tiempo real**: Por nombre, comuna o productora.
    - **Enlaces compartibles**: El estado de los filtros se sincroniza con los parámetros URL (`?region=VI&disciplina=Gravel`).
 
-3. **Planificador "Mi Temporada"**:
-   - Permite marcar carreras con una estrella (★) para organizarlas en tu temporada.
-   - Asignación de prioridades: **Objetivo A** (meta principal), **Objetivo B** (carrera preparatoria) y **Objetivo C** (fondo o entrenamiento).
-   - Métricas acumuladas: total de kilómetros, desnivel positivo acumulado (+m) y cuenta regresiva de días para el próximo desafío.
-   - **Exportación a Calendario (.ics)**: Con un clic se descarga un archivo de calendario compatible con Google Calendar, Apple Calendar y Outlook con recordatorios automáticos.
-   - Todo se almacena localmente en el navegador (`localStorage`), sin necesidad de registrarse ni crear cuentas.
+3. **Agendamiento Directo por Carrera**:
+   - Cada carrera cuenta con botones directos para agendarla en **Google Calendar** (enlace con detalles prellenados) o descargar el archivo **Apple Calendar / Outlook (.ics)** con alarmas recordatorias.
 
-4. **Vistas Múltiples**:
-   - **Vista Agenda (estilo corre.cl)**: Lista ordenada por mes y día con badges de disciplina y altimetría.
-   - **Vista Calendario Mensual**: Grilla visual tradicional para ver los fines de semana de carreras de un vistazo.
+4. **Vistas Múltiples y Equilibradas**:
+   - **Vista Lista (estilo corre.cl)**: Lista ordenada por mes y día con badges de disciplina, región y altimetría.
+   - **Vista Calendario Mensual (CSS Grid Equitativo)**: Grilla visual con 7 columnas idénticas y botón "+X más" para días con múltiples carreras.
 
 5. **Alojamiento Ultra Liviano y Económico**:
    - 100% estático (HTML5, CSS moderno y JavaScript modular sin frameworks pesados).
