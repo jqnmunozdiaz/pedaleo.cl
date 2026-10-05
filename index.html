@@ -6,6 +6,7 @@
   <title>Pedaleo.cl — Calendario de Ciclismo en Chile | MTB, Ruta, Gravel</title>
   <meta name="description" content="Calendario sobrio y actualizado de carreras de ciclismo en Chile. Filtra por región, disciplina y agéndalas directamente en Google Calendar o Apple Calendar.">
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -88,6 +89,9 @@
       <div class="view-toggle-group">
         <button class="view-btn active" data-view="agenda" title="Vista Lista Agenda">
           📋 Lista
+        </button>
+        <button class="view-btn" data-view="map" title="Vista Mapa Interactivo de Chile">
+          🗺️ Mapa
         </button>
         <button class="view-btn" data-view="calendar" title="Vista Calendario Mensual">
           📆 Mes
@@ -218,8 +222,10 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="assets/js/calendar-exporter.js"></script>
   <script src="assets/js/calendar-view.js"></script>
+  <script src="assets/js/map-view.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>

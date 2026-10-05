@@ -24,7 +24,8 @@ Inspirado directamente en la simplicidad, velocidad y funcionalidad de **corre.c
    - Cada carrera cuenta con botones directos para agendarla en **Google Calendar** (enlace con detalles prellenados) o descargar el archivo **Apple Calendar / Outlook (.ics)** con alarmas recordatorias.
 
 4. **Vistas Múltiples y Equilibradas**:
-   - **Vista Lista (estilo corre.cl)**: Lista ordenada por mes y día con badges de disciplina, región y altimetría.
+   - **Vista Lista (simplificada y ágil)**: Lista ordenada por mes con chip de fecha, badges sobrios de disciplina, datos de comuna, distancia y altimetría.
+   - **Vista Mapa de Chile**: Mapa interactivo (Leaflet + CartoDB Positron) con pines por localidad coloreados por disciplina, popups interactivos y auto-zoom automático adaptado a los filtros del ciclista.
    - **Vista Calendario Mensual (CSS Grid Equitativo)**: Grilla visual con 7 columnas idénticas y botón "+X más" para días con múltiples carreras.
 
 5. **Alojamiento Ultra Liviano y Económico**:

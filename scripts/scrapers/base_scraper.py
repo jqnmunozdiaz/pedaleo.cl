@@ -3,11 +3,23 @@ Base Scraper Class for Pedaleo.cl
 Provides common request handling, cleaning, region resolution, and discipline classification.
 """
 
+import json
+import os
 import re
 import unicodedata
 from datetime import datetime
 from typing import Dict, List, Optional
 import requests
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+COORDS_PATH = os.path.join(BASE_DIR, "data", "communes_coords.json")
+COORDS_DATA = {}
+if os.path.exists(COORDS_PATH):
+    try:
+        with open(COORDS_PATH, "r", encoding="utf-8") as _f:
+            COORDS_DATA = json.load(_f)
+    except Exception:
+        pass
 
 REGION_MAPPING = {
     "arica": "XV",
@@ -149,6 +161,27 @@ class BaseScraper:
             if re.search(r"\b" + re.escape(key) + r"\b", clean):
                 return code, REGION_NAMES.get(code, "Chile")
         return "RM", "Metropolitana"
+
+    def resolve_coordinates(self, commune: str, region_code: str) -> tuple[float, float]:
+        """Resolves lat and lng coordinates based on commune or region code."""
+        clean_commune = strip_accents(commune) if commune else ""
+        if clean_commune:
+            # Direct match
+            for k, coords in COORDS_DATA.items():
+                if strip_accents(k) == clean_commune:
+                    return coords[0], coords[1]
+            # Substring match (skip short regional keys like RM, XV, etc.)
+            for k, coords in COORDS_DATA.items():
+                if len(k) > 3 and (strip_accents(k) in clean_commune or clean_commune in strip_accents(k)):
+                    return coords[0], coords[1]
+
+        # Region fallback
+        if region_code and region_code in COORDS_DATA:
+            coords = COORDS_DATA[region_code]
+            return coords[0], coords[1]
+
+        # Default fallback (Santiago)
+        return -33.4489, -70.6693
 
     def detect_disciplines(self, text: str) -> List[str]:
         """Infers cycling disciplines from title and description."""

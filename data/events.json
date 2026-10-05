@@ -24,7 +24,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/752/10-desafio-aniversario-de-ciclismo-de-ruta-lanpubike",
     "description": "Competencia de Ruta cronometrada por GUCA en Arauco.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -37.2464,
+    "lng": -73.3175
   },
   {
     "id": "atacamaspirits-ultrabikepacking-2026",
@@ -52,7 +54,9 @@
     "registration_url": "https://www.instagram.com/atacamaspirits_ultracycling",
     "description": "Evento de ultraciclismo en Atacama. 350K/52 horas. Del 9 al 11 de Octubre del 2026. Calama - Alto el Loa -...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -22.4544,
+    "lng": -68.9294
   },
   {
     "id": "brevet-1000-la-ruta-de-los-molinos-2026",
@@ -80,7 +84,9 @@
     "registration_url": "https://www.brevet.cl/eventos/la-ruta-de-los-molinos",
     "description": "Recorre la costa y los valles de Chile central, siguiendo caminos de viento, historia y resistencia. Una...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "dhs-2026-serie-5-puchuncavi",
@@ -107,7 +113,9 @@
     "registration_url": "https://deache-series.cl/serie-5-puchuncavi-2026/",
     "description": "La final del Campeonato Deache Series 2026 se disputará en Puchuncaví, en una localidad ya conocida y...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -32.723,
+    "lng": -71.414
   },
   {
     "id": "epic-bikepaking-linares-2026",
@@ -135,7 +143,9 @@
     "registration_url": "https://www.choikebags.cl/epic-bikepacking-maule-2026",
     "description": "El Epic Bikepacking, en su segunda versión, es una invitación a la aventura por los valles precordilleranos...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -35.698,
+    "lng": -71.411
   },
   {
     "id": "travesia-lonquimay-2026",
@@ -162,7 +172,9 @@
     "registration_url": "https://www.instagram.com/pedalsur/",
     "description": "Pronto más info ...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -38.4428,
+    "lng": -71.2403
   },
   {
     "id": "circuito-downhill-chile-central-2026-2",
@@ -190,7 +202,9 @@
     "registration_url": "https://timingfp.com/public/?c=PublicoEventos&m=ver&id=48",
     "description": "Prepárate para vivir toda la adrenalina de la primera edición del Circuito Downhill Chile Central 2026, un...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -34.2667,
+    "lng": -70.95
   },
   {
     "id": "desafio-alto-power-4-2026",
@@ -217,7 +231,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/775/desafio-alto-power-4",
     "description": "Competencia de MTB cronometrada por GUCA en San Rafael.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -35.3167,
+    "lng": -71.5333
   },
   {
     "id": "don-armando-xcm-2026",
@@ -244,7 +260,9 @@
     "registration_url": "https://www.xebent.com/ver_evento/maraton-series-2026",
     "description": "Tenemos el agrado de invitarlos a nuestro Ranking modalidad Cross Country Marathon (XCM), el cual se...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -22.4544,
+    "lng": -68.9294
   },
   {
     "id": "gran-fondo-nevados-de-chillan-2026",
@@ -272,7 +290,9 @@
     "registration_url": "https://www.granfondonevados.cl/",
     "description": "Prepárate para disfrutar nuevamente de una experiencia épica en el corazón de la cordillera 🚲🏔️",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -36.6066,
+    "lng": -72.1034
   },
   {
     "id": "gravel-del-cobre-2026",
@@ -301,7 +321,9 @@
     "registration_url": "https://guca.cl",
     "description": "Desafío de gravel de alta exigencia por caminos precordilleranos de la cuenca del Río Cachapoal y sector Coya.",
     "featured": true,
-    "source": "guca"
+    "source": "guca",
+    "lat": -34.1819,
+    "lng": -70.6506
   },
   {
     "id": "tour-dh-cup-los-rios-5-lanco-2026",
@@ -328,7 +350,9 @@
     "registration_url": "https://www.instagram.com/losriosdhcup/",
     "description": "🌲⛰️ Pistas rápidas, técnicas , físicas y de buen Desnivel 💎\r\n⚡ Corredores al límite\r\n🔊 Ambiente de...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -39.4475,
+    "lng": -72.7889
   },
   {
     "id": "5to-desafio-zona-7-2026",
@@ -355,7 +379,9 @@
     "registration_url": "https://www.bikerace.cl/evento?id=3114",
     "description": "!No te quedes fuera de este 5to desafío de nuestro club !!",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -35.9671,
+    "lng": -72.315
   },
   {
     "id": "campeonato-zona-sur-xco-2-2026",
@@ -382,7 +408,9 @@
     "registration_url": "https://www.instagram.com/campeonatoxcozonasur/",
     "description": "La emoción del Cross Country Olímpico vuelve a nuestra comuna y estamos preparando una fecha que ¡NO TE...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -39.6433,
+    "lng": -72.3325
   },
   {
     "id": "desafio-las-minas-2026",
@@ -409,7 +437,9 @@
     "registration_url": "https://www.tocketicket.cl/events/6a18a9432ea8b3cea58c0cfa",
     "description": "El Team Rancagua Bike te invita a su 5ta version Desafio las Minas.\r\nLa presente invitación se extiende...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -34.1167,
+    "lng": -70.8
   },
   {
     "id": "la-minga-2026",
@@ -437,7 +467,9 @@
     "registration_url": "https://welcu.com/gravel-al-sur/minga",
     "description": "📍El próximo 11 de octubre de 2026, Puerto Varas será el escenario de LA MINGA, una carrera de gravel que...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -41.3195,
+    "lng": -72.9854
   },
   {
     "id": "ruta-huepil-3-2026",
@@ -464,7 +496,9 @@
     "registration_url": "https://www.instagram.com/p/DbGe3-TpCM2/",
     "description": "El Club de ciclismo Huepil tiene el honor de invitarte a la tercera fecha: la Competencia Ruta Huepil. ¡Te...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -38.7359,
+    "lng": -72.5904
   },
   {
     "id": "brevet-300-ultra-gravel-nuble-2026",
@@ -492,7 +526,9 @@
     "registration_url": "https://www.instagram.com/ultra_gravel_nuble/",
     "description": "Primera fecha brevet de 300 km en el Ñuble",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -36.6066,
+    "lng": -72.1034
   },
   {
     "id": "copa-chile-downhill-sur-1-2026",
@@ -520,7 +556,9 @@
     "registration_url": "https://www.instagram.com/rcchdownhill/",
     "description": "🔴 SANTA BÁRBARA 17-18 de Octubre\r\n🔴 SANTA BÁRBARA 05-06 Diciembre\r\n🔴 VIÑA 12-13 de Diciembre",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -37.6694,
+    "lng": -71.9042
   },
   {
     "id": "gran-fondo-matanzas-2026",
@@ -548,7 +586,9 @@
     "registration_url": "https://guca.cl",
     "description": "Gran fondo costero con vistas al océano Pacífico recorriendo Pupuya, Matanzas y sectores rurales de Navidad.",
     "featured": true,
-    "source": "guca"
+    "source": "guca",
+    "lat": -33.955,
+    "lng": -71.8319
   },
   {
     "id": "montenbaik-enduro-series-4-2026",
@@ -576,7 +616,9 @@
     "registration_url": "https://enduroseries.cl/4-lo-barnechea/",
     "description": "Fecha Enduro Series",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -33.3542,
+    "lng": -70.5156
   },
   {
     "id": "4to-rally-los-cristales-2026",
@@ -603,7 +645,9 @@
     "registration_url": "https://www.bikerace.cl/evento?id=2949",
     "description": "¡Te invitamos a ser parte de un nuevo desafío! Prepara tu bicicleta y únete a nuestra gran carrera de...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -35.4264,
+    "lng": -71.6554
   },
   {
     "id": "amt-xco-1-temuco-2026",
@@ -630,7 +674,9 @@
     "registration_url": "https://www.instagram.com/p/DWRbK8mEWEa/",
     "description": "Araucanía MountainBike Tour – XCO Series 🏆\r\nFecha #1 🔸 18 Octubre – Temuco",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -38.7359,
+    "lng": -72.5904
   },
   {
     "id": "amt-xco-series-2026-temuco",
@@ -657,7 +703,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/810/amt-xco-series-2026-temuco",
     "description": "Competencia de MTB cronometrada por GUCA en Temuco.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -38.7359,
+    "lng": -72.5904
   },
   {
     "id": "andina-race-mtb-2026",
@@ -685,7 +733,9 @@
     "registration_url": "https://guca.cl",
     "description": "Competencia de MTB y E-Bike entre bosques de araucarias milenarias y senderos volcánicos en Lonquimay.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -38.4428,
+    "lng": -71.2403
   },
   {
     "id": "circuito-primavera-1-2026",
@@ -712,7 +762,9 @@
     "registration_url": "https://www.instagram.com/p/Dc6GaQVxSUI/",
     "description": "Cuatro fechas para volver a encontrarnos en la ruta, medir fuerzas y disfrutar de lo que más nos gusta:...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -38.7359,
+    "lng": -72.5904
   },
   {
     "id": "copa-chile-desafio-los-leones-quinta-fecha-cro-2026",
@@ -739,7 +791,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/813/desafio-los-leones",
     "description": "Competencia de Ruta cronometrada por GUCA en Requinoa.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -34.2833,
+    "lng": -70.8167
   },
   {
     "id": "copa-chile-mtb-xcm-6-2026",
@@ -766,7 +820,9 @@
     "registration_url": "https://www.instagram.com/copachilexcm/",
     "description": "Fecha Requinoa",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -34.2833,
+    "lng": -70.8167
   },
   {
     "id": "desafio-columpio-de-los-deseos-2026",
@@ -793,7 +849,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/787/desafio-columpio-de-los-deseos-2026",
     "description": "Competencia de Ruta cronometrada por GUCA en San Rosendo.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -37.2683,
+    "lng": -72.9194
   },
   {
     "id": "desafio-4-fechas-mtb-3-2026",
@@ -820,7 +878,9 @@
     "registration_url": "https://www.instagram.com/productora_patagonia_indomita/",
     "description": "Este 18 de octubre volvemos a encontrarnos para vivir una nueva jornada del Desafío 4 Fechas MTB.",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -45.4,
+    "lng": -72.7
   },
   {
     "id": "desafio-los-leones-cro-5-2026",
@@ -847,7 +907,9 @@
     "registration_url": "https://www.guca.cl/event_detail.php?id=1257",
     "description": "Con el objetivo de fomentar y dar a conocer nuestro deporte, además de mostrar las zonas y cada uno de los...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -34.2833,
+    "lng": -70.8167
   },
   {
     "id": "raid-nahuelbuta-2-2026",
@@ -874,7 +936,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/814/raid-mtb-nahuelbuta-4ta-edicion-contulmo",
     "description": "​➡️ 2ª Fecha, el 18 de Octubre en Contulmo por el club @sociosbike\r\nEl \"RAID MTB NAHUELBUTA\" es un...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -38.7359,
+    "lng": -72.5904
   },
   {
     "id": "pistoleros-gravel-2026",
@@ -901,7 +965,9 @@
     "registration_url": "https://www.pistolerosgravel.com/",
     "description": "🌵 Inspirada en la ultima fuga de Butch Cassidy & Sundance Kid",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "travesia-el-volcan-2026",
@@ -928,7 +994,9 @@
     "registration_url": "https://www.instagram.com/pedalsur/",
     "description": "Pronto más info ...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -38.7359,
+    "lng": -72.5904
   },
   {
     "id": "1-desafio-la-sepultura-2026",
@@ -955,7 +1023,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/779/10-desafio-la-sepultura",
     "description": "Competencia de Ruta cronometrada por GUCA en Trail Running.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "copa-chile-mtb-xco-2026",
@@ -982,7 +1052,9 @@
     "registration_url": "https://www.instagram.com/copachilexco/",
     "description": "El fin de semana 24 y 25 de Octubre se llevará a cabo la segunda fecha de la Copa Chile MTB XCO 2026. Esta...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "copa-chile-xco-santiago-2026-2",
@@ -1009,7 +1081,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/818/copa-chile-xco-santiago-2026-2",
     "description": "Competencia de MTB cronometrada por GUCA en Santiago.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "el-antiatajo-primavera-2026",
@@ -1036,7 +1110,9 @@
     "registration_url": "https://antiatajo.ripio.cc/v/manihuales-primavera-2026",
     "description": "El sábado pedaleamos de Coyhaique a Villa Mañihuales por Villa Ortega y seguimos hasta el Camping de Don...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -45.5752,
+    "lng": -72.0662
   },
   {
     "id": "mtb-tour-chicureo-2026",
@@ -1064,7 +1140,9 @@
     "registration_url": "https://welcu.com",
     "description": "Circuito tradicional del MTB Tour en los cerros de Chicureo con categorías competitivas y promocionales.",
     "featured": true,
-    "source": "welcu"
+    "source": "welcu",
+    "lat": -33.2033,
+    "lng": -70.675
   },
   {
     "id": "ultra-gravel-andacollo-2026",
@@ -1093,7 +1171,9 @@
     "registration_url": "https://biciadostienda.sumupstore.com/product/andacollo-ultra-gravel-general",
     "description": "💣Más altímetria que cualquier GraveL Race\r\n👟Segmento aventura de trekking (500M)\r\n📷 fotografía en ruta +...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -29.9533,
+    "lng": -71.3436
   },
   {
     "id": "vuelta-femenina-oficial-molina-2026",
@@ -1120,7 +1200,9 @@
     "registration_url": "https://www.instagram.com/vueltafemeninaoficialmolina/",
     "description": "La  12ª Vuelta Femenina de Molina, vuelve para reunir a ciclistas de todo el país en una competencia...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -35.1167,
+    "lng": -71.2833
   },
   {
     "id": "10-desafio-xcm-los-maitenes-2026",
@@ -1148,7 +1230,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/795/100-desafio-xcm-los-maitenes-2026",
     "description": "Competencia de MTB, Ruta cronometrada por GUCA en Los Angeles.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -37.4697,
+    "lng": -72.3536
   },
   {
     "id": "push-bike-cup-empedrado-2026",
@@ -1175,7 +1259,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/799/push-bike-cup-empedrado-2026",
     "description": "Competencia de MTB cronometrada por GUCA en Empedrado.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "trans-ecuador-2026",
@@ -1202,7 +1288,9 @@
     "registration_url": "https://www.instagram.com/p/DRcXrybAPFF?img_index=7",
     "description": "El Feriado del Día de Difuntos y del Día de Cuenca, vuelve ese monstruo, la bestia, Trans Ecuador.",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "l-etape-chile-by-tour-de-france-2026",
@@ -1229,7 +1317,9 @@
     "registration_url": "https://www.eventrid.cl/eventos/worldcentricgroup/l-etape-chile-by-tour-de-france-2026",
     "description": "Desde la organización Tour de France, se creó L’Étape du Tour, una versión destinada a ciclistas amateurs...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -39.8142,
+    "lng": -73.2459
   },
   {
     "id": "death-road-2026",
@@ -1256,7 +1346,9 @@
     "registration_url": "https://www.andeanraid.com/deathroad",
     "description": "El calor, la humedad y la altitud definitivamente te pondrán los nervios de punta después de un tiempo, e...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "titan-forest-2026",
@@ -1283,7 +1375,9 @@
     "registration_url": "https://tusdesafios.com/events/titan-forest-patagonia-2026",
     "description": "Del 2 al 5 de noviembre, la Titan Forest Patagonia vuelve con una experiencia única en la Región de Aysén,...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -45.4,
+    "lng": -72.7
   },
   {
     "id": "travesia-laguna-blanca-2026",
@@ -1310,7 +1404,9 @@
     "registration_url": "https://www.instagram.com/pedalsur/",
     "description": "Pronto más info ...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -38.7359,
+    "lng": -72.5904
   },
   {
     "id": "brevet-200-2026",
@@ -1337,7 +1433,9 @@
     "registration_url": "https://www.brevet.cl",
     "description": "Última fecha de 200 km del 2026 en Santiago",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "grand-prix-lago-ranco-2026",
@@ -1364,7 +1462,9 @@
     "registration_url": "httphttps://tickets.grandprixlagoranco.cl/actividades/160164",
     "description": "Un recorrido de 114 kilómetros desafiante y exigente que te llevará por los más hermosos paisajes de la...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -40.3167,
+    "lng": -72.4833
   },
   {
     "id": "circuito-primavera-2-2026",
@@ -1391,7 +1491,9 @@
     "registration_url": "https://www.instagram.com/p/Dc6GaQVxSUI/",
     "description": "Cuatro fechas para volver a encontrarnos en la ruta, medir fuerzas y disfrutar de lo que más nos gusta:...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -38.7359,
+    "lng": -72.5904
   },
   {
     "id": "desafio-trek-subaru-2026",
@@ -1423,7 +1525,9 @@
     "registration_url": "https://ticketplus.cl",
     "description": "La clásica escalada a la cordillera de Los Andes con llegada a Corralco, Farellones y Valle Nevado con más de 3.000 ciclistas.",
     "featured": true,
-    "source": "ticketplus"
+    "source": "ticketplus",
+    "lat": -33.3542,
+    "lng": -70.5156
   },
   {
     "id": "iii-ruta-del-los-indios-2026",
@@ -1450,7 +1554,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/803/iii-ruta-de-los-indios",
     "description": "Competencia de Ruta cronometrada por GUCA en Ciclismo.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -27.3668,
+    "lng": -70.3323
   },
   {
     "id": "atacamaspirits-xtreme-mtb-race-2026",
@@ -1478,7 +1584,9 @@
     "registration_url": "https://atacamaspirits.com/ultramaraton/",
     "description": "MTB Stagerace. 7 days, 6 stages, >550K.\r\nReaching 5700 meters above sea level, we are the\r\nHighest MTB race...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -22.4544,
+    "lng": -68.9294
   },
   {
     "id": "gran-fondo-fin-del-mundo-2026",
@@ -1506,7 +1614,9 @@
     "registration_url": "https://welcu.com",
     "description": "Una de las pruebas de ruta más imponentes de Sudamérica bordeando el Lago Colbún y escalando la cordillera del Maule.",
     "featured": true,
-    "source": "welcu"
+    "source": "welcu",
+    "lat": -35.698,
+    "lng": -71.411
   },
   {
     "id": "pucon-deamiles-2026",
@@ -1533,7 +1643,9 @@
     "registration_url": "https://deamiles.cl/",
     "description": "Descubre las cimas que tiene Pucón sobre los 1000 msnm. En esta versión se incluyen 1 cima sorpresa además...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -39.2822,
+    "lng": -71.9744
   },
   {
     "id": "pioneros-xcm-conguillio-2026",
@@ -1562,7 +1674,9 @@
     "registration_url": "https://ticketsport.cl",
     "description": "Maratón XCM y categoría Gravel a los pies del volcán Llaima recorriendo los senderos de lava y bosques de coigües.",
     "featured": false,
-    "source": "ticketsport"
+    "source": "ticketsport",
+    "lat": -38.8333,
+    "lng": -71.7
   },
   {
     "id": "brevet-600k-desafio-4-lagos-2026",
@@ -1589,7 +1703,9 @@
     "registration_url": "https://www.brevetsur.com/proximos-eventos/desafio-4-lagos-600-km-2026",
     "description": "Para  la Brevet de 600 tendrás un tiempo de 40 horas para finalizar.",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -39.8142,
+    "lng": -73.2459
   },
   {
     "id": "patagonia-gravel-2026",
@@ -1617,7 +1733,9 @@
     "registration_url": "https://welcu.com",
     "description": "Aventura de gravel con vistas a los volcanes Osorno y Calbuco, caminos rurales de colonos y lagos del sur de Chile.",
     "featured": true,
-    "source": "welcu"
+    "source": "welcu",
+    "lat": -41.3195,
+    "lng": -72.9854
   },
   {
     "id": "epica-gravel-pde-2026",
@@ -1645,7 +1763,9 @@
     "registration_url": "https://redtickets.uy/evento/EPICA-GRAVEL-2026--Punta-del-Este-Uruguay/28720/",
     "description": "Los mejores caminos de gravel de la región te esperan nuevamente en la cuarta edicion de la EPICA GRAVEL,...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "brevet-sur-200-los-puentes-de-valdivia-2026",
@@ -1672,7 +1792,9 @@
     "registration_url": "https://welcu.com/ciclismoenvaldivia/brevet-200-los-puentes-de-valdivia",
     "description": "Si ya corriste una pre brevet o una brevet, sabes qué la nueva fecha  será epica, y no se suspende por...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -39.8142,
+    "lng": -73.2459
   },
   {
     "id": "giro-del-lago-2026",
@@ -1699,7 +1821,9 @@
     "registration_url": "https://welcu.com/chile-finisher/girodellago2026",
     "description": "El domingo 22 de noviembre, el Giro del Lago 2026, es un emocionante circuito de ciclismo de ruta alrededor...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -41.3195,
+    "lng": -72.9854
   },
   {
     "id": "1er-desafio-copa-xco-k2-2026-final",
@@ -1726,7 +1850,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/766/1er-desafio-copa-xco-k2-2026-final",
     "description": "Competencia de MTB cronometrada por GUCA en Calama.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -22.4544,
+    "lng": -68.9294
   },
   {
     "id": "brevet-300-2026",
@@ -1753,7 +1879,9 @@
     "registration_url": "https://www.brevet.cl",
     "description": "Última fecha de 300 km del 2026 en Santiago",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "brevet-300-patagonia-2026",
@@ -1780,7 +1908,9 @@
     "registration_url": "https://www.ripio.cc/brevet-patagonia-28-nov",
     "description": "Dos distancias el mismo día: 300 km · +4.330 m y 130 km · +1.640 m",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -45.5752,
+    "lng": -72.0662
   },
   {
     "id": "copa-chile-mtb-xco-santiago-2026",
@@ -1807,7 +1937,9 @@
     "registration_url": "https://fdnciclismochile.cl/eventos",
     "description": "Fecha oficial de la Copa Chile XCO puntuable para el ranking nacional UCI en el Parque Metropolitano de Santiago.",
     "featured": false,
-    "source": "fedenacich"
+    "source": "fedenacich",
+    "lat": -33.4069,
+    "lng": -70.6433
   },
   {
     "id": "3er-desafio-xcm-cholchol-2026",
@@ -1835,7 +1967,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/801/3er-desafio-xcm-cholchol-2026",
     "description": "Competencia de MTB, Ruta cronometrada por GUCA en Cholchol.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "across-andes-2026",
@@ -1863,7 +1997,9 @@
     "registration_url": "https://acrossandes.cc/inscripciones",
     "description": "La carrera de ultraciclismo y autosuficiencia en gravel más emblemática del continente, cruzando pasos andinos y lagos.",
     "featured": true,
-    "source": "organizer"
+    "source": "organizer",
+    "lat": -39.2822,
+    "lng": -71.9744
   },
   {
     "id": "circuito-primavera-3-2026",
@@ -1890,7 +2026,9 @@
     "registration_url": "https://www.instagram.com/p/Dc6GaQVxSUI/",
     "description": "Cuatro fechas para volver a encontrarnos en la ruta, medir fuerzas y disfrutar de lo que más nos gusta:...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -38.7359,
+    "lng": -72.5904
   },
   {
     "id": "mtb-tour-vina-matetic-2026",
@@ -1918,7 +2056,9 @@
     "registration_url": "https://welcu.com",
     "description": "Pedaleo entre viñedos orgánicos y senderos de bosque nativo con tercer tiempo y degustaciones en el Valle de Casablanca.",
     "featured": false,
-    "source": "welcu"
+    "source": "welcu",
+    "lat": -33.3156,
+    "lng": -71.409
   },
   {
     "id": "brevet-400-2026",
@@ -1945,7 +2085,9 @@
     "registration_url": "https://www.brevet.cl",
     "description": "Última fecha de 400 km del 2026 en Santiago",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "gran-fondo-lago-ranco-uci-2026",
@@ -1972,7 +2114,9 @@
     "registration_url": "https://welcu.com",
     "description": "Fecha oficial de la UCI Gran Fondo World Series. Vuelta completa al Lago Ranco con pavimento impecable y paisajes paradisíacos.",
     "featured": true,
-    "source": "welcu"
+    "source": "welcu",
+    "lat": -40.3167,
+    "lng": -72.4833
   },
   {
     "id": "desafio-el-carbon-2026",
@@ -2000,7 +2144,9 @@
     "registration_url": "https://guca.cl",
     "description": "Desafiante trazado por las históricas rutas mineras y bosques de la cordillera de Nahuelbuta.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -37.4789,
+    "lng": -73.3444
   },
   {
     "id": "cronoescalada-farellones-2027",
@@ -2027,7 +2173,9 @@
     "registration_url": "https://ticketsport.cl",
     "description": "Prueba contrarreloj individual para escaladores enfrentando las míticas 40 curvas hacia el pueblo de Farellones.",
     "featured": false,
-    "source": "ticketsport"
+    "source": "ticketsport",
+    "lat": -33.3542,
+    "lng": -70.5156
   },
   {
     "id": "clasica-curico-iloca-2027",
@@ -2054,7 +2202,9 @@
     "registration_url": "https://www.instagram.com/p/DcbMZfalm6W/?img_index=1",
     "description": "SOL, PLAYA, ARENA Y VELOCIDAD 🔥\r\nLA COPA DEL MUNDO 🫣\r\nCURICO -ILOCA 2027\r\nTODAS LAS CATEGORIAS.",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -34.9333,
+    "lng": -72.1833
   },
   {
     "id": "transandes-challenge-2027",
@@ -2081,7 +2231,9 @@
     "registration_url": "https://transandeschallenge.com/inscripcion",
     "description": "La legendaria carrera por etapas en la Patagonia chilena, recorriendo volcanes, bosques húmedos templados y termas naturales.",
     "featured": true,
-    "source": "organizer"
+    "source": "organizer",
+    "lat": -39.6433,
+    "lng": -72.3325
   },
   {
     "id": "desafio-de-los-canales-aguas-abiertas-san-juan-dalcahue-2027",
@@ -2108,7 +2260,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/746/desafio-de-los-canales-aguas-abiertas-san-juan-dalcahue-2027",
     "description": "Competencia de Ruta cronometrada por GUCA en Dalcahue.",
     "featured": false,
-    "source": "guca"
+    "source": "guca",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "desafio-huilo-huilo-2027",
@@ -2137,7 +2291,9 @@
     "registration_url": "https://ticketsport.cl",
     "description": "Competencia de MTB y Gravel dentro del corazón de la selva valdiviana con pasadas por ríos, cascadas y puentes colgantes.",
     "featured": false,
-    "source": "ticketsport"
+    "source": "ticketsport",
+    "lat": -39.8519,
+    "lng": -71.9486
   },
   {
     "id": "red-bull-valparaiso-cerro-abajo-2027",
@@ -2164,7 +2320,9 @@
     "registration_url": "https://www.redbull.com",
     "description": "El descenso urbano en bicicleta más famoso del mundo por las escaleras, techos y callejones empinados de Valparaíso.",
     "featured": true,
-    "source": "organizer"
+    "source": "organizer",
+    "lat": -33.0472,
+    "lng": -71.6127
   },
   {
     "id": "vuelta-ciclista-chiloe-2027",
@@ -2191,7 +2349,9 @@
     "registration_url": "https://vueltachiloe.cl",
     "description": "Vuelta por etapas de categoría internacional por las desafiantes colinas, vientos y bordemar del archipiélago de Chiloé.",
     "featured": true,
-    "source": "organizer"
+    "source": "organizer",
+    "lat": -42.4722,
+    "lng": -73.7731
   },
   {
     "id": "atacama-challenger-2027",
@@ -2220,7 +2380,9 @@
     "registration_url": "https://welcu.com",
     "description": "Tres etapas desafiando el desierto más árido del planeta, dunas de arena, salares y la imponente Cordillera de la Sal.",
     "featured": true,
-    "source": "welcu"
+    "source": "welcu",
+    "lat": -22.9087,
+    "lng": -68.1997
   },
   {
     "id": "gran-fondo-puchuncavi-2027",
@@ -2248,7 +2410,9 @@
     "registration_url": "https://guca.cl/att_tickets/public/e/756/gfp-2027",
     "description": "La Gran Fondo Puchuncaví (GFP) es una carrera que se desarrolla en bicicletas de Ruta, Gravel y...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -32.723,
+    "lng": -71.414
   },
   {
     "id": "desafio-al-limite-2027",
@@ -2275,7 +2439,9 @@
     "registration_url": "https://desafiomaule.cl/",
     "description": "Desde el corazón de Talca hasta la inmensidad de la cordillera. Un viaje de resistencia, desnivel y...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -35.4264,
+    "lng": -71.6554
   },
   {
     "id": "gran-rally-mtb-otono-ranquino-2027",
@@ -2304,7 +2470,9 @@
     "registration_url": "https://ticketsport.cl",
     "description": "Tradicional XCM otoñal entre bosques nativos y cerros con vista panorámica a la cuenca del Ranco.",
     "featured": false,
-    "source": "ticketsport"
+    "source": "ticketsport",
+    "lat": -40.3167,
+    "lng": -72.4833
   },
   {
     "id": "clasica-primero-de-mayo-2027",
@@ -2331,7 +2499,9 @@
     "registration_url": "https://fdnciclismochile.cl",
     "description": "La clásica de velocidad más longeva del ciclismo de ruta en Chile, reuniendo a pelotones de élite y máster.",
     "featured": false,
-    "source": "fedenacich"
+    "source": "fedenacich",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "paris-brest-paris-2027",
@@ -2358,6 +2528,8 @@
     "registration_url": "https://www.paris-brest-paris.org/",
     "description": "Paris-Brest-Paris Randonneur es la prueba de larga distancia más antigua del mundo. Su primera edición fue...",
     "featured": false,
-    "source": "bicineta"
+    "source": "bicineta",
+    "lat": -33.4489,
+    "lng": -70.6693
   }
 ]

@@ -50,10 +50,12 @@ Pedaleo.cl/
 │   ├── js/
 │   │   ├── app.js                   # Controlador de la aplicación, filtros en tiempo real y URLs
 │   │   ├── calendar-exporter.js     # Generador de enlaces a Google Calendar y archivos .ics
-│   │   └── calendar-view.js         # Vista de grilla mensual con columnas de ancho fijo (CSS Grid)
+│   │   ├── calendar-view.js         # Vista de grilla mensual con columnas de ancho fijo (CSS Grid)
+│   │   └── map-view.js              # Mapa interactivo de Chile con pines por disciplina y auto-zoom
 │   └── img/
 │       └── logo.svg                 # Identidad visual sobria de Pedaleo.cl
 ├── data/
+│   ├── communes_coords.json         # Coordenadas geográficas de referencia por comuna y región
 │   ├── events.json                  # Catálogo central de carreras (fuente única de verdad)
 │   └── regions.json                 # Catálogo oficial de las 16 regiones de Chile
 └── scripts/
@@ -97,7 +99,9 @@ Cada carrera debe cumplir con la siguiente estructura JSON validada por `scripts
   "registration_url": "https://...",
   "description": "Descripción concisa del evento.",
   "featured": false,
-  "source": "bicineta"
+  "source": "bicineta",
+  "lat": -34.1819,
+  "lng": -70.6506
 }
 ```
 

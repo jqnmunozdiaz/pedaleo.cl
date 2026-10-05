@@ -11,10 +11,79 @@ import re
 import sys
 from datetime import datetime
 
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8')
+
 from scrapers import BicinetaScraper, GucaScraper, TicketSportScraper
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_FILE = os.path.join(PROJECT_DIR, "data", "events.json")
+COORDS_FILE = os.path.join(PROJECT_DIR, "data", "communes_coords.json")
+
+
+def load_coords():
+    if not os.path.exists(COORDS_FILE):
+        return {}
+    try:
+        with open(COORDS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def assign_coordinates(events):
+    coords_data = load_coords()
+    if not coords_data:
+        return events
+
+    import unicodedata
+
+    def clean_str(s):
+        s = unicodedata.normalize("NFD", s or "")
+        return "".join(c for c in s if unicodedata.category(c) != "Mn").lower().strip()
+
+    normalized_coords = {clean_str(k): v for k, v in coords_data.items()}
+
+    for ev in events:
+        if ev.get("lat") is not None and ev.get("lng") is not None:
+            continue
+        commune_clean = clean_str(ev.get("commune", ""))
+        location_clean = clean_str(ev.get("location", ""))
+        region_clean = clean_str(ev.get("region", ""))
+
+        matched = None
+        # 1. Match commune directly
+        if commune_clean and commune_clean in normalized_coords:
+            matched = normalized_coords[commune_clean]
+
+        # 2. Match commune substring
+        if not matched and commune_clean:
+            for k, coords in normalized_coords.items():
+                if len(k) > 3 and (k in commune_clean or commune_clean in k):
+                    matched = coords
+                    break
+
+        # 3. Match location string
+        if not matched and location_clean:
+            for k, coords in normalized_coords.items():
+                if len(k) > 3 and k in location_clean:
+                    matched = coords
+                    break
+
+        # 4. Match region code
+        if not matched and region_clean in normalized_coords:
+            matched = normalized_coords[region_clean]
+
+        # 5. Default Santiago
+        if not matched:
+            matched = [-33.4489, -70.6693]
+
+        ev["lat"] = round(matched[0], 5)
+        ev["lng"] = round(matched[1], 5)
+
+    return events
 
 
 def load_existing_events():
@@ -29,6 +98,7 @@ def load_existing_events():
 
 
 def save_events(events):
+    events = assign_coordinates(events)
     # Sort chronologically by date
     events.sort(key=lambda x: (x.get("date", ""), x.get("name", "")))
     with open(DATA_FILE, "w", encoding="utf-8") as f:

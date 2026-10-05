@@ -235,7 +235,15 @@ document.addEventListener('DOMContentLoaded', () => {
       this.filteredEvents.sort((a, b) => a.date.localeCompare(b.date));
 
       this.updateURL();
-      this.render();
+      if (this.currentView === 'map' && document.getElementById('pedaleo-chile-map')) {
+        const countEl = document.getElementById('results-count');
+        if (countEl) {
+          countEl.textContent = `${this.filteredEvents.length} carrera${this.filteredEvents.length === 1 ? '' : 's'}`;
+        }
+        MapView.updateMarkers(this.filteredEvents);
+      } else {
+        this.render();
+      }
     },
 
     render() {
@@ -245,7 +253,9 @@ document.addEventListener('DOMContentLoaded', () => {
         countEl.textContent = `${this.filteredEvents.length} carrera${this.filteredEvents.length === 1 ? '' : 's'}`;
       }
 
-      if (this.currentView === 'calendar') {
+      if (this.currentView === 'map') {
+        MapView.render(container, this.filteredEvents, (ev) => this.openDetailModal(ev));
+      } else if (this.currentView === 'calendar') {
         CalendarView.render(container, this.filteredEvents, (ev) => this.openDetailModal(ev));
       } else {
         this.renderAgendaView(container);
@@ -253,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     /**
-     * Sober Agenda View grouped by Month and Day
+     * Simplified, Sober Agenda View grouped by Month
      */
     renderAgendaView(container) {
       if (this.filteredEvents.length === 0) {
@@ -284,7 +294,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
         'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
       ];
-      const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+      const monthShorts = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
+      const dowShorts = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
 
       for (const [monthKey, monthEvents] of Object.entries(groups)) {
         const [year, month] = monthKey.split('-').map(Number);
@@ -299,66 +310,62 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="month-card">
         `;
 
-        // Subgroup by date
-        const dateSubgroups = {};
         monthEvents.forEach(ev => {
-          if (!dateSubgroups[ev.date]) dateSubgroups[ev.date] = [];
-          dateSubgroups[ev.date].push(ev);
-        });
+          const dObj = new Date(ev.date + 'T12:00:00');
+          const dayNum = dObj.getDate();
+          const monthShort = monthShorts[dObj.getMonth()];
+          const dowShort = dowShorts[dObj.getDay()];
 
-        for (const [dateStr, dayEvents] of Object.entries(dateSubgroups)) {
-          const dObj = new Date(dateStr + 'T12:00:00');
-          const dayFormatted = `${String(dObj.getDate()).padStart(2, '0')}/${String(dObj.getMonth() + 1).padStart(2, '0')} — ${dayNames[dObj.getDay()]}`;
+          const discMain = (ev.disciplines[0] || 'MTB').toLowerCase().split('/')[0];
+          const discClass = `badge-${discMain}`;
 
-          html += `<div class="day-subheading">${dayFormatted}</div>`;
+          const distText = ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases'
+            ? ev.distances.join(' • ')
+            : '';
+          const elevText = ev.elevation_gain_m ? `+${ev.elevation_gain_m.toLocaleString('es-CL')}m` : '';
 
-          dayEvents.forEach(ev => {
-            const discMain = (ev.disciplines[0] || 'MTB').toLowerCase().split('/')[0];
-            const discClass = `badge-${discMain}`;
+          html += `
+            <article class="event-item" data-id="${ev.id}">
+              <div class="event-date-chip">
+                <span class="chip-day">${dayNum}</span>
+                <span class="chip-meta">${monthShort} · ${dowShort}</span>
+              </div>
 
-            let distText = ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases'
-              ? ev.distances.join(' &bull; ')
-              : '';
-            let elevText = ev.elevation_gain_m ? `+${ev.elevation_gain_m.toLocaleString('es-CL')}m` : '';
-
-            html += `
-              <article class="event-item" data-id="${ev.id}">
-                <div class="event-col-tag">
-                  <span class="badge-discipline ${discClass}">${ev.disciplines.join(' / ')}</span>
-                </div>
-                <div class="event-col-info">
+              <div class="event-info">
+                <div class="event-headline">
                   <a href="#" class="event-link" data-id="${ev.id}">${ev.name}</a>
-                  <div class="event-submeta">
-                    <span>📍 ${ev.location || ev.commune}</span>
-                    <span class="badge-reg">Región ${ev.region_name || ev.region}</span>
-                    ${distText ? `<span class="dist-meta">🏁 ${distText}</span>` : ''}
-                    ${elevText ? `<span class="elev-meta">⛰️ ${elevText}</span>` : ''}
-                  </div>
+                  <span class="badge-discipline ${discClass}">${ev.disciplines[0] || 'MTB'}</span>
                 </div>
-                <div class="event-col-actions">
-                  <!-- Per-Race Calendar Export Dropdown -->
-                  <div class="dropdown-calendar">
-                    <button class="btn-cal-export" title="Agregar a tu calendario personal">
-                      📅 Agendar
-                    </button>
-                    <div class="cal-dropdown-menu">
-                      <button class="cal-dropdown-item btn-export-google" data-id="${ev.id}">
-                        Google Calendar
-                      </button>
-                      <button class="cal-dropdown-item btn-export-apple" data-id="${ev.id}">
-                        Apple Calendar / Outlook (.ics)
-                      </button>
-                    </div>
-                  </div>
+                <div class="event-submeta">
+                  <span class="meta-location">📍 ${ev.commune || ev.location}</span>
+                  <span class="badge-reg">${ev.region_name || ev.region}</span>
+                  ${distText ? `<span class="dist-meta">🏁 ${distText}</span>` : ''}
+                  ${elevText ? `<span class="elev-meta">⛰️ ${elevText}</span>` : ''}
+                </div>
+              </div>
 
-                  <a href="${ev.registration_url || ev.url}" target="_blank" rel="noopener" class="btn-action-primary">
-                    Inscripción &rarr;
-                  </a>
+              <div class="event-actions">
+                <div class="dropdown-calendar">
+                  <button class="btn-cal-export" title="Agendar en Google o Apple Calendar">
+                    📅 <span class="hide-mobile">Agendar</span>
+                  </button>
+                  <div class="cal-dropdown-menu">
+                    <button class="cal-dropdown-item btn-export-google" data-id="${ev.id}">
+                      Google Calendar
+                    </button>
+                    <button class="cal-dropdown-item btn-export-apple" data-id="${ev.id}">
+                      Apple / Outlook (.ics)
+                    </button>
+                  </div>
                 </div>
-              </article>
-            `;
-          });
-        }
+
+                <a href="${ev.registration_url || ev.url}" target="_blank" rel="noopener" class="btn-action-primary">
+                  Inscripción &rarr;
+                </a>
+              </div>
+            </article>
+          `;
+        });
 
         html += `
             </div>
@@ -371,6 +378,18 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     attachEventRowListeners(container) {
+      // Event row click -> Detail Modal (if not clicking on link or button)
+      container.querySelectorAll('.event-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.dropdown-calendar')) {
+            return;
+          }
+          const id = item.dataset.id;
+          const ev = this.events.find(it => it.id === id);
+          if (ev) this.openDetailModal(ev);
+        });
+      });
+
       // Event title click -> Detail Modal
       container.querySelectorAll('.event-link').forEach(link => {
         link.addEventListener('click', (e) => {

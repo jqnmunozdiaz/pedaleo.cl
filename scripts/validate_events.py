@@ -9,6 +9,11 @@ import os
 import re
 import sys
 
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8')
+
 VALID_REGIONS = {
     "XV", "I", "II", "III", "IV", "V", "RM", "VI",
     "VII", "XVI", "VIII", "IX", "XIV", "X", "XI", "XII"
