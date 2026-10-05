@@ -9,6 +9,7 @@ const MapView = {
   markersGroup: null,
   currentEvents: [],
   onSelectEventCallback: null,
+  currentBoundsList: [],
 
   disciplineColors: {
     'mtb': '#166534',       // Forest Green
@@ -28,78 +29,65 @@ const MapView = {
     return this.disciplineColors.default;
   },
 
-  render(container, events, onSelectEvent) {
-    this.currentEvents = events;
-    this.onSelectEventCallback = onSelectEvent;
+  init() {
+    if (this.map) return; // Already initialized
 
-    // Build map layout structure
-    container.innerHTML = `
-      <section class="map-view-wrapper">
-        <div class="map-header-bar">
-          <div class="map-stats-pill">
-            <span class="map-pulse-dot"></span>
-            <span id="map-counter-text">Cargando mapa...</span>
-          </div>
-          <div class="map-legend">
-            <span class="legend-chip"><span class="legend-dot" style="background:#166534"></span>MTB</span>
-            <span class="legend-chip"><span class="legend-dot" style="background:#1e40af"></span>Ruta</span>
-            <span class="legend-chip"><span class="legend-dot" style="background:#b45309"></span>Gravel</span>
-            <span class="legend-chip"><span class="legend-dot" style="background:#7e22ce"></span>Ultra</span>
-            <span class="legend-chip"><span class="legend-dot" style="background:#b91c1c"></span>Enduro</span>
-          </div>
-        </div>
+    if (typeof L === 'undefined') {
+      console.warn('Leaflet (L) is not loaded yet');
+      return;
+    }
 
-        <div id="pedaleo-chile-map" class="chile-map-canvas"></div>
-
-        <div class="map-localities-section">
-          <h3 class="map-localities-title">Carreras en el mapa (${events.length})</h3>
-          <div class="map-localities-grid" id="map-localities-grid"></div>
-        </div>
-      </section>
-    `;
-
-    // Initialize Leaflet map
-    this.initMap();
-    this.updateMarkers(events);
-  },
-
-  initMap() {
     const mapElement = document.getElementById('pedaleo-chile-map');
     if (!mapElement) return;
 
-    if (this.map) {
-      this.map.remove();
-      this.map = null;
+    if (mapElement._leaflet_id) {
+      delete mapElement._leaflet_id;
     }
 
-    // Centered on central Chile with bounds allowing the whole territory
-    this.map = L.map('pedaleo-chile-map', {
-      center: [-35.6751, -71.5430],
-      zoom: 6,
-      minZoom: 4,
-      maxZoom: 16,
-      zoomControl: true,
-      scrollWheelZoom: true
-    });
+    try {
+      this.map = L.map('pedaleo-chile-map', {
+        center: [-35.6751, -71.5430],
+        zoom: 5,
+        minZoom: 4,
+        maxZoom: 16,
+        zoomControl: true,
+        scrollWheelZoom: true
+      });
 
-    // Elegant, sober CartoDB Positron basemap tiles
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 19
-    }).addTo(this.map);
+      // Sober CartoDB Positron tiles
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }).addTo(this.map);
 
-    this.markersGroup = L.featureGroup().addTo(this.map);
+      this.markersGroup = L.featureGroup().addTo(this.map);
+    } catch (err) {
+      console.error('Error initializing Leaflet map:', err);
+    }
+  },
 
-    // Invalidate size after layout completes
+  show(events, onSelectEvent) {
+    this.currentEvents = events;
+    this.onSelectEventCallback = onSelectEvent;
+
+    this.init();
+
+    // Update markers and trigger invalidateSize on next tick after visibility change
+    this.updateMarkers(events);
+
     setTimeout(() => {
       if (this.map) {
         this.map.invalidateSize();
+        if (this.currentBoundsList && this.currentBoundsList.length) {
+          this.autoZoom(this.currentBoundsList);
+        }
       }
-    }, 150);
+    }, 120);
   },
 
   updateMarkers(events) {
+    this.init();
     if (!this.map || !this.markersGroup) return;
 
     this.markersGroup.clearLayers();
@@ -112,6 +100,7 @@ const MapView = {
     }
 
     if (!events.length) {
+      this.currentBoundsList = [];
       this.map.setView([-35.6751, -71.5430], 5);
       const grid = document.getElementById('map-localities-grid');
       if (grid) {
@@ -120,19 +109,24 @@ const MapView = {
       return;
     }
 
-    // Group events by locality coordinates (round to 3 decimals to cluster very close points in same town)
+    // Group events by locality coordinates (round to 3 decimals to cluster points in same town)
     const localityGroups = {};
     events.forEach(ev => {
-      const lat = typeof ev.lat === 'number' ? ev.lat : -33.4489;
-      const lng = typeof ev.lng === 'number' ? ev.lng : -70.6693;
+      const lat = typeof ev.lat === 'number' && !isNaN(ev.lat) ? ev.lat : -33.4489;
+      const lng = typeof ev.lng === 'number' && !isNaN(ev.lng) ? ev.lng : -70.6693;
       const key = `${lat.toFixed(3)},${lng.toFixed(3)}`;
 
       if (!localityGroups[key]) {
+        // Clean commune name
+        let rawLoc = ev.commune || ev.location || '';
+        let cleanCom = rawLoc.split(',')[0].split('-')[0].replace(/\b(Regi[oó]n\s+[A-Za-z\s]+|RM|XV|XVI|XIV|XII|XI|VIII|VII|VI|IV|III|II|I|X|V)\b/gi, '').trim();
+        if (!cleanCom) cleanCom = ev.region_name || 'Chile';
+
         localityGroups[key] = {
           lat: lat,
           lng: lng,
-          commune: ev.commune || ev.location || 'Chile',
-          region: ev.region_name || ev.region || '',
+          commune: cleanCom,
+          region: ev.region || '',
           events: []
         };
       }
@@ -181,6 +175,11 @@ const MapView = {
 
       group.events.forEach(ev => {
         const discColor = this.getDisciplineColor(ev.disciplines);
+        const distText = ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases'
+          ? ev.distances.join(' • ')
+          : '';
+        const elevText = ev.elevation_gain_m ? `+${ev.elevation_gain_m}m` : '';
+
         popupHtml += `
           <div class="map-popup-race-item">
             <div class="map-popup-race-top">
@@ -191,8 +190,8 @@ const MapView = {
             </div>
             <div class="map-popup-race-name">${ev.name}</div>
             <div class="map-popup-race-meta">
-              ${ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases' ? `<span>🏁 ${ev.distances.join(' • ')}</span>` : ''}
-              ${ev.elevation_gain_m ? `<span>⛰️ +${ev.elevation_gain_m}m</span>` : ''}
+              ${distText ? `<span>🏁 ${distText}</span>` : ''}
+              ${elevText ? `<span>⛰️ ${elevText}</span>` : ''}
             </div>
             <div class="map-popup-actions">
               <button class="map-btn-detail" data-id="${ev.id}">Ver Ficha</button>
@@ -227,6 +226,8 @@ const MapView = {
       this.markersGroup.addLayer(marker);
     });
 
+    this.currentBoundsList = markerBounds;
+
     // Render Localities Quick Grid below the map
     this.renderLocalitiesGrid(localityGroups);
 
@@ -240,20 +241,22 @@ const MapView = {
       return;
     }
 
-    if (boundsList.length === 1) {
-      // Exactly 1 locality/race: smooth zoom to neighborhood level
-      this.map.flyTo(boundsList[0], 11, {
-        duration: 0.8,
-        easeLinearity: 0.25
-      });
-    } else {
-      // Multiple markers: fit bounds with comfortable padding
-      const bounds = L.latLngBounds(boundsList);
-      this.map.flyToBounds(bounds, {
-        padding: [50, 50],
-        maxZoom: 12,
-        duration: 0.8
-      });
+    try {
+      if (boundsList.length === 1) {
+        this.map.flyTo(boundsList[0], 11, {
+          duration: 0.8,
+          easeLinearity: 0.25
+        });
+      } else {
+        const bounds = L.latLngBounds(boundsList);
+        this.map.flyToBounds(bounds, {
+          padding: [50, 50],
+          maxZoom: 12,
+          duration: 0.8
+        });
+      }
+    } catch (e) {
+      console.warn('Error in autoZoom:', e);
     }
   },
 
@@ -271,7 +274,7 @@ const MapView = {
             <strong>${group.commune}</strong>
             <span class="loc-badge">${group.events.length}</span>
           </div>
-          <div class="loc-card-region">${group.region}</div>
+          <div class="loc-card-region">Región ${group.region}</div>
           <div class="loc-card-races">
             ${group.events.slice(0, 2).map(e => `<span>• ${e.name}</span>`).join('')}
             ${group.events.length > 2 ? `<span class="loc-more">+${group.events.length - 2} más</span>` : ''}
@@ -289,14 +292,12 @@ const MapView = {
         const lng = parseFloat(e.currentTarget.dataset.lng);
         if (this.map && !isNaN(lat) && !isNaN(lng)) {
           this.map.flyTo([lat, lng], 12, { duration: 0.6 });
-          // Find and open popup
           this.markersGroup.eachLayer(layer => {
             const pos = layer.getLatLng();
             if (Math.abs(pos.lat - lat) < 0.001 && Math.abs(pos.lng - lng) < 0.001) {
               layer.openPopup();
             }
           });
-          // Scroll to map smoothly
           document.getElementById('pedaleo-chile-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       });

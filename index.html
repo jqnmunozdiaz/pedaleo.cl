@@ -6,7 +6,7 @@
   <title>Pedaleo.cl — Calendario de Ciclismo en Chile | MTB, Ruta, Gravel</title>
   <meta name="description" content="Calendario sobrio y actualizado de carreras de ciclismo en Chile. Filtra por región, disciplina y agéndalas directamente en Google Calendar o Apple Calendar.">
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -98,13 +98,43 @@
     </div>
   </section>
 
-  <!-- Contenedor Principal (Agenda / Calendario) -->
+  <!-- Contenedor Principal (Vistas Dedicadas: Agenda / Mapa / Calendario) -->
   <main class="main-content">
-    <div id="events-container">
+    <!-- Vista Agenda (Lista) -->
+    <div id="view-agenda" class="app-view-container">
       <div class="empty-state">
         <p>Cargando carreras...</p>
       </div>
     </div>
+
+    <!-- Vista Mapa Interactivo de Chile -->
+    <div id="view-map" class="app-view-container" style="display:none">
+      <section class="map-view-wrapper">
+        <div class="map-header-bar">
+          <div class="map-stats-pill">
+            <span class="map-pulse-dot"></span>
+            <span id="map-counter-text">Cargando mapa...</span>
+          </div>
+          <div class="map-legend">
+            <span class="legend-chip"><span class="legend-dot" style="background:#166534"></span>MTB</span>
+            <span class="legend-chip"><span class="legend-dot" style="background:#1e40af"></span>Ruta</span>
+            <span class="legend-chip"><span class="legend-dot" style="background:#b45309"></span>Gravel</span>
+            <span class="legend-chip"><span class="legend-dot" style="background:#7e22ce"></span>Ultra</span>
+            <span class="legend-chip"><span class="legend-dot" style="background:#b91c1c"></span>Enduro</span>
+          </div>
+        </div>
+
+        <div id="pedaleo-chile-map" class="chile-map-canvas"></div>
+
+        <div class="map-localities-section">
+          <h3 class="map-localities-title" id="map-localities-title">Carreras en el mapa</h3>
+          <div class="map-localities-grid" id="map-localities-grid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Vista Calendario Mensual -->
+    <div id="view-calendar" class="app-view-container" style="display:none"></div>
   </main>
 
   <!-- Modal Detalle de Carrera -->
@@ -271,7 +301,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="assets/vendor/leaflet/leaflet.js"></script>
   <script src="assets/js/calendar-exporter.js"></script>
   <script src="assets/js/calendar-view.js"></script>
   <script src="assets/js/map-view.js"></script>

@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.populateRegionSelect();
       } catch (err) {
         console.error('Error cargando los datos:', err);
-        const container = document.getElementById('events-container');
+        const container = document.getElementById('view-agenda');
         if (container) {
           container.innerHTML = `
             <div class="empty-state">
@@ -255,30 +255,53 @@ document.addEventListener('DOMContentLoaded', () => {
       this.filteredEvents.sort((a, b) => a.date.localeCompare(b.date));
 
       this.updateURL();
-      if (this.currentView === 'map' && document.getElementById('pedaleo-chile-map')) {
-        const countEl = document.getElementById('results-count');
-        if (countEl) {
-          countEl.textContent = `${this.filteredEvents.length} carrera${this.filteredEvents.length === 1 ? '' : 's'}`;
-        }
-        MapView.updateMarkers(this.filteredEvents);
-      } else {
-        this.render();
-      }
-    },
-
-    render() {
-      const container = document.getElementById('events-container');
       const countEl = document.getElementById('results-count');
       if (countEl) {
         countEl.textContent = `${this.filteredEvents.length} carrera${this.filteredEvents.length === 1 ? '' : 's'}`;
       }
 
       if (this.currentView === 'map') {
-        MapView.render(container, this.filteredEvents, (ev) => this.openDetailModal(ev));
+        MapView.updateMarkers(this.filteredEvents);
       } else if (this.currentView === 'calendar') {
-        CalendarView.render(container, this.filteredEvents, (ev) => this.openDetailModal(ev));
+        const calContainer = document.getElementById('view-calendar');
+        if (calContainer) {
+          CalendarView.render(calContainer, this.filteredEvents, (ev) => this.openDetailModal(ev));
+        }
       } else {
-        this.renderAgendaView(container);
+        const agendaContainer = document.getElementById('view-agenda');
+        if (agendaContainer) {
+          this.renderAgendaView(agendaContainer);
+        }
+      }
+    },
+
+    render() {
+      const countEl = document.getElementById('results-count');
+      if (countEl) {
+        countEl.textContent = `${this.filteredEvents.length} carrera${this.filteredEvents.length === 1 ? '' : 's'}`;
+      }
+
+      const agendaContainer = document.getElementById('view-agenda');
+      const mapContainer = document.getElementById('view-map');
+      const calContainer = document.getElementById('view-calendar');
+
+      if (!agendaContainer || !mapContainer || !calContainer) return;
+
+      if (this.currentView === 'map') {
+        agendaContainer.style.display = 'none';
+        mapContainer.style.display = 'block';
+        calContainer.style.display = 'none';
+        MapView.show(this.filteredEvents, (ev) => this.openDetailModal(ev));
+      } else if (this.currentView === 'calendar') {
+        agendaContainer.style.display = 'none';
+        mapContainer.style.display = 'none';
+        calContainer.style.display = 'block';
+        CalendarView.render(calContainer, this.filteredEvents, (ev) => this.openDetailModal(ev));
+      } else {
+        agendaContainer.style.display = 'block';
+        mapContainer.style.display = 'none';
+        calContainer.style.display = 'none';
+        this.renderAgendaView(agendaContainer);
       }
     },
 
