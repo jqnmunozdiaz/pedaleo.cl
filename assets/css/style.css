@@ -300,7 +300,9 @@ button {
 .filter-pills-section {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .filter-pills-label {
@@ -310,6 +312,7 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.03em;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .pills-group {
@@ -318,6 +321,14 @@ button {
   gap: 0.25rem;
   overflow-x: auto;
   max-width: 100%;
+  min-width: 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 1px 0;
+}
+
+.pills-group::-webkit-scrollbar {
+  display: none;
 }
 
 .pill-btn {
@@ -331,6 +342,7 @@ button {
   white-space: nowrap;
   cursor: pointer;
   transition: all 0.12s;
+  flex-shrink: 0;
 }
 
 .pill-btn:hover {
@@ -353,33 +365,107 @@ button {
   color: white;
 }
 
-.distance-group {
+/* Filtro de Distancia Continuo */
+.filter-distance-section {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.distance-label-row {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  overflow-x: auto;
+  gap: 0.35rem;
+  flex-shrink: 0;
 }
 
-.pill-distance {
-  padding: 0.28rem 0.58rem;
-  font-size: 0.76rem;
-  font-weight: 600;
-  border-radius: 4px;
-  background: var(--bg-muted);
-  color: var(--text-muted);
-  border: 1px solid transparent;
+.distance-range-display {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #166534;
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
   white-space: nowrap;
-  transition: all 0.12s;
 }
 
-.pill-distance:hover {
+.dual-range-wrapper {
+  position: relative;
+  width: 170px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dual-range-track {
+  position: absolute;
+  width: 100%;
+  height: 6px;
   background: #e2e8f0;
-  color: var(--text-dark);
+  border-radius: 999px;
+  z-index: 1;
 }
 
-.pill-distance.active {
-  background: var(--text-dark);
-  color: white;
+.dual-range-fill {
+  position: absolute;
+  height: 6px;
+  background: #166534;
+  border-radius: 999px;
+  z-index: 2;
+  left: 0%;
+  right: 0%;
+  transition: left 0.04s ease, right 0.04s ease;
+}
+
+.dual-range-wrapper input[type="range"] {
+  position: absolute;
+  width: 100%;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+  z-index: 4;
+}
+
+.dual-range-wrapper input[type="range"]:focus {
+  outline: none;
+}
+
+.dual-range-wrapper input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2.5px solid #166534;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.1s ease;
+}
+
+.dual-range-wrapper input[type="range"]::-webkit-slider-thumb:hover,
+.dual-range-wrapper input[type="range"]::-webkit-slider-thumb:active {
+  transform: scale(1.18);
+  border-color: #14532d;
+}
+
+.dual-range-wrapper input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2.5px solid #166534;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .btn-filter-reset {
@@ -1700,41 +1786,211 @@ button {
 }
 
 @media (max-width: 768px) {
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .site-header {
+    padding: 0.35rem 0.65rem;
+  }
+
+  .brand-logo-text {
+    font-size: 1.15rem;
+  }
+
+  .btn-header {
+    padding: 0.32rem 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  .hero-minimal {
+    margin: 0.5rem auto 0.35rem auto;
+    padding: 0 0.65rem;
+  }
+
+  .hero-heading {
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .hero-stats-line {
+    font-size: 0.78rem;
+  }
+
+  .main-content {
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+  }
+
   .filter-wrapper {
     padding: 0.35rem 0.5rem 0.45rem 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .filter-card {
+    padding: 0.45rem 0.55rem;
+    gap: 0.4rem;
+  }
+
+  .filter-search-box {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .filter-search-input {
+    font-size: 0.82rem;
+    padding: 0.4rem 0.65rem 0.4rem 1.85rem;
+  }
+
+  .filter-search-icon {
+    left: 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  .filter-select {
+    flex: 1 1 calc(52% - 0.2rem);
+    min-width: 0;
+    font-size: 0.78rem;
+    padding: 0.38rem 1.6rem 0.38rem 0.5rem;
+  }
+
+  .view-toggle-group {
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+
+  .view-btn {
+    padding: 0.3rem 0.48rem;
+    font-size: 0.75rem;
+  }
+
+  .filter-pills-bar {
+    gap: 0.4rem;
+    padding-top: 0.45rem;
+    margin-top: 0.35rem;
+    box-sizing: border-box;
+  }
+
+  .filter-pills-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    box-sizing: border-box;
+  }
+
+  .filter-pills-label {
+    font-size: 0.68rem;
+    flex: 0 0 54px;
+    width: 54px;
+  }
+
+  .pills-group {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 0.2rem;
+    padding-bottom: 2px;
+  }
+
+  .pill-btn {
+    padding: 0.22rem 0.48rem;
+    font-size: 0.72rem;
+  }
+
+  .filter-distance-section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+  }
+
+  .distance-label-row {
+    flex: 0 0 auto;
+  }
+
+  .dual-range-wrapper {
+    flex: 1 1 140px;
+    min-width: 130px;
+    max-width: 180px;
+  }
+
+  .btn-filter-reset {
+    margin-left: auto;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.72rem;
+  }
+
+  .month-heading {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .month-name {
+    font-size: 0.92rem;
+  }
+
+  .month-count {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
   }
 
   .event-item {
-    grid-template-columns: 46px 1fr;
+    grid-template-columns: 44px 1fr;
     grid-template-areas:
       "date title"
       "date loc"
       "actions actions";
-    gap: 0.3rem 0.55rem;
+    gap: 0.25rem 0.5rem;
     padding: 0.45rem 0.65rem;
     white-space: normal;
   }
 
   .event-col-date {
     grid-area: date;
-    width: 46px;
-    min-width: 46px;
-    max-width: 46px;
-    flex: 0 0 46px;
-    padding: 0.15rem 0.15rem;
+    width: 44px;
+    min-width: 44px;
+    max-width: 44px;
+    flex: 0 0 44px;
+    padding: 0.15rem 0.1rem;
   }
 
   .chip-dow {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
   }
 
   .chip-day {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
 
   .event-link {
+    font-size: 0.88rem;
     white-space: normal;
+  }
+
+  .event-subtitle-row {
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+
+  .badge-discipline {
+    font-size: 0.56rem;
+    padding: 0.08rem 0.28rem;
+  }
+
+  .event-col-loc {
+    font-size: 0.74rem;
+    gap: 0.25rem;
+  }
+
+  .badge-reg {
+    font-size: 0.68rem;
+    padding: 0.05rem 0.3rem;
   }
 
   .event-col-title {
@@ -1748,9 +2004,18 @@ button {
   .event-col-actions {
     grid-column: 1 / -1;
     grid-area: actions;
+    display: flex;
+    align-items: center;
     justify-content: flex-end;
+    gap: 0.4rem;
     padding-top: 0.35rem;
     border-top: 1px dashed #e2e8f0;
+  }
+
+  .btn-action-primary,
+  .btn-cal-export {
+    padding: 0.28rem 0.55rem;
+    font-size: 0.76rem;
   }
 
   .hide-mobile {

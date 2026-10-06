@@ -7,7 +7,7 @@
   <meta name="description" content="Calendario sobrio y actualizado de carreras de ciclismo en Chile. Filtra por región, disciplina y agéndalas directamente en Google Calendar o Apple Calendar.">
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
   <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261006_subtitleclean">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261006_range_multimonth">
 </head>
 <body>
 
@@ -97,15 +97,17 @@
         </div>
       </div>
 
-      <!-- Distancias -->
-      <div class="filter-pills-section">
-        <span class="filter-pills-label">Distancia:</span>
-        <div class="pills-group" id="filter-distance-group">
-          <button class="pill-btn pill-distance active" data-distance="all">Todas</button>
-          <button class="pill-btn pill-distance" data-distance="short">&lt; 40 km</button>
-          <button class="pill-btn pill-distance" data-distance="mid">40 - 90 km</button>
-          <button class="pill-btn pill-distance" data-distance="long">&gt; 90 km</button>
-          <button class="pill-btn pill-distance" data-distance="ultra">Ultra (&gt;200 km)</button>
+      <!-- Distancia (Barra continua interactiva con rango inicio y fin) -->
+      <div class="filter-pills-section filter-distance-section">
+        <div class="distance-label-row">
+          <span class="filter-pills-label">Distancia:</span>
+          <span class="distance-range-display" id="distance-range-text">Todas</span>
+        </div>
+        <div class="dual-range-wrapper">
+          <div class="dual-range-track"></div>
+          <div class="dual-range-fill" id="distance-range-fill"></div>
+          <input type="range" id="distance-min-range" min="0" max="250" step="5" value="0" aria-label="Distancia mínima en km">
+          <input type="range" id="distance-max-range" min="0" max="250" step="5" value="250" aria-label="Distancia máxima en km">
         </div>
       </div>
 
@@ -336,9 +338,9 @@
 
   <!-- Scripts -->
   <script src="assets/vendor/leaflet/leaflet.js"></script>
-  <script src="assets/js/calendar-exporter.js?v=20261006_subtitleclean"></script>
-  <script src="assets/js/calendar-view.js?v=20261006_subtitleclean"></script>
-  <script src="assets/js/map-view.js?v=20261006_subtitleclean"></script>
-  <script src="assets/js/app.js?v=20261006_subtitleclean"></script>
+  <script src="assets/js/calendar-exporter.js?v=20261006_range_multimonth"></script>
+  <script src="assets/js/calendar-view.js?v=20261006_range_multimonth"></script>
+  <script src="assets/js/map-view.js?v=20261006_range_multimonth"></script>
+  <script src="assets/js/app.js?v=20261006_range_multimonth"></script>
 </body>
 </html>

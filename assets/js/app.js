@@ -13,8 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
       search: '',
       region: '',
       disciplines: [],
-      month: '',
-      distance: 'all'
+      months: [],
+      distMin: 0,
+      distMax: 250
     },
 
     currentView: 'agenda', // 'agenda' | 'calendar'
@@ -79,31 +80,46 @@ document.addEventListener('DOMContentLoaded', () => {
       const sortedMonths = Array.from(monthSet).sort();
       const monthNamesShort = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
 
-      let html = '<button class="pill-btn pill-month active" data-month="">Todos</button>';
+      const hasActiveMonths = this.filters.months && this.filters.months.length > 0;
+      let html = `<button class="pill-btn pill-month ${hasActiveMonths ? '' : 'active'}" data-month="">Todos</button>`;
       sortedMonths.forEach(mKey => {
         const [year, month] = mKey.split('-').map(Number);
         const label = `${monthNamesShort[month - 1]} ${year}`;
-        html += `<button class="pill-btn pill-month" data-month="${mKey}">${label}</button>`;
+        const isActive = this.filters.months.includes(mKey);
+        html += `<button class="pill-btn pill-month ${isActive ? 'active' : ''}" data-month="${mKey}">${label}</button>`;
       });
 
       container.innerHTML = html;
 
       container.querySelectorAll('.pill-month').forEach(btn => {
         btn.addEventListener('click', (e) => {
-          container.querySelectorAll('.pill-month').forEach(b => b.classList.remove('active'));
-          e.currentTarget.classList.add('active');
-          this.filters.month = e.currentTarget.dataset.month;
+          const val = (e.currentTarget.dataset.month || '').trim();
+          if (!val) {
+            // Click en "Todos": limpia selecciones activas
+            this.filters.months = [];
+          } else {
+            // Alternar selección múltiple del mes
+            const idx = this.filters.months.indexOf(val);
+            if (idx > -1) {
+              this.filters.months.splice(idx, 1);
+            } else {
+              this.filters.months.push(val);
+            }
+          }
+
+          const hasSelected = this.filters.months.length > 0;
+          container.querySelectorAll('.pill-month').forEach(b => {
+            const bVal = (b.dataset.month || '').trim();
+            if (!bVal) {
+              b.classList.toggle('active', !hasSelected);
+            } else {
+              b.classList.toggle('active', this.filters.months.includes(bVal));
+            }
+          });
+
           this.applyFilters();
         });
       });
-
-      if (this.filters.month) {
-        const target = container.querySelector(`[data-month="${this.filters.month}"]`);
-        if (target) {
-          container.querySelectorAll('.pill-month').forEach(b => b.classList.remove('active'));
-          target.classList.add('active');
-        }
-      }
     },
 
     initFiltersFromURL() {
@@ -117,8 +133,16 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         this.filters.disciplines = [];
       }
-      if (params.get('mes')) this.filters.month = params.get('mes');
-      if (params.get('distancia')) this.filters.distance = params.get('distancia');
+      if (params.get('meses')) {
+        this.filters.months = params.get('meses').split(',').map(m => m.trim()).filter(Boolean);
+      } else if (params.get('mes')) {
+        this.filters.months = [params.get('mes').trim()];
+      } else {
+        this.filters.months = [];
+      }
+
+      if (params.get('dist_min')) this.filters.distMin = parseInt(params.get('dist_min'), 10) || 0;
+      if (params.get('dist_max')) this.filters.distMax = parseInt(params.get('dist_max'), 10) || 250;
       if (params.get('buscar')) this.filters.search = params.get('buscar');
       if (params.get('vista')) this.currentView = params.get('vista');
 
@@ -139,11 +163,22 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       // Month pills active state
-      if (this.filters.month) {
-        document.querySelectorAll('.pill-month').forEach(b => {
-          b.classList.toggle('active', b.dataset.month === this.filters.month);
-        });
-      }
+      const hasMonths = this.filters.months.length > 0;
+      document.querySelectorAll('.pill-month').forEach(b => {
+        const mVal = (b.dataset.month || '').trim();
+        if (!mVal) {
+          b.classList.toggle('active', !hasMonths);
+        } else {
+          b.classList.toggle('active', this.filters.months.includes(mVal));
+        }
+      });
+
+      // Distance inputs initial sync
+      const minSlider = document.getElementById('distance-min-range');
+      const maxSlider = document.getElementById('distance-max-range');
+      if (minSlider) minSlider.value = this.filters.distMin;
+      if (maxSlider) maxSlider.value = this.filters.distMax;
+      if (this.updateDistanceUI) this.updateDistanceUI();
 
       this.updateViewButtons();
     },
@@ -177,8 +212,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams();
       if (this.filters.region) params.set('region', this.filters.region);
       if (this.filters.disciplines.length > 0) params.set('disciplina', this.filters.disciplines.join(','));
-      if (this.filters.month) params.set('mes', this.filters.month);
-      if (this.filters.distance !== 'all') params.set('distancia', this.filters.distance);
+      if (this.filters.months.length > 0) params.set('meses', this.filters.months.join(','));
+      if (this.filters.distMin > 0) params.set('dist_min', this.filters.distMin);
+      if (this.filters.distMax < 250) params.set('dist_max', this.filters.distMax);
       if (this.filters.search) params.set('buscar', this.filters.search);
       if (this.currentView !== 'agenda') params.set('vista', this.currentView);
 
@@ -237,15 +273,76 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
-      // Distance Pills
-      document.querySelectorAll('.pill-distance').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          document.querySelectorAll('.pill-distance').forEach(b => b.classList.remove('active'));
-          e.currentTarget.classList.add('active');
-          this.filters.distance = e.currentTarget.dataset.distance;
-          this.applyFilters();
-        });
-      });
+      // Distance Dual Range Slider (Barra continua interactiva de inicio y fin)
+      const minSlider = document.getElementById('distance-min-range');
+      const maxSlider = document.getElementById('distance-max-range');
+      const fillEl = document.getElementById('distance-range-fill');
+      const textEl = document.getElementById('distance-range-text');
+
+      const updateDistanceUI = () => {
+        if (!minSlider || !maxSlider) return;
+        const minVal = parseInt(minSlider.value, 10);
+        const maxVal = parseInt(maxSlider.value, 10);
+
+        const minPercent = (minVal / 250) * 100;
+        const maxPercent = (maxVal / 250) * 100;
+
+        if (fillEl) {
+          fillEl.style.left = `${minPercent}%`;
+          fillEl.style.right = `${100 - maxPercent}%`;
+        }
+
+        if (textEl) {
+          if (minVal === 0 && maxVal === 250) {
+            textEl.textContent = 'Todas';
+          } else if (maxVal === 250) {
+            textEl.textContent = `≥ ${minVal} km`;
+          } else if (minVal === 0) {
+            textEl.textContent = `≤ ${maxVal} km`;
+          } else if (minVal === maxVal) {
+            textEl.textContent = `${minVal} km`;
+          } else {
+            textEl.textContent = `${minVal} — ${maxVal} km`;
+          }
+        }
+      };
+
+      this.updateDistanceUI = updateDistanceUI;
+      updateDistanceUI();
+
+      const handleSliderInput = (isMin) => {
+        if (!minSlider || !maxSlider) return;
+        let minVal = parseInt(minSlider.value, 10);
+        let maxVal = parseInt(maxSlider.value, 10);
+
+        if (minVal > maxVal) {
+          if (isMin) {
+            maxSlider.value = minVal;
+          } else {
+            minSlider.value = maxVal;
+          }
+        }
+
+        if (isMin) {
+          minSlider.style.zIndex = '5';
+          maxSlider.style.zIndex = '4';
+        } else {
+          minSlider.style.zIndex = '4';
+          maxSlider.style.zIndex = '5';
+        }
+
+        this.filters.distMin = parseInt(minSlider.value, 10);
+        this.filters.distMax = parseInt(maxSlider.value, 10);
+        updateDistanceUI();
+        this.applyFilters();
+      };
+
+      if (minSlider) {
+        minSlider.addEventListener('input', () => handleSliderInput(true));
+      }
+      if (maxSlider) {
+        maxSlider.addEventListener('input', () => handleSliderInput(false));
+      }
 
       // Clear Filters
       const clearBtn = document.getElementById('clear-filters');
@@ -254,23 +351,29 @@ document.addEventListener('DOMContentLoaded', () => {
           this.filters.search = '';
           this.filters.region = '';
           this.filters.disciplines = [];
-          this.filters.month = '';
-          this.filters.distance = 'all';
+          this.filters.months = [];
+          this.filters.distMin = 0;
+          this.filters.distMax = 250;
 
           if (searchInput) searchInput.value = '';
           if (regionSelect) regionSelect.value = '';
 
-          document.querySelectorAll('.pill-discipline').forEach(b => {
+          discButtons.forEach(b => {
             b.classList.toggle('active', (b.dataset.discipline || '') === '');
           });
 
-          document.querySelectorAll('.pill-month').forEach(b => {
-            b.classList.toggle('active', b.dataset.month === '');
-          });
+          const monthContainer = document.getElementById('filter-month-group');
+          if (monthContainer) {
+            monthContainer.querySelectorAll('.pill-month').forEach(b => {
+              b.classList.toggle('active', (b.dataset.month || '') === '');
+            });
+          }
 
-          document.querySelectorAll('.pill-distance').forEach(b => {
-            b.classList.toggle('active', b.dataset.distance === 'all');
-          });
+          if (minSlider && maxSlider) {
+            minSlider.value = 0;
+            maxSlider.value = 250;
+            updateDistanceUI();
+          }
 
           this.applyFilters();
         });
@@ -394,18 +497,24 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!match) return false;
         }
 
-        // Month
-        if (this.filters.month && !ev.date.startsWith(this.filters.month)) {
-          return false;
+        // Month (Multi-selección no excluyente)
+        if (this.filters.months && this.filters.months.length > 0) {
+          const match = this.filters.months.some(m => ev.date.startsWith(m));
+          if (!match) return false;
         }
 
-        // Distance
-        if (this.filters.distance !== 'all') {
-          const maxDist = ev.distance_max_km || 0;
-          if (this.filters.distance === 'short' && maxDist > 40) return false;
-          if (this.filters.distance === 'mid' && (maxDist < 40 || maxDist > 90)) return false;
-          if (this.filters.distance === 'long' && maxDist < 90) return false;
-          if (this.filters.distance === 'ultra' && maxDist < 200) return false;
+        // Distance (Rango continuo de inicio y fin)
+        if (this.filters.distMin > 0 || this.filters.distMax < 250) {
+          const evMin = ev.distance_min_km || 0;
+          const evMax = ev.distance_max_km || evMin;
+          const userMin = this.filters.distMin;
+          const userMax = this.filters.distMax;
+
+          if (userMax === 250) {
+            if (evMax < userMin) return false;
+          } else {
+            if (evMin > userMax || evMax < userMin) return false;
+          }
         }
 
         return true;
