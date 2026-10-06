@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       search: '',
       region: '',
       discipline: '',
+      month: '',
       distance: 'all'
     },
 
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.events = await eventsRes.json();
         this.regions = await regionsRes.json();
         this.populateRegionSelect();
+        this.populateMonthPills();
       } catch (err) {
         console.error('Error cargando los datos:', err);
         const container = document.getElementById('view-agenda');
@@ -54,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.regions.forEach(reg => {
         const opt = document.createElement('option');
         opt.value = reg.id;
-        opt.textContent = `${reg.roman} - ${reg.name}`;
+        opt.textContent = reg.short || reg.name;
         select.appendChild(opt);
       });
       if (this.filters.region) {
@@ -62,10 +64,52 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     },
 
+    populateMonthPills() {
+      const container = document.getElementById('filter-month-group');
+      if (!container) return;
+
+      const monthSet = new Set();
+      this.events.forEach(ev => {
+        if (ev.date && ev.date.length >= 7) {
+          monthSet.add(ev.date.substring(0, 7));
+        }
+      });
+
+      const sortedMonths = Array.from(monthSet).sort();
+      const monthNamesShort = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+
+      let html = '<button class="pill-btn pill-month active" data-month="">Todos</button>';
+      sortedMonths.forEach(mKey => {
+        const [year, month] = mKey.split('-').map(Number);
+        const label = `${monthNamesShort[month - 1]} ${year}`;
+        html += `<button class="pill-btn pill-month" data-month="${mKey}">${label}</button>`;
+      });
+
+      container.innerHTML = html;
+
+      container.querySelectorAll('.pill-month').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          container.querySelectorAll('.pill-month').forEach(b => b.classList.remove('active'));
+          e.currentTarget.classList.add('active');
+          this.filters.month = e.currentTarget.dataset.month;
+          this.applyFilters();
+        });
+      });
+
+      if (this.filters.month) {
+        const target = container.querySelector(`[data-month="${this.filters.month}"]`);
+        if (target) {
+          container.querySelectorAll('.pill-month').forEach(b => b.classList.remove('active'));
+          target.classList.add('active');
+        }
+      }
+    },
+
     initFiltersFromURL() {
       const params = new URLSearchParams(window.location.search);
       if (params.get('region')) this.filters.region = params.get('region');
       if (params.get('disciplina')) this.filters.discipline = params.get('disciplina');
+      if (params.get('mes')) this.filters.month = params.get('mes');
       if (params.get('distancia')) this.filters.distance = params.get('distancia');
       if (params.get('buscar')) this.filters.search = params.get('buscar');
       if (params.get('vista')) this.currentView = params.get('vista');
@@ -75,9 +119,18 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput.value = this.filters.search;
       }
 
-      const discSelect = document.getElementById('filter-discipline');
-      if (discSelect && this.filters.discipline) {
-        discSelect.value = this.filters.discipline;
+      // Discipline pills active state
+      if (this.filters.discipline) {
+        document.querySelectorAll('.pill-discipline').forEach(b => {
+          b.classList.toggle('active', b.dataset.discipline.toLowerCase() === this.filters.discipline.toLowerCase());
+        });
+      }
+
+      // Month pills active state
+      if (this.filters.month) {
+        document.querySelectorAll('.pill-month').forEach(b => {
+          b.classList.toggle('active', b.dataset.month === this.filters.month);
+        });
       }
 
       this.updateViewButtons();
@@ -87,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams();
       if (this.filters.region) params.set('region', this.filters.region);
       if (this.filters.discipline) params.set('disciplina', this.filters.discipline);
+      if (this.filters.month) params.set('mes', this.filters.month);
       if (this.filters.distance !== 'all') params.set('distancia', this.filters.distance);
       if (this.filters.search) params.set('buscar', this.filters.search);
       if (this.currentView !== 'agenda') params.set('vista', this.currentView);
@@ -114,14 +168,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Discipline Filter
-      const discSelect = document.getElementById('filter-discipline');
-      if (discSelect) {
-        discSelect.addEventListener('change', (e) => {
-          this.filters.discipline = e.target.value;
+      // Discipline Pills (Botones interactivos)
+      document.querySelectorAll('.pill-discipline').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          document.querySelectorAll('.pill-discipline').forEach(b => b.classList.remove('active'));
+          e.currentTarget.classList.add('active');
+          this.filters.discipline = e.currentTarget.dataset.discipline;
           this.applyFilters();
         });
-      }
+      });
 
       // Distance Pills
       document.querySelectorAll('.pill-distance').forEach(btn => {
@@ -140,11 +195,19 @@ document.addEventListener('DOMContentLoaded', () => {
           this.filters.search = '';
           this.filters.region = '';
           this.filters.discipline = '';
+          this.filters.month = '';
           this.filters.distance = 'all';
 
           if (searchInput) searchInput.value = '';
           if (regionSelect) regionSelect.value = '';
-          if (discSelect) discSelect.value = '';
+
+          document.querySelectorAll('.pill-discipline').forEach(b => {
+            b.classList.toggle('active', b.dataset.discipline === '');
+          });
+
+          document.querySelectorAll('.pill-month').forEach(b => {
+            b.classList.toggle('active', b.dataset.month === '');
+          });
 
           document.querySelectorAll('.pill-distance').forEach(b => {
             b.classList.toggle('active', b.dataset.distance === 'all');
@@ -237,6 +300,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (this.filters.discipline) {
           const match = ev.disciplines.some(d => d.toLowerCase().includes(this.filters.discipline.toLowerCase()));
           if (!match) return false;
+        }
+
+        // Month
+        if (this.filters.month && !ev.date.startsWith(this.filters.month)) {
+          return false;
         }
 
         // Distance
@@ -367,6 +435,9 @@ document.addEventListener('DOMContentLoaded', () => {
             : '';
           const elevText = ev.elevation_gain_m ? `+${ev.elevation_gain_m.toLocaleString('es-CL')}m` : '';
 
+          // Region official name without numbers
+          const regName = ev.region_name || (this.regions.find(r => r.id === ev.region)?.short) || ev.region;
+
           // Clean locality to avoid repeating region
           let rawLoc = ev.commune || ev.location || '';
           let cleanLoc = rawLoc
@@ -374,33 +445,42 @@ document.addEventListener('DOMContentLoaded', () => {
             .split('-')[0]
             .replace(/\b(Regi[oó]n\s+[A-Za-z\s]+|RM|XV|XVI|XIV|XII|XI|VIII|VII|VI|IV|III|II|I|X|V)\b/gi, '')
             .trim();
-          if (!cleanLoc) cleanLoc = ev.region_name || 'Chile';
+          if (!cleanLoc) cleanLoc = regName;
 
           html += `
             <article class="event-item" data-id="${ev.id}">
-              <!-- Columna 1: Fecha -->
+              <!-- Columna 1: Fecha (ultra compacta) -->
               <div class="event-col-date">
                 <span class="chip-day">${dayNum}</span>
-                <span class="chip-meta">${monthShort} · ${dowShort}</span>
+                <span class="chip-meta">${monthShort}</span>
               </div>
 
-              <!-- Columna 2: Disciplina (Columna separada para alinear los títulos) -->
+              <!-- Columna 2: Disciplina -->
               <div class="event-col-disc">
                 <span class="badge-discipline ${discClass}">${ev.disciplines[0] || 'MTB'}</span>
               </div>
 
-              <!-- Columna 3: Información de Carrera -->
-              <div class="event-col-info">
-                <a href="#" class="event-link" data-id="${ev.id}">${ev.name}</a>
-                <div class="event-submeta">
+              <!-- Columna 3: Título de Carrera -->
+              <div class="event-col-title">
+                <a href="#" class="event-link" data-id="${ev.id}" title="${ev.name}">${ev.name}</a>
+              </div>
+
+              <!-- Contenedor Responsivo (en desktop display:contents para una sola fila continua) -->
+              <div class="event-col-meta-wrap">
+                <!-- Columna 4: Ubicación y Región (nombres oficiales sin números) -->
+                <div class="event-col-loc">
                   <span class="meta-location">📍 ${cleanLoc}</span>
-                  <span class="badge-reg">${ev.region}</span>
+                  <span class="badge-reg">${regName}</span>
+                </div>
+
+                <!-- Columna 5: Métricas (Distancia y Altimetría) -->
+                <div class="event-col-metrics">
                   ${distText ? `<span class="dist-meta">🏁 ${distText}</span>` : ''}
                   ${elevText ? `<span class="elev-meta">⛰️ ${elevText}</span>` : ''}
                 </div>
               </div>
 
-              <!-- Columna 4: Acciones -->
+              <!-- Columna 6: Acciones -->
               <div class="event-col-actions">
                 <div class="dropdown-calendar">
                   <button class="btn-cal-export" title="Agendar en Google o Apple Calendar">
@@ -487,10 +567,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       title.textContent = ev.name;
 
+      const regName = ev.region_name || (this.regions.find(r => r.id === ev.region)?.short) || ev.region;
+
       body.innerHTML = `
         <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem">
           <span class="badge-discipline badge-${(ev.disciplines[0]||'mtb').toLowerCase().split('/')[0]}">${ev.disciplines.join(', ')}</span>
-          <span class="badge-reg">Región ${ev.region_name || ev.region}</span>
+          <span class="badge-reg">${regName}</span>
           ${ev.price_type === 'free' ? '<span class="badge-reg" style="color:#166534; font-weight:700">GRATIS</span>' : ''}
         </div>
 

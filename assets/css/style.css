@@ -277,6 +277,73 @@ button {
   background-color: white;
 }
 
+.filter-pills-bar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 0.5rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border);
+}
+
+.filter-pills-section {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.filter-pills-label {
+  font-size: 0.73rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.pills-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.pill-btn {
+  padding: 0.28rem 0.58rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  border-radius: 4px;
+  background: var(--bg-muted);
+  color: var(--text-muted);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+
+.pill-btn:hover {
+  background: #e2e8f0;
+  color: var(--text-dark);
+}
+
+.pill-btn.active {
+  background: var(--text-dark);
+  color: white;
+}
+
+.pill-discipline.active {
+  background: #166534;
+  color: white;
+}
+
+.pill-month.active {
+  background: #1e40af;
+  color: white;
+}
+
 .distance-group {
   display: flex;
   align-items: center;
@@ -285,8 +352,8 @@ button {
 }
 
 .pill-distance {
-  padding: 0.35rem 0.65rem;
-  font-size: 0.78rem;
+  padding: 0.28rem 0.58rem;
+  font-size: 0.76rem;
   font-weight: 600;
   border-radius: 4px;
   background: var(--bg-muted);
@@ -307,11 +374,13 @@ button {
 }
 
 .btn-filter-reset {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: #dc2626;
-  padding: 0.4rem 0.6rem;
+  padding: 0.3rem 0.55rem;
   border-radius: var(--radius);
+  margin-left: auto;
+  white-space: nowrap;
 }
 
 .btn-filter-reset:hover {
@@ -422,13 +491,14 @@ button {
 
 .event-item {
   display: grid;
-  grid-template-columns: 56px 84px 1fr auto;
+  grid-template-columns: 48px 72px minmax(200px, 2fr) minmax(180px, 1.2fr) auto auto;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.48rem 0.85rem;
+  gap: 0.75rem;
+  padding: 0.35rem 0.85rem;
   border-bottom: 1px solid var(--border);
   cursor: pointer;
   transition: background-color 0.12s ease;
+  white-space: nowrap;
 }
 
 .event-item:last-child {
@@ -445,8 +515,8 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  padding: 0.25rem 0.35rem;
+  width: 48px;
+  padding: 0.15rem 0.25rem;
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
   border-radius: 5px;
@@ -455,7 +525,7 @@ button {
 }
 
 .chip-day {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 800;
   line-height: 1;
   color: var(--text-dark);
@@ -463,20 +533,20 @@ button {
 }
 
 .chip-meta {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 1px;
   letter-spacing: 0.02em;
 }
 
-/* Columna 2: Disciplina (Ancho fijo para alinear títulos) */
+/* Columna 2: Disciplina (Ancho fijo) */
 .event-col-disc {
-  width: 84px;
+  width: 72px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -487,16 +557,16 @@ button {
   font-size: 0.68rem;
 }
 
-/* Columna 3: Información de Carrera */
-.event-col-info {
+/* Columna 3: Título */
+.event-col-title {
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .event-link {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-dark);
   line-height: 1.25;
@@ -510,6 +580,42 @@ button {
 .event-link:hover {
   color: var(--brand-green);
   text-decoration: underline;
+}
+
+/* Contenedor de metadatos */
+.event-col-meta-wrap {
+  display: contents;
+}
+
+/* Columna 4: Ubicación y Región */
+.event-col-loc {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.78rem;
+}
+
+/* Columna 5: Distancias y Altimetría */
+.event-col-metrics {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Columna 6: Acciones */
+.event-col-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .badge-discipline {
@@ -1387,27 +1493,63 @@ button {
 /* ==========================================================================
    Responsive
    ========================================================================== */
+@media (max-width: 992px) {
+  .event-item {
+    grid-template-columns: 48px 72px 1fr auto;
+    grid-template-areas:
+      "date disc title actions"
+      "date disc meta actions";
+    gap: 0.2rem 0.65rem;
+    padding: 0.42rem 0.75rem;
+    white-space: normal;
+  }
+
+  .event-col-date { grid-area: date; }
+  .event-col-disc { grid-area: disc; }
+  .event-col-title { grid-area: title; }
+  .event-col-meta-wrap {
+    grid-area: meta;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .event-col-actions { grid-area: actions; }
+}
+
 @media (max-width: 768px) {
   .event-item {
-    grid-template-columns: 50px 76px 1fr;
-    gap: 0.5rem;
+    grid-template-columns: 44px 64px 1fr;
+    grid-template-areas:
+      "date disc title"
+      "date disc meta"
+      "actions actions actions";
+    gap: 0.3rem 0.55rem;
     padding: 0.45rem 0.65rem;
+    white-space: normal;
   }
 
   .event-col-date {
-    width: 50px;
-    padding: 0.2rem 0.25rem;
+    width: 44px;
+    padding: 0.15rem 0.2rem;
   }
 
   .chip-day {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
   }
 
   .event-col-disc {
-    width: 76px;
+    width: 64px;
   }
 
   .event-link {
+    white-space: normal;
+  }
+
+  .event-col-meta-wrap {
+    flex-wrap: wrap;
+    gap: 0.35rem 0.6rem;
     white-space: normal;
   }
 

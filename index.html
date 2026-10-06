@@ -55,33 +55,10 @@
         <input type="search" id="search-input" class="filter-search-input" placeholder="Buscar por nombre, comuna o productor...">
       </div>
 
-      <!-- Región -->
+      <!-- Región (nombres oficiales) -->
       <select id="filter-region" class="filter-select">
         <option value="">Todas las regiones</option>
       </select>
-
-      <!-- Disciplina -->
-      <select id="filter-discipline" class="filter-select">
-        <option value="">Todas las disciplinas</option>
-        <option value="MTB">MTB (XCM, XCO)</option>
-        <option value="Ruta">Ruta / Gran Fondo</option>
-        <option value="Gravel">Gravel</option>
-        <option value="Ultra">Ultraciclismo / Bikepacking</option>
-        <option value="Enduro">Enduro / Descenso (DH)</option>
-      </select>
-
-      <!-- Distancias -->
-      <div class="distance-group">
-        <button class="pill-distance active" data-distance="all">Todas dist.</button>
-        <button class="pill-distance" data-distance="short">&lt; 40 km</button>
-        <button class="pill-distance" data-distance="mid">40 - 90 km</button>
-        <button class="pill-distance" data-distance="long">&gt; 90 km</button>
-        <button class="pill-distance" data-distance="ultra">Ultra (&gt;200 km)</button>
-      </div>
-
-      <button class="btn-filter-reset" id="clear-filters" title="Restablecer filtros">
-        Limpiar
-      </button>
 
       <!-- Selector de Vista -->
       <div class="view-toggle-group">
@@ -95,6 +72,46 @@
           📆 Mes
         </button>
       </div>
+    </div>
+
+    <!-- Barra de Filtros con Botones (Disciplinas, Meses, Distancias) -->
+    <div class="filter-pills-bar">
+      <!-- Filtro Disciplinas (Botones interactivos) -->
+      <div class="filter-pills-section">
+        <span class="filter-pills-label">Disciplina:</span>
+        <div class="pills-group" id="filter-discipline-group">
+          <button class="pill-btn pill-discipline active" data-discipline="">Todas</button>
+          <button class="pill-btn pill-discipline" data-discipline="MTB">MTB</button>
+          <button class="pill-btn pill-discipline" data-discipline="Ruta">Ruta</button>
+          <button class="pill-btn pill-discipline" data-discipline="Gravel">Gravel</button>
+          <button class="pill-btn pill-discipline" data-discipline="Ultra">Ultra</button>
+          <button class="pill-btn pill-discipline" data-discipline="Enduro">Enduro/DH</button>
+        </div>
+      </div>
+
+      <!-- Filtro por Mes (Píldoras Dinámicas) -->
+      <div class="filter-pills-section">
+        <span class="filter-pills-label">Mes:</span>
+        <div class="pills-group" id="filter-month-group">
+          <button class="pill-btn pill-month active" data-month="">Todos</button>
+        </div>
+      </div>
+
+      <!-- Distancias -->
+      <div class="filter-pills-section">
+        <span class="filter-pills-label">Distancia:</span>
+        <div class="pills-group" id="filter-distance-group">
+          <button class="pill-btn pill-distance active" data-distance="all">Todas</button>
+          <button class="pill-btn pill-distance" data-distance="short">&lt; 40 km</button>
+          <button class="pill-btn pill-distance" data-distance="mid">40 - 90 km</button>
+          <button class="pill-btn pill-distance" data-distance="long">&gt; 90 km</button>
+          <button class="pill-btn pill-distance" data-distance="ultra">Ultra (&gt;200 km)</button>
+        </div>
+      </div>
+
+      <button class="btn-filter-reset" id="clear-filters" title="Restablecer todos los filtros">
+        Limpiar filtros
+      </button>
     </div>
   </section>
 

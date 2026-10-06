@@ -213,7 +213,7 @@ const CalendarView = {
           <div>
             <div style="font-weight:700; font-size:0.95rem; color:var(--text-main)">${ev.name}</div>
             <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem">
-              📍 ${ev.location || ev.commune} &bull; Región ${ev.region_name || ev.region} &bull; ${ev.disciplines.join(', ')}
+              📍 ${ev.location || ev.commune} &bull; ${ev.region_name || 'Chile'} &bull; ${ev.disciplines.join(', ')}
             </div>
           </div>
           <div style="display:flex; gap:0.4rem; flex-shrink:0">

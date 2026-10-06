@@ -125,7 +125,7 @@ const MapView = {
           lat: lat,
           lng: lng,
           commune: cleanCom,
-          region: ev.region || '',
+          regionName: ev.region_name || 'Chile',
           events: []
         };
       }
@@ -167,7 +167,7 @@ const MapView = {
         <div class="map-popup-card">
           <header class="map-popup-header">
             <h4 class="map-popup-commune">${group.commune}</h4>
-            <span class="map-popup-region">Región ${group.region}</span>
+            <span class="map-popup-region">${group.regionName}</span>
           </header>
           <div class="map-popup-list">
       `;
@@ -273,7 +273,7 @@ const MapView = {
             <strong>${group.commune}</strong>
             <span class="loc-badge">${group.events.length}</span>
           </div>
-          <div class="loc-card-region">Región ${group.region}</div>
+          <div class="loc-card-region">${group.regionName}</div>
           <div class="loc-card-races">
             ${group.events.slice(0, 2).map(e => `<span>• ${e.name}</span>`).join('')}
             ${group.events.length > 2 ? `<span class="loc-more">+${group.events.length - 2} más</span>` : ''}
