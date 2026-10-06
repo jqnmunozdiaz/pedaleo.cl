@@ -491,10 +491,10 @@ button {
 
 .event-item {
   display: grid;
-  grid-template-columns: 48px 72px minmax(200px, 2fr) minmax(180px, 1.2fr) auto auto;
+  grid-template-columns: 56px 72px minmax(220px, 1.8fr) minmax(180px, 1.2fr) auto;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.35rem 0.85rem;
+  padding: 0.45rem 0.85rem;
   border-bottom: 1px solid var(--border);
   cursor: pointer;
   transition: background-color 0.12s ease;
@@ -509,17 +509,17 @@ button {
   background-color: #f8fafc;
 }
 
-/* Columna 1: Chip de Fecha */
+/* Columna 1: Chip de Fecha con Día de Semana */
 .event-col-date {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  min-width: 48px;
-  max-width: 48px;
-  flex: 0 0 48px;
-  padding: 0.15rem 0.25rem;
+  width: 56px;
+  min-width: 56px;
+  max-width: 56px;
+  flex: 0 0 56px;
+  padding: 0.2rem 0.25rem;
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
   border-radius: 5px;
@@ -537,12 +537,13 @@ button {
 }
 
 .chip-meta {
-  font-size: 0.6rem;
+  font-size: 0.62rem;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
-  margin-top: 1px;
-  letter-spacing: 0.02em;
+  margin-top: 2px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 /* Columna 2: Disciplina (Ancho fijo estricto para alineación perfecta de títulos) */
@@ -569,12 +570,14 @@ button {
   display: block;
 }
 
-/* Columna 3: Título */
+/* Columna 3: Título y Subtítulo de Métricas */
 .event-col-title {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.12rem;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .event-link {
@@ -594,12 +597,28 @@ button {
   text-decoration: underline;
 }
 
-/* Contenedor de metadatos */
-.event-col-meta-wrap {
-  display: contents;
+.event-subtitle-metrics {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Columna 4: Ubicación y Región */
+.event-subtitle-metrics .dist-meta {
+  color: #0d9488;
+  font-weight: 600;
+}
+
+.event-subtitle-metrics .elev-meta {
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+/* Columna 4: Ubicación y Región (Columna dedicada siempre alineada) */
 .event-col-loc {
   display: flex;
   align-items: center;
@@ -611,17 +630,7 @@ button {
   font-size: 0.78rem;
 }
 
-/* Columna 5: Distancias y Altimetría */
-.event-col-metrics {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.78rem;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-/* Columna 6: Acciones */
+/* Columna 5: Acciones */
 .event-col-actions {
   display: flex;
   align-items: center;
@@ -1609,35 +1618,46 @@ button {
    ========================================================================== */
 @media (max-width: 992px) {
   .event-item {
-    grid-template-columns: 48px 72px 1fr auto;
+    grid-template-columns: 56px 72px 1fr auto;
     grid-template-areas:
       "date disc title actions"
-      "date disc meta actions";
-    gap: 0.2rem 0.65rem;
+      "date disc loc actions";
+    gap: 0.25rem 0.65rem;
     padding: 0.42rem 0.75rem;
     white-space: normal;
   }
 
-  .event-col-date { grid-area: date; }
-  .event-col-disc { grid-area: disc; }
-  .event-col-title { grid-area: title; }
-  .event-col-meta-wrap {
-    grid-area: meta;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    overflow: hidden;
-    white-space: nowrap;
+  .event-col-date {
+    grid-area: date;
+    width: 56px;
+    min-width: 56px;
+    max-width: 56px;
+    flex: 0 0 56px;
   }
-  .event-col-actions { grid-area: actions; }
+  .event-col-disc {
+    grid-area: disc;
+    width: 72px;
+    min-width: 72px;
+    max-width: 72px;
+    flex: 0 0 72px;
+  }
+  .event-col-title {
+    grid-area: title;
+  }
+  .event-col-loc {
+    grid-area: loc;
+  }
+  .event-col-actions {
+    grid-area: actions;
+  }
 }
 
 @media (max-width: 768px) {
   .event-item {
-    grid-template-columns: 44px 64px 1fr;
+    grid-template-columns: 52px 64px 1fr;
     grid-template-areas:
       "date disc title"
-      "date disc meta"
+      "date disc loc"
       "actions actions actions";
     gap: 0.3rem 0.55rem;
     padding: 0.45rem 0.65rem;
@@ -1645,7 +1665,10 @@ button {
   }
 
   .event-col-date {
-    width: 44px;
+    width: 52px;
+    min-width: 52px;
+    max-width: 52px;
+    flex: 0 0 52px;
     padding: 0.15rem 0.2rem;
   }
 
@@ -1655,20 +1678,26 @@ button {
 
   .event-col-disc {
     width: 64px;
+    min-width: 64px;
+    max-width: 64px;
+    flex: 0 0 64px;
   }
 
   .event-link {
     white-space: normal;
   }
 
-  .event-col-meta-wrap {
-    flex-wrap: wrap;
-    gap: 0.35rem 0.6rem;
-    white-space: normal;
+  .event-col-title {
+    grid-area: title;
+  }
+
+  .event-col-loc {
+    grid-area: loc;
   }
 
   .event-col-actions {
     grid-column: 1 / -1;
+    grid-area: actions;
     justify-content: flex-end;
     padding-top: 0.35rem;
     border-top: 1px dashed #e2e8f0;

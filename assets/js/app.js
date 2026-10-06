@@ -435,7 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
         'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
       ];
-      const monthShorts = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
+      const monthShorts = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
       const dowShorts = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
 
       for (const [monthKey, monthEvents] of Object.entries(groups)) {
@@ -479,10 +479,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
           html += `
             <article class="event-item" data-id="${ev.id}">
-              <!-- Columna 1: Fecha (ultra compacta) -->
-              <div class="event-col-date">
+              <!-- Columna 1: Fecha con Día de la Semana (ej. 4 Oct, Mié) -->
+              <div class="event-col-date" title="${dayNum} de ${monthNames[dObj.getMonth()]}, ${dowShort}">
                 <span class="chip-day">${dayNum}</span>
-                <span class="chip-meta">${monthShort}</span>
+                <span class="chip-meta">${monthShort}, ${dowShort}</span>
               </div>
 
               <!-- Columna 2: Disciplina -->
@@ -490,27 +490,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="badge-discipline ${discClass}">${ev.disciplines[0] || 'MTB'}</span>
               </div>
 
-              <!-- Columna 3: Título de Carrera -->
+              <!-- Columna 3: Título de Carrera y Subtítulo de Métricas -->
               <div class="event-col-title">
                 <a href="#" class="event-link" data-id="${ev.id}" title="${ev.name}">${ev.name}</a>
+                ${(distText || elevText) ? `
+                  <div class="event-subtitle-metrics">
+                    ${distText ? `<span class="dist-meta">🏁 ${distText}</span>` : ''}
+                    ${elevText ? `<span class="elev-meta">⛰️ ${elevText}</span>` : ''}
+                  </div>
+                ` : ''}
               </div>
 
-              <!-- Contenedor Responsivo (en desktop display:contents para una sola fila continua) -->
-              <div class="event-col-meta-wrap">
-                <!-- Columna 4: Ubicación y Región (nombres oficiales sin números) -->
-                <div class="event-col-loc">
-                  <span class="meta-location">📍 ${cleanLoc}</span>
-                  <span class="badge-reg">${regName}</span>
-                </div>
-
-                <!-- Columna 5: Métricas (Distancia y Altimetría) -->
-                <div class="event-col-metrics">
-                  ${distText ? `<span class="dist-meta">🏁 ${distText}</span>` : ''}
-                  ${elevText ? `<span class="elev-meta">⛰️ ${elevText}</span>` : ''}
-                </div>
+              <!-- Columna 4: Ubicación y Región (alineada independientemente) -->
+              <div class="event-col-loc">
+                <span class="meta-location">📍 ${cleanLoc}</span>
+                <span class="badge-reg">${regName}</span>
               </div>
 
-              <!-- Columna 6: Acciones -->
+              <!-- Columna 5: Acciones -->
               <div class="event-col-actions">
                 <div class="dropdown-calendar">
                   <button class="btn-cal-export" title="Agendar en Google o Apple Calendar">
