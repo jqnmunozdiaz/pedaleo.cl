@@ -365,108 +365,6 @@ button {
   color: white;
 }
 
-/* Filtro de Distancia Continuo */
-.filter-distance-section {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  min-width: 0;
-}
-
-.distance-label-row {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  flex-shrink: 0;
-}
-
-.distance-range-display {
-  font-size: 0.74rem;
-  font-weight: 700;
-  color: #166534;
-  background: #dcfce7;
-  border: 1px solid #bbf7d0;
-  padding: 0.1rem 0.45rem;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.dual-range-wrapper {
-  position: relative;
-  width: 170px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.dual-range-track {
-  position: absolute;
-  width: 100%;
-  height: 6px;
-  background: #e2e8f0;
-  border-radius: 999px;
-  z-index: 1;
-}
-
-.dual-range-fill {
-  position: absolute;
-  height: 6px;
-  background: #166534;
-  border-radius: 999px;
-  z-index: 2;
-  left: 0%;
-  right: 0%;
-  transition: left 0.04s ease, right 0.04s ease;
-}
-
-.dual-range-wrapper input[type="range"] {
-  position: absolute;
-  width: 100%;
-  height: 24px;
-  margin: 0;
-  padding: 0;
-  background: none;
-  pointer-events: none;
-  -webkit-appearance: none;
-  appearance: none;
-  z-index: 4;
-}
-
-.dual-range-wrapper input[type="range"]:focus {
-  outline: none;
-}
-
-.dual-range-wrapper input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 2.5px solid #166534;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  pointer-events: auto;
-  transition: transform 0.1s ease;
-}
-
-.dual-range-wrapper input[type="range"]::-webkit-slider-thumb:hover,
-.dual-range-wrapper input[type="range"]::-webkit-slider-thumb:active {
-  transform: scale(1.18);
-  border-color: #14532d;
-}
-
-.dual-range-wrapper input[type="range"]::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 2.5px solid #166534;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  pointer-events: auto;
-}
 
 .btn-filter-reset {
   font-size: 0.78rem;
@@ -1900,24 +1798,6 @@ button {
     font-size: 0.72rem;
   }
 
-  .filter-distance-section {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.4rem;
-  }
-
-  .distance-label-row {
-    flex: 0 0 auto;
-  }
-
-  .dual-range-wrapper {
-    flex: 1 1 140px;
-    min-width: 130px;
-    max-width: 180px;
-  }
 
   .btn-filter-reset {
     margin-left: auto;

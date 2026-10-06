@@ -13,9 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       search: '',
       region: '',
       disciplines: [],
-      months: [],
-      distMin: 0,
-      distMax: 250
+      months: []
     },
 
     currentView: 'agenda', // 'agenda' | 'calendar'
@@ -140,9 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         this.filters.months = [];
       }
-
-      if (params.get('dist_min')) this.filters.distMin = parseInt(params.get('dist_min'), 10) || 0;
-      if (params.get('dist_max')) this.filters.distMax = parseInt(params.get('dist_max'), 10) || 250;
       if (params.get('buscar')) this.filters.search = params.get('buscar');
       if (params.get('vista')) this.currentView = params.get('vista');
 
@@ -172,13 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
           b.classList.toggle('active', this.filters.months.includes(mVal));
         }
       });
-
-      // Distance inputs initial sync
-      const minSlider = document.getElementById('distance-min-range');
-      const maxSlider = document.getElementById('distance-max-range');
-      if (minSlider) minSlider.value = this.filters.distMin;
-      if (maxSlider) maxSlider.value = this.filters.distMax;
-      if (this.updateDistanceUI) this.updateDistanceUI();
 
       this.updateViewButtons();
     },
@@ -213,8 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (this.filters.region) params.set('region', this.filters.region);
       if (this.filters.disciplines.length > 0) params.set('disciplina', this.filters.disciplines.join(','));
       if (this.filters.months.length > 0) params.set('meses', this.filters.months.join(','));
-      if (this.filters.distMin > 0) params.set('dist_min', this.filters.distMin);
-      if (this.filters.distMax < 250) params.set('dist_max', this.filters.distMax);
       if (this.filters.search) params.set('buscar', this.filters.search);
       if (this.currentView !== 'agenda') params.set('vista', this.currentView);
 
@@ -273,77 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
-      // Distance Dual Range Slider (Barra continua interactiva de inicio y fin)
-      const minSlider = document.getElementById('distance-min-range');
-      const maxSlider = document.getElementById('distance-max-range');
-      const fillEl = document.getElementById('distance-range-fill');
-      const textEl = document.getElementById('distance-range-text');
-
-      const updateDistanceUI = () => {
-        if (!minSlider || !maxSlider) return;
-        const minVal = parseInt(minSlider.value, 10);
-        const maxVal = parseInt(maxSlider.value, 10);
-
-        const minPercent = (minVal / 250) * 100;
-        const maxPercent = (maxVal / 250) * 100;
-
-        if (fillEl) {
-          fillEl.style.left = `${minPercent}%`;
-          fillEl.style.right = `${100 - maxPercent}%`;
-        }
-
-        if (textEl) {
-          if (minVal === 0 && maxVal === 250) {
-            textEl.textContent = 'Todas';
-          } else if (maxVal === 250) {
-            textEl.textContent = `≥ ${minVal} km`;
-          } else if (minVal === 0) {
-            textEl.textContent = `≤ ${maxVal} km`;
-          } else if (minVal === maxVal) {
-            textEl.textContent = `${minVal} km`;
-          } else {
-            textEl.textContent = `${minVal} — ${maxVal} km`;
-          }
-        }
-      };
-
-      this.updateDistanceUI = updateDistanceUI;
-      updateDistanceUI();
-
-      const handleSliderInput = (isMin) => {
-        if (!minSlider || !maxSlider) return;
-        let minVal = parseInt(minSlider.value, 10);
-        let maxVal = parseInt(maxSlider.value, 10);
-
-        if (minVal > maxVal) {
-          if (isMin) {
-            maxSlider.value = minVal;
-          } else {
-            minSlider.value = maxVal;
-          }
-        }
-
-        if (isMin) {
-          minSlider.style.zIndex = '5';
-          maxSlider.style.zIndex = '4';
-        } else {
-          minSlider.style.zIndex = '4';
-          maxSlider.style.zIndex = '5';
-        }
-
-        this.filters.distMin = parseInt(minSlider.value, 10);
-        this.filters.distMax = parseInt(maxSlider.value, 10);
-        updateDistanceUI();
-        this.applyFilters();
-      };
-
-      if (minSlider) {
-        minSlider.addEventListener('input', () => handleSliderInput(true));
-      }
-      if (maxSlider) {
-        maxSlider.addEventListener('input', () => handleSliderInput(false));
-      }
-
       // Clear Filters
       const clearBtn = document.getElementById('clear-filters');
       if (clearBtn) {
@@ -352,8 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
           this.filters.region = '';
           this.filters.disciplines = [];
           this.filters.months = [];
-          this.filters.distMin = 0;
-          this.filters.distMax = 250;
 
           if (searchInput) searchInput.value = '';
           if (regionSelect) regionSelect.value = '';
@@ -367,12 +280,6 @@ document.addEventListener('DOMContentLoaded', () => {
             monthContainer.querySelectorAll('.pill-month').forEach(b => {
               b.classList.toggle('active', (b.dataset.month || '') === '');
             });
-          }
-
-          if (minSlider && maxSlider) {
-            minSlider.value = 0;
-            maxSlider.value = 250;
-            updateDistanceUI();
           }
 
           this.applyFilters();
@@ -503,19 +410,6 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!match) return false;
         }
 
-        // Distance (Rango continuo de inicio y fin)
-        if (this.filters.distMin > 0 || this.filters.distMax < 250) {
-          const evMin = ev.distance_min_km || 0;
-          const evMax = ev.distance_max_km || evMin;
-          const userMin = this.filters.distMin;
-          const userMax = this.filters.distMax;
-
-          if (userMax === 250) {
-            if (evMax < userMin) return false;
-          } else {
-            if (evMin > userMax || evMax < userMin) return false;
-          }
-        }
 
         return true;
       });
