@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     filters: {
       search: '',
       region: '',
-      discipline: '',
+      disciplines: [],
       month: '',
       distance: 'all'
     },
@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       await this.loadData();
       this.initFiltersFromURL();
       this.setupDOMListeners();
+      this.initStickyOffsets();
       this.applyFilters();
     },
 
@@ -108,7 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
     initFiltersFromURL() {
       const params = new URLSearchParams(window.location.search);
       if (params.get('region')) this.filters.region = params.get('region');
-      if (params.get('disciplina')) this.filters.discipline = params.get('disciplina');
+      if (params.get('disciplina')) {
+        this.filters.disciplines = params.get('disciplina')
+          .split(',')
+          .map(d => d.trim().toLowerCase())
+          .filter(Boolean);
+      } else {
+        this.filters.disciplines = [];
+      }
       if (params.get('mes')) this.filters.month = params.get('mes');
       if (params.get('distancia')) this.filters.distance = params.get('distancia');
       if (params.get('buscar')) this.filters.search = params.get('buscar');
@@ -120,11 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Discipline pills active state
-      if (this.filters.discipline) {
-        document.querySelectorAll('.pill-discipline').forEach(b => {
-          b.classList.toggle('active', b.dataset.discipline.toLowerCase() === this.filters.discipline.toLowerCase());
-        });
-      }
+      const hasDisciplines = this.filters.disciplines.length > 0;
+      document.querySelectorAll('.pill-discipline').forEach(b => {
+        const dVal = (b.dataset.discipline || '').toLowerCase();
+        if (!dVal) {
+          b.classList.toggle('active', !hasDisciplines);
+        } else {
+          b.classList.toggle('active', this.filters.disciplines.includes(dVal));
+        }
+      });
 
       // Month pills active state
       if (this.filters.month) {
@@ -136,10 +148,35 @@ document.addEventListener('DOMContentLoaded', () => {
       this.updateViewButtons();
     },
 
+    initStickyOffsets() {
+      const updateOffsets = () => {
+        const header = document.querySelector('.site-header');
+        const filterWrapper = document.querySelector('.filter-wrapper');
+        const hHeight = header ? header.offsetHeight : 56;
+        const fHeight = filterWrapper ? filterWrapper.offsetHeight : 110;
+
+        document.documentElement.style.setProperty('--header-height', `${hHeight}px`);
+        document.documentElement.style.setProperty('--filter-height', `${fHeight}px`);
+        document.documentElement.style.setProperty('--sticky-month-top', `${hHeight + fHeight}px`);
+      };
+
+      updateOffsets();
+
+      if (window.ResizeObserver) {
+        const ro = new ResizeObserver(() => updateOffsets());
+        const header = document.querySelector('.site-header');
+        const filterWrapper = document.querySelector('.filter-wrapper');
+        if (header) ro.observe(header);
+        if (filterWrapper) ro.observe(filterWrapper);
+      } else {
+        window.addEventListener('resize', updateOffsets);
+      }
+    },
+
     updateURL() {
       const params = new URLSearchParams();
       if (this.filters.region) params.set('region', this.filters.region);
-      if (this.filters.discipline) params.set('disciplina', this.filters.discipline);
+      if (this.filters.disciplines.length > 0) params.set('disciplina', this.filters.disciplines.join(','));
       if (this.filters.month) params.set('mes', this.filters.month);
       if (this.filters.distance !== 'all') params.set('distancia', this.filters.distance);
       if (this.filters.search) params.set('buscar', this.filters.search);
@@ -168,12 +205,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Discipline Pills (Botones interactivos)
-      document.querySelectorAll('.pill-discipline').forEach(btn => {
+      // Discipline Pills (Botones interactivos multi-selección no excluyente)
+      const discButtons = document.querySelectorAll('.pill-discipline');
+      discButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
-          document.querySelectorAll('.pill-discipline').forEach(b => b.classList.remove('active'));
-          e.currentTarget.classList.add('active');
-          this.filters.discipline = e.currentTarget.dataset.discipline;
+          const val = (e.currentTarget.dataset.discipline || '').trim().toLowerCase();
+          if (!val) {
+            // Click en "Todas": limpia selecciones activas
+            this.filters.disciplines = [];
+          } else {
+            // Alternar disciplina individual seleccionada
+            const idx = this.filters.disciplines.indexOf(val);
+            if (idx > -1) {
+              this.filters.disciplines.splice(idx, 1);
+            } else {
+              this.filters.disciplines.push(val);
+            }
+          }
+
+          const hasActive = this.filters.disciplines.length > 0;
+          discButtons.forEach(b => {
+            const bVal = (b.dataset.discipline || '').trim().toLowerCase();
+            if (!bVal) {
+              b.classList.toggle('active', !hasActive);
+            } else {
+              b.classList.toggle('active', this.filters.disciplines.includes(bVal));
+            }
+          });
+
           this.applyFilters();
         });
       });
@@ -194,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearBtn.addEventListener('click', () => {
           this.filters.search = '';
           this.filters.region = '';
-          this.filters.discipline = '';
+          this.filters.disciplines = [];
           this.filters.month = '';
           this.filters.distance = 'all';
 
@@ -202,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (regionSelect) regionSelect.value = '';
 
           document.querySelectorAll('.pill-discipline').forEach(b => {
-            b.classList.toggle('active', b.dataset.discipline === '');
+            b.classList.toggle('active', (b.dataset.discipline || '') === '');
           });
 
           document.querySelectorAll('.pill-month').forEach(b => {
@@ -326,9 +385,12 @@ document.addEventListener('DOMContentLoaded', () => {
           return false;
         }
 
-        // Discipline
-        if (this.filters.discipline) {
-          const match = ev.disciplines.some(d => d.toLowerCase().includes(this.filters.discipline.toLowerCase()));
+        // Discipline (Multi-select no excluyente)
+        if (this.filters.disciplines && this.filters.disciplines.length > 0) {
+          const match = ev.disciplines.some(d => {
+            const dLower = d.toLowerCase();
+            return this.filters.disciplines.some(sel => dLower.includes(sel));
+          });
           if (!match) return false;
         }
 
@@ -479,10 +541,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
           html += `
             <article class="event-item" data-id="${ev.id}">
-              <!-- Columna 1: Fecha con Día de la Semana (ej. 4 Oct, Mié) -->
-              <div class="event-col-date" title="${dayNum} de ${monthNames[dObj.getMonth()]}, ${dowShort}">
+              <!-- Columna 1: Fecha (ej. Sáb 10) -->
+              <div class="event-col-date" title="${dowShort} ${dayNum} de ${monthTitle}">
+                <span class="chip-dow">${dowShort}</span>
                 <span class="chip-day">${dayNum}</span>
-                <span class="chip-meta">${monthShort}, ${dowShort}</span>
               </div>
 
               <!-- Columna 2: Disciplina -->

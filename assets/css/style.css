@@ -49,6 +49,11 @@
   --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
   --radius: 6px;
   --radius-lg: 10px;
+
+  /* Sticky Offsets */
+  --header-height: 56px;
+  --filter-height: 110px;
+  --sticky-month-top: 166px;
 }
 
 * {
@@ -204,9 +209,13 @@ button {
    Sistema de Filtros Ordenado y Compacto
    ========================================================================== */
 .filter-wrapper {
+  position: sticky;
+  top: var(--header-height, 56px);
+  z-index: 90;
+  background: var(--bg-page);
   max-width: 1200px;
-  margin: 0 auto 1.5rem auto;
-  padding: 0 1rem;
+  margin: 0 auto 0.75rem auto;
+  padding: 0.4rem 1rem 0.5rem 1rem;
 }
 
 .filter-card {
@@ -442,6 +451,9 @@ button {
 }
 
 .month-heading {
+  position: sticky;
+  top: var(--sticky-month-top, 166px);
+  z-index: 80;
   background: #334155;
   color: white;
   padding: 0.5rem 1rem;
@@ -449,6 +461,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 .month-name {
@@ -491,7 +504,7 @@ button {
 
 .event-item {
   display: grid;
-  grid-template-columns: 56px 72px minmax(220px, 1.8fr) minmax(180px, 1.2fr) auto;
+  grid-template-columns: 50px 72px minmax(220px, 1.8fr) minmax(180px, 1.2fr) auto;
   align-items: center;
   gap: 0.75rem;
   padding: 0.45rem 0.85rem;
@@ -509,16 +522,16 @@ button {
   background-color: #f8fafc;
 }
 
-/* Columna 1: Chip de Fecha con Día de Semana */
+/* Columna 1: Chip de Fecha Compacto (ej. Sáb 10) */
 .event-col-date {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  min-width: 56px;
-  max-width: 56px;
-  flex: 0 0 56px;
+  width: 50px;
+  min-width: 50px;
+  max-width: 50px;
+  flex: 0 0 50px;
   padding: 0.2rem 0.25rem;
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
@@ -528,22 +541,22 @@ button {
   flex-shrink: 0;
 }
 
+.chip-dow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: capitalize;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
 .chip-day {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 800;
   line-height: 1;
   color: var(--text-dark);
   letter-spacing: -0.02em;
-}
-
-.chip-meta {
-  font-size: 0.62rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  margin-top: 2px;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
+  margin-top: 1px;
 }
 
 /* Columna 2: Disciplina (Ancho fijo estricto para alineación perfecta de títulos) */
@@ -1618,7 +1631,7 @@ button {
    ========================================================================== */
 @media (max-width: 992px) {
   .event-item {
-    grid-template-columns: 56px 72px 1fr auto;
+    grid-template-columns: 50px 72px 1fr auto;
     grid-template-areas:
       "date disc title actions"
       "date disc loc actions";
@@ -1629,10 +1642,10 @@ button {
 
   .event-col-date {
     grid-area: date;
-    width: 56px;
-    min-width: 56px;
-    max-width: 56px;
-    flex: 0 0 56px;
+    width: 50px;
+    min-width: 50px;
+    max-width: 50px;
+    flex: 0 0 50px;
   }
   .event-col-disc {
     grid-area: disc;
@@ -1653,8 +1666,13 @@ button {
 }
 
 @media (max-width: 768px) {
+  .filter-wrapper {
+    padding: 0.35rem 0.5rem 0.45rem 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
   .event-item {
-    grid-template-columns: 52px 64px 1fr;
+    grid-template-columns: 46px 64px 1fr;
     grid-template-areas:
       "date disc title"
       "date disc loc"
@@ -1665,11 +1683,15 @@ button {
   }
 
   .event-col-date {
-    width: 52px;
-    min-width: 52px;
-    max-width: 52px;
-    flex: 0 0 52px;
-    padding: 0.15rem 0.2rem;
+    width: 46px;
+    min-width: 46px;
+    max-width: 46px;
+    flex: 0 0 46px;
+    padding: 0.15rem 0.15rem;
+  }
+
+  .chip-dow {
+    font-size: 0.6rem;
   }
 
   .chip-day {
