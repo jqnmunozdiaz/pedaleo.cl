@@ -537,22 +537,18 @@ document.addEventListener('DOMContentLoaded', () => {
           };
 
           const formattedDiscs = disciplinesList.map(formatDisc);
-          const visibleDiscs = formattedDiscs.slice(0, 2);
-          const remainingDiscs = formattedDiscs.slice(2);
-
-          let discBadgesHtml = visibleDiscs.map(item => {
+          const discBadgesHtml = formattedDiscs.map(item => {
             return `<span class="badge-discipline badge-${item.key}" title="${item.full}">${item.label}</span>`;
           }).join('');
-
-          if (remainingDiscs.length > 0) {
-            const moreTitle = remainingDiscs.map(i => i.full).join(', ');
-            discBadgesHtml += `<span class="badge-discipline badge-more" title="+${remainingDiscs.length}: ${moreTitle}">+${remainingDiscs.length}</span>`;
-          }
 
           const distText = ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases'
             ? ev.distances.join(' • ')
             : '';
           const elevText = ev.elevation_gain_m ? `+${ev.elevation_gain_m.toLocaleString('es-CL')}m` : '';
+
+          let metricsHtml = '';
+          if (distText) metricsHtml += `<span class="dist-meta">🏁 ${distText}</span>`;
+          if (elevText) metricsHtml += `<span class="elev-meta">⛰️ ${elevText}</span>`;
 
           // Region official name without numbers
           const regName = ev.region_name || (this.regions.find(r => r.id === ev.region)?.short) || ev.region;
@@ -574,29 +570,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="chip-day">${dayNum}</span>
               </div>
 
-              <!-- Columna 2: Disciplinas / Formatos (horizontal, limpio) -->
-              <div class="event-col-disc" title="${disciplinesList.join(', ')}">
-                ${discBadgesHtml}
-              </div>
-
-              <!-- Columna 3: Título de Carrera y Subtítulo de Métricas -->
+              <!-- Columna 2: Título de Carrera y Subtítulo de Disciplinas + Métricas -->
               <div class="event-col-title">
                 <a href="#" class="event-link" data-id="${ev.id}" title="${ev.name}">${ev.name}</a>
-                ${(distText || elevText) ? `
-                  <div class="event-subtitle-metrics">
-                    ${distText ? `<span class="dist-meta">🏁 ${distText}</span>` : ''}
-                    ${elevText ? `<span class="elev-meta">⛰️ ${elevText}</span>` : ''}
+                <div class="event-subtitle-row">
+                  <div class="event-tags-sub" title="Disciplinas: ${disciplinesList.join(', ')}">
+                    ${discBadgesHtml}
                   </div>
-                ` : ''}
+                  ${metricsHtml ? `<span class="meta-separator">•</span> ${metricsHtml}` : ''}
+                </div>
               </div>
 
-              <!-- Columna 4: Ubicación y Región (alineada independientemente) -->
+              <!-- Columna 3: Ubicación y Región (alineada independientemente) -->
               <div class="event-col-loc">
                 <span class="meta-location">📍 ${cleanLoc}</span>
                 <span class="badge-reg">${regName}</span>
               </div>
 
-              <!-- Columna 5: Acciones -->
+              <!-- Columna 4: Acciones -->
               <div class="event-col-actions">
                 <div class="dropdown-calendar">
                   <button class="btn-cal-export" title="Agendar en Google o Apple Calendar">
