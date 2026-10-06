@@ -50,13 +50,18 @@ const MapView = {
         zoom: 5,
         minZoom: 4,
         maxZoom: 16,
-        zoomControl: true,
+        zoomControl: false, // Usar control personalizado con títulos en español
         scrollWheelZoom: true
       });
 
+      L.control.zoom({
+        zoomInTitle: 'Acercar mapa',
+        zoomOutTitle: 'Alejar mapa'
+      }).addTo(this.map);
+
       // OpenStreetMap tiles: 100% libre, sin API key requerida ni marcas de agua
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> colaboradores',
         maxZoom: 19
       }).addTo(this.map);
 

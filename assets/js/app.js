@@ -270,6 +270,36 @@ document.addEventListener('DOMContentLoaded', () => {
           this.handleContactFormSubmit(contactForm);
         });
       }
+
+      // Mensajes de validación nativos del navegador en español ("Por favor completa este campo")
+      document.addEventListener('invalid', (e) => {
+        const el = e.target;
+        if (!el || !el.validity) return;
+
+        if (el.validity.valueMissing) {
+          el.setCustomValidity('Por favor completa este campo.');
+        } else if (el.validity.typeMismatch && el.type === 'email') {
+          el.setCustomValidity('Por favor ingresa un correo electrónico válido.');
+        } else if (el.validity.typeMismatch && el.type === 'url') {
+          el.setCustomValidity('Por favor ingresa un enlace o dirección web válida.');
+        } else if (el.validity.patternMismatch) {
+          el.setCustomValidity('Por favor ingresa un formato válido.');
+        } else {
+          el.setCustomValidity('Por favor completa este campo correctamente.');
+        }
+      }, true);
+
+      document.addEventListener('input', (e) => {
+        if (e.target && typeof e.target.setCustomValidity === 'function') {
+          e.target.setCustomValidity('');
+        }
+      }, true);
+
+      document.addEventListener('change', (e) => {
+        if (e.target && typeof e.target.setCustomValidity === 'function') {
+          e.target.setCustomValidity('');
+        }
+      }, true);
     },
 
     updateViewButtons() {

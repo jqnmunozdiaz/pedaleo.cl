@@ -159,7 +159,7 @@
     <div class="modal-card">
       <div class="modal-header">
         <h3 class="modal-title" id="modal-detail-title">Detalle de Carrera</h3>
-        <button class="modal-close-btn" id="modal-close-detail">&times;</button>
+        <button class="modal-close-btn" id="modal-close-detail" title="Cerrar">&times;</button>
       </div>
       <div class="modal-body" id="modal-detail-body">
         <!-- Contenido dinámico inyectado por JS -->
@@ -167,12 +167,12 @@
     </div>
   </div>
 
-  <!-- Modal Publicar Carrera (GitHub Issue / Notificación) -->
+  <!-- Modal Publicar Carrera -->
   <div class="modal-overlay" id="modal-publish">
     <div class="modal-card">
       <div class="modal-header">
         <h3 class="modal-title">Publicar Carrera en Pedaleo.cl</h3>
-        <button class="modal-close-btn" id="modal-close-publish">&times;</button>
+        <button class="modal-close-btn" id="modal-close-publish" title="Cerrar">&times;</button>
       </div>
       <form id="publish-race-form">
         <div class="modal-body">
@@ -182,17 +182,17 @@
 
           <div class="form-group">
             <label class="form-label" for="pub-name">Nombre de la Carrera *</label>
-            <input type="text" id="pub-name" name="name" class="form-control" required placeholder="Ej: Gran Fondo del Maule 2026">
+            <input type="text" id="pub-name" name="name" class="form-control" required placeholder="Ej: Gran Fondo del Maule 2026" oninvalid="this.setCustomValidity('Por favor completa este campo.')" oninput="this.setCustomValidity('')">
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="pub-date">Fecha del Evento *</label>
-              <input type="date" id="pub-date" name="date" class="form-control" required>
+              <input type="date" id="pub-date" name="date" class="form-control" required oninvalid="this.setCustomValidity('Por favor selecciona una fecha.')" oninput="this.setCustomValidity('')">
             </div>
             <div class="form-group">
               <label class="form-label" for="pub-discipline">Disciplina *</label>
-              <select id="pub-discipline" name="discipline" class="form-control" required>
+              <select id="pub-discipline" name="discipline" class="form-control" required oninvalid="this.setCustomValidity('Por favor selecciona una disciplina.')" onchange="this.setCustomValidity('')">
                 <option value="MTB">MTB (XCM / XCO)</option>
                 <option value="Ruta">Ruta / Gran Fondo</option>
                 <option value="Gravel">Gravel</option>
@@ -205,28 +205,28 @@
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="pub-region">Región *</label>
-              <select id="pub-region" name="region" class="form-control" required>
-                <option value="RM">Metropolitana (RM)</option>
-                <option value="V">Valparaíso (V)</option>
-                <option value="VI">O'Higgins (VI)</option>
-                <option value="VII">Maule (VII)</option>
-                <option value="VIII">Biobío (VIII)</option>
-                <option value="IX">La Araucanía (IX)</option>
-                <option value="X">Los Lagos (X)</option>
-                <option value="XIV">Los Ríos (XIV)</option>
-                <option value="XVI">Ñuble (XVI)</option>
-                <option value="IV">Coquimbo (IV)</option>
-                <option value="III">Atacama (III)</option>
-                <option value="II">Antofagasta (II)</option>
-                <option value="I">Tarapacá (I)</option>
-                <option value="XV">Arica y Parinacota (XV)</option>
-                <option value="XI">Aysén (XI)</option>
-                <option value="XII">Magallanes (XII)</option>
+              <select id="pub-region" name="region" class="form-control" required oninvalid="this.setCustomValidity('Por favor selecciona una región.')" onchange="this.setCustomValidity('')">
+                <option value="Arica y Parinacota">Arica y Parinacota</option>
+                <option value="Tarapacá">Tarapacá</option>
+                <option value="Antofagasta">Antofagasta</option>
+                <option value="Atacama">Atacama</option>
+                <option value="Coquimbo">Coquimbo</option>
+                <option value="Valparaíso">Valparaíso</option>
+                <option value="Metropolitana" selected>Metropolitana</option>
+                <option value="O'Higgins">O'Higgins</option>
+                <option value="Maule">Maule</option>
+                <option value="Ñuble">Ñuble</option>
+                <option value="Biobío">Biobío</option>
+                <option value="La Araucanía">La Araucanía</option>
+                <option value="Los Ríos">Los Ríos</option>
+                <option value="Los Lagos">Los Lagos</option>
+                <option value="Aysén">Aysén</option>
+                <option value="Magallanes">Magallanes</option>
               </select>
             </div>
             <div class="form-group">
               <label class="form-label" for="pub-commune">Comuna / Lugar *</label>
-              <input type="text" id="pub-commune" name="commune" class="form-control" required placeholder="Ej: Curicó">
+              <input type="text" id="pub-commune" name="commune" class="form-control" required placeholder="Ej: Curicó" oninvalid="this.setCustomValidity('Por favor ingresa la comuna o lugar.')" oninput="this.setCustomValidity('')">
             </div>
           </div>
 
@@ -237,7 +237,7 @@
             </div>
             <div class="form-group">
               <label class="form-label" for="pub-url">Web Oficial / Inscripción / Link *</label>
-              <input type="text" id="pub-url" name="url" class="form-control" required placeholder="Ej: guca.cl/evento o instagram.com/...">
+              <input type="text" id="pub-url" name="url" class="form-control" required placeholder="Ej: guca.cl/evento o instagram.com/..." oninvalid="this.setCustomValidity('Por favor ingresa un enlace web o red social.')" oninput="this.setCustomValidity('')">
             </div>
           </div>
 
@@ -261,7 +261,7 @@
     <div class="modal-card">
       <div class="modal-header">
         <h3 class="modal-title">Contacto — Pedaleo.cl</h3>
-        <button class="modal-close-btn" id="modal-close-contact">&times;</button>
+        <button class="modal-close-btn" id="modal-close-contact" title="Cerrar">&times;</button>
       </div>
       <form id="contact-form">
         <div class="modal-body">
@@ -272,17 +272,17 @@
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="contact-name">Tu Nombre *</label>
-              <input type="text" id="contact-name" name="name" class="form-control" required placeholder="Ej: Juan Pérez">
+              <input type="text" id="contact-name" name="name" class="form-control" required placeholder="Ej: Juan Pérez" oninvalid="this.setCustomValidity('Por favor ingresa tu nombre.')" oninput="this.setCustomValidity('')">
             </div>
             <div class="form-group">
               <label class="form-label" for="contact-email">Tu Email *</label>
-              <input type="email" id="contact-email" name="email" class="form-control" required placeholder="tu@email.cl">
+              <input type="email" id="contact-email" name="email" class="form-control" required placeholder="tu@email.cl" oninvalid="this.setCustomValidity('Por favor ingresa un correo electrónico válido.')" oninput="this.setCustomValidity('')">
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="contact-subject">Motivo del Mensaje *</label>
-            <select id="contact-subject" name="subject" class="form-control" required>
+            <select id="contact-subject" name="subject" class="form-control" required oninvalid="this.setCustomValidity('Por favor selecciona el motivo.')" onchange="this.setCustomValidity('')">
               <option value="Consulta general">Consulta general</option>
               <option value="Sugerencia o feedback">Sugerencia o feedback del sitio</option>
               <option value="Reportar error en carrera">Reportar error o cambio de fecha en una carrera</option>
@@ -293,7 +293,7 @@
 
           <div class="form-group">
             <label class="form-label" for="contact-message">Mensaje *</label>
-            <textarea id="contact-message" name="message" class="form-control" rows="4" required placeholder="Escribe tu mensaje aquí..."></textarea>
+            <textarea id="contact-message" name="message" class="form-control" rows="4" required placeholder="Escribe tu mensaje aquí..." oninvalid="this.setCustomValidity('Por favor escribe tu mensaje.')" oninput="this.setCustomValidity('')"></textarea>
           </div>
 
           <div id="contact-feedback" style="display:none; padding:0.6rem 0.8rem; border-radius:4px; font-size:0.85rem; margin-top:0.5rem"></div>
