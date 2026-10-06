@@ -35,7 +35,8 @@
     "end_date": "2026-10-11",
     "disciplines": [
       "MTB",
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "Gravel"
     ],
     "region": "II",
     "region_name": "Antofagasta",
@@ -65,7 +66,8 @@
     "end_date": "2026-10-12",
     "disciplines": [
       "MTB",
-      "Ruta"
+      "Ruta",
+      "Ultra/Bikepacking"
     ],
     "region": "RM",
     "region_name": "Metropolitana",
@@ -124,7 +126,8 @@
     "end_date": "2026-10-12",
     "disciplines": [
       "MTB",
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "Gravel"
     ],
     "region": "VII",
     "region_name": "Maule",
@@ -153,7 +156,8 @@
     "date": "2026-10-09",
     "end_date": "2026-10-12",
     "disciplines": [
-      "MTB"
+      "MTB",
+      "Gravel"
     ],
     "region": "IX",
     "region_name": "La Araucanía",
@@ -507,7 +511,8 @@
     "end_date": "2026-10-17",
     "disciplines": [
       "Gravel",
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "Ruta"
     ],
     "region": "XVI",
     "region_name": "Ñuble",
@@ -1269,7 +1274,8 @@
     "date": "2026-10-31",
     "end_date": "2026-11-03",
     "disciplines": [
-      "Gravel"
+      "Gravel",
+      "Ultra/Bikepacking"
     ],
     "region": "RM",
     "region_name": "Metropolitana",
@@ -1414,7 +1420,8 @@
     "date": "2026-11-07",
     "end_date": "2026-11-07",
     "disciplines": [
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "Ruta"
     ],
     "region": "RM",
     "region_name": "Metropolitana",
@@ -1684,7 +1691,8 @@
     "date": "2026-11-21",
     "end_date": "2026-11-22",
     "disciplines": [
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "Ruta"
     ],
     "region": "XIV",
     "region_name": "Los Ríos",
@@ -1773,7 +1781,8 @@
     "date": "2026-11-22",
     "end_date": "2026-11-22",
     "disciplines": [
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "Ruta"
     ],
     "region": "XIV",
     "region_name": "Los Ríos",
@@ -1860,7 +1869,8 @@
     "date": "2026-11-28",
     "end_date": "2026-11-28",
     "disciplines": [
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "Ruta"
     ],
     "region": "RM",
     "region_name": "Metropolitana",
@@ -1889,7 +1899,8 @@
     "date": "2026-11-28",
     "end_date": "2026-11-28",
     "disciplines": [
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "Ruta"
     ],
     "region": "XI",
     "region_name": "Aysén",
