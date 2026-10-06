@@ -1263,9 +1263,74 @@ button {
   font-weight: 800;
   background: white;
   color: var(--pin-color, #166534);
-  padding: 0 0.3rem;
+  padding: 0 0.35rem;
   border-radius: 8px;
   line-height: 1.2;
+}
+
+.pin-disc-mini {
+  font-size: 0.62rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  padding: 0 0.25rem;
+  border-radius: 4px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.custom-map-pin.is-cluster .pin-bubble {
+  background: #0f172a;
+  border-color: #38bdf8;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.35);
+}
+
+.custom-map-pin.is-cluster .pin-arrow {
+  border-top-color: #0f172a;
+}
+
+.custom-map-pin.is-cluster .pin-count {
+  background: #38bdf8;
+  color: #0f172a;
+  font-weight: 900;
+}
+
+.custom-map-pin.is-centroid .pin-bubble {
+  border-style: dashed;
+}
+
+.map-ref-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fde68a;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  margin-top: 0.2rem;
+}
+
+.map-spiderfy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.65rem;
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.12s;
+  width: 100%;
+}
+
+.map-spiderfy-btn:hover {
+  background: #e2e8f0;
+  color: var(--brand-green);
 }
 
 .pin-arrow {
