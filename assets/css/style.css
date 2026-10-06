@@ -1555,6 +1555,43 @@ button {
   padding: 1rem 0;
 }
 
+.map-empty-viewport {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: var(--bg-muted);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.map-empty-viewport p {
+  margin: 0;
+}
+
+.btn-map-reset-view {
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--text-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.btn-map-reset-view:hover {
+  background: var(--brand-green);
+  color: white;
+  border-color: var(--brand-green);
+}
+
 /* ==========================================================================
    Responsive
    ========================================================================== */

@@ -117,6 +117,14 @@ const MapView = {
       this.map.on('zoomend', () => {
         if (this.currentEvents && this.currentEvents.length) {
           this.renderMarkersLayers();
+          this.updateVisibleLocalitiesGrid();
+        }
+      });
+
+      // Update visible localities whenever map view changes (zoom or pan)
+      this.map.on('moveend', () => {
+        if (this.currentEvents && this.currentEvents.length) {
+          this.updateVisibleLocalitiesGrid();
         }
       });
     } catch (err) {
@@ -247,6 +255,7 @@ const MapView = {
         });
 
         const marker = L.marker([group.lat, group.lng], { icon: customIcon });
+        marker._localityKey = group.key;
         marker.bindPopup(this.createGroupPopupHtml(group), {
           maxWidth: 320,
           className: 'pedaleo-popup'
@@ -298,6 +307,7 @@ const MapView = {
           });
 
           const singleMarker = L.marker([mLat, mLng], { icon: singleIcon });
+          singleMarker._localityKey = group.key;
           singleMarker.bindPopup(this.createSingleEventPopupHtml(ev, group), {
             maxWidth: 320,
             className: 'pedaleo-popup'
@@ -427,6 +437,7 @@ const MapView = {
   autoZoom(boundsList) {
     if (!this.map || !boundsList.length) {
       this.map.setView([-35.6751, -71.5430], 5);
+      setTimeout(() => this.updateVisibleLocalitiesGrid(), 200);
       return;
     }
 
@@ -444,9 +455,61 @@ const MapView = {
           duration: 0.8
         });
       }
+      // Safety update in case flight was instant or already at target bounds
+      setTimeout(() => {
+        this.updateVisibleLocalitiesGrid();
+      }, 850);
     } catch (e) {
       console.warn('Error in autoZoom:', e);
+      this.updateVisibleLocalitiesGrid();
     }
+  },
+
+  /**
+   * Dynamically filters localities and races to only those visible within the current map viewport.
+   * Updates title, counter pill, and locality cards grid below the map.
+   */
+  updateVisibleLocalitiesGrid() {
+    if (!this.map || !this.localityGroups) return;
+
+    let bounds;
+    try {
+      bounds = this.map.getBounds();
+    } catch (e) {
+      return;
+    }
+
+    const visibleGroups = {};
+    let visibleEventsCount = 0;
+    const allGroups = Object.values(this.localityGroups);
+    const totalEventsCount = this.currentEvents ? this.currentEvents.length : 0;
+
+    allGroups.forEach(group => {
+      // Check if this locality coordinate is within visible viewport bounds
+      if (bounds.contains(L.latLng(group.lat, group.lng))) {
+        visibleGroups[group.key] = group;
+        visibleEventsCount += group.events.length;
+      }
+    });
+
+    const titleEl = document.getElementById('map-localities-title');
+    const counterEl = document.getElementById('map-counter-text');
+
+    if (visibleEventsCount === totalEventsCount) {
+      if (titleEl) titleEl.textContent = `Carreras en el mapa (${totalEventsCount})`;
+      if (counterEl) {
+        counterEl.textContent = `${totalEventsCount} carrera${totalEventsCount === 1 ? '' : 's'} geolocalizada${totalEventsCount === 1 ? '' : 's'}`;
+      }
+    } else {
+      if (titleEl) {
+        titleEl.textContent = `Carreras en el área visible (${visibleEventsCount} de ${totalEventsCount})`;
+      }
+      if (counterEl) {
+        counterEl.textContent = `${visibleEventsCount} de ${totalEventsCount} carrera${totalEventsCount === 1 ? '' : 's'} en pantalla`;
+      }
+    }
+
+    this.renderLocalitiesGrid(visibleGroups);
   },
 
   renderLocalitiesGrid(localityGroups) {
@@ -454,11 +517,33 @@ const MapView = {
     if (!grid) return;
 
     const list = Object.values(localityGroups).sort((a, b) => b.events.length - a.events.length);
-    let html = '';
 
+    if (list.length === 0) {
+      grid.innerHTML = `
+        <div class="map-empty-viewport">
+          <p>No hay carreras visibles en este sector del mapa.</p>
+          <button class="btn-map-reset-view" type="button" id="btn-reset-map-view">
+            Restablecer vista a Chile
+          </button>
+        </div>
+      `;
+      const resetBtn = document.getElementById('btn-reset-map-view');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (this.currentBoundsList && this.currentBoundsList.length) {
+            this.autoZoom(this.currentBoundsList);
+          } else {
+            this.map.setView([-35.6751, -71.5430], 5);
+          }
+        });
+      }
+      return;
+    }
+
+    let html = '';
     list.forEach(group => {
       html += `
-        <div class="map-locality-card" data-lat="${group.lat}" data-lng="${group.lng}">
+        <div class="map-locality-card" data-key="${group.key}" data-lat="${group.lat}" data-lng="${group.lng}">
           <div class="loc-card-header">
             <strong>${group.commune}</strong>
             <span class="loc-badge">${group.events.length}</span>
@@ -479,15 +564,32 @@ const MapView = {
       card.addEventListener('click', (e) => {
         const lat = parseFloat(e.currentTarget.dataset.lat);
         const lng = parseFloat(e.currentTarget.dataset.lng);
+        const key = e.currentTarget.dataset.key;
         if (this.map && !isNaN(lat) && !isNaN(lng)) {
-          this.map.flyTo([lat, lng], 12, { duration: 0.6 });
-          this.markersGroup.eachLayer(layer => {
-            const pos = layer.getLatLng();
-            if (Math.abs(pos.lat - lat) < 0.001 && Math.abs(pos.lng - lng) < 0.001) {
-              layer.openPopup();
-            }
-          });
-          document.getElementById('pedaleo-chile-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          const group = this.localityGroups && this.localityGroups[key];
+          const hasMultiple = group && group.events.length > 1;
+          const targetZoom = hasMultiple ? 12 : Math.max(this.map.getZoom(), 11);
+
+          this.map.flyTo([lat, lng], targetZoom, { duration: 0.6 });
+
+          setTimeout(() => {
+            let opened = false;
+            this.markersGroup.eachLayer(layer => {
+              if (opened) return;
+              if (layer._localityKey === key) {
+                layer.openPopup();
+                opened = true;
+              } else {
+                const pos = layer.getLatLng();
+                if (Math.abs(pos.lat - lat) < 0.005 && Math.abs(pos.lng - lng) < 0.005) {
+                  layer.openPopup();
+                  opened = true;
+                }
+              }
+            });
+          }, 650);
+
+          document.getElementById('pedaleo-chile-map')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
       });
     });
