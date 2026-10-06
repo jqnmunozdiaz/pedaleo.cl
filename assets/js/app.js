@@ -523,11 +523,31 @@ document.addEventListener('DOMContentLoaded', () => {
             ? ev.disciplines
             : ['MTB'];
 
-          const discBadgesHtml = disciplinesList.map(disc => {
-            const dKey = disc.toLowerCase().split('/')[0].trim();
-            const dClass = `badge-${dKey}`;
-            return `<span class="badge-discipline ${dClass}">${disc}</span>`;
+          const formatDisc = (d) => {
+            const clean = (d || 'MTB').trim();
+            const lower = clean.toLowerCase();
+            if (lower.includes('ultra') || lower.includes('bikepacking')) return { key: 'ultra', label: 'Ultra', full: clean };
+            if (lower.includes('enduro')) return { key: 'enduro', label: 'Enduro', full: clean };
+            if (lower.includes('descenso') || lower.includes('downhill') || lower.includes('dh')) return { key: 'enduro', label: 'DH', full: clean };
+            if (lower.includes('gravel')) return { key: 'gravel', label: 'Gravel', full: clean };
+            if (lower.includes('ruta') || lower.includes('carretera')) return { key: 'ruta', label: 'Ruta', full: clean };
+            if (lower.includes('mtb') || lower.includes('mountain')) return { key: 'mtb', label: 'MTB', full: clean };
+            if (lower.includes('cicloturismo')) return { key: 'mtb', label: 'Turismo', full: clean };
+            return { key: lower.split('/')[0], label: clean.length > 7 ? clean.substring(0, 6) : clean, full: clean };
+          };
+
+          const formattedDiscs = disciplinesList.map(formatDisc);
+          const visibleDiscs = formattedDiscs.slice(0, 2);
+          const remainingDiscs = formattedDiscs.slice(2);
+
+          let discBadgesHtml = visibleDiscs.map(item => {
+            return `<span class="badge-discipline badge-${item.key}" title="${item.full}">${item.label}</span>`;
           }).join('');
+
+          if (remainingDiscs.length > 0) {
+            const moreTitle = remainingDiscs.map(i => i.full).join(', ');
+            discBadgesHtml += `<span class="badge-discipline badge-more" title="+${remainingDiscs.length}: ${moreTitle}">+${remainingDiscs.length}</span>`;
+          }
 
           const distText = ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases'
             ? ev.distances.join(' • ')
@@ -554,7 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="chip-day">${dayNum}</span>
               </div>
 
-              <!-- Columna 2: Disciplinas / Formatos (soporta múltiples) -->
+              <!-- Columna 2: Disciplinas / Formatos (horizontal, limpio) -->
               <div class="event-col-disc" title="${disciplinesList.join(', ')}">
                 ${discBadgesHtml}
               </div>
