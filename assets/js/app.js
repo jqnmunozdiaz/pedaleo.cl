@@ -531,6 +531,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     openPublishModal() {
       const modal = document.getElementById('modal-publish');
+      const feedback = document.getElementById('publish-feedback');
+      if (feedback) feedback.style.display = 'none';
       if (modal) modal.classList.add('active');
     },
 
@@ -581,8 +583,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     /**
-     * Sends race submission as a structured GitHub Issue
-     * Triggers immediate notification to Joaquin (jqnmunozdiaz)
+     * Handles race submission as a contact email to contacto@pedaleo.cl
+     * No longer opens any external GitHub page
      */
     handlePublishFormSubmit(form) {
       const formData = new FormData(form);
@@ -592,36 +594,44 @@ document.addEventListener('DOMContentLoaded', () => {
       const commune = formData.get('commune') || '';
       const discipline = formData.get('discipline') || '';
       const distances = formData.get('distances') || '';
-      const url = formData.get('url') || '';
+      let url = (formData.get('url') || '').trim();
       const contact = formData.get('contact') || 'No provisto';
 
-      const issueTitle = encodeURIComponent(`[Nueva Carrera] ${name} (${date})`);
-      const issueBody = encodeURIComponent(
-        `### Solicitud de Publicación de Carrera en Pedaleo.cl\n\n` +
-        `- **Nombre de la Carrera:** ${name}\n` +
-        `- **Fecha:** ${date}\n` +
-        `- **Región:** ${region}\n` +
-        `- **Comuna / Lugar:** ${commune}\n` +
-        `- **Disciplina:** ${discipline}\n` +
-        `- **Distancias:** ${distances}\n` +
-        `- **Web / Inscripción Oficial:** ${url}\n` +
-        `- **Contacto / Productora:** ${contact}\n\n` +
-        `_Enviado desde el formulario oficial de Pedaleo.cl_`
+      if (url && !/^https?:\/\//i.test(url)) {
+        url = 'https://' + url;
+      }
+
+      const mailtoSubject = encodeURIComponent(`[Nueva Carrera] ${name} (${date})`);
+      const mailtoBody = encodeURIComponent(
+        `Solicitud de publicación de nueva carrera en Pedaleo.cl:\n\n` +
+        `- Nombre de la Carrera: ${name}\n` +
+        `- Fecha: ${date}\n` +
+        `- Región: ${region}\n` +
+        `- Comuna / Lugar: ${commune}\n` +
+        `- Disciplina: ${discipline}\n` +
+        `- Distancias: ${distances || 'Ver bases'}\n` +
+        `- Link / Web de Inscripción: ${url}\n` +
+        `- Contacto / Productora: ${contact}\n\n` +
+        `---\nEnviado desde el formulario oficial de Pedaleo.cl`
       );
 
-      // GitHub Issues URL with pre-filled title, template, and label
-      const githubIssueUrl = `https://github.com/jqnmunozdiaz/pedaleo.cl/issues/new?title=${issueTitle}&body=${issueBody}&labels=nueva-carrera`;
+      // Open email client
+      window.location.href = `mailto:contacto@pedaleo.cl?subject=${mailtoSubject}&body=${mailtoBody}`;
 
-      window.open(githubIssueUrl, '_blank', 'noopener,noreferrer');
+      const feedback = document.getElementById('publish-feedback');
+      if (feedback) {
+        feedback.style.display = 'block';
+        feedback.style.background = '#dcfce7';
+        feedback.style.color = '#166534';
+        feedback.style.border = '1px solid #bbf7d0';
+        feedback.innerHTML = `¡Solicitud enviada! Se ha preparado tu correo a <strong>contacto@pedaleo.cl</strong> para revisar y publicar <strong>${name}</strong>.`;
+      }
 
-      alert(
-        `¡Excelente! Se ha generado tu solicitud de publicación.\n\n` +
-        `Se abrirá la página de GitHub Issue en una pestaña nueva para confirmarla. ` +
-        `Esto notificará de inmediato al mantenedor de Pedaleo.cl.`
-      );
-
-      this.closeModals();
-      form.reset();
+      setTimeout(() => {
+        this.closeModals();
+        form.reset();
+        if (feedback) feedback.style.display = 'none';
+      }, 3500);
     }
   };
 
