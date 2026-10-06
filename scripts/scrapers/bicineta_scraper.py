@@ -119,6 +119,11 @@ class BicinetaScraper(BaseScraper):
                         "featured": False,
                         "source": "bicineta"
                     }
+                else:
+                    # Permite múltiples formatos si la carrera aparece en más de una categoría (ej: MTB y Ruta, o Ruta y Gravel)
+                    for d in disciplines:
+                        if d not in events_dict[slug]["disciplines"]:
+                            events_dict[slug]["disciplines"].append(d)
 
         except Exception as e:
             print(f"[bicineta_scraper] Error en {url}: {e}")

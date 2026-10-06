@@ -7,7 +7,7 @@
   <meta name="description" content="Calendario sobrio y actualizado de carreras de ciclismo en Chile. Filtra por región, disciplina y agéndalas directamente en Google Calendar o Apple Calendar.">
   <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
   <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261006_multisticky">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261006_multiformat">
 </head>
 <body>
 
@@ -191,14 +191,29 @@
               <input type="date" id="pub-date" name="date" class="form-control" required oninvalid="this.setCustomValidity('Por favor selecciona una fecha.')" oninput="this.setCustomValidity('')">
             </div>
             <div class="form-group">
-              <label class="form-label" for="pub-discipline">Disciplina *</label>
-              <select id="pub-discipline" name="discipline" class="form-control" required oninvalid="this.setCustomValidity('Por favor selecciona una disciplina.')" onchange="this.setCustomValidity('')">
-                <option value="MTB">MTB (XCM / XCO)</option>
-                <option value="Ruta">Ruta / Gran Fondo</option>
-                <option value="Gravel">Gravel</option>
-                <option value="Ultra/Bikepacking">Ultraciclismo / Bikepacking</option>
-                <option value="Enduro">Enduro / Descenso</option>
-              </select>
+              <label class="form-label">Disciplinas / Formatos * (marca los que apliquen)</label>
+              <div class="pub-disciplines-options">
+                <label class="pub-disc-check-pill">
+                  <input type="checkbox" name="discipline" value="MTB" checked>
+                  <span>MTB</span>
+                </label>
+                <label class="pub-disc-check-pill">
+                  <input type="checkbox" name="discipline" value="Ruta">
+                  <span>Ruta</span>
+                </label>
+                <label class="pub-disc-check-pill">
+                  <input type="checkbox" name="discipline" value="Gravel">
+                  <span>Gravel</span>
+                </label>
+                <label class="pub-disc-check-pill">
+                  <input type="checkbox" name="discipline" value="Ultra/Bikepacking">
+                  <span>Ultra</span>
+                </label>
+                <label class="pub-disc-check-pill">
+                  <input type="checkbox" name="discipline" value="Enduro">
+                  <span>Enduro/DH</span>
+                </label>
+              </div>
             </div>
           </div>
 
@@ -321,9 +336,9 @@
 
   <!-- Scripts -->
   <script src="assets/vendor/leaflet/leaflet.js"></script>
-  <script src="assets/js/calendar-exporter.js?v=20261006_multisticky"></script>
-  <script src="assets/js/calendar-view.js?v=20261006_multisticky"></script>
-  <script src="assets/js/map-view.js?v=20261006_multisticky"></script>
-  <script src="assets/js/app.js?v=20261006_multisticky"></script>
+  <script src="assets/js/calendar-exporter.js?v=20261006_multiformat"></script>
+  <script src="assets/js/calendar-view.js?v=20261006_multiformat"></script>
+  <script src="assets/js/map-view.js?v=20261006_multiformat"></script>
+  <script src="assets/js/app.js?v=20261006_multiformat"></script>
 </body>
 </html>

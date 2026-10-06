@@ -519,8 +519,15 @@ document.addEventListener('DOMContentLoaded', () => {
           const monthShort = monthShorts[dObj.getMonth()];
           const dowShort = dowShorts[dObj.getDay()];
 
-          const discMain = (ev.disciplines[0] || 'MTB').toLowerCase().split('/')[0];
-          const discClass = `badge-${discMain}`;
+          const disciplinesList = Array.isArray(ev.disciplines) && ev.disciplines.length > 0
+            ? ev.disciplines
+            : ['MTB'];
+
+          const discBadgesHtml = disciplinesList.map(disc => {
+            const dKey = disc.toLowerCase().split('/')[0].trim();
+            const dClass = `badge-${dKey}`;
+            return `<span class="badge-discipline ${dClass}">${disc}</span>`;
+          }).join('');
 
           const distText = ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases'
             ? ev.distances.join(' • ')
@@ -547,9 +554,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="chip-day">${dayNum}</span>
               </div>
 
-              <!-- Columna 2: Disciplina -->
-              <div class="event-col-disc">
-                <span class="badge-discipline ${discClass}">${ev.disciplines[0] || 'MTB'}</span>
+              <!-- Columna 2: Disciplinas / Formatos (soporta múltiples) -->
+              <div class="event-col-disc" title="${disciplinesList.join(', ')}">
+                ${discBadgesHtml}
               </div>
 
               <!-- Columna 3: Título de Carrera y Subtítulo de Métricas -->
@@ -658,9 +665,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const regName = ev.region_name || (this.regions.find(r => r.id === ev.region)?.short) || ev.region;
 
+      const modalBadgesHtml = (Array.isArray(ev.disciplines) && ev.disciplines.length > 0 ? ev.disciplines : ['MTB']).map(d => {
+        const dKey = d.toLowerCase().split('/')[0].trim();
+        return `<span class="badge-discipline badge-${dKey}">${d}</span>`;
+      }).join(' ');
+
       body.innerHTML = `
         <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem">
-          <span class="badge-discipline badge-${(ev.disciplines[0]||'mtb').toLowerCase().split('/')[0]}">${ev.disciplines.join(', ')}</span>
+          ${modalBadgesHtml}
           <span class="badge-reg">${regName}</span>
           ${ev.price_type === 'free' ? '<span class="badge-reg" style="color:#166534; font-weight:700">GRATIS</span>' : ''}
         </div>
@@ -763,7 +775,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const date = formData.get('date') || '';
       const region = formData.get('region') || '';
       const commune = formData.get('commune') || '';
-      const discipline = formData.get('discipline') || '';
+      const rawDisciplines = formData.getAll('discipline');
+      const discipline = rawDisciplines.length > 0 ? rawDisciplines.join(', ') : 'MTB';
       const distances = formData.get('distances') || '';
       let url = (formData.get('url') || '').trim();
       const contact = formData.get('contact') || 'No provisto';
@@ -779,7 +792,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `- Fecha: ${date}\n` +
         `- Región: ${region}\n` +
         `- Comuna / Lugar: ${commune}\n` +
-        `- Disciplina: ${discipline}\n` +
+        `- Disciplinas / Formatos: ${discipline}\n` +
         `- Distancias: ${distances || 'Ver bases'}\n` +
         `- Link / Web de Inscripción: ${url}\n` +
         `- Contacto / Productora: ${contact}\n\n` +

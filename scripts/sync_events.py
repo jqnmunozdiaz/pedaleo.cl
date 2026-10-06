@@ -140,6 +140,11 @@ def merge_events(existing_events, new_scraped_events):
                 updated_count += 1
             if not match.get("description") and new_ev.get("description"):
                 match["description"] = new_ev["description"]
+            # Permite múltiples formatos combinando disciplinas de distintas fuentes
+            for d in new_ev.get("disciplines", []):
+                if d not in match.get("disciplines", []):
+                    match.setdefault("disciplines", []).append(d)
+                    updated_count += 1
         else:
             existing_events.append(new_ev)
             existing_map[new_id] = new_ev

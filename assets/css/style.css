@@ -504,7 +504,7 @@ button {
 
 .event-item {
   display: grid;
-  grid-template-columns: 50px 72px minmax(220px, 1.8fr) minmax(180px, 1.2fr) auto;
+  grid-template-columns: 50px 76px minmax(220px, 1.8fr) minmax(180px, 1.2fr) auto;
   align-items: center;
   gap: 0.75rem;
   padding: 0.45rem 0.85rem;
@@ -559,13 +559,15 @@ button {
   margin-top: 1px;
 }
 
-/* Columna 2: Disciplina (Ancho fijo estricto para alineación perfecta de títulos) */
+/* Columna 2: Disciplinas / Formatos (Ancho fijo estricto, admite múltiples formatos) */
 .event-col-disc {
-  width: 72px;
-  min-width: 72px;
-  max-width: 72px;
-  flex: 0 0 72px;
+  width: 76px;
+  min-width: 76px;
+  max-width: 76px;
+  flex: 0 0 76px;
   display: flex;
+  flex-direction: column;
+  gap: 2px;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
@@ -577,10 +579,13 @@ button {
   min-width: 100%;
   max-width: 100%;
   text-align: center;
-  padding: 0.18rem 0.35rem;
-  font-size: 0.68rem;
+  padding: 0.12rem 0.25rem;
+  font-size: 0.63rem;
+  font-weight: 700;
+  line-height: 1.15;
   box-sizing: border-box;
   display: block;
+  border-radius: 3px;
 }
 
 /* Columna 3: Título y Subtítulo de Métricas */
@@ -1133,6 +1138,53 @@ button {
   gap: 0.75rem;
 }
 
+/* Checkbox pills de multi-selección de disciplinas en formulario */
+.pub-disciplines-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+.pub-disc-check-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pub-disc-check-pill input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.pub-disc-check-pill span {
+  display: inline-block;
+  padding: 0.28rem 0.55rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-body);
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: all 0.12s ease;
+}
+
+.pub-disc-check-pill input[type="checkbox"]:checked + span {
+  background: #166534;
+  color: white;
+  border-color: #166534;
+  box-shadow: 0 1px 2px rgba(22, 101, 52, 0.2);
+}
+
+.pub-disc-check-pill:hover span {
+  border-color: #94a3b8;
+}
+
 .modal-footer {
   padding: 0.85rem 1.25rem;
   border-top: 1px solid var(--border);
@@ -1631,7 +1683,7 @@ button {
    ========================================================================== */
 @media (max-width: 992px) {
   .event-item {
-    grid-template-columns: 50px 72px 1fr auto;
+    grid-template-columns: 50px 76px 1fr auto;
     grid-template-areas:
       "date disc title actions"
       "date disc loc actions";
@@ -1649,10 +1701,10 @@ button {
   }
   .event-col-disc {
     grid-area: disc;
-    width: 72px;
-    min-width: 72px;
-    max-width: 72px;
-    flex: 0 0 72px;
+    width: 76px;
+    min-width: 76px;
+    max-width: 76px;
+    flex: 0 0 76px;
   }
   .event-col-title {
     grid-area: title;
@@ -1672,7 +1724,7 @@ button {
   }
 
   .event-item {
-    grid-template-columns: 46px 64px 1fr;
+    grid-template-columns: 46px 68px 1fr;
     grid-template-areas:
       "date disc title"
       "date disc loc"
@@ -1699,10 +1751,15 @@ button {
   }
 
   .event-col-disc {
-    width: 64px;
-    min-width: 64px;
-    max-width: 64px;
-    flex: 0 0 64px;
+    width: 68px;
+    min-width: 68px;
+    max-width: 68px;
+    flex: 0 0 68px;
+  }
+
+  .event-col-disc .badge-discipline {
+    font-size: 0.58rem;
+    padding: 0.1rem 0.2rem;
   }
 
   .event-link {

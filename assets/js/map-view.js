@@ -332,7 +332,10 @@ const MapView = {
     `;
 
     group.events.forEach(ev => {
-      const discColor = this.getDisciplineColor(ev.disciplines);
+      const discBadgesMap = (Array.isArray(ev.disciplines) && ev.disciplines.length > 0 ? ev.disciplines : ['MTB']).map(d => {
+        const color = this.getDisciplineColor([d]);
+        return `<span class="map-race-disc-tag" style="background:${color}15; color:${color}; border-color:${color}40">${d}</span>`;
+      }).join(' ');
       const distText = ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases'
         ? ev.distances.join(' • ')
         : '';
@@ -341,9 +344,9 @@ const MapView = {
       popupHtml += `
         <div class="map-popup-race-item">
           <div class="map-popup-race-top">
-            <span class="map-race-disc-tag" style="background:${discColor}15; color:${discColor}; border-color:${discColor}40">
-              ${ev.disciplines[0] || 'MTB'}
-            </span>
+            <div style="display:flex; flex-wrap:wrap; gap:0.25rem">
+              ${discBadgesMap}
+            </div>
             <span class="map-race-date">${ev.date}</span>
           </div>
           <div class="map-popup-race-name">${ev.name}</div>
@@ -376,7 +379,10 @@ const MapView = {
   },
 
   createSingleEventPopupHtml(ev, group) {
-    const discColor = this.getDisciplineColor(ev.disciplines);
+    const discBadgesSingleMap = (Array.isArray(ev.disciplines) && ev.disciplines.length > 0 ? ev.disciplines : ['MTB']).map(d => {
+      const color = this.getDisciplineColor([d]);
+      return `<span class="map-race-disc-tag" style="background:${color}15; color:${color}; border-color:${color}40">${d}</span>`;
+    }).join(' ');
     const distText = ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases'
       ? ev.distances.join(' • ')
       : '';
@@ -392,9 +398,9 @@ const MapView = {
         <div class="map-popup-list">
           <div class="map-popup-race-item">
             <div class="map-popup-race-top">
-              <span class="map-race-disc-tag" style="background:${discColor}15; color:${discColor}; border-color:${discColor}40">
-                ${ev.disciplines[0] || 'MTB'}
-              </span>
+              <div style="display:flex; flex-wrap:wrap; gap:0.25rem">
+                ${discBadgesSingleMap}
+              </div>
               <span class="map-race-date">${ev.date}</span>
             </div>
             <div class="map-popup-race-name" style="font-size:1rem; font-weight:800">${ev.name}</div>
