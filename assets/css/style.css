@@ -516,11 +516,15 @@ button {
   align-items: center;
   justify-content: center;
   width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  flex: 0 0 48px;
   padding: 0.15rem 0.25rem;
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
   border-radius: 5px;
   text-align: center;
+  box-sizing: border-box;
   flex-shrink: 0;
 }
 
@@ -541,20 +545,28 @@ button {
   letter-spacing: 0.02em;
 }
 
-/* Columna 2: Disciplina (Ancho fijo) */
+/* Columna 2: Disciplina (Ancho fijo estricto para alineación perfecta de títulos) */
 .event-col-disc {
   width: 72px;
+  min-width: 72px;
+  max-width: 72px;
+  flex: 0 0 72px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .event-col-disc .badge-discipline {
   width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   text-align: center;
   padding: 0.18rem 0.35rem;
   font-size: 0.68rem;
+  box-sizing: border-box;
+  display: block;
 }
 
 /* Columna 3: Título */
