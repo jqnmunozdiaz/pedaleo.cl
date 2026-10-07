@@ -481,7 +481,8 @@
     "date": "2026-10-11",
     "end_date": "2026-10-11",
     "disciplines": [
-      "Ruta"
+      "Ruta",
+      "MTB"
     ],
     "region": "IX",
     "region_name": "La Araucanía",
@@ -1240,6 +1241,35 @@
     "lng": -72.3536
   },
   {
+    "id": "mountain-bike-tour-6-2026",
+    "name": "Mountain Bike Tour #6",
+    "date": "2026-10-25",
+    "end_date": "2026-10-25",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "San Francisco de Mostazal",
+    "location": "San Francisco de Mostazal - VI. Rancagua",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://welcu.com/demaria/-1k67?utm_source=directory",
+    "registration_url": "https://welcu.com/demaria/-1k67?utm_source=directory",
+    "description": "6ta fecha del MountainBike Tour 2026",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -33.9833,
+    "lng": -70.7
+  },
+  {
     "id": "push-bike-cup-empedrado-2026",
     "name": "Push Bike Cup Empedrado 2026",
     "date": "2026-10-25",
@@ -1655,6 +1685,35 @@
     "lng": -71.9744
   },
   {
+    "id": "desafio-pumanque-tierra-de-condores-2026",
+    "name": "Desafio Pumanque - Tierra de Condores",
+    "date": "2026-11-15",
+    "end_date": "2026-11-15",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Pumanque",
+    "location": "Pumanque, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/820/v-version-desafio-pumanque-tierra-de-condores-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/820/v-version-desafio-pumanque-tierra-de-condores-2026",
+    "description": "Competencia de Ruta cronometrada por GUCA en Pumanque.",
+    "featured": false,
+    "source": "guca",
+    "lat": -33.4489,
+    "lng": -70.6693
+  },
+  {
     "id": "pioneros-xcm-conguillio-2026",
     "name": "Pioneros XCM Conguillío 2026",
     "date": "2026-11-15",
@@ -1744,6 +1803,35 @@
     "source": "welcu",
     "lat": -41.3195,
     "lng": -72.9854
+  },
+  {
+    "id": "vuelta-master-ohiggins-2026",
+    "name": "Vuelta Master Ohiggins 2026",
+    "date": "2026-11-21",
+    "end_date": "2026-11-21",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Machali",
+    "location": "Machali, Región O'Higgins",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "GUCA / Club Organizador",
+    "url": "https://guca.cl/att_tickets/public/e/821/vuelta-master-ohiggins-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/821/vuelta-master-ohiggins-2026",
+    "description": "Competencia de MTB cronometrada por GUCA en Machali.",
+    "featured": false,
+    "source": "guca",
+    "lat": -34.1819,
+    "lng": -70.6506
   },
   {
     "id": "epica-gravel-pde-2026",
