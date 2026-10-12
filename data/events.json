@@ -751,7 +751,8 @@
     "date": "2026-10-18",
     "end_date": "2026-10-18",
     "disciplines": [
-      "Ruta"
+      "Ruta",
+      "MTB"
     ],
     "region": "IX",
     "region_name": "La Araucanía",
@@ -954,7 +955,8 @@
     "date": "2026-10-23",
     "end_date": "2026-10-27",
     "disciplines": [
-      "Gravel"
+      "Gravel",
+      "MTB"
     ],
     "region": "RM",
     "region_name": "Metropolitana",
@@ -1301,13 +1303,102 @@
     "lng": -70.6693
   },
   {
+    "id": "copa-chile-downhill-centro-3-2026",
+    "name": "Copa Chile Downhill Centro #3",
+    "date": "2026-10-30",
+    "end_date": "2026-11-01",
+    "disciplines": [
+      "MTB",
+      "Enduro"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Talca",
+    "location": "Talca - VII. Maule",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/p/DdWbgLYx2ks/",
+    "registration_url": "https://www.instagram.com/p/DdWbgLYx2ks/",
+    "description": "Un histórico. Un imperdible del descenso chileno. Talca vuelve al calendario, y esta vez llega con nueva...",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -35.4264,
+    "lng": -71.6554
+  },
+  {
+    "id": "copa-litoral-xco-cycles-el-as-2026",
+    "name": "Copa Litoral XCO Cycles el As 2026",
+    "date": "2026-10-31",
+    "end_date": "2026-10-31",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "V",
+    "region_name": "Valparaíso",
+    "commune": "San Antonio",
+    "location": "San Antonio - V. Valparaíso",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.tocketicket.cl/events/6aa4b3cca61b9484409c8579",
+    "registration_url": "https://www.tocketicket.cl/events/6aa4b3cca61b9484409c8579",
+    "description": "¡Atención ciclistas! La adrenalina del cross-country olímpico se toma la comuna de San Antonio en una...",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -33.5833,
+    "lng": -71.6167
+  },
+  {
+    "id": "rally-labranza-2026",
+    "name": "Rally Labranza",
+    "date": "2026-10-31",
+    "end_date": "2026-10-31",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Temuco",
+    "location": "Temuco - IX. Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://wigoo.cl/?id=20261005100343",
+    "registration_url": "https://wigoo.cl/?id=20261005100343",
+    "description": "Este sábado 31 de octubre, Labranza vuelve a convertirse en punto de encuentro para los amantes del...",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -38.7359,
+    "lng": -72.5904
+  },
+  {
     "id": "trans-ecuador-2026",
     "name": "Trans Ecuador 2026",
     "date": "2026-10-31",
     "end_date": "2026-11-03",
     "disciplines": [
       "Gravel",
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "MTB"
     ],
     "region": "RM",
     "region_name": "Metropolitana",
@@ -1721,7 +1812,8 @@
     "date": "2026-11-14",
     "end_date": "2026-11-14",
     "disciplines": [
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "Gravel"
     ],
     "region": "IX",
     "region_name": "La Araucanía",
@@ -2247,6 +2339,36 @@
     "source": "welcu",
     "lat": -33.3156,
     "lng": -71.409
+  },
+  {
+    "id": "gran-fondo-lo-tolten-2026",
+    "name": "Gran Fondo Lo Toltén",
+    "date": "2026-12-08",
+    "end_date": "2026-12-08",
+    "disciplines": [
+      "Ruta",
+      "Ultra/Bikepacking"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Pucón",
+    "location": "Pucón - IX. Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": 30,
+    "distance_max_km": 60,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Deamiles",
+    "url": "https://deamiles.cl",
+    "registration_url": "https://deamiles.cl",
+    "description": "GFLT2: la versión sureña del pedaleo a Lo Vasquez con 340 km y 3000 m entre Pucón y la costa en La Barra.",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.2822,
+    "lng": -71.9744
   },
   {
     "id": "brevet-400-2026",
