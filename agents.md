@@ -40,7 +40,7 @@ Pedaleo.cl/
 ├── index.html                       # Página principal (SPA estática ligera)
 ├── .nojekyll                        # Asegura que GitHub Pages sirva archivos estáticos puros
 ├── agents.md                        # Este documento de reglas y arquitectura
-├── robots.txt / sitemap.xml         # SEO básico (la URL canónica es https://pedaleo.cl/)
+├── robots.txt / sitemap.xml         # SEO básico (la URL canónica es https://jqnmunozdiaz.github.io/pedaleo.cl/; si se configura un dominio propio, actualizar index.html, sitemap.xml, robots.txt y 404.html)
 ├── README.md                        # Documentación general de usuario y despliegue
 ├── .github/
 │   └── workflows/

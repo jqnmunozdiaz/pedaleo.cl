@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pedaleo.cl/sitemap.xml
+Sitemap: https://jqnmunozdiaz.github.io/pedaleo.cl/sitemap.xml
