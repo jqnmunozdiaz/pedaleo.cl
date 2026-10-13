@@ -15,42 +15,6 @@
   "verdict": "ok",
   "checked": "2026-10-13"
  },
- "http://welcu.com/aventura-aconcagua/desafio-termas-del-flaco-2026": {
-  "verdict": "ok",
-  "checked": "2026-10-13"
- },
- "http://welcu.com/conquista-chile/ascenso_volcan_osorno_2026": {
-  "verdict": "ok",
-  "checked": "2026-10-13"
- },
- "http://welcu.com/deacheseries/dhs_america_series_chile_2026": {
-  "verdict": "ok",
-  "checked": "2026-10-13"
- },
- "http://welcu.com/deacheseries/dhs_puchuncavi_2026": {
-  "verdict": "ok",
-  "checked": "2026-10-13"
- },
- "http://welcu.com/enduro-life/enduro-de-la-ctm-2026": {
-  "verdict": "ok",
-  "checked": "2026-10-13"
- },
- "http://welcu.com/malku-amauta-producciones/atacamachallnger2027": {
-  "verdict": "ok",
-  "checked": "2026-10-13"
- },
- "http://welcu.com/malku-amauta-producciones/el-tp-buscando-el-tesoro-de-los-pincheira": {
-  "verdict": "ok",
-  "checked": "2026-10-13"
- },
- "http://welcu.com/mangosta/ow26": {
-  "verdict": "ok",
-  "checked": "2026-10-13"
- },
- "http://welcu.com/municipalidad-de-chiguayante-2025/-1ogl": {
-  "verdict": "ok",
-  "checked": "2026-10-13"
- },
  "http://www.firefliespatagonia.com": {
   "verdict": "ok",
   "checked": "2026-10-13"
@@ -132,6 +96,10 @@
   "last_dead": "2026-10-13",
   "verdict": "dead"
  },
+ "https://granfondofindelmundo.cl/": {
+  "verdict": "ok",
+  "checked": "2026-10-13"
+ },
  "https://guca.cl": {
   "verdict": "ok",
   "checked": "2026-10-13"
@@ -212,6 +180,10 @@
   "verdict": "ok",
   "checked": "2026-10-13"
  },
+ "https://patagoniagravel.com/": {
+  "verdict": "ok",
+  "checked": "2026-10-13"
+ },
  "https://ticketplus.cl": {
   "verdict": "ok",
   "checked": "2026-10-13"
@@ -244,11 +216,11 @@
   "verdict": "dead",
   "checked": "2026-10-13"
  },
- "https://welcu.com": {
+ "https://welcu.com/acrossandes/acrossandes2026": {
   "verdict": "ok",
   "checked": "2026-10-13"
  },
- "https://welcu.com/acrossandes/acrossandes2026": {
+ "https://welcu.com/aventura-aconcagua/desafio-termas-del-flaco-2026": {
   "verdict": "ok",
   "checked": "2026-10-13"
  },
@@ -260,23 +232,59 @@
   "verdict": "ok",
   "checked": "2026-10-13"
  },
+ "https://welcu.com/conquista-chile/ascenso_volcan_osorno_2026": {
+  "verdict": "ok",
+  "checked": "2026-10-13"
+ },
  "https://welcu.com/conquista-chile/cvo_2027": {
   "verdict": "ok",
   "checked": "2026-10-13"
  },
- "https://welcu.com/cycling-school/1ra-travesia-ascencion-a-las-7-tazas?utm_source=directory": {
+ "https://welcu.com/cycling-school/1ra-travesia-ascencion-a-las-7-tazas": {
   "verdict": "ok",
   "checked": "2026-10-13"
  },
- "https://welcu.com/demaria/-1k67?utm_source=directory": {
+ "https://welcu.com/deacheseries/dhs_america_series_chile_2026": {
   "verdict": "ok",
   "checked": "2026-10-13"
  },
- "https://welcu.com/demaria/desafiosubaru?utm_source=directory": {
+ "https://welcu.com/deacheseries/dhs_puchuncavi_2026": {
+  "verdict": "ok",
+  "checked": "2026-10-13"
+ },
+ "https://welcu.com/demaria/-1k67": {
+  "verdict": "ok",
+  "checked": "2026-10-13"
+ },
+ "https://welcu.com/demaria/desafiosubaru": {
+  "verdict": "ok",
+  "checked": "2026-10-13"
+ },
+ "https://welcu.com/enduro-life/enduro-de-la-ctm-2026": {
+  "verdict": "ok",
+  "checked": "2026-10-13"
+ },
+ "https://welcu.com/malku-amauta-producciones/atacamachallnger2027": {
+  "verdict": "ok",
+  "checked": "2026-10-13"
+ },
+ "https://welcu.com/malku-amauta-producciones/el-tp-buscando-el-tesoro-de-los-pincheira": {
+  "verdict": "ok",
+  "checked": "2026-10-13"
+ },
+ "https://welcu.com/mangosta/ow26": {
+  "verdict": "ok",
+  "checked": "2026-10-13"
+ },
+ "https://welcu.com/mauna-apparel/social-ride-stgo-x-mauna-apparel": {
   "verdict": "ok",
   "checked": "2026-10-13"
  },
  "https://welcu.com/mtbelnoviciado/colliguay-gravel-quest-2026": {
+  "verdict": "ok",
+  "checked": "2026-10-13"
+ },
+ "https://welcu.com/municipalidad-de-chiguayante-2025/-1ogl": {
   "verdict": "ok",
   "checked": "2026-10-13"
  },
@@ -505,6 +513,10 @@
   "checked": "2026-10-13"
  },
  "https://www.tocketicket.cl/events/6aa4b3cca61b9484409c8579": {
+  "verdict": "ok",
+  "checked": "2026-10-13"
+ },
+ "https://www.ucigranfondochile.com/": {
   "verdict": "ok",
   "checked": "2026-10-13"
  }

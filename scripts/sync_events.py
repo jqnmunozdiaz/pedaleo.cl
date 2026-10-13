@@ -347,6 +347,25 @@ def merge_events(existing_events, new_scraped_events):
     return existing_events, added_count, updated_count
 
 
+def improve_links(events):
+    """Cleans tracking parameters and replaces generic Welcu links by the race's own Welcu page when it can be found."""
+    from welcu_links import clean_link, is_generic_welcu, resolve_generic_link
+
+    fixed = 0
+    for ev in events:
+        for field in ("url", "registration_url"):
+            link = ev.get(field) or ""
+            better = clean_link(link)
+            if is_generic_welcu(better):
+                better = resolve_generic_link(better, ev.get("name", ""))
+            if better != link:
+                ev[field] = better
+                fixed += 1
+    if fixed:
+        print(f"[sync] {fixed} enlaces limpiados o reemplazados por la página propia del evento.")
+    return events
+
+
 def drop_dead_links(events):
     """Removes upcoming races whose website no longer works (see link_check.py)."""
     if os.environ.get("PEDALEO_SKIP_LINK_CHECK") == "1":
@@ -405,6 +424,7 @@ def run_sync():
     if folded:
         print(f"[sync] {folded} duplicados internos fusionados.")
 
+    merged = improve_links(merged)
     merged = drop_dead_links(merged)
     print(f"[sync] Resumen: +{added} nuevas carreras agregadas, {updated} actualizadas.")
     print(f"[sync] Total final en catálogo: {len(merged)} carreras.")

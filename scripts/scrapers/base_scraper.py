@@ -11,6 +11,7 @@ from datetime import date, datetime
 from typing import Dict, List, Optional
 import requests
 from requests.adapters import HTTPAdapter
+from welcu_links import clean_link
 from urllib3.util.retry import Retry
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -268,7 +269,8 @@ class BaseScraper:
             commune = region_name
 
         labels, dist_min, dist_max = parse_distances(distances)
-        url = url or registration_url
+        url = clean_link(url or registration_url)
+        registration_url = clean_link(registration_url)
         event = {
             "id": self.generate_slug(title, date),
             "name": title.strip(),
