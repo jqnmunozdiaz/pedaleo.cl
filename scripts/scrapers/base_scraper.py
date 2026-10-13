@@ -56,6 +56,7 @@ REGION_MAPPING = {
     "aysen": "XI",
     "patagonia": "XI",
     "magallanes": "XII",
+    "libertador": "VI",
 }
 
 # Roman numerals are only trusted in the form "Region IV" (bare "III" or "V" appear in event titles).
@@ -186,10 +187,12 @@ class BaseScraper:
     def commune_region(text: str) -> Optional[str]:
         """Region of the first known commune/locality named in the text (more reliable than organizers' own tags)."""
         clean = strip_accents(text or "")
+        best = None  # (position, -length, region): the first place named wins, then the longest name
         for commune in _COMMUNES_BY_LENGTH:
-            if _contains_word(clean, commune):
-                return _COMMUNE_TO_REGION[commune]
-        return None
+            m = re.search(r"\b" + re.escape(commune) + r"\b", clean)
+            if m and (best is None or (m.start(), -len(commune)) < best[:2]):
+                best = (m.start(), -len(commune), _COMMUNE_TO_REGION[commune])
+        return best[2] if best else None
 
     @staticmethod
     def _region_from_text(text: str) -> Optional[str]:
@@ -203,9 +206,9 @@ class BaseScraper:
             return m.group(1).upper()
 
         # 2. Known communes / localities
-        for commune in _COMMUNES_BY_LENGTH:
-            if _contains_word(clean, commune):
-                return _COMMUNE_TO_REGION[commune]
+        commune_region = BaseScraper.commune_region(clean)
+        if commune_region:
+            return commune_region
 
         # 3. Region names and well-known keywords
         for key, code in REGION_MAPPING.items():
@@ -282,7 +285,7 @@ class BaseScraper:
             "elevation_gain_m": 0,
             "price_type": price_type,
             "status": "open",
-            "organizer": organizer or self.name.capitalize(),
+            "organizer": organizer or "Organización oficial",
             "url": url,
             "registration_url": registration_url or url,
             "description": description or f"Competencia de ciclismo: {title}.",

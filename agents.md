@@ -60,11 +60,13 @@ Pedaleo.cl/
 │   ├── communes_coords.json         # Coordenadas geográficas de referencia por comuna y región
 │   ├── communes_regions.json        # Comuna/localidad -> código de región (usado por los scrapers)
 │   ├── excluded_events.json         # IDs que los scrapers nunca deben volver a agregar (duplicados, descartes)
+│   ├── link_checks.json             # Caché de la verificación de enlaces (la actualiza el workflow)
 │   ├── events.json                  # Catálogo central de carreras (fuente única de verdad)
 │   └── regions.json                 # Catálogo oficial de las 16 regiones de Chile
 └── scripts/
     ├── requirements.txt             # Dependencias Python (requests, beautifulsoup4)
     ├── sync_events.py               # Orquestador de sincronización, deduplicación y guardado
+    ├── link_check.py                # Verifica que el sitio de cada carrera funcione; omite las que no
     ├── validate_events.py           # Validador de esquemas e integridad (fechas reales, regiones, URLs, coordenadas)
     ├── add_event.py                 # Asistente CLI interactivo para ingreso manual rápido
     └── scrapers/
@@ -73,6 +75,8 @@ Pedaleo.cl/
         ├── bicineta_scraper.py      # Scraper de Bicineta.cl (feed JSON /eventos/fetch_more con todas las carreras)
         ├── guca_scraper.py          # Scraper de GUCA.cl (home + página de detalle de cada carrera)
         ├── ridechile_scraper.py     # Scraper del "Nuevo Calendario" de Ridechile.cl (con distancias)
+        ├── tusdesafios_scraper.py   # Scraper de Tusdesafios.com (secciones de ciclismo + JSON-LD de cada carrera)
+        ├── ciclismochile_scraper.py # Agregador CiclismoChile.cl (/api/events): Bikerace, Welcu, Tocketicket, Timing FP
         └── ticketsport_scraper.py   # Scraper de TicketSport.cl
 tests/
 └── test_pipeline.py                 # Pruebas unitarias (scrapers, deduplicación, validador)
@@ -138,6 +142,8 @@ Cada carrera debe cumplir con la siguiente estructura JSON validada por `scripts
    - Nunca se inventa una región ni una fecha: sin fecha el evento se omite. Si el lugar no se puede ubicar (`data/communes_regions.json`) la carrera **se conserva** con `location_unverified: true`; si el lugar es extranjero se descarta.
    - Se descartan eventos extranjeros y que no son de ciclismo (running, triatlón, aguas abiertas, etc.).
    - Una comuna conocida manda sobre la región que marca el organizador (Bicineta a veces se equivoca). Agrega comunas nuevas a `data/communes_regions.json` para que las carreras queden ubicadas.
+   - **Sitios caídos**: tras sincronizar, `scripts/link_check.py` revisa el enlace de inscripción de cada carrera próxima. Solo cuenta como caído lo definitivo y repetido (dominio inexistente, conexión rechazada, 404/410 o error 5xx en cada intento); bloqueos a bots (403/429), timeouts y redes sociales (que no se pueden verificar) se consideran vivos. Una carrera con el sitio caído se omite de inmediato y vuelve sola si el sitio se recupera. Si fallan más de 15% de los enlaces en una corrida se asume un problema de red y no se omite nada. Para saltarse la verificación (pruebas/offline): `PEDALEO_SKIP_LINK_CHECK=1`.
+   - Para agregar una fuente nueva: comprobar que el sitio responde, que la fecha es explícita (con año) y que la ubicación se puede resolver; reutilizar `BaseScraper.build_event()` y `locate()`; registrar el scraper en `scrapers/__init__.py` y `sync_events.py`; agregar pruebas.
    - Bicineta solo muestra 16 carreras en HTML; el scraper recorre su endpoint JSON `/eventos/fetch_more` (el feed no trae año: se deduce del orden cronológico).
    - Duplicados entre fuentes se fusionan por enlace de inscripción (salvo enlaces de redes sociales compartidos por toda una serie) o por fecha + región + título parecido; los que la heurística no detecta se registran en `data/excluded_events.json`. Al fusionar, una fuente puede completar la ubicación o las distancias que faltaban.
    - Para una fuente, un cambio de fecha actualiza la carrera existente; otras fuentes nunca pisan fechas curadas manualmente.

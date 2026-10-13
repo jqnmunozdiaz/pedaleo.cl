@@ -765,7 +765,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }).join(' ');
 
       const distances = Utils.distanceText(ev, ', ') || 'Ver bases';
-      const sourceLabel = ev.source ? ev.source.toUpperCase() : 'Pedaleo.cl';
 
       body.innerHTML = `
         <div class="detail-badges">
@@ -785,7 +784,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <div><strong>Distancias:</strong> ${Utils.esc(distances)}</div>
           <div><strong>Desnivel:</strong> ${ev.elevation_gain_m ? '+' + Utils.esc(ev.elevation_gain_m) + ' m' : 'No especificado'}</div>
           <div><strong>Organizador:</strong> ${Utils.esc(ev.organizer || 'Organización oficial')}</div>
-          <div><strong>Fuente:</strong> ${Utils.esc(sourceLabel)}</div>
         </div>
 
         <div class="detail-actions">

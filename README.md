@@ -36,7 +36,8 @@ Inspirado directamente en la simplicidad, velocidad y funcionalidad de **corre.c
 6. **Mantenimiento y Automatización Continua**:
    - Base de datos centralizada en `data/events.json`.
    - Pipeline de sincronización y scrapers en Python (`scripts/`).
-   - Automatización mediante **GitHub Actions** (`.github/workflows/deploy.yml`) que ejecuta las pruebas, consulta cada día las fuentes chilenas (Bicineta, GUCA, Ridechile, TicketSport), valida los datos y despliega sin intervención manual.
+   - Automatización mediante **GitHub Actions** (`.github/workflows/deploy.yml`) que ejecuta las pruebas, consulta cada día las fuentes chilenas (Bicineta, GUCA, Ridechile, Tusdesafios, CiclismoChile, TicketSport), valida los datos y despliega sin intervención manual.
+   - Las carreras cuyo sitio web ya no funciona se omiten automáticamente.
    - Se descartan carreras de running, triatlón y de otros países; las que no tienen ubicación confirmada se guardan aparte y se pueden mostrar con el botón **Incluir sin ubicación confirmada**.
    - Asistente CLI interactivo (`scripts/add_event.py`) para registrar nuevas carreras en segundos.
 
@@ -91,10 +92,13 @@ Pedaleo.cl/
         ├── bicineta_scraper.py      # Scraper para Bicineta.cl
         ├── guca_scraper.py          # Scraper para GUCA.cl
         ├── ridechile_scraper.py     # Scraper para el calendario de Ridechile.cl
+        ├── tusdesafios_scraper.py   # Scraper para Tusdesafios.com
+        ├── ciclismochile_scraper.py # Agregador CiclismoChile.cl
         └── ticketsport_scraper.py   # Scraper para TicketSport.cl
 tests/
 ├── test_pipeline.py                 # Pruebas unitarias del pipeline de datos
-└── test_sources.py                  # Pruebas de cobertura de fuentes, ubicaciones sin confirmar y fusión
+├── test_sources.py                  # Pruebas de cobertura de fuentes, ubicaciones sin confirmar y fusión
+└── test_new_sources.py              # Pruebas de Tusdesafios, CiclismoChile y verificación de enlaces
 ```
 
 ---

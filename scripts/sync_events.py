@@ -17,7 +17,10 @@ if hasattr(sys.stdout, 'reconfigure'):
 if hasattr(sys.stderr, 'reconfigure'):
     sys.stderr.reconfigure(encoding='utf-8')
 
-from scrapers import BicinetaScraper, GucaScraper, RidechileScraper, TicketSportScraper
+from scrapers import (
+    BicinetaScraper, CiclismoChileScraper, GucaScraper, RidechileScraper,
+    TicketSportScraper, TusdesafiosScraper,
+)
 from scrapers.base_scraper import strip_accents
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -344,6 +347,21 @@ def merge_events(existing_events, new_scraped_events):
     return existing_events, added_count, updated_count
 
 
+def drop_dead_links(events):
+    """Removes upcoming races whose website no longer works (see link_check.py)."""
+    if os.environ.get("PEDALEO_SKIP_LINK_CHECK") == "1":
+        return events
+    from link_check import filter_dead_links, load_cache, save_cache, event_link
+
+    kept, removed, cache = filter_dead_links(events, cache=load_cache())
+    for ev in removed:
+        print(f"[sync] Sitio caído, carrera omitida: {ev['name']} ({ev['date']}) -> {event_link(ev)}")
+    if removed:
+        print(f"::notice title=Enlaces caídos::{len(removed)} carreras omitidas por tener el sitio web caído.")
+    save_cache(cache)
+    return kept
+
+
 def run_sync():
     print("==================================================")
     print("🚴 Pedaleo.cl - Sincronizador de Carreras de Ciclismo")
@@ -357,6 +375,8 @@ def run_sync():
         BicinetaScraper(),
         GucaScraper(),
         RidechileScraper(),
+        TusdesafiosScraper(),
+        CiclismoChileScraper(),
         TicketSportScraper(),
     ]
 
@@ -384,6 +404,8 @@ def run_sync():
     merged, folded = dedupe_existing(merged)
     if folded:
         print(f"[sync] {folded} duplicados internos fusionados.")
+
+    merged = drop_dead_links(merged)
     print(f"[sync] Resumen: +{added} nuevas carreras agregadas, {updated} actualizadas.")
     print(f"[sync] Total final en catálogo: {len(merged)} carreras.")
 

@@ -1,5 +1,34 @@
 [
   {
+    "id": "pack-5-fechas-camp-pueblos-del-maule-2026",
+    "name": "PACK 5 FECHAS – CAMP. PUEBLOS DEL MAULE 2026",
+    "date": "2026-08-23",
+    "end_date": "2026-08-23",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Constitución",
+    "location": "Constitución, Región Maule",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://bikerace.cl/evento?id=2752",
+    "registration_url": "https://bikerace.cl/evento?id=2752",
+    "description": "PACK 5 FECHAS – CAMP. PUEBLOS DEL MAULE 2026. bike.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -35.3333,
+    "lng": -72.4167
+  },
+  {
     "id": "desafio-gran-fondo-rural-de-penacleta-2026",
     "name": "Desafio Gran Fondo Rural de Peñacleta",
     "date": "2026-10-03",
@@ -600,6 +629,35 @@
     "lng": -71.94
   },
   {
+    "id": "ruta-tour-maule-2026",
+    "name": "Ruta Tour Maule",
+    "date": "2026-10-15",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Talca",
+    "location": "Talca, Región Maule",
+    "distances": [
+      "400 km"
+    ],
+    "distance_min_km": 400.0,
+    "distance_max_km": 400.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/ruta-tour-maule-2026",
+    "registration_url": "http://granfondofindelmundo.cl/producto/ruta-tour-maule/",
+    "description": "Gran Fondo Fin del Mundo Tour Maule 2026 Del 15 al 18 de octubre, la Región del Maule se transforma en el escenario perfecto para los ciclistas que buscan aventura y desafío. Este tour exclusivo invita a recorrer más de 400 km con más de 6.000 metros de ascenso acumulado, atravesando paisajes únicos desde Talca hasta la costa en Iloca, pasando por Santa Cruz. Una experiencia para verdaderos amantes del ciclismo Con rutas que combinan: Ascensos exigentes hacia la imponente cordillera de los An...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -35.4264,
+    "lng": -71.6554
+  },
+  {
     "id": "brevet-300-ultra-gravel-nuble-2026",
     "name": "Brevet 300 - Ultra Gravel Ñuble",
     "date": "2026-10-17",
@@ -726,7 +784,8 @@
     "date": "2026-10-18",
     "end_date": "2026-10-18",
     "disciplines": [
-      "MTB"
+      "MTB",
+      "Gravel"
     ],
     "region": "VII",
     "region_name": "Maule",
@@ -955,6 +1014,35 @@
     "lng": -70.8167
   },
   {
+    "id": "mountain-bike-por-el-cerro-manquimavida-2026",
+    "name": "Mountain Bike por el Cerro Manquimavida",
+    "date": "2026-10-18",
+    "end_date": "2026-10-18",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VIII",
+    "region_name": "Biobío",
+    "commune": "Estacionamiento Final De Avenida Ohiggins",
+    "location": "Estacionamiento Final De Avenida Ohiggins, Región Biobío",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/mountain-bike-por-el-cerro-manquimavida-2026",
+    "registration_url": "http://welcu.com/municipalidad-de-chiguayante-2025/-1ogl",
+    "description": "Mountain Bike Cerro Manquimávida 2026: ¡Desafía la montaña! El 18 de octubre de 2026 llega la esperada competencia de ciclismo de montaña en el Cerro Manquimávida, un circuito exigente que pondrá a prueba la resistencia, técnica y habilidades de los amantes del mountain bike. Este evento en un terreno de nivel medio combina subidas, descensos y senderos irregulares, con un desnivel de más de 400 metros, ideal para ciclistas que buscan vivir una experiencia desafiante y entretenida en contacto...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -36.827,
+    "lng": -73.0503
+  },
+  {
     "id": "raid-nahuelbuta-2-2026",
     "name": "Raid Nahuelbuta #2 2026",
     "date": "2026-10-18",
@@ -989,7 +1077,8 @@
     "date": "2026-10-21",
     "end_date": "2026-10-22",
     "disciplines": [
-      "MTB"
+      "MTB",
+      "Ruta"
     ],
     "region": "VI",
     "region_name": "O'Higgins",
@@ -1011,6 +1100,36 @@
     "source": "guca",
     "lat": -34.1708,
     "lng": -70.7444
+  },
+  {
+    "id": "dhs-serie-5-puchuncavi-2026",
+    "name": "DHS Serie 5 Puchuncaví",
+    "date": "2026-10-23",
+    "end_date": "2026-10-25",
+    "disciplines": [
+      "MTB",
+      "Enduro"
+    ],
+    "region": "V",
+    "region_name": "Valparaíso",
+    "commune": "Puchuncaví",
+    "location": "Puchuncaví, Región Valparaíso",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/dhs-serie-5-puchuncavi-2026",
+    "registration_url": "http://welcu.com/deacheseries/dhs_puchuncavi_2026",
+    "description": "¡Cierre Épico de la Temporada DHS 2026 en Puchuncaví! La temporada 2026 de las Deache Series llega a su punto culminante con la Serie 5 en Puchuncaví, un clásico imperdible del descenso nacional. Del 23 al 25 de octubre, los mejores pilotos y equipos se enfrentarán en un circuito desafiante que promete pura adrenalina y emoción sobre dos ruedas. ¿Qué hace único a este evento? Fecha clave para definir a los campeones nacionales Evento válido como fecha UCI clase CS - Continental Series Pilotos...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -32.723,
+    "lng": -71.414
   },
   {
     "id": "travesia-el-volcan-2026",
@@ -1042,6 +1161,35 @@
     "source": "bicineta",
     "lat": -38.7359,
     "lng": -72.5904
+  },
+  {
+    "id": "ascenso-volcan-osorno-by-cvo-2026",
+    "name": "Ascenso Volcán Osorno by CVO",
+    "date": "2026-10-24",
+    "end_date": "2026-10-24",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "Espacio Yefi Ensenada",
+    "location": "Espacio Yefi Ensenada, Región Los Lagos",
+    "distances": [
+      "50 km"
+    ],
+    "distance_min_km": 50.0,
+    "distance_max_km": 50.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/ascenso-volcan-osorno-ciclismo-ruta-2026",
+    "registration_url": "http://welcu.com/conquista-chile/ascenso_volcan_osorno_2026",
+    "description": "Ascenso Volcán Osorno by CVO®: Desafía tus límites en dos ruedas El 24 de octubre de 2026, vive una experiencia única sobre la bicicleta en el Ascenso Volcán Osorno, una carrera de ruta en los impresionantes paisajes de Puerto Varas, Chile. Con salida desde el Espacio YEFI en Ensenada, los ciclistas enfrentarán un exigente recorrido de 50K y 1.554 metros de desnivel positivo, ascendiendo hasta las alturas del icónico Volcán Osorno. Esta competencia solidaria, organizada por Conquista Chile – ...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -39.85,
+    "lng": -72.8333
   },
   {
     "id": "copa-chile-mtb-xco-2026",
@@ -1169,17 +1317,19 @@
     "end_date": "2026-10-24",
     "disciplines": [
       "MTB",
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "Ruta"
     ],
     "region": "RM",
     "region_name": "Metropolitana",
     "commune": "Cerro San Cristobal",
     "location": "Cerro San Cristobal - RM. Santiago",
     "distances": [
-      "Ver bases"
+      "200 km",
+      "90 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 90.0,
+    "distance_max_km": 200.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -1207,10 +1357,10 @@
     "commune": "El Peñón",
     "location": "El Peñón - IV. Coquimbo",
     "distances": [
-      "Ver bases"
+      "140 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 140.0,
+    "distance_max_km": 140.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -1270,10 +1420,11 @@
     "commune": "Los Angeles",
     "location": "Los Angeles, Región Biobío",
     "distances": [
-      "Ver bases"
+      "48 km",
+      "24 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 24.0,
+    "distance_max_km": 48.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -1285,6 +1436,35 @@
     "source": "guca",
     "lat": -37.4697,
     "lng": -72.3536
+  },
+  {
+    "id": "1ra-travesia-ascencion-a-las-7-tazas-2026",
+    "name": "1ra Travesía Ascención a las 7 tazas",
+    "date": "2026-10-25",
+    "end_date": "2026-10-25",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Buin",
+    "location": "Buin, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://welcu.com/cycling-school/1ra-travesia-ascencion-a-las-7-tazas?utm_source=directory",
+    "registration_url": "https://welcu.com/cycling-school/1ra-travesia-ascencion-a-las-7-tazas?utm_source=directory",
+    "description": "1ra Travesía Ascención a las 7 tazas. Ciclismo.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -33.7333,
+    "lng": -70.7333
   },
   {
     "id": "mountain-bike-tour-6-2026",
@@ -1435,6 +1615,35 @@
     "lng": -71.6167
   },
   {
+    "id": "leyendas-gravel-desafio-la-aduana-2026",
+    "name": "Leyendas Gravel Desafío La Aduana",
+    "date": "2026-10-31",
+    "end_date": "2026-10-31",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Romeral Y Curicó",
+    "location": "Romeral Y Curicó, Región Maule",
+    "distances": [
+      "150 km"
+    ],
+    "distance_min_km": 150.0,
+    "distance_max_km": 150.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/leyendas-gravel-desafio-la-aduana-2026",
+    "registration_url": "https://www.instagram.com/leyendasgravel/",
+    "description": "Vive el Desafío La Aduana 2026 El próximo 31 de octubre de 2026, prepárate para una aventura épica de ciclismo de montaña en la imponente cordillera de los Andes. Este desafío reúne a apasionados del ciclismo de aventura y el trail en bici en un recorrido único desde Romeral, cerca de Curicó y a solo 2,5 horas de Santiago. Una ruta exigente y espectacular Con aproximadamente 150 km de ida y vuelta, la ruta combina tramos de asfalto y gravel, poniendo a prueba la resistencia física y mental en...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -34.9854,
+    "lng": -71.2394
+  },
+  {
     "id": "rally-labranza-2026",
     "name": "Rally Labranza",
     "date": "2026-10-31",
@@ -1464,6 +1673,95 @@
     "lng": -72.5904
   },
   {
+    "id": "trilogia-valle-las-trancas-2026",
+    "name": "Trilogía Valle Las Trancas",
+    "date": "2026-10-31",
+    "end_date": "2026-10-31",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "XVI",
+    "region_name": "Ñuble",
+    "commune": "Pinto",
+    "location": "Pinto, Región Ñuble",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://bikerace.cl/evento?id=2916",
+    "registration_url": "https://bikerace.cl/evento?id=2916",
+    "description": "Trilogía Valle Las Trancas. bike.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -36.7,
+    "lng": -71.9
+  },
+  {
+    "id": "tulahuen-fest-2026",
+    "name": "Tulahuen Fest",
+    "date": "2026-10-31",
+    "end_date": "2026-11-01",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "IV",
+    "region_name": "Coquimbo",
+    "commune": "Tulahuen",
+    "location": "Tulahuen, Región Coquimbo",
+    "distances": [
+      "42 km",
+      "20 km",
+      "10 km"
+    ],
+    "distance_min_km": 10.0,
+    "distance_max_km": 42.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/tulahuen-fest-2026",
+    "registration_url": "https://clob.app/e/Tulahuen-Fest-2026-3c131caf",
+    "description": "TulahuenFest 2026: Aventura y deporte en plena naturaleza El 31 de octubre y 1 de noviembre, Tulahuén, en la comuna de Monte Patria, abre sus puertas para vivir una experiencia única entre cerros y quebradas. Este valle escondido ofrece un escenario perfecto para los amantes del trail running y el ciclismo gravel, donde la naturaleza y la calidez local se combinan para hacer sentir a cada participante como en casa. Carrera Trail Running - Sábado 31 Para corredores de todos los niveles, Tulahu...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -29.9533,
+    "lng": -71.3436
+  },
+  {
+    "id": "carrera-xco-multihogar-2026",
+    "name": "Carrera XCO Multihogar 2026",
+    "date": "2026-11-01",
+    "end_date": "2026-11-01",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Parque cerro Carlos Condell",
+    "location": "Parque cerro Carlos Condell, Región Maule",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://timingfp.com/?c=PublicoEventos&m=ver&id=63",
+    "registration_url": "https://timingfp.com/?c=PublicoEventos&m=ver&id=63",
+    "description": "Carrera XCO Multihogar 2026. MTB.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -35.4264,
+    "lng": -71.6554
+  },
+  {
     "id": "desafio-the-deaths-race-2026",
     "name": "Desafío The Deaths Race",
     "date": "2026-11-01",
@@ -1476,10 +1774,11 @@
     "commune": "Vilcún",
     "location": "Vilcún, Región La Araucanía",
     "distances": [
-      "Ver bases"
+      "70 km",
+      "40 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 40.0,
+    "distance_max_km": 70.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -1912,36 +2211,6 @@
     "lng": -71.6554
   },
   {
-    "id": "atacamaspirits-xtreme-mtb-race-2026",
-    "name": "Atacamaspirits Xtreme MTB Race 2026",
-    "date": "2026-11-09",
-    "end_date": "2026-11-16",
-    "disciplines": [
-      "MTB",
-      "Ultra/Bikepacking"
-    ],
-    "region": "II",
-    "region_name": "Antofagasta",
-    "commune": "Calama",
-    "location": "Calama - II. Antofagasta",
-    "distances": [
-      "Ver bases"
-    ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Atacama Spirits",
-    "url": "https://atacamaspirits.com/ultramaraton/",
-    "registration_url": "https://atacamaspirits.com/ultramaraton/",
-    "description": "MTB Stagerace. 7 days, 6 stages, >550K.\r\nReaching 5700 meters above sea level, we are the\r\nHighest MTB race...",
-    "featured": false,
-    "source": "bicineta",
-    "lat": -22.4544,
-    "lng": -68.9294
-  },
-  {
     "id": "curico-tour-2026",
     "name": "Curicó Tour 2026",
     "date": "2026-11-13",
@@ -2032,6 +2301,36 @@
     "source": "bicineta",
     "lat": -18.4783,
     "lng": -70.3126
+  },
+  {
+    "id": "enduro-de-la-ctm-2026",
+    "name": "Enduro de la CTM",
+    "date": "2026-11-14",
+    "end_date": "2026-11-14",
+    "disciplines": [
+      "MTB",
+      "Enduro"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Parque Guay Guay",
+    "location": "Parque Guay Guay, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/enduro-de-la-ctm-2026",
+    "registration_url": "http://welcu.com/enduro-life/enduro-de-la-ctm-2026",
+    "description": "Prepárate para la experiencia única del Helibike CTM 2026 El sábado 14 de noviembre de 2026, la adrenalina y el espíritu de equipo se encuentran en la cima de los Andes para vivir una carrera de mountain bike diferente a cualquier otra. Imagina despegar en helicóptero hasta la cumbre y lanzarte más de 18 km de senderos de enduro con 2.200 m de desnivel, donde el terreno y el trabajo en equipo lo son todo. ¿Qué hace especial a este Enduro? Competencia en duplas con formato Enduro Ciego: sin re...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "gran-fondo-fin-del-mundo-2026",
@@ -2181,6 +2480,36 @@
     "source": "bicineta",
     "lat": -39.8142,
     "lng": -73.2459
+  },
+  {
+    "id": "downhill-race-2026",
+    "name": "DOWNHILL RACE",
+    "date": "2026-11-15",
+    "end_date": "2026-11-15",
+    "disciplines": [
+      "MTB",
+      "Enduro"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Fundo Huemul",
+    "location": "Fundo Huemul, Región Maule",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://timingfp.com/?c=PublicoEventos&m=ver&id=61",
+    "registration_url": "https://timingfp.com/?c=PublicoEventos&m=ver&id=61",
+    "description": "DOWNHILL RACE. MTB.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -35.4264,
+    "lng": -71.6554
   },
   {
     "id": "desafio-pumanque-tierra-de-condores-2026",
@@ -2375,10 +2704,10 @@
     "commune": "Valdivia",
     "location": "Valdivia - XIV. Los Ríos",
     "distances": [
-      "Ver bases"
+      "600 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 600.0,
+    "distance_max_km": 600.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -2404,10 +2733,11 @@
     "commune": "Lago Polux",
     "location": "Lago Polux, Región Aysén",
     "distances": [
-      "Ver bases"
+      "125 km",
+      "69 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 69.0,
+    "distance_max_km": 125.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -2553,10 +2883,10 @@
     "commune": "Valdivia",
     "location": "Valdivia - XIV. Los Ríos",
     "distances": [
-      "Ver bases"
+      "200 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 200.0,
+    "distance_max_km": 200.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -2597,6 +2927,35 @@
     "source": "bicineta",
     "lat": -33.6417,
     "lng": -70.35
+  },
+  {
+    "id": "fecha-0-parque-lo-piedra-2026",
+    "name": "Fecha 0 - Parque Lo Piedra 2026",
+    "date": "2026-11-22",
+    "end_date": "2026-11-22",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "XVI",
+    "region_name": "Ñuble",
+    "commune": "Coihueco",
+    "location": "Coihueco, Región Ñuble",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://bikerace.cl/evento?id=3312",
+    "registration_url": "https://bikerace.cl/evento?id=3312",
+    "description": "Fecha 0 - Parque Lo Piedra 2026. bike.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -36.6066,
+    "lng": -72.1034
   },
   {
     "id": "giro-del-lago-2026",
@@ -2685,6 +3044,36 @@
     "source": "bicineta",
     "lat": -37.61,
     "lng": -73.65
+  },
+  {
+    "id": "america-series-chile-deache-series-2026",
+    "name": "América Series Chile - Deache Series",
+    "date": "2026-11-27",
+    "end_date": "2026-11-29",
+    "disciplines": [
+      "MTB",
+      "Enduro"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "La Parva",
+    "location": "La Parva, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/america-series-chile-deache-series-2026",
+    "registration_url": "http://welcu.com/deacheseries/dhs_america_series_chile_2026",
+    "description": "America Series Chile 2026: El cierre épico del descenso continental Del 27 al 29 de noviembre, la Región Metropolitana de Chile se prepara para vivir la adrenalina del America Series Chile 2026. Este evento de descenso en bicicleta se llevará a cabo en el reconocido Bike Park La Parva, un escenario de alta montaña que desafía a los mejores riders a más de 3.000 msnm. La competencia, regulada por la Unión Cycliste Internationale (UCI) como parte de la Continental Series, ofrecerá un recorrido ...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -33.4489,
+    "lng": -70.6693
   },
   {
     "id": "dhs-2026-america-series-uci",
@@ -2789,10 +3178,11 @@
     "commune": "Coyhaique",
     "location": "Coyhaique - XI. Aysén",
     "distances": [
-      "Ver bases"
+      "300 km",
+      "130 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 130.0,
+    "distance_max_km": 300.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -2827,12 +3217,41 @@
     "status": "open",
     "organizer": "Federación Nacional de Ciclismo de Chile (FEDENACICH)",
     "url": "https://fdnciclismochile.cl",
-    "registration_url": "https://fdnciclismochile.cl/eventos",
+    "registration_url": "https://fdnciclismochile.cl/",
     "description": "Fecha oficial de la Copa Chile XCO puntuable para el ranking nacional UCI en el Parque Metropolitano de Santiago.",
     "featured": false,
     "source": "fedenacich",
     "lat": -33.4069,
     "lng": -70.6433
+  },
+  {
+    "id": "el-tp-buscando-el-tesoro-de-los-pincheira-2026",
+    "name": "El TP Buscando el Tesoro de los Pincheira",
+    "date": "2026-11-28",
+    "end_date": "2026-11-29",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "XVI",
+    "region_name": "Ñuble",
+    "commune": "Los L Leuques",
+    "location": "Los L Leuques, Región Ñuble",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/el-tp-buscando-el-tesoro-de-los-pincheira-2026",
+    "registration_url": "http://welcu.com/malku-amauta-producciones/el-tp-buscando-el-tesoro-de-los-pincheira",
+    "description": "Descubre la aventura del TP, Buscando el Tesoro de los Pincheira® Prepárate para vivir una experiencia única en la maratón de mountain bike más épica del centro sur de Chile. Durante 2 días y 2 etapas, este evento desafía a ciclistas de trail y amantes del deporte a pedalear entre paisajes volcánicos y montañosos cerca de los Nevados de Chillán, siguiendo las huellas de la legendaria guerrilla realista del siglo XIX. Una carrera donde historia y naturaleza se mezclan En este recorrido técnico...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -36.6066,
+    "lng": -72.1034
   },
   {
     "id": "3er-desafio-xcm-cholchol-2026",
@@ -2865,36 +3284,6 @@
     "lng": -72.85
   },
   {
-    "id": "across-andes-2026",
-    "name": "Across Andes 2026 (Ultraciclismo Gravel)",
-    "date": "2026-11-29",
-    "end_date": "2026-12-05",
-    "disciplines": [
-      "Ultra/Bikepacking",
-      "Gravel"
-    ],
-    "region": "IX",
-    "region_name": "La Araucanía",
-    "commune": "Pucón",
-    "location": "Pucón - Cordillera de los Andes",
-    "distances": [
-      "1000 km"
-    ],
-    "distance_min_km": 1000,
-    "distance_max_km": 1000,
-    "elevation_gain_m": 15000,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Across Andes Gravel",
-    "url": "https://acrossandes.cc",
-    "registration_url": "https://acrossandes.cc/inscripciones",
-    "description": "La carrera de ultraciclismo y autosuficiencia en gravel más emblemática del continente, cruzando pasos andinos y lagos.",
-    "featured": true,
-    "source": "organizer",
-    "lat": -39.2822,
-    "lng": -71.9744
-  },
-  {
     "id": "carrera-ciclismo-ruta-villa-alegre-2026",
     "name": "Carrera Ciclismo Ruta Villa Alegre",
     "date": "2026-11-29",
@@ -2907,10 +3296,11 @@
     "commune": "Villa Alegre",
     "location": "Villa Alegre, Región Maule",
     "distances": [
-      "Ver bases"
+      "84 km",
+      "50 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 50.0,
+    "distance_max_km": 84.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -2951,6 +3341,38 @@
     "source": "bicineta",
     "lat": -38.7359,
     "lng": -72.5904
+  },
+  {
+    "id": "desafio-bci-subaru-2026",
+    "name": "Desafío Bci Subaru 2026",
+    "date": "2026-11-29",
+    "end_date": "2026-11-29",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Las Condes",
+    "location": "Las Condes, Región Metropolitana",
+    "distances": [
+      "45 km",
+      "33 km",
+      "25 km",
+      "16 km"
+    ],
+    "distance_min_km": 16.0,
+    "distance_max_km": 45.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://welcu.com/demaria/desafiosubaru?utm_source=directory",
+    "registration_url": "https://welcu.com/demaria/desafiosubaru?utm_source=directory",
+    "description": "Desafío Bci Subaru 2026. Ciclismo.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -33.4117,
+    "lng": -70.58
   },
   {
     "id": "desafio-subaru-2026",
@@ -3056,10 +3478,11 @@
     "commune": "Los Sauces",
     "location": "Los Sauces, Región La Araucanía",
     "distances": [
-      "Ver bases"
+      "90 km",
+      "45 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 45.0,
+    "distance_max_km": 90.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -3069,6 +3492,35 @@
     "description": "Nos complace anunciar la Segunda Versión del XCM Desafío Piedra del Águila 2025, una emocionante actividad organizada y patrocinada por la Agrupación AFTU de Los Sauces, con el apoyo colaborativo de la Municipalidad de Los Sauces, a través de nuestro alcalde Don Víctor Hugo González, los concejales y la Oficina de Deportes comunal.",
     "featured": false,
     "source": "bicineta",
+    "lat": -38.7359,
+    "lng": -72.5904
+  },
+  {
+    "id": "gravel-tour-araucania-2026",
+    "name": "Gravel Tour Araucanía",
+    "date": "2026-12-01",
+    "end_date": "2026-12-06",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Temuco",
+    "location": "Temuco, Región La Araucanía",
+    "distances": [
+      "290 km"
+    ],
+    "distance_min_km": 290.0,
+    "distance_max_km": 290.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/gravel-tour-araucania-2026",
+    "registration_url": "http://granfondofindelmundo.cl/producto/gravel-tour-araucania/",
+    "description": "Descubre el Fin del Mundo Gravel Tour Araucanía 2026 Del 1 al 6 de diciembre, vive una aventura única en la Región de La Araucanía, Chile. Este tour de gravel de 294 km y más de 5.400 metros de desnivel acumulado está diseñado para ciclistas exigentes que buscan combinar el desafío deportivo con paisajes inolvidables. Una experiencia épica en ruta y naturaleza Recorre caminos de tierra, sube rampas con pendientes de hasta un 20% y disfruta el cruce por lugares emblemáticos como la Cuesta Las ...",
+    "featured": false,
+    "source": "tusdesafios",
     "lat": -38.7359,
     "lng": -72.5904
   },
@@ -3146,10 +3598,15 @@
     "commune": "Curarrehue",
     "location": "Curarrehue, Región La Araucanía",
     "distances": [
-      "Ver bases"
+      "40 km",
+      "21 km",
+      "20 km",
+      "10 km",
+      "5 km",
+      "2.5 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 2.5,
+    "distance_max_km": 40.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -3193,6 +3650,36 @@
     "lng": -71.409
   },
   {
+    "id": "outdoorsweek-mtb-2026",
+    "name": "OUTDOORSWEEK MTB",
+    "date": "2026-12-05",
+    "end_date": "2026-12-07",
+    "disciplines": [
+      "MTB",
+      "Gravel"
+    ],
+    "region": "XI",
+    "region_name": "Aysén",
+    "commune": "Villa Cerro Castillo",
+    "location": "Villa Cerro Castillo, Región Aysén",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/outdoorsweek-mtb-2026",
+    "registration_url": "http://welcu.com/mangosta/ow26",
+    "description": "Descubre la XIII Edición de OUTDOORSWEEK CERRO CASTILLO MTB 2026 Del 5 al 7 de diciembre 2026, en la mágica Patagonia Chilena, se vivirá una experiencia única de mountain bike y gravel en el corazón del Parque Nacional Cerro Castillo. Tres días de pura aventura rodeados de paisajes impresionantes como el Glaciar Cerro Castillo, el Lago General Carrera y la carretera Austral. ¿Qué hace especial a este evento? Distancias variadas para todos los niveles en MTB &amp;amp; gravel. Paseos por parajes…",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -45.5752,
+    "lng": -72.0662
+  },
+  {
     "id": "outdoors-week-cerro-castillo-2026",
     "name": "Outdoors Week Cerro Castillo 2026",
     "date": "2026-12-05",
@@ -3221,6 +3708,36 @@
     "source": "bicineta",
     "lat": -45.5752,
     "lng": -72.0662
+  },
+  {
+    "id": "clasica-desafio-ascension-coquimbo-andacollo-2026",
+    "name": "Clásica Desafío Ascensión Coquimbo Andacollo",
+    "date": "2026-12-06",
+    "end_date": "2026-12-06",
+    "disciplines": [
+      "Ruta",
+      "MTB"
+    ],
+    "region": "IV",
+    "region_name": "Coquimbo",
+    "commune": "Coquimbo",
+    "location": "Coquimbo, Región Coquimbo",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/clasica-desafio-ascension-coquimbo-andacollo-2026-2026",
+    "registration_url": "http://eventos.portalanfibio.cl/evento/390",
+    "description": "Vive la Clásica Desafío Ascensión Coquimbo - Andacollo 2026 Prepárate para una experiencia única en el mundo del ciclismo y las competencias de ruta. El próximo domingo 06 de diciembre, la tradicional carrera que conecta la costa con la montaña regresa para su XIX versión, atravesando las hermosas comunas de Coquimbo y Andacollo. Organizada por el Club Ciclista Celta Don Tito junto a las Ilustres Municipalidades y la Federación de Ciclismo de Chile, esta carrera es ideal para quienes buscan r...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -29.9533,
+    "lng": -71.3436
   },
   {
     "id": "gran-fondo-lo-tolten-2026",
@@ -3345,6 +3862,37 @@
     "lng": -72.0662
   },
   {
+    "id": "desafio-termas-del-flaco-2026",
+    "name": "Desafío Termas del Flaco",
+    "date": "2026-12-12",
+    "end_date": "2026-12-12",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Termas Del Flaco",
+    "location": "Termas Del Flaco, Región O'Higgins",
+    "distances": [
+      "78 km",
+      "39 km",
+      "16 km"
+    ],
+    "distance_min_km": 16.0,
+    "distance_max_km": 78.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/desafio-termas-del-flaco-2026-6352",
+    "registration_url": "http://welcu.com/aventura-aconcagua/desafio-termas-del-flaco-2026",
+    "description": "Desafío Termas del Flaco 2026 El 12 de diciembre, llega una nueva edición del Desafío Termas del Flaco, una aventura de mountain bike en uno de los paisajes más imponentes de la cordillera. Esta ruta única combina montaña, roca y naturaleza en un recorrido que desafía y conquista a cada ciclista. Elige tu reto, vive la experiencia Con tres distancias disponibles, cada participante encontrará su propio desafío para pedalear y disfrutar al máximo: 78K - Desafío Completo: Para los que quieren re...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -34.1708,
+    "lng": -70.7444
+  },
+  {
     "id": "gran-fondo-lago-ranco-uci-2026",
     "name": "Gran Fondo Lago Ranco UCI World Series 2026",
     "date": "2026-12-12",
@@ -3431,36 +3979,6 @@
     "source": "bicineta",
     "lat": -33.0472,
     "lng": -71.6127
-  },
-  {
-    "id": "copa-cascadas-lagos-y-cordillera-3-2026",
-    "name": "Copa Cascadas Lagos y Cordillera #3",
-    "date": "2026-12-13",
-    "end_date": "2026-12-13",
-    "disciplines": [
-      "MTB",
-      "Gravel"
-    ],
-    "region": "X",
-    "region_name": "Los Lagos",
-    "commune": "San Juan de la Costa",
-    "location": "San Juan de la Costa, Región Los Lagos",
-    "distances": [
-      "Ver bases"
-    ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Bicineta / Organización Local",
-    "url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
-    "registration_url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
-    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
-    "featured": false,
-    "source": "bicineta",
-    "lat": -39.85,
-    "lng": -72.8333
   },
   {
     "id": "desafio-el-carbon-2026",
@@ -3645,7 +4163,8 @@
     "end_date": "2027-01-10",
     "disciplines": [
       "MTB",
-      "Gravel"
+      "Gravel",
+      "Ciclocross"
     ],
     "region": "VII",
     "region_name": "Maule",
@@ -3698,6 +4217,35 @@
     "lng": -72.1833
   },
   {
+    "id": "gran-fondo-valle-de-elqui-2027",
+    "name": "Gran Fondo Valle de Elqui",
+    "date": "2027-01-10",
+    "end_date": "2027-01-10",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "IV",
+    "region_name": "Coquimbo",
+    "commune": "Coquimbo   Observatorio Mamalluca",
+    "location": "Coquimbo   Observatorio Mamalluca, Región Coquimbo",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/gran-fondo-valle-de-elqui-2026",
+    "registration_url": "http://www.granfondovalledeelqui.cl/",
+    "description": "Gran Fondo Valle de Elqui 2027: aventura en ruta única El 10 enero 2027 arranca una experiencia imperdible para amantes del ciclismo de ruta. Con salida a las 07:00 am, el recorrido atraviesa paisajes impresionantes de Coquimbo, La Serena, Vicuña, Chapilca, El Arenal y Mamalluca. Una carrera con todo lo que un ciclista sueña Este evento no es solo una competencia, sino una jornada completa para quienes disfrutan del running en ruta y el ciclismo de alto nivel. Quienes participen podrán experi...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -29.9533,
+    "lng": -71.3436
+  },
+  {
     "id": "huilo-huilo-outdoor-experience-2027",
     "name": "Huilo Huilo Outdoor Experience 2027",
     "date": "2027-01-14",
@@ -3727,6 +4275,35 @@
     "source": "bicineta",
     "lat": -39.87,
     "lng": -71.92
+  },
+  {
+    "id": "leyendas-gravel-el-cruce-de-los-andes-2027",
+    "name": "Leyendas Gravel El Cruce de los Andes",
+    "date": "2027-01-15",
+    "end_date": "2027-01-17",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Paso Vergara",
+    "location": "Paso Vergara, Región Maule",
+    "distances": [
+      "500 km"
+    ],
+    "distance_min_km": 500.0,
+    "distance_max_km": 500.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/leyendas-gravel-el-cruce-de-los-andes-2027",
+    "registration_url": "https://www.instagram.com/leyendasgravel/",
+    "description": "Cruce Los Andes 2027: Desafío Épico en la Montaña Prepárate para vivir una experiencia única en los días 15, 16 y 17 de enero de 2027 con el Cruce Los Andes, una ultramaratón de ciclismo de trail que atraviesa la imponente Cordillera de Los Andes entre Chile y Argentina. Serán 500 km non-stop en un recorrido que conecta la Región del Maule, Paso Vergara, Malargüe, Las Loicas y Paso Pehuenche, ofreciendo vistas espectaculares y un reto extremo para los amantes del ciclismo de aventura y ultrad...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -35.4264,
+    "lng": -71.6554
   },
   {
     "id": "brevet-fest-2027",
@@ -3941,7 +4518,8 @@
     "date": "2027-01-30",
     "end_date": "2027-01-30",
     "disciplines": [
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "Ruta"
     ],
     "region": "X",
     "region_name": "Los Lagos",
@@ -4170,35 +4748,6 @@
     "lng": -71.6554
   },
   {
-    "id": "vuelta-ciclista-chiloe-2027",
-    "name": "Vuelta Ciclista a Chiloé 2027",
-    "date": "2027-02-24",
-    "end_date": "2027-02-28",
-    "disciplines": [
-      "Ruta"
-    ],
-    "region": "X",
-    "region_name": "Los Lagos",
-    "commune": "Castro",
-    "location": "Isla Grande de Chiloé (Castro, Ancud, Quellón)",
-    "distances": [
-      "420 km (4 etapas)"
-    ],
-    "distance_min_km": 420,
-    "distance_max_km": 420,
-    "elevation_gain_m": 4800,
-    "price_type": "paid",
-    "status": "upcoming",
-    "organizer": "Club Ciclista Chiloé / UCI",
-    "url": "https://vueltachiloe.cl",
-    "registration_url": "https://vueltachiloe.cl",
-    "description": "Vuelta por etapas de categoría internacional por las desafiantes colinas, vientos y bordemar del archipiélago de Chiloé.",
-    "featured": true,
-    "source": "organizer",
-    "lat": -42.4722,
-    "lng": -73.7731
-  },
-  {
     "id": "vuelta-lago-ranco-2027",
     "name": "Vuelta Lago Ranco 2027",
     "date": "2027-02-24",
@@ -4222,36 +4771,6 @@
     "url": "https://www.refugiokurileufu.com/proximos-eventos/",
     "registration_url": "https://www.refugiokurileufu.com/proximos-eventos/",
     "description": "Más pronto info",
-    "featured": false,
-    "source": "bicineta",
-    "lat": -39.85,
-    "lng": -72.8333
-  },
-  {
-    "id": "copa-cascadas-lagos-y-cordillera-4-2027",
-    "name": "Copa Cascadas Lagos y Cordillera #4",
-    "date": "2027-02-28",
-    "end_date": "2027-02-28",
-    "disciplines": [
-      "MTB",
-      "Gravel"
-    ],
-    "region": "X",
-    "region_name": "Los Lagos",
-    "commune": "Las Cascadas",
-    "location": "Las Cascadas, Región Los Lagos",
-    "distances": [
-      "Ver bases"
-    ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Bicineta / Organización Local",
-    "url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
-    "registration_url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
-    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
@@ -4294,7 +4813,8 @@
     "end_date": "2027-03-06",
     "disciplines": [
       "Cicloturismo",
-      "Ultra/Bikepacking"
+      "Ultra/Bikepacking",
+      "Gravel"
     ],
     "region": "X",
     "region_name": "Los Lagos",
@@ -4407,6 +4927,35 @@
     "lng": -68.1997
   },
   {
+    "id": "fireflies-patagonia-the-final-climb-2027",
+    "name": "Fireflies Patagonia The Final Climb",
+    "date": "2027-03-14",
+    "end_date": "2027-03-14",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Mall Sport",
+    "location": "Mall Sport, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/fireflies-patagonia-2027",
+    "registration_url": "http://www.firefliespatagonia.com",
+    "description": "Vive la Última Etapa de Fireflies Patagonia Prepárate para la final desafiante del Fireflies Patagonia: The Final Climbing Challenge, una carrera épica que une Mall Sport y Valle Nevado en un recorrido inolvidable. Esta etapa única está pensada para aficionados y expertos del ciclismo de montaña y trail biking, con todas las categorías abiertas y todo tipo de bicicletas bienvenidas. ¿Por qué no puedes perdértelo? Recorrido exigente que pondrá a prueba tu resistencia y técnica. Participación p...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -33.4489,
+    "lng": -70.6693
+  },
+  {
     "id": "valle-nevado-fireflies-2027",
     "name": "Valle Nevado Fireflies",
     "date": "2027-03-14",
@@ -4449,10 +4998,11 @@
     "commune": "Puchuncaví",
     "location": "Puchuncaví - V. Valparaíso",
     "distances": [
-      "Ver bases"
+      "115 km",
+      "90 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 90.0,
+    "distance_max_km": 115.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -4494,6 +5044,37 @@
     "source": "bicineta",
     "lat": -53.1638,
     "lng": -70.9171
+  },
+  {
+    "id": "del-fuego-race-2027",
+    "name": "Del Fuego Race",
+    "date": "2027-04-10",
+    "end_date": "2027-04-10",
+    "disciplines": [
+      "Gravel"
+    ],
+    "region": "XII",
+    "region_name": "Magallanes",
+    "commune": "Puerto Natales",
+    "location": "Puerto Natales, Región Magallanes",
+    "distances": [
+      "1050 km",
+      "250 km",
+      "170 km"
+    ],
+    "distance_min_km": 170.0,
+    "distance_max_km": 1050.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/del-fuego-race-2027",
+    "registration_url": "http://delfuegorace.com/inscripciones",
+    "description": "Descubre Del Fuego Gravel Race: Una aventura épica en la Patagonia Del Fuego Gravel Race no es solo una carrera de ciclismo, es una inmersión total en los paisajes más impresionantes del planeta. Partiendo desde Puerto Natales y atravesando el Parque Nacional Torres del Paine, la estepa patagónica y el Estrecho de Magallanes, llega hasta la Isla Tierra del Fuego, el límite final del continente. El mejor momento para pedalear Se corre en abril, cuando la Patagonia se pinta de rojo y naranja. E...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -51.7269,
+    "lng": -72.5069
   },
   {
     "id": "desafio-al-limite-2027",
@@ -4643,6 +5224,35 @@
     "source": "fedenacich",
     "lat": -33.4489,
     "lng": -70.6693
+  },
+  {
+    "id": "atacama-challenger-san-pedro-de-atacama-2027",
+    "name": "Atacama Challenger San Pedro de Atacama",
+    "date": "2027-05-21",
+    "end_date": "2027-05-23",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "III",
+    "region_name": "Atacama",
+    "commune": "Desierto De Atacama",
+    "location": "Desierto De Atacama, Región Atacama",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/el-atacama-challenger-san-pedro-de-atacama-2027",
+    "registration_url": "http://welcu.com/malku-amauta-producciones/atacamachallnger2027",
+    "description": "Atacama Challenger 2027: 3 Días, 3 Etapas de Puro Desafío Del 21 al 24 de mayo, la aventura sobre ruedas vuelve con fuerza en el Atacama Challenger 2027. Este evento de ciclismo de montaña combina resistencia, técnica y paisaje en un recorrido único que nadie quiere perderse. ¿Qué esperar de esta carrera épica? Etapa 1: 74 km de ruta desafiante Etapa 2: 33 km de ascenso intenso Etapa 3: 67 km para cerrar con broche de oro Además, la competencia está abierta a diversas categorías según la edad...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -27.3668,
+    "lng": -70.3323
   },
   {
     "id": "desafio-chile-by-la-vuelta-2027",
