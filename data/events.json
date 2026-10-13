@@ -26,7 +26,8 @@
     "featured": false,
     "source": "ciclismochile",
     "lat": -35.3333,
-    "lng": -72.4167
+    "lng": -72.4167,
+    "geo": "commune"
   },
   {
     "id": "desafio-gran-fondo-rural-de-penacleta-2026",
@@ -55,7 +56,8 @@
     "featured": false,
     "source": "ridechile",
     "lat": -33.6167,
-    "lng": -70.8833
+    "lng": -70.8833,
+    "geo": "commune"
   },
   {
     "id": "1-desafio-aniversario-de-ciclismo-de-ruta-lanpubike-2026",
@@ -84,7 +86,8 @@
     "featured": false,
     "source": "guca",
     "lat": -37.2464,
-    "lng": -73.3175
+    "lng": -73.3175,
+    "geo": "commune"
   },
   {
     "id": "txc-campeonato-xcm-copa-pueblos-de-ovalle-2026",
@@ -113,7 +116,8 @@
     "featured": false,
     "source": "ridechile",
     "lat": -30.6,
-    "lng": -71.2
+    "lng": -71.2,
+    "geo": "commune"
   },
   {
     "id": "atacamaspirits-ultrabikepacking-2026",
@@ -144,7 +148,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -22.4544,
-    "lng": -68.9294
+    "lng": -68.9294,
+    "geo": "commune"
   },
   {
     "id": "brevet-1000-la-ruta-de-los-molinos-2026",
@@ -175,7 +180,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.4489,
-    "lng": -70.6693
+    "lng": -70.6693,
+    "geo": "commune"
   },
   {
     "id": "dhs-2026-serie-5-puchuncavi",
@@ -204,7 +210,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -32.723,
-    "lng": -71.414
+    "lng": -71.414,
+    "geo": "commune"
   },
   {
     "id": "epic-bikepaking-linares-2026",
@@ -235,7 +242,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -35.698,
-    "lng": -71.411
+    "lng": -71.411,
+    "geo": "commune"
   },
   {
     "id": "travesia-lonquimay-2026",
@@ -265,7 +273,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -38.4428,
-    "lng": -71.2403
+    "lng": -71.2403,
+    "geo": "commune"
   },
   {
     "id": "circuito-downhill-chile-central-2026-2",
@@ -295,7 +304,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -34.2667,
-    "lng": -70.95
+    "lng": -70.95,
+    "geo": "commune"
   },
   {
     "id": "desafio-alto-power-4-2026",
@@ -324,7 +334,8 @@
     "featured": false,
     "source": "guca",
     "lat": -35.3167,
-    "lng": -71.5333
+    "lng": -71.5333,
+    "geo": "commune"
   },
   {
     "id": "don-armando-xcm-2026",
@@ -353,7 +364,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -22.4544,
-    "lng": -68.9294
+    "lng": -68.9294,
+    "geo": "commune"
   },
   {
     "id": "gran-fondo-nevados-de-chillan-2026",
@@ -384,7 +396,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -36.6066,
-    "lng": -72.1034
+    "lng": -72.1034,
+    "geo": "commune"
   },
   {
     "id": "gravel-del-cobre-2026",
@@ -415,7 +428,8 @@
     "featured": true,
     "source": "guca",
     "lat": -34.1819,
-    "lng": -70.6506
+    "lng": -70.6506,
+    "geo": "commune"
   },
   {
     "id": "tour-dh-cup-los-rios-5-lanco-2026",
@@ -444,7 +458,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.4475,
-    "lng": -72.7889
+    "lng": -72.7889,
+    "geo": "commune"
   },
   {
     "id": "5to-desafio-zona-7-2026",
@@ -473,7 +488,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -35.9671,
-    "lng": -72.315
+    "lng": -72.315,
+    "geo": "commune"
   },
   {
     "id": "campeonato-xco-infantil-2026",
@@ -506,7 +522,8 @@
     "featured": false,
     "source": "ridechile",
     "lat": -35.698,
-    "lng": -71.411
+    "lng": -71.411,
+    "geo": "commune"
   },
   {
     "id": "campeonato-zona-sur-xco-2-2026",
@@ -535,7 +552,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.6433,
-    "lng": -72.3325
+    "lng": -72.3325,
+    "geo": "commune"
   },
   {
     "id": "desafio-las-minas-2026",
@@ -565,7 +583,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -34.1167,
-    "lng": -70.8
+    "lng": -70.8,
+    "geo": "commune"
   },
   {
     "id": "la-minga-2026",
@@ -597,7 +616,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -41.3195,
-    "lng": -72.9854
+    "lng": -72.9854,
+    "geo": "commune"
   },
   {
     "id": "ruta-huepil-3-2026",
@@ -626,7 +646,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -37.29,
-    "lng": -71.94
+    "lng": -71.94,
+    "geo": "commune"
   },
   {
     "id": "ruta-tour-maule-2026",
@@ -645,7 +666,7 @@
     ],
     "distance_min_km": 400.0,
     "distance_max_km": 400.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 6000,
     "price_type": "paid",
     "status": "open",
     "organizer": "Organización oficial",
@@ -655,7 +676,8 @@
     "featured": false,
     "source": "tusdesafios",
     "lat": -35.4264,
-    "lng": -71.6554
+    "lng": -71.6554,
+    "geo": "commune"
   },
   {
     "id": "brevet-300-ultra-gravel-nuble-2026",
@@ -672,10 +694,10 @@
     "commune": "Chillán",
     "location": "Chillán - XVI. Ñuble",
     "distances": [
-      "Ver bases"
+      "300 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 300.0,
+    "distance_max_km": 300.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -686,7 +708,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -36.6066,
-    "lng": -72.1034
+    "lng": -72.1034,
+    "geo": "commune"
   },
   {
     "id": "copa-chile-downhill-sur-1-2026",
@@ -716,7 +739,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -37.6694,
-    "lng": -71.9042
+    "lng": -71.9042,
+    "geo": "commune"
   },
   {
     "id": "gran-fondo-matanzas-2026",
@@ -746,7 +770,8 @@
     "featured": true,
     "source": "guca",
     "lat": -33.955,
-    "lng": -71.8319
+    "lng": -71.8319,
+    "geo": "commune"
   },
   {
     "id": "montenbaik-enduro-series-4-2026",
@@ -776,7 +801,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.3542,
-    "lng": -70.5156
+    "lng": -70.5156,
+    "geo": "commune"
   },
   {
     "id": "social-ride-stgo-x-mauna-apparel-2026",
@@ -791,11 +817,12 @@
     "commune": "Vitacura",
     "location": "Vitacura, Región Metropolitana",
     "distances": [
-      "Ver bases"
+      "44 km",
+      "40 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
+    "distance_min_km": 40.0,
+    "distance_max_km": 44.0,
+    "elevation_gain_m": 800,
     "price_type": "paid",
     "status": "open",
     "organizer": "Organización oficial",
@@ -804,8 +831,9 @@
     "description": "Social Ride Stgo x Mauna Apparel. Ciclismo.",
     "featured": false,
     "source": "ciclismochile",
-    "lat": -33.4489,
-    "lng": -70.6693
+    "lat": -33.38711,
+    "lng": -70.57645,
+    "geo": "geocoded"
   },
   {
     "id": "4to-rally-los-cristales-2026",
@@ -835,7 +863,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -35.4264,
-    "lng": -71.6554
+    "lng": -71.6554,
+    "geo": "commune"
   },
   {
     "id": "amt-xco-1-temuco-2026",
@@ -864,7 +893,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -38.7359,
-    "lng": -72.5904
+    "lng": -72.5904,
+    "geo": "commune"
   },
   {
     "id": "andina-race-mtb-2026",
@@ -894,7 +924,8 @@
     "featured": false,
     "source": "guca",
     "lat": -38.4428,
-    "lng": -71.2403
+    "lng": -71.2403,
+    "geo": "commune"
   },
   {
     "id": "circuito-primavera-1-2026",
@@ -923,7 +954,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -38.7359,
-    "lng": -72.5904
+    "lng": -72.5904,
+    "geo": "region"
   },
   {
     "id": "copa-chile-mtb-xcm-6-2026",
@@ -952,7 +984,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -34.2833,
-    "lng": -70.8167
+    "lng": -70.8167,
+    "geo": "commune"
   },
   {
     "id": "desafio-columpio-de-los-deseos-2026",
@@ -981,7 +1014,8 @@
     "featured": false,
     "source": "guca",
     "lat": -37.2683,
-    "lng": -72.9194
+    "lng": -72.9194,
+    "geo": "commune"
   },
   {
     "id": "desafio-4-fechas-mtb-3-2026",
@@ -1010,7 +1044,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -45.4,
-    "lng": -72.7
+    "lng": -72.7,
+    "geo": "commune"
   },
   {
     "id": "desafio-los-leones-cro-5-2026",
@@ -1040,7 +1075,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -34.2833,
-    "lng": -70.8167
+    "lng": -70.8167,
+    "geo": "commune"
   },
   {
     "id": "mountain-bike-por-el-cerro-manquimavida-2026",
@@ -1059,7 +1095,7 @@
     ],
     "distance_min_km": null,
     "distance_max_km": null,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 400,
     "price_type": "paid",
     "status": "open",
     "organizer": "Organización oficial",
@@ -1069,7 +1105,8 @@
     "featured": false,
     "source": "tusdesafios",
     "lat": -36.827,
-    "lng": -73.0503
+    "lng": -73.0503,
+    "geo": "region"
   },
   {
     "id": "raid-nahuelbuta-2-2026",
@@ -1098,7 +1135,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -38.01,
-    "lng": -73.23
+    "lng": -73.23,
+    "geo": "commune"
   },
   {
     "id": "vuelta-master-o-higgins-2026",
@@ -1118,7 +1156,7 @@
     ],
     "distance_min_km": null,
     "distance_max_km": null,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 1000,
     "price_type": "paid",
     "status": "open",
     "organizer": "Club Ciclismo Coltauco",
@@ -1127,8 +1165,9 @@
     "description": "El Club de Ciclismo Coltauco, tiene el agrado de invitarlos a participar en la primera Vuelta Master de la Región que contemplara dos etapas, con una clasificación por puntos, la presentación de la Vuelta se Realizara el día 21 de Noviembre en el Sector Yerba Buena de Marchigue.",
     "featured": false,
     "source": "guca",
-    "lat": -34.1708,
-    "lng": -70.7444
+    "lat": -34.36687,
+    "lng": -71.64215,
+    "geo": "geocoded"
   },
   {
     "id": "dhs-serie-5-puchuncavi-2026",
@@ -1158,7 +1197,8 @@
     "featured": false,
     "source": "tusdesafios",
     "lat": -32.723,
-    "lng": -71.414
+    "lng": -71.414,
+    "geo": "commune"
   },
   {
     "id": "travesia-el-volcan-2026",
@@ -1188,8 +1228,9 @@
     "description": "Pronto más info ...",
     "featured": false,
     "source": "bicineta",
-    "lat": -38.7359,
-    "lng": -72.5904
+    "lat": -38.47,
+    "lng": -71.58,
+    "geo": "commune"
   },
   {
     "id": "ascenso-volcan-osorno-by-cvo-2026",
@@ -1208,7 +1249,7 @@
     ],
     "distance_min_km": 50.0,
     "distance_max_km": 50.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 1554,
     "price_type": "paid",
     "status": "open",
     "organizer": "Organización oficial",
@@ -1218,7 +1259,8 @@
     "featured": false,
     "source": "tusdesafios",
     "lat": -39.85,
-    "lng": -72.8333
+    "lng": -72.8333,
+    "geo": "commune"
   },
   {
     "id": "copa-chile-mtb-xco-2026",
@@ -1247,7 +1289,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.4489,
-    "lng": -70.6693
+    "lng": -70.6693,
+    "geo": "commune"
   },
   {
     "id": "desafio-team-mapu-vuelta-rungue-2026",
@@ -1276,7 +1319,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.4489,
-    "lng": -70.6693
+    "lng": -70.6693,
+    "geo": "region"
   },
   {
     "id": "el-antiatajo-primavera-2026",
@@ -1307,7 +1351,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -45.5752,
-    "lng": -72.0662
+    "lng": -72.0662,
+    "geo": "commune"
   },
   {
     "id": "ultra-fem-2026",
@@ -1329,7 +1374,7 @@
     ],
     "distance_min_km": 90.0,
     "distance_max_km": 200.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 1450,
     "price_type": "paid",
     "status": "open",
     "organizer": "Revolución Ciclista FEM",
@@ -1339,7 +1384,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.4489,
-    "lng": -70.6693
+    "lng": -70.6693,
+    "geo": "commune"
   },
   {
     "id": "ultra-gravel-andacollo-2026",
@@ -1360,7 +1406,7 @@
     ],
     "distance_min_km": 140.0,
     "distance_max_km": 140.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 2700,
     "price_type": "paid",
     "status": "open",
     "organizer": "Giro Biciados",
@@ -1370,7 +1416,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -29.9533,
-    "lng": -71.3436
+    "lng": -71.3436,
+    "geo": "commune"
   },
   {
     "id": "vuelta-femenina-oficial-molina-2026",
@@ -1403,7 +1450,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -35.1167,
-    "lng": -71.2833
+    "lng": -71.2833,
+    "geo": "commune"
   },
   {
     "id": "10-desafio-xcm-los-maitenes-2026",
@@ -1424,7 +1472,7 @@
     ],
     "distance_min_km": 24.0,
     "distance_max_km": 48.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 900,
     "price_type": "paid",
     "status": "open",
     "organizer": "GUCA / Club Organizador",
@@ -1434,7 +1482,8 @@
     "featured": false,
     "source": "guca",
     "lat": -37.4697,
-    "lng": -72.3536
+    "lng": -72.3536,
+    "geo": "commune"
   },
   {
     "id": "1ra-travesia-ascencion-a-las-7-tazas-2026",
@@ -1463,7 +1512,8 @@
     "featured": false,
     "source": "ciclismochile",
     "lat": -33.7333,
-    "lng": -70.7333
+    "lng": -70.7333,
+    "geo": "commune"
   },
   {
     "id": "mountain-bike-tour-6-2026",
@@ -1478,10 +1528,10 @@
     "commune": "San Francisco de Mostazal",
     "location": "San Francisco de Mostazal - VI. Rancagua",
     "distances": [
-      "Ver bases"
+      "60 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 60.0,
+    "distance_max_km": 60.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -1492,7 +1542,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.9833,
-    "lng": -70.7
+    "lng": -70.7,
+    "geo": "commune"
   },
   {
     "id": "push-bike-cup-empedrado-2026",
@@ -1522,7 +1573,8 @@
     "featured": false,
     "source": "guca",
     "lat": -35.6,
-    "lng": -72.28
+    "lng": -72.28,
+    "geo": "commune"
   },
   {
     "id": "tour-desafio-antofagasta-2026",
@@ -1542,7 +1594,7 @@
     ],
     "distance_min_km": 13.0,
     "distance_max_km": 103.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 950,
     "price_type": "paid",
     "status": "open",
     "organizer": "Banco Santander",
@@ -1552,7 +1604,8 @@
     "featured": false,
     "source": "ridechile",
     "lat": -23.6509,
-    "lng": -70.3975
+    "lng": -70.3975,
+    "geo": "commune"
   },
   {
     "id": "copa-chile-downhill-centro-3-2026",
@@ -1582,7 +1635,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -35.4264,
-    "lng": -71.6554
+    "lng": -71.6554,
+    "geo": "commune"
   },
   {
     "id": "copa-litoral-xco-cycles-el-as-2026",
@@ -1611,7 +1665,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.5833,
-    "lng": -71.6167
+    "lng": -71.6167,
+    "geo": "commune"
   },
   {
     "id": "leyendas-gravel-desafio-la-aduana-2026",
@@ -1630,7 +1685,7 @@
     ],
     "distance_min_km": 150.0,
     "distance_max_km": 150.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 2500,
     "price_type": "paid",
     "status": "open",
     "organizer": "Organización oficial",
@@ -1640,7 +1695,8 @@
     "featured": false,
     "source": "tusdesafios",
     "lat": -34.9854,
-    "lng": -71.2394
+    "lng": -71.2394,
+    "geo": "commune"
   },
   {
     "id": "rally-labranza-2026",
@@ -1669,7 +1725,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -38.7359,
-    "lng": -72.5904
+    "lng": -72.5904,
+    "geo": "commune"
   },
   {
     "id": "trilogia-valle-las-trancas-2026",
@@ -1698,7 +1755,8 @@
     "featured": false,
     "source": "ciclismochile",
     "lat": -36.7,
-    "lng": -71.9
+    "lng": -71.9,
+    "geo": "commune"
   },
   {
     "id": "tulahuen-fest-2026",
@@ -1729,7 +1787,8 @@
     "featured": false,
     "source": "tusdesafios",
     "lat": -29.9533,
-    "lng": -71.3436
+    "lng": -71.3436,
+    "geo": "commune"
   },
   {
     "id": "carrera-xco-multihogar-2026",
@@ -1757,8 +1816,9 @@
     "description": "Carrera XCO Multihogar 2026. MTB.",
     "featured": false,
     "source": "ciclismochile",
-    "lat": -35.4264,
-    "lng": -71.6554
+    "lat": -34.98006,
+    "lng": -71.22955,
+    "geo": "geocoded"
   },
   {
     "id": "desafio-the-deaths-race-2026",
@@ -1778,7 +1838,7 @@
     ],
     "distance_min_km": 40.0,
     "distance_max_km": 70.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 1500,
     "price_type": "paid",
     "status": "open",
     "organizer": "Bicineta / Organización Local",
@@ -1787,8 +1847,9 @@
     "description": "Cuando el camino se pone oscuro, las piernas pesan y la mente comienza a decirte que pares, aparece la verdadera competencia: la que tienes contigo mismo.",
     "featured": false,
     "source": "bicineta",
-    "lat": -38.7359,
-    "lng": -72.5904
+    "lat": -38.6704,
+    "lng": -72.22408,
+    "geo": "geocoded"
   },
   {
     "id": "l-etape-chile-by-tour-de-france-2026",
@@ -1819,7 +1880,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.8142,
-    "lng": -73.2459
+    "lng": -73.2459,
+    "geo": "commune"
   },
   {
     "id": "titan-forest-2026",
@@ -1849,7 +1911,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -45.4,
-    "lng": -72.7
+    "lng": -72.7,
+    "geo": "commune"
   },
   {
     "id": "curico-tour-2026-de-cordillera-a-mar",
@@ -1878,7 +1941,8 @@
     "featured": false,
     "source": "ridechile",
     "lat": -34.9854,
-    "lng": -71.2394
+    "lng": -71.2394,
+    "geo": "commune"
   },
   {
     "id": "travesia-laguna-blanca-2026",
@@ -1908,8 +1972,9 @@
     "description": "Pronto más info ...",
     "featured": false,
     "source": "bicineta",
-    "lat": -38.7359,
-    "lng": -72.5904
+    "lat": -38.47,
+    "lng": -71.58,
+    "geo": "commune"
   },
   {
     "id": "brevet-200-2026",
@@ -1925,10 +1990,10 @@
     "commune": "Santiago",
     "location": "Santiago - RM. Santiago",
     "distances": [
-      "Ver bases"
+      "200 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 200.0,
+    "distance_max_km": 200.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -1939,7 +2004,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.4489,
-    "lng": -70.6693
+    "lng": -70.6693,
+    "geo": "commune"
   },
   {
     "id": "dnc-series-primavera-2026",
@@ -1968,7 +2034,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
-    "lng": -72.8333
+    "lng": -72.8333,
+    "geo": "commune"
   },
   {
     "id": "grand-prix-lago-ranco-2026",
@@ -1997,7 +2064,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -40.3167,
-    "lng": -72.4833
+    "lng": -72.4833,
+    "geo": "commune"
   },
   {
     "id": "tour-dh-cup-los-rios-5-loncoche-2026",
@@ -2026,8 +2094,9 @@
     "description": "🌲⛰️ Pistas rápidas, técnicas , físicas y de buen Desnivel 💎 ⚡ Corredores al límite 🔊 Ambiente de carrera real",
     "featured": false,
     "source": "bicineta",
-    "lat": -38.7359,
-    "lng": -72.5904
+    "lat": -39.37062,
+    "lng": -72.63007,
+    "geo": "geocoded"
   },
   {
     "id": "amt-xco-2-angol-2026",
@@ -2056,7 +2125,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -37.7989,
-    "lng": -72.7139
+    "lng": -72.7139,
+    "geo": "commune"
   },
   {
     "id": "circuito-primavera-2-2026",
@@ -2085,7 +2155,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -38.7359,
-    "lng": -72.5904
+    "lng": -72.5904,
+    "geo": "region"
   },
   {
     "id": "desafio-trek-subaru-2026",
@@ -2119,7 +2190,8 @@
     "featured": true,
     "source": "ticketplus",
     "lat": -33.3542,
-    "lng": -70.5156
+    "lng": -70.5156,
+    "geo": "commune"
   },
   {
     "id": "iii-ruta-del-los-indios-2026",
@@ -2149,7 +2221,8 @@
     "featured": false,
     "source": "guca",
     "lat": -34.4333,
-    "lng": -71.0833
+    "lng": -71.0833,
+    "geo": "commune"
   },
   {
     "id": "kikobike-campeonato-xcm-copa-pueblos-de-ovalle-2026",
@@ -2178,7 +2251,8 @@
     "featured": false,
     "source": "ridechile",
     "lat": -30.6,
-    "lng": -71.2
+    "lng": -71.2,
+    "geo": "commune"
   },
   {
     "id": "pueblos-del-maule-4-2026",
@@ -2206,8 +2280,9 @@
     "description": "🏁 Cuarta Fecha 📍 Licantén",
     "featured": false,
     "source": "bicineta",
-    "lat": -35.4264,
-    "lng": -71.6554
+    "lat": -34.98569,
+    "lng": -71.98459,
+    "geo": "geocoded"
   },
   {
     "id": "curico-tour-2026",
@@ -2238,7 +2313,8 @@
     "featured": false,
     "source": "ridechile",
     "lat": -34.9854,
-    "lng": -71.2394
+    "lng": -71.2394,
+    "geo": "commune"
   },
   {
     "id": "travesia-laguna-escorial-2026",
@@ -2269,7 +2345,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -38.47,
-    "lng": -71.58
+    "lng": -71.58,
+    "geo": "commune"
   },
   {
     "id": "copa-chile-downhill-norte-3-2026",
@@ -2299,7 +2376,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -18.4783,
-    "lng": -70.3126
+    "lng": -70.3126,
+    "geo": "commune"
   },
   {
     "id": "enduro-de-la-ctm-2026",
@@ -2315,11 +2393,11 @@
     "commune": "Parque Guay Guay",
     "location": "Parque Guay Guay, Región Metropolitana",
     "distances": [
-      "Ver bases"
+      "18 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
+    "distance_min_km": 18.0,
+    "distance_max_km": 18.0,
+    "elevation_gain_m": 2200,
     "price_type": "paid",
     "status": "open",
     "organizer": "Organización oficial",
@@ -2328,8 +2406,9 @@
     "description": "Prepárate para la experiencia única del Helibike CTM 2026 El sábado 14 de noviembre de 2026, la adrenalina y el espíritu de equipo se encuentran en la cima de los Andes para vivir una carrera de mountain bike diferente a cualquier otra. Imagina despegar en helicóptero hasta la cumbre y lanzarte más de 18 km de senderos de enduro con 2.200 m de desnivel, donde el terreno y el trabajo en equipo lo son todo. ¿Qué hace especial a este Enduro? Competencia en duplas con formato Enduro Ciego: sin re...",
     "featured": false,
     "source": "tusdesafios",
-    "lat": -33.4489,
-    "lng": -70.6693
+    "lat": -33.25605,
+    "lng": -70.59551,
+    "geo": "geocoded"
   },
   {
     "id": "gran-fondo-fin-del-mundo-2026",
@@ -2359,7 +2438,8 @@
     "featured": true,
     "source": "welcu",
     "lat": -35.698,
-    "lng": -71.411
+    "lng": -71.411,
+    "geo": "commune"
   },
   {
     "id": "gravel-forest-race-coast-2026",
@@ -2387,8 +2467,9 @@
     "description": "Presentamos oficialmente nuestro nuevo desafío en formato carrera por etapas de dos días, se desarrollará...",
     "featured": false,
     "source": "bicineta",
-    "lat": -36.6066,
-    "lng": -72.1034
+    "lat": -36.07403,
+    "lng": -72.77765,
+    "geo": "geocoded"
   },
   {
     "id": "pucon-deamiles-2026",
@@ -2420,7 +2501,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.2822,
-    "lng": -71.9744
+    "lng": -71.9744,
+    "geo": "commune"
   },
   {
     "id": "amt-xco-3-cherquenco-2026",
@@ -2448,8 +2530,9 @@
     "description": "Araucanía MountainBike Tour – XCO Series 🏆 Fecha #3 🔸 15 Noviembre – Cherquenco",
     "featured": false,
     "source": "bicineta",
-    "lat": -38.7359,
-    "lng": -72.5904
+    "lat": -38.68563,
+    "lng": -72.00386,
+    "geo": "geocoded"
   },
   {
     "id": "copa-los-parientes-2026",
@@ -2478,7 +2561,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.8142,
-    "lng": -73.2459
+    "lng": -73.2459,
+    "geo": "commune"
   },
   {
     "id": "downhill-race-2026",
@@ -2507,8 +2591,9 @@
     "description": "DOWNHILL RACE. MTB.",
     "featured": false,
     "source": "ciclismochile",
-    "lat": -35.4264,
-    "lng": -71.6554
+    "lat": -34.93235,
+    "lng": -70.62159,
+    "geo": "geocoded"
   },
   {
     "id": "desafio-pumanque-tierra-de-condores-2026",
@@ -2528,7 +2613,7 @@
     ],
     "distance_min_km": null,
     "distance_max_km": null,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 1350,
     "price_type": "paid",
     "status": "open",
     "organizer": "GUCA / Club Organizador",
@@ -2537,8 +2622,9 @@
     "description": "Competencia de Ruta cronometrada por GUCA en Pumanque.",
     "featured": false,
     "source": "guca",
-    "lat": -34.1708,
-    "lng": -70.7444
+    "lat": -34.60481,
+    "lng": -71.65468,
+    "geo": "geocoded"
   },
   {
     "id": "downhill-race-fundo-huemul-2026",
@@ -2567,8 +2653,9 @@
     "description": "La adrenalina vuelve a los senderos de Fundo Huemul 🌲🔥 Prepárate para una nueva fecha de descenso en un circuito exigente, técnico y lleno de adrenalina pura. 🏔️💨",
     "featured": false,
     "source": "bicineta",
-    "lat": -35.4264,
-    "lng": -71.6554
+    "lat": -34.8668,
+    "lng": -71.16122,
+    "geo": "geocoded"
   },
   {
     "id": "pioneros-xcm-conguillio-2026",
@@ -2599,7 +2686,8 @@
     "featured": false,
     "source": "ticketsport",
     "lat": -38.8333,
-    "lng": -71.7
+    "lng": -71.7,
+    "geo": "commune"
   },
   {
     "id": "xco-yungay-2026",
@@ -2628,8 +2716,9 @@
     "description": "Competencia de MTB, Ruta cronometrada por GUCA en Yungay.",
     "featured": false,
     "source": "guca",
-    "lat": -36.6066,
-    "lng": -72.1034
+    "lat": -37.11937,
+    "lng": -72.01885,
+    "geo": "geocoded"
   },
   {
     "id": "campeonato-panamericano-bmx-uci-c1-2026",
@@ -2657,8 +2746,9 @@
     "description": "👉17 de Noviembre: 📍Bike Park Estadio Nacional. Ñuñoa, Santiago. 👉Categorías: Damas y Varones + 15 años",
     "featured": false,
     "source": "bicineta",
-    "lat": -33.4489,
-    "lng": -70.6693
+    "lat": -33.46238,
+    "lng": -70.60622,
+    "geo": "geocoded"
   },
   {
     "id": "campeonato-panamericano-bmx-freestytle-2026",
@@ -2686,8 +2776,9 @@
     "description": "CAMPEONATO PANAMERICANO BMX FREESTYLE/FLATLAND 2026 🇨🇱 - SANTIAGO, CHILE 💥Bienvenidos a la edición 2026 del Campeonato Panamericano Específico en BMX Freestyle y Flatland. Desde el 18 al 21 de Noviembre se llevará a cabo en el 📍Bike Park Estadio Nacional, Ñuñoa , Santiago.",
     "featured": false,
     "source": "bicineta",
-    "lat": -33.4489,
-    "lng": -70.6693
+    "lat": -33.46238,
+    "lng": -70.60622,
+    "geo": "geocoded"
   },
   {
     "id": "brevet-600k-desafio-4-lagos-2026",
@@ -2717,7 +2808,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.8142,
-    "lng": -73.2459
+    "lng": -73.2459,
+    "geo": "commune"
   },
   {
     "id": "los-4-lagos-mtb-race-2026",
@@ -2747,7 +2839,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -45.5752,
-    "lng": -72.0662
+    "lng": -72.0662,
+    "geo": "region"
   },
   {
     "id": "palguin-cerro-abajo-5-2026",
@@ -2776,8 +2869,9 @@
     "description": "Palguin una vez más será la sede de la junta rider's más esperada por muchos, atrévete a medir tus límites en un circuito que levanta revoluciones.",
     "featured": false,
     "source": "bicineta",
-    "lat": -38.7359,
-    "lng": -72.5904
+    "lat": -39.42951,
+    "lng": -71.7592,
+    "geo": "geocoded"
   },
   {
     "id": "patagonia-gravel-2026",
@@ -2807,7 +2901,8 @@
     "featured": true,
     "source": "welcu",
     "lat": -41.3195,
-    "lng": -72.9854
+    "lng": -72.9854,
+    "geo": "commune"
   },
   {
     "id": "xcm-olmue-3-2026",
@@ -2836,7 +2931,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.0472,
-    "lng": -71.6127
+    "lng": -71.6127,
+    "geo": "commune"
   },
   {
     "id": "across-andes-volcano-edition-2026",
@@ -2856,7 +2952,7 @@
     ],
     "distance_min_km": 800.0,
     "distance_max_km": 800.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 12000,
     "price_type": "paid",
     "status": "open",
     "organizer": "Productora Relieve",
@@ -2866,7 +2962,8 @@
     "featured": false,
     "source": "ridechile",
     "lat": -39.2822,
-    "lng": -71.9744
+    "lng": -71.9744,
+    "geo": "commune"
   },
   {
     "id": "brevet-sur-200-los-puentes-de-valdivia-2026",
@@ -2896,7 +2993,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.8142,
-    "lng": -73.2459
+    "lng": -73.2459,
+    "geo": "commune"
   },
   {
     "id": "campeonato-zona-sur-xco-3-2026",
@@ -2925,7 +3023,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.6417,
-    "lng": -70.35
+    "lng": -70.35,
+    "geo": "commune"
   },
   {
     "id": "fecha-0-parque-lo-piedra-2026",
@@ -2953,8 +3052,9 @@
     "description": "Fecha 0 - Parque Lo Piedra 2026. bike.",
     "featured": false,
     "source": "ciclismochile",
-    "lat": -36.6066,
-    "lng": -72.1034
+    "lat": -36.6288,
+    "lng": -71.83191,
+    "geo": "geocoded"
   },
   {
     "id": "giro-del-lago-2026",
@@ -2974,7 +3074,7 @@
     ],
     "distance_min_km": 80.0,
     "distance_max_km": 163.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 1962,
     "price_type": "paid",
     "status": "open",
     "organizer": "Giro del Lago",
@@ -2984,7 +3084,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -41.3195,
-    "lng": -72.9854
+    "lng": -72.9854,
+    "geo": "commune"
   },
   {
     "id": "gran-final-cro-6-2026",
@@ -3013,7 +3114,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -34.1708,
-    "lng": -70.7444
+    "lng": -70.7444,
+    "geo": "region"
   },
   {
     "id": "raid-nahuelbuta-3-2026",
@@ -3042,7 +3144,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -37.61,
-    "lng": -73.65
+    "lng": -73.65,
+    "geo": "commune"
   },
   {
     "id": "america-series-chile-deache-series-2026",
@@ -3058,11 +3161,11 @@
     "commune": "La Parva",
     "location": "La Parva, Región Metropolitana",
     "distances": [
-      "Ver bases"
+      "2.2 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
+    "distance_min_km": 2.2,
+    "distance_max_km": 2.2,
+    "elevation_gain_m": 527,
     "price_type": "paid",
     "status": "open",
     "organizer": "Organización oficial",
@@ -3071,8 +3174,9 @@
     "description": "America Series Chile 2026: El cierre épico del descenso continental Del 27 al 29 de noviembre, la Región Metropolitana de Chile se prepara para vivir la adrenalina del America Series Chile 2026. Este evento de descenso en bicicleta se llevará a cabo en el reconocido Bike Park La Parva, un escenario de alta montaña que desafía a los mejores riders a más de 3.000 msnm. La competencia, regulada por la Unión Cycliste Internationale (UCI) como parte de la Continental Series, ofrecerá un recorrido ...",
     "featured": false,
     "source": "tusdesafios",
-    "lat": -33.4489,
-    "lng": -70.6693
+    "lat": -33.33559,
+    "lng": -70.29,
+    "geo": "geocoded"
   },
   {
     "id": "dhs-2026-america-series-uci",
@@ -3102,7 +3206,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.4489,
-    "lng": -70.6693
+    "lng": -70.6693,
+    "geo": "region"
   },
   {
     "id": "1er-desafio-copa-xco-k2-2026-final",
@@ -3131,7 +3236,8 @@
     "featured": false,
     "source": "guca",
     "lat": -22.4544,
-    "lng": -68.9294
+    "lng": -68.9294,
+    "geo": "commune"
   },
   {
     "id": "brevet-300-2026",
@@ -3147,10 +3253,10 @@
     "commune": "Santiago",
     "location": "Santiago - RM. Santiago",
     "distances": [
-      "Ver bases"
+      "300 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 300.0,
+    "distance_max_km": 300.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -3161,7 +3267,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.4489,
-    "lng": -70.6693
+    "lng": -70.6693,
+    "geo": "commune"
   },
   {
     "id": "brevet-300-patagonia-2026",
@@ -3182,7 +3289,7 @@
     ],
     "distance_min_km": 130.0,
     "distance_max_km": 300.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 4330,
     "price_type": "paid",
     "status": "open",
     "organizer": "Ripio.cc",
@@ -3192,7 +3299,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -45.5752,
-    "lng": -72.0662
+    "lng": -72.0662,
+    "geo": "commune"
   },
   {
     "id": "copa-chile-mtb-xco-santiago-2026",
@@ -3221,7 +3329,8 @@
     "featured": false,
     "source": "fedenacich",
     "lat": -33.4069,
-    "lng": -70.6433
+    "lng": -70.6433,
+    "geo": "commune"
   },
   {
     "id": "el-tp-buscando-el-tesoro-de-los-pincheira-2026",
@@ -3250,7 +3359,8 @@
     "featured": false,
     "source": "tusdesafios",
     "lat": -36.6066,
-    "lng": -72.1034
+    "lng": -72.1034,
+    "geo": "region"
   },
   {
     "id": "3er-desafio-xcm-cholchol-2026",
@@ -3280,7 +3390,8 @@
     "featured": false,
     "source": "guca",
     "lat": -38.6,
-    "lng": -72.85
+    "lng": -72.85,
+    "geo": "commune"
   },
   {
     "id": "carrera-ciclismo-ruta-villa-alegre-2026",
@@ -3309,8 +3420,9 @@
     "description": "El ciclismo uniendo comunas vecinas.",
     "featured": false,
     "source": "guca",
-    "lat": -35.4264,
-    "lng": -71.6554
+    "lat": -35.6752,
+    "lng": -71.74467,
+    "geo": "geocoded"
   },
   {
     "id": "circuito-primavera-3-2026",
@@ -3339,7 +3451,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -38.7359,
-    "lng": -72.5904
+    "lng": -72.5904,
+    "geo": "region"
   },
   {
     "id": "desafio-bci-subaru-2026",
@@ -3371,7 +3484,8 @@
     "featured": false,
     "source": "ciclismochile",
     "lat": -33.4117,
-    "lng": -70.58
+    "lng": -70.58,
+    "geo": "commune"
   },
   {
     "id": "desafio-subaru-2026",
@@ -3403,7 +3517,8 @@
     "featured": false,
     "source": "ridechile",
     "lat": -33.3542,
-    "lng": -70.3108
+    "lng": -70.3108,
+    "geo": "commune"
   },
   {
     "id": "desafio-vigia-bbc-2026",
@@ -3433,7 +3548,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -37.4697,
-    "lng": -72.3536
+    "lng": -72.3536,
+    "geo": "commune"
   },
   {
     "id": "pueblos-del-maule-5-2026",
@@ -3461,8 +3577,9 @@
     "description": "🏁 Quinta Fecha 📍 Curepto",
     "featured": false,
     "source": "bicineta",
-    "lat": -35.4264,
-    "lng": -71.6554
+    "lat": -35.09372,
+    "lng": -72.01808,
+    "geo": "geocoded"
   },
   {
     "id": "xcm-desafio-piedra-del-aguila-2-2026",
@@ -3491,8 +3608,9 @@
     "description": "Nos complace anunciar la Segunda Versión del XCM Desafío Piedra del Águila 2025, una emocionante actividad organizada y patrocinada por la Agrupación AFTU de Los Sauces, con el apoyo colaborativo de la Municipalidad de Los Sauces, a través de nuestro alcalde Don Víctor Hugo González, los concejales y la Oficina de Deportes comunal.",
     "featured": false,
     "source": "bicineta",
-    "lat": -38.7359,
-    "lng": -72.5904
+    "lat": -37.98296,
+    "lng": -72.82918,
+    "geo": "geocoded"
   },
   {
     "id": "gravel-tour-araucania-2026",
@@ -3511,7 +3629,7 @@
     ],
     "distance_min_km": 290.0,
     "distance_max_km": 290.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 5400,
     "price_type": "paid",
     "status": "open",
     "organizer": "Organización oficial",
@@ -3521,7 +3639,8 @@
     "featured": false,
     "source": "tusdesafios",
     "lat": -38.7359,
-    "lng": -72.5904
+    "lng": -72.5904,
+    "geo": "commune"
   },
   {
     "id": "travesia-conguillio-2026",
@@ -3552,7 +3671,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -38.47,
-    "lng": -71.58
+    "lng": -71.58,
+    "geo": "commune"
   },
   {
     "id": "copa-chile-downhill-sur-2-2026",
@@ -3582,7 +3702,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -37.6694,
-    "lng": -71.9042
+    "lng": -71.9042,
+    "geo": "commune"
   },
   {
     "id": "desafio-curarrehue-2026",
@@ -3615,8 +3736,9 @@
     "description": "🚵 MOUNTAINBIKE | 5 DE DICIEMBRE 20K · 40K 🏃 RUNNING | 6 DE DICIEMBRE 21K · 10K · 5K · 2,5K",
     "featured": false,
     "source": "bicineta",
-    "lat": -38.7359,
-    "lng": -72.5904
+    "lat": -39.35898,
+    "lng": -71.58736,
+    "geo": "geocoded"
   },
   {
     "id": "outdoorsweek-mtb-2026",
@@ -3645,8 +3767,9 @@
     "description": "Descubre la XIII Edición de OUTDOORSWEEK CERRO CASTILLO MTB 2026 Del 5 al 7 de diciembre 2026, en la mágica Patagonia Chilena, se vivirá una experiencia única de mountain bike y gravel en el corazón del Parque Nacional Cerro Castillo. Tres días de pura aventura rodeados de paisajes impresionantes como el Glaciar Cerro Castillo, el Lago General Carrera y la carretera Austral. ¿Qué hace especial a este evento? Distancias variadas para todos los niveles en MTB &amp;amp; gravel. Paseos por parajes…",
     "featured": false,
     "source": "tusdesafios",
-    "lat": -45.5752,
-    "lng": -72.0662
+    "lat": -46.12262,
+    "lng": -72.15437,
+    "geo": "geocoded"
   },
   {
     "id": "outdoors-week-cerro-castillo-2026",
@@ -3675,8 +3798,9 @@
     "description": "OUTDOORSWEEK MTB 2026, XIII Edición 3 días de MOUNTAIN BIKE & GRAVEL: 5-6-7 DE DICIEMBRE 2026",
     "featured": false,
     "source": "bicineta",
-    "lat": -45.5752,
-    "lng": -72.0662
+    "lat": -46.12262,
+    "lng": -72.15437,
+    "geo": "geocoded"
   },
   {
     "id": "clasica-desafio-ascension-coquimbo-andacollo-2026",
@@ -3706,7 +3830,8 @@
     "featured": false,
     "source": "tusdesafios",
     "lat": -29.9533,
-    "lng": -71.3436
+    "lng": -71.3436,
+    "geo": "commune"
   },
   {
     "id": "gran-fondo-lo-tolten-2026",
@@ -3738,7 +3863,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.2822,
-    "lng": -71.9744
+    "lng": -71.9744,
+    "geo": "commune"
   },
   {
     "id": "brevet-400-2026",
@@ -3754,10 +3880,10 @@
     "commune": "Santiago",
     "location": "Santiago - RM. Santiago",
     "distances": [
-      "Ver bases"
+      "400 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 400.0,
+    "distance_max_km": 400.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -3768,7 +3894,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.4489,
-    "lng": -70.6693
+    "lng": -70.6693,
+    "geo": "commune"
   },
   {
     "id": "copa-chile-downhill-centro-4-2026",
@@ -3798,7 +3925,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.0244,
-    "lng": -71.5518
+    "lng": -71.5518,
+    "geo": "commune"
   },
   {
     "id": "copa-chile-downhill-sur-3-2026",
@@ -3828,7 +3956,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -45.5752,
-    "lng": -72.0662
+    "lng": -72.0662,
+    "geo": "commune"
   },
   {
     "id": "desafio-termas-del-flaco-2026",
@@ -3858,8 +3987,9 @@
     "description": "Desafío Termas del Flaco 2026 El 12 de diciembre, llega una nueva edición del Desafío Termas del Flaco, una aventura de mountain bike en uno de los paisajes más imponentes de la cordillera. Esta ruta única combina montaña, roca y naturaleza en un recorrido que desafía y conquista a cada ciclista. Elige tu reto, vive la experiencia Con tres distancias disponibles, cada participante encontrará su propio desafío para pedalear y disfrutar al máximo: 78K - Desafío Completo: Para los que quieren re...",
     "featured": false,
     "source": "tusdesafios",
-    "lat": -34.1708,
-    "lng": -70.7444
+    "lat": -34.95755,
+    "lng": -70.4368,
+    "geo": "geocoded"
   },
   {
     "id": "gran-fondo-lago-ranco-uci-2026",
@@ -3888,7 +4018,8 @@
     "featured": true,
     "source": "welcu",
     "lat": -40.3167,
-    "lng": -72.4833
+    "lng": -72.4833,
+    "geo": "commune"
   },
   {
     "id": "amt-xco-4-renaico-2026",
@@ -3916,8 +4047,9 @@
     "description": "Araucanía MountainBike Tour – XCO Series 🏆 Fecha #4 🔸 13 Diciembre – Renaico",
     "featured": false,
     "source": "bicineta",
-    "lat": -38.7359,
-    "lng": -72.5904
+    "lat": -37.67171,
+    "lng": -72.58326,
+    "geo": "geocoded"
   },
   {
     "id": "colliguay-gravel-quest-2026",
@@ -3933,10 +4065,14 @@
     "commune": "Colliguay",
     "location": "Colliguay, Región Valparaíso",
     "distances": [
-      "Ver bases"
+      "190 km",
+      "110 km",
+      "100 km",
+      "65 km",
+      "60 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 60.0,
+    "distance_max_km": 190.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -3947,7 +4083,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -33.0472,
-    "lng": -71.6127
+    "lng": -71.6127,
+    "geo": "commune"
   },
   {
     "id": "desafio-el-carbon-2026",
@@ -3977,7 +4114,8 @@
     "featured": false,
     "source": "guca",
     "lat": -37.4789,
-    "lng": -73.3444
+    "lng": -73.3444,
+    "geo": "commune"
   },
   {
     "id": "raid-nahuelbuta-4-2026",
@@ -4005,8 +4143,9 @@
     "description": "​➡️ Y la 4ª Fecha y GRAN FINAL, será el 13 de Diciembre en Carampangue realizada por el club @ciclismo_lanpubike_oficial",
     "featured": false,
     "source": "bicineta",
-    "lat": -36.827,
-    "lng": -73.0503
+    "lat": -37.25745,
+    "lng": -73.24207,
+    "geo": "geocoded"
   },
   {
     "id": "tour-dh-cup-los-rios-5-lanco-2026-2026-12-19",
@@ -4036,7 +4175,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.4475,
-    "lng": -72.7889
+    "lng": -72.7889,
+    "geo": "commune"
   },
   {
     "id": "campeonato-zona-sur-xco-4-2026",
@@ -4065,7 +4205,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.8142,
-    "lng": -73.2459
+    "lng": -73.2459,
+    "geo": "commune"
   },
   {
     "id": "bikepacking-odisea-caleta-condor-2027",
@@ -4094,7 +4235,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
-    "lng": -72.8333
+    "lng": -72.8333,
+    "geo": "commune"
   },
   {
     "id": "cronoescalada-farellones-2027",
@@ -4123,7 +4265,8 @@
     "featured": false,
     "source": "ticketsport",
     "lat": -33.3542,
-    "lng": -70.5156
+    "lng": -70.5156,
+    "geo": "commune"
   },
   {
     "id": "13-rally-kingkona-mtb-2027",
@@ -4154,7 +4297,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -35.1167,
-    "lng": -71.2833
+    "lng": -71.2833,
+    "geo": "commune"
   },
   {
     "id": "clasica-curico-iloca-2027",
@@ -4183,7 +4327,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -34.9333,
-    "lng": -72.1833
+    "lng": -72.1833,
+    "geo": "commune"
   },
   {
     "id": "gran-fondo-valle-de-elqui-2027",
@@ -4212,7 +4357,8 @@
     "featured": false,
     "source": "tusdesafios",
     "lat": -29.9533,
-    "lng": -71.3436
+    "lng": -71.3436,
+    "geo": "commune"
   },
   {
     "id": "huilo-huilo-outdoor-experience-2027",
@@ -4243,7 +4389,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.87,
-    "lng": -71.92
+    "lng": -71.92,
+    "geo": "commune"
   },
   {
     "id": "leyendas-gravel-el-cruce-de-los-andes-2027",
@@ -4271,8 +4418,9 @@
     "description": "Cruce Los Andes 2027: Desafío Épico en la Montaña Prepárate para vivir una experiencia única en los días 15, 16 y 17 de enero de 2027 con el Cruce Los Andes, una ultramaratón de ciclismo de trail que atraviesa la imponente Cordillera de Los Andes entre Chile y Argentina. Serán 500 km non-stop en un recorrido que conecta la Región del Maule, Paso Vergara, Malargüe, Las Loicas y Paso Pehuenche, ofreciendo vistas espectaculares y un reto extremo para los amantes del ciclismo de aventura y ultrad...",
     "featured": false,
     "source": "tusdesafios",
-    "lat": -35.4264,
-    "lng": -71.6554
+    "lat": -34.87258,
+    "lng": -71.16717,
+    "geo": "geocoded"
   },
   {
     "id": "brevet-fest-2027",
@@ -4301,7 +4449,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
-    "lng": -72.8333
+    "lng": -72.8333,
+    "geo": "commune"
   },
   {
     "id": "transandes-challenge-2027",
@@ -4330,7 +4479,8 @@
     "featured": true,
     "source": "organizer",
     "lat": -39.6433,
-    "lng": -72.3325
+    "lng": -72.3325,
+    "geo": "commune"
   },
   {
     "id": "vuelta-ciclista-maule-centro-2027",
@@ -4358,8 +4508,9 @@
     "description": "Vuelta Ciclista Maule Centro: Ruta. Fuente: calendario de Ridechile.cl.",
     "featured": false,
     "source": "ridechile",
-    "lat": -35.4264,
-    "lng": -71.6554
+    "lat": -35.10581,
+    "lng": -71.30197,
+    "geo": "geocoded"
   },
   {
     "id": "conquista-volcan-osorno-2027",
@@ -4388,7 +4539,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -40.5744,
-    "lng": -73.1328
+    "lng": -73.1328,
+    "geo": "commune"
   },
   {
     "id": "ruta-de-los-valles-2027",
@@ -4418,7 +4570,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
-    "lng": -72.8333
+    "lng": -72.8333,
+    "geo": "commune"
   },
   {
     "id": "valdivia-mtb-challenge-2027",
@@ -4448,7 +4601,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.8142,
-    "lng": -73.2459
+    "lng": -73.2459,
+    "geo": "commune"
   },
   {
     "id": "desafio-huilo-huilo-2027",
@@ -4479,7 +4633,8 @@
     "featured": false,
     "source": "ticketsport",
     "lat": -39.8519,
-    "lng": -71.9486
+    "lng": -71.9486,
+    "geo": "commune"
   },
   {
     "id": "everesting-kurileufu-2027",
@@ -4499,7 +4654,7 @@
     ],
     "distance_min_km": null,
     "distance_max_km": null,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 8848,
     "price_type": "paid",
     "status": "open",
     "organizer": "Refugio Kurileufu",
@@ -4509,7 +4664,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
-    "lng": -72.8333
+    "lng": -72.8333,
+    "geo": "commune"
   },
   {
     "id": "gravel-forest-race-river-2027",
@@ -4537,8 +4693,9 @@
     "description": "Versión RIVER. Pronto más info",
     "featured": false,
     "source": "bicineta",
-    "lat": -36.827,
-    "lng": -73.0503
+    "lat": -36.90504,
+    "lng": -73.12717,
+    "geo": "geocoded"
   },
   {
     "id": "ramal-contulmo-race-2027",
@@ -4568,7 +4725,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -38.01,
-    "lng": -73.23
+    "lng": -73.23,
+    "geo": "commune"
   },
   {
     "id": "desafio-reloncavi-2027",
@@ -4598,7 +4756,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -41.4693,
-    "lng": -72.9424
+    "lng": -72.9424,
+    "geo": "commune"
   },
   {
     "id": "bikepacking-odisea-caleta-condor-2-2027",
@@ -4627,7 +4786,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
-    "lng": -72.8333
+    "lng": -72.8333,
+    "geo": "commune"
   },
   {
     "id": "red-bull-valparaiso-cerro-abajo-2027",
@@ -4656,7 +4816,8 @@
     "featured": true,
     "source": "organizer",
     "lat": -33.0472,
-    "lng": -71.6127
+    "lng": -71.6127,
+    "geo": "commune"
   },
   {
     "id": "dnc-series-verano-2027",
@@ -4685,7 +4846,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
-    "lng": -72.8333
+    "lng": -72.8333,
+    "geo": "commune"
   },
   {
     "id": "desafio-el-vuelo-del-pato-2027",
@@ -4713,8 +4875,9 @@
     "description": "Es un Desafío que nace en la localidad de Hualañe en la región del Maule hacia la costa de Curicó, El vuelo del Pato hace mención al mismo vuelo que realiza un Pato silvestre. En esta competencia de gran interés Nacional deportivo, podrás recorrer este gran sendero en bicicleta desde el rio al cerro, así como los patos silvestres de la zona. Te invitamos este 21 de febrero de 2027. Disfrutando de la tranquilidad del Río mataquito.",
     "featured": false,
     "source": "guca",
-    "lat": -35.4264,
-    "lng": -71.6554
+    "lat": -34.97749,
+    "lng": -71.80121,
+    "geo": "geocoded"
   },
   {
     "id": "vuelta-lago-ranco-2027",
@@ -4743,7 +4906,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
-    "lng": -72.8333
+    "lng": -72.8333,
+    "geo": "commune"
   },
   {
     "id": "fireflies-patagonia-2027",
@@ -4773,7 +4937,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -38.7359,
-    "lng": -72.5904
+    "lng": -72.5904,
+    "geo": "region"
   },
   {
     "id": "final-frontier-patagonia-2027",
@@ -4804,7 +4969,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -41.3195,
-    "lng": -72.9854
+    "lng": -72.9854,
+    "geo": "commune"
   },
   {
     "id": "campeonato-panamericano-de-mtb-xco-2027",
@@ -4833,7 +4999,8 @@
     "featured": false,
     "source": "ridechile",
     "lat": -39.8142,
-    "lng": -73.2459
+    "lng": -73.2459,
+    "geo": "commune"
   },
   {
     "id": "campeonato-panamericano-mtb-2027",
@@ -4862,7 +5029,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -39.8142,
-    "lng": -73.2459
+    "lng": -73.2459,
+    "geo": "commune"
   },
   {
     "id": "fireflies-patagonia-the-final-climb-2027",
@@ -4890,8 +5058,9 @@
     "description": "Vive la Última Etapa de Fireflies Patagonia Prepárate para la final desafiante del Fireflies Patagonia: The Final Climbing Challenge, una carrera épica que une Mall Sport y Valle Nevado en un recorrido inolvidable. Esta etapa única está pensada para aficionados y expertos del ciclismo de montaña y trail biking, con todas las categorías abiertas y todo tipo de bicicletas bienvenidas. ¿Por qué no puedes perdértelo? Recorrido exigente que pondrá a prueba tu resistencia y técnica. Participación p...",
     "featured": false,
     "source": "tusdesafios",
-    "lat": -33.4489,
-    "lng": -70.6693
+    "lat": -33.37058,
+    "lng": -70.50666,
+    "geo": "geocoded"
   },
   {
     "id": "valle-nevado-fireflies-2027",
@@ -4919,8 +5088,9 @@
     "description": "Miles de ciclistas pedaleando como uno solo. Y una meta que va mucho más allá de llegar arriba. Porque Fireflies Patagonia es comunidad. Es desafío. Es amistad. Y, sobre todo, es pedalear por quienes más lo necesitan.",
     "featured": false,
     "source": "bicineta",
-    "lat": -33.4489,
-    "lng": -70.6693
+    "lat": -33.37058,
+    "lng": -70.50666,
+    "geo": "geocoded"
   },
   {
     "id": "gran-fondo-puchuncavi-2027",
@@ -4941,7 +5111,7 @@
     ],
     "distance_min_km": 90.0,
     "distance_max_km": 115.0,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 1800,
     "price_type": "paid",
     "status": "open",
     "organizer": "Gran Fondo Puchuncaví",
@@ -4951,7 +5121,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -32.723,
-    "lng": -71.414
+    "lng": -71.414,
+    "geo": "commune"
   },
   {
     "id": "del-fuego-gravel-race-2027",
@@ -4980,8 +5151,9 @@
     "description": "El evento de Ultra más austral del mundo te espera con tres rutas que van desde el desafío hasta lo imposible. •⁠ ⁠HAÍN · 1.050 km · Para los que no conocen el límite •⁠ ⁠BAQUEANOS RACE · 250 km · Para los que buscan la aventura •⁠ ⁠MILODÓN RACE · 170 km · Para los que se atreven a empezar",
     "featured": false,
     "source": "bicineta",
-    "lat": -53.1638,
-    "lng": -70.9171
+    "lat": -51.72897,
+    "lng": -72.51333,
+    "geo": "geocoded"
   },
   {
     "id": "del-fuego-race-2027",
@@ -5012,7 +5184,8 @@
     "featured": false,
     "source": "tusdesafios",
     "lat": -51.7269,
-    "lng": -72.5069
+    "lng": -72.5069,
+    "geo": "commune"
   },
   {
     "id": "desafio-al-limite-2027",
@@ -5040,8 +5213,9 @@
     "description": "Desde el corazón de Talca hasta la inmensidad de la cordillera. Un viaje de resistencia, desnivel y...",
     "featured": false,
     "source": "bicineta",
-    "lat": -35.4264,
-    "lng": -71.6554
+    "lat": -35.43212,
+    "lng": -71.63064,
+    "geo": "geocoded"
   },
   {
     "id": "gran-rally-mtb-otono-ranquino-2027",
@@ -5072,7 +5246,8 @@
     "featured": false,
     "source": "ticketsport",
     "lat": -40.3167,
-    "lng": -72.4833
+    "lng": -72.4833,
+    "geo": "commune"
   },
   {
     "id": "gravel-forest-race-wild-2027",
@@ -5100,8 +5275,9 @@
     "description": "Versión WILD. Pronto más info",
     "featured": false,
     "source": "bicineta",
-    "lat": -36.827,
-    "lng": -73.0503
+    "lat": -37.48335,
+    "lng": -72.36963,
+    "geo": "geocoded"
   },
   {
     "id": "atacamaspirits-gravel-race-2027",
@@ -5132,7 +5308,8 @@
     "featured": false,
     "source": "bicineta",
     "lat": -22.9087,
-    "lng": -68.1997
+    "lng": -68.1997,
+    "geo": "commune"
   },
   {
     "id": "clasica-primero-de-mayo-2027",
@@ -5161,7 +5338,8 @@
     "featured": false,
     "source": "fedenacich",
     "lat": -33.4489,
-    "lng": -70.6693
+    "lng": -70.6693,
+    "geo": "commune"
   },
   {
     "id": "atacama-challenger-2027",
@@ -5192,7 +5370,8 @@
     "featured": false,
     "source": "ridechile",
     "lat": -22.9087,
-    "lng": -68.1997
+    "lng": -68.1997,
+    "geo": "commune"
   },
   {
     "id": "atacama-challenger-san-pedro-de-atacama-2027",
@@ -5207,10 +5386,11 @@
     "commune": "Desierto De Atacama",
     "location": "Desierto De Atacama, Región Atacama",
     "distances": [
-      "Ver bases"
+      "67 km",
+      "33 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 33.0,
+    "distance_max_km": 67.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
@@ -5220,8 +5400,9 @@
     "description": "Atacama Challenger 2027: 3 Días, 3 Etapas de Puro Desafío Del 21 al 24 de mayo, la aventura sobre ruedas vuelve con fuerza en el Atacama Challenger 2027. Este evento de ciclismo de montaña combina resistencia, técnica y paisaje en un recorrido único que nadie quiere perderse. ¿Qué esperar de esta carrera épica? Etapa 1: 74 km de ruta desafiante Etapa 2: 33 km de ascenso intenso Etapa 3: 67 km para cerrar con broche de oro Además, la competencia está abierta a diversas categorías según la edad...",
     "featured": false,
     "source": "tusdesafios",
-    "lat": -27.3668,
-    "lng": -70.3323
+    "lat": -26.33431,
+    "lng": -70.61108,
+    "geo": "geocoded"
   },
   {
     "id": "desafio-chile-by-la-vuelta-2027",
@@ -5251,7 +5432,8 @@
     "description": "Desafío Chile by La Vuelta: Ruta · 90K, 60K y 30K. Fuente: calendario de Ridechile.cl.",
     "featured": false,
     "source": "ridechile",
-    "lat": -34.1708,
-    "lng": -70.7444
+    "lat": -34.64032,
+    "lng": -71.36613,
+    "geo": "geocoded"
   }
 ]

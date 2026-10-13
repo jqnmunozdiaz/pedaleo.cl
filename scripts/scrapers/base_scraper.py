@@ -7,6 +7,7 @@ import json
 import os
 import re
 import unicodedata
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime
 from typing import Dict, List, Optional
 import requests
@@ -79,6 +80,22 @@ NON_CYCLING_WORDS = [
 
 # Places that only say "we don't know yet"
 PLACEHOLDER_PLACE_RE = re.compile(r"pronto|confirmar|por definir|a definir|\btbd\b|sin definir", re.IGNORECASE)
+
+# Status announced in a title ("... (SUSPENDIDO)", "REPROGRAMADA"); only the title and the start of the
+# description count, so a sentence like "no se suspende por lluvia" is not mistaken for a cancellation.
+CANCELLED_RE = re.compile(r"\b(suspendid[oa]s?|cancelad[oa]s?|anulad[oa]s?)\b", re.IGNORECASE)
+POSTPONED_RE = re.compile(r"\b(pospuest[oa]s?|postergad[oa]s?|aplazad[oa]s?|reprogramad[oa]s?)\b", re.IGNORECASE)
+
+
+def detect_status(title: str, description: str = "") -> str:
+    """'cancelled', 'postponed' or 'open' from what the source says about the race."""
+    text = f"{title or ''} {(description or '')[:160]}"
+    if CANCELLED_RE.search(text):
+        return "cancelled"
+    if POSTPONED_RE.search(text):
+        return "postponed"
+    return "open"
+
 
 MONTHS_ES = {
     "enero": "01", "febrero": "02", "marzo": "03", "abril": "04", "mayo": "05", "junio": "06",
@@ -162,6 +179,53 @@ def parse_distances(values) -> tuple:
     return labels, min(found), max(found)
 
 
+# Elevation gain ("desnivel") as organizers write it: "6.000 metros de ascenso acumulado",
+# "2.200 m de desnivel", "desnivel de +1.450 m", "300 km · +4.330 m", "D+ 1200".
+_NUM = r"(\d{1,3}(?:[.,]\d{3})+|\d{2,5})"
+_UNIT = r"(?:m|mts?|metros)(?![a-z])"
+_GAIN_WORD = r"(?:desnivel|ascensos?|altimetr[ií]a|positivos?|acumulad[oa]s?)"
+ELEVATION_PATTERNS = [
+    re.compile(_NUM + r"\s*" + _UNIT + r"\.?\s*(?:de\s+)?(?:d\+\s*)?" + _GAIN_WORD),
+    re.compile(r"(?:desnivel|altimetr[ií]a|ascenso|d\+)\s*(?:positivo|acumulado|total)?\s*(?:de|:|=)?\s*(?:m[aá]s de\s*|aprox\.?\s*|unos\s*)?\+?\s*" + _NUM + r"\s*" + _UNIT),
+    re.compile(r"\+\s?" + _NUM + r"\s?" + _UNIT),
+    re.compile(_NUM + r"\s*" + r"(?:m|mts?|metros)?\s*d\+"),
+    re.compile(r"d\+\s*:?\s*" + _NUM + r"(?!\s*k)"),   # "D+ 1200" (but not "D+ 120 km")
+]
+# "5000 metros sobre el nivel del mar" is an altitude, not a climb
+ALTITUDE_AFTER_RE = re.compile(r"^.{0,30}?(?:nivel del mar|msnm|m\.?s\.?n\.?m|de altura|de altitud|altitud)")
+ELEVATION_RANGE = (50, 12000)
+
+
+def _to_int(number: str) -> int:
+    digits = re.sub(r"[.,]", "", number) if re.fullmatch(r"\d{1,3}(?:[.,]\d{3})+", number) else number
+    return int(digits)
+
+
+def extract_elevation(text: str) -> Optional[int]:
+    """Largest elevation gain (in metres) a text states, or None. Altitudes above sea level are ignored."""
+    text = re.sub(r"\s+", " ", (text or "").lower())
+    found = []
+    for pattern in ELEVATION_PATTERNS:
+        for m in pattern.finditer(text):
+            if ALTITUDE_AFTER_RE.match(text[m.end():]):
+                continue
+            value = _to_int(m.group(1))
+            if ELEVATION_RANGE[0] <= value <= ELEVATION_RANGE[1]:
+                found.append(value)
+    return max(found) if found else None
+
+
+BREVET_RE = re.compile(r"\bbrevet\s*(?:rm\s*)?(\d{3,4})\b", re.IGNORECASE)
+
+
+def distances_from_title(title: str) -> list:
+    """Distances a title states outright: "Brevet 300" is 300 km by definition; "Gran Fondo 120K" says so."""
+    m = BREVET_RE.search(title or "")
+    if m:
+        return [f"{m.group(1)} km"]
+    return parse_distances([title])[0] or []
+
+
 class BaseScraper:
     def __init__(self, name: str):
         self.name = name
@@ -183,6 +247,15 @@ class BaseScraper:
     def fetch_events(self) -> List[Dict]:
         """Override in subclasses to return a list of event dictionaries."""
         raise NotImplementedError
+
+    @staticmethod
+    def map_parallel(func, items, workers: int = 5) -> list:
+        """func over items with a few concurrent requests (polite, but ~5x faster than one by one). Keeps order."""
+        items = list(items)
+        if len(items) < 2:
+            return [func(item) for item in items]
+        with ThreadPoolExecutor(max_workers=min(workers, len(items))) as pool:
+            return list(pool.map(func, items))
 
     @staticmethod
     def commune_region(text: str) -> Optional[str]:
@@ -256,7 +329,8 @@ class BaseScraper:
 
     def build_event(self, *, title: str, date: str, place: str = "", region_code: Optional[str] = None,
                     end_date: Optional[str] = None, disciplines: Optional[List[str]] = None,
-                    distances: Optional[List[str]] = None, url: str = "", registration_url: str = "",
+                    distances: Optional[List[str]] = None, elevation_gain_m: Optional[int] = None,
+                    url: str = "", registration_url: str = "",
                     organizer: str = "", description: str = "", price_type: str = "paid") -> Dict:
         """Builds a schema-complete event. A missing region marks it as location_unverified."""
         place = (place or "").strip()
@@ -268,7 +342,7 @@ class BaseScraper:
         if verified and not commune:
             commune = region_name
 
-        labels, dist_min, dist_max = parse_distances(distances)
+        labels, dist_min, dist_max = parse_distances(distances or distances_from_title(title))
         url = clean_link(url or registration_url)
         registration_url = clean_link(registration_url)
         event = {
@@ -284,9 +358,9 @@ class BaseScraper:
             "distances": labels or ["Ver bases"],
             "distance_min_km": dist_min,
             "distance_max_km": dist_max,
-            "elevation_gain_m": 0,
+            "elevation_gain_m": elevation_gain_m or extract_elevation(description) or 0,
             "price_type": price_type,
-            "status": "open",
+            "status": detect_status(title, description),
             "organizer": organizer or "Organización oficial",
             "url": url,
             "registration_url": registration_url or url,

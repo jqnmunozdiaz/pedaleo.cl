@@ -9,6 +9,7 @@ import json
 import os
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta
 from urllib.parse import urlsplit
 
@@ -22,6 +23,9 @@ from scrapers import (
     TicketSportScraper, TusdesafiosScraper,
 )
 from scrapers.base_scraper import strip_accents
+from source_health import (
+    assess_sources, drop_stale, load_last_seen, load_stats, mark_seen, save_last_seen, save_stats,
+)
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_FILE = os.path.join(PROJECT_DIR, "data", "events.json")
@@ -39,57 +43,67 @@ def load_coords():
         return {}
 
 
-def assign_coordinates(events):
+REGION_CODES = {"XV", "I", "II", "III", "IV", "V", "RM", "VI", "VII", "XVI", "VIII", "IX", "XIV", "X", "XI", "XII"}
+
+
+def _clean(text):
+    import unicodedata
+    text = unicodedata.normalize("NFD", text or "")
+    return "".join(c for c in text if unicodedata.category(c) != "Mn").lower().strip()
+
+
+def region_centroids():
+    """{region code: (lat, lng)} from data/communes_coords.json (the region keys hold the capitals)."""
+    return {k: tuple(v) for k, v in load_coords().items() if k in REGION_CODES}
+
+
+def assign_coordinates(events, geocoder=None):
+    """
+    Gives every race with a confirmed region a map position and records how precise it is in `geo`:
+      commune   - the commune/place is in data/communes_coords.json
+      geocoded  - found through the (cached) geocoder
+      region    - only the region capital is known: the map shows it as an approximate reference
+      manual    - coordinates typed by hand, kept as they are
+    Races with an unconfirmed location never get a pin.
+    """
     coords_data = load_coords()
     if not coords_data:
         return events
 
-    import unicodedata
-
-    def clean_str(s):
-        s = unicodedata.normalize("NFD", s or "")
-        return "".join(c for c in s if unicodedata.category(c) != "Mn").lower().strip()
-
-    normalized_coords = {clean_str(k): v for k, v in coords_data.items()}
+    normalized = {_clean(k): v for k, v in coords_data.items()}
+    centroids = {k: tuple(v) for k, v in coords_data.items() if k in REGION_CODES}
+    centroid_points = {(round(v[0], 4), round(v[1], 4)) for v in centroids.values()}
 
     for ev in events:
-        if ev.get("lat") is not None and ev.get("lng") is not None:
-            continue
         if not ev.get("region"):
             continue  # location not confirmed: never invent a pin
-        commune_clean = clean_str(ev.get("commune", ""))
-        location_clean = clean_str(ev.get("location", ""))
-        region_clean = clean_str(ev.get("region", ""))
+        if ev.get("geo") in ("commune", "geocoded", "manual"):
+            continue
 
-        matched = None
-        # 1. Match commune directly
-        if commune_clean and commune_clean in normalized_coords:
-            matched = normalized_coords[commune_clean]
+        commune = _clean(ev.get("commune"))
+        location = _clean(ev.get("location"))
+        matched = normalized.get(commune) if commune else None
+        if not matched and commune:
+            matched = next((c for k, c in normalized.items() if len(k) > 3 and (k in commune or commune in k)), None)
+        if not matched and location:
+            matched = next((c for k, c in normalized.items() if len(k) > 3 and k in location), None)
 
-        # 2. Match commune substring
-        if not matched and commune_clean:
-            for k, coords in normalized_coords.items():
-                if len(k) > 3 and (k in commune_clean or commune_clean in k):
-                    matched = coords
-                    break
+        if matched:
+            ev["lat"], ev["lng"], ev["geo"] = round(matched[0], 5), round(matched[1], 5), "commune"
+            continue
 
-        # 3. Match location string
-        if not matched and location_clean:
-            for k, coords in normalized_coords.items():
-                if len(k) > 3 and k in location_clean:
-                    matched = coords
-                    break
+        has_coords = ev.get("lat") is not None and ev.get("lng") is not None
+        at_capital = has_coords and (round(ev["lat"], 4), round(ev["lng"], 4)) in centroid_points
+        if has_coords and not at_capital and ev.get("geo") is None:
+            ev["geo"] = "manual"  # somebody set a real position by hand
+            continue
 
-        # 4. Match region code
-        if not matched and region_clean in normalized_coords:
-            matched = normalized_coords[region_clean]
-
-        # 5. Default Santiago
-        if not matched:
-            matched = [-33.4489, -70.6693]
-
-        ev["lat"] = round(matched[0], 5)
-        ev["lng"] = round(matched[1], 5)
+        point = geocoder(ev.get("commune"), ev.get("region_name"), ev["region"]) if geocoder else None
+        if point:
+            ev["lat"], ev["lng"], ev["geo"] = point[0], point[1], "geocoded"
+        else:
+            fallback = centroids.get(ev["region"]) or (-33.4489, -70.6693)
+            ev["lat"], ev["lng"], ev["geo"] = round(fallback[0], 5), round(fallback[1], 5), "region"
 
     return events
 
@@ -117,8 +131,8 @@ def load_existing_events():
         return []
 
 
-def save_events(events):
-    events = assign_coordinates(events)
+def save_events(events, geocoder=None):
+    events = assign_coordinates(events, geocoder)
     # Sort chronologically by date
     events.sort(key=lambda x: (x.get("date", ""), x.get("name", "")))
     with open(DATA_FILE, "w", encoding="utf-8") as f:
@@ -263,6 +277,17 @@ def enrich_match(match: dict, new_ev: dict) -> int:
         match.pop("lng", None)
         changes += 1
 
+    # A source announcing a cancellation / postponement is believed; a source that says nothing is not
+    if new_ev.get("status") in ("cancelled", "postponed") and match.get("status") not in ("cancelled",) \
+            and match.get("status") != new_ev["status"]:
+        match["status"] = new_ev["status"]
+        changes += 1
+
+    # Elevation gain fills a gap, never overwrites a known value
+    if not match.get("elevation_gain_m") and new_ev.get("elevation_gain_m"):
+        match["elevation_gain_m"] = new_ev["elevation_gain_m"]
+        changes += 1
+
     # Real distances replace the "Ver bases" placeholder
     placeholder = match.get("distances") in (None, [], ["Ver bases"])
     if placeholder and new_ev.get("distances") and new_ev["distances"] != ["Ver bases"]:
@@ -293,10 +318,11 @@ def dedupe_existing(events: list) -> tuple:
     return kept, removed
 
 
-def merge_events(existing_events, new_scraped_events):
+def merge_events(existing_events, new_scraped_events, seen=None):
     """
     Merges scraped events into existing events without overwriting manual edits.
     Events from the same source get their dates refreshed (races get rescheduled).
+    If a set is passed as `seen`, it is filled with the ids of every race a scraper listed.
     """
     existing_map = {}
     for ev in existing_events:
@@ -316,6 +342,9 @@ def merge_events(existing_events, new_scraped_events):
             new_ev = dict(new_ev, id=f"{new_ev['id']}-{new_ev['date']}")
             # The next edition may already have been added by a previous run
             match = existing_map.get(new_ev["id"])
+
+        if seen is not None:
+            seen.add((match or new_ev)["id"])
 
         if match:
             if match.get("source") == new_ev.get("source"):
@@ -345,6 +374,22 @@ def merge_events(existing_events, new_scraped_events):
             added_count += 1
 
     return existing_events, added_count, updated_count
+
+
+def fill_elevation(events):
+    """Reads the elevation gain from descriptions already in the catalogue (races that still show none)."""
+    from scrapers.base_scraper import extract_elevation
+
+    filled = 0
+    for ev in events:
+        if not ev.get("elevation_gain_m"):
+            gain = extract_elevation(ev.get("description"))
+            if gain:
+                ev["elevation_gain_m"] = gain
+                filled += 1
+    if filled:
+        print(f"[sync] {filled} carreras completaron su desnivel desde la descripción.")
+    return events
 
 
 def improve_links(events):
@@ -381,6 +426,14 @@ def drop_dead_links(events):
     return kept
 
 
+def run_scraper(scraper):
+    """Runs one scraper; a crash returns (None, error) instead of stopping the others."""
+    try:
+        return scraper.fetch_events(), None
+    except Exception as e:  # noqa: BLE001 - any failure of one source must not lose the rest
+        return None, e
+
+
 def run_sync():
     print("==================================================")
     print("🚴 Pedaleo.cl - Sincronizador de Carreras de Ciclismo")
@@ -399,19 +452,26 @@ def run_sync():
         TicketSportScraper(),
     ]
 
-    all_scraped = []
-    for sc in scrapers:
-        print(f"[sync] Ejecutando scraper: {sc.name}...")
-        try:
-            scraped = sc.fetch_events()
-            print(f"[sync] -> {len(scraped)} eventos encontrados en {sc.name}.")
-            if not scraped:
-                # GitHub Actions shows this annotation on the run page: the site layout probably changed
-                print(f"::warning title=Scraper sin resultados::{sc.name} no devolvió eventos; revisar si cambió el sitio de origen.")
-            all_scraped.extend(scraped)
-        except Exception as e:
-            print(f"::warning title=Scraper con error::{sc.name}: {e}")
-            print(f"[sync] -> Error en scraper {sc.name}: {e}")
+    # The sources are independent and mostly wait on the network: run them side by side
+    print(f"[sync] Ejecutando {len(scrapers)} scrapers en paralelo...")
+    with ThreadPoolExecutor(max_workers=len(scrapers)) as pool:
+        results = list(pool.map(run_scraper, scrapers))
+
+    all_scraped, counts = [], {}
+    for sc, (scraped, error) in zip(scrapers, results):
+        if error is not None:
+            print(f"::warning title=Scraper con error::{sc.name}: {error}")
+            print(f"[sync] -> Error en scraper {sc.name}: {error}")
+            counts[sc.name] = 0
+            continue
+        print(f"[sync] -> {len(scraped)} eventos encontrados en {sc.name}.")
+        counts[sc.name] = len(scraped)
+        all_scraped.extend(scraped)
+
+    stats, health_warnings, all_healthy = assess_sources(counts, load_stats())
+    for message in health_warnings:
+        print(f"::warning title=Fuente con problemas::{message}")
+    save_stats(stats)
 
     excluded = load_excluded_ids()
     if excluded:
@@ -419,17 +479,40 @@ def run_sync():
         all_scraped = [ev for ev in all_scraped if ev["id"] not in excluded]
         print(f"[sync] {len(skipped)} eventos omitidos por estar en excluded_events.json.")
 
-    merged, added, updated = merge_events(existing, all_scraped)
+    seen_ids = set()
+    merged, added, updated = merge_events(existing, all_scraped, seen=seen_ids)
     merged, folded = dedupe_existing(merged)
     if folded:
         print(f"[sync] {folded} duplicados internos fusionados.")
 
+    # Races no source lists any more (cancelled / removed) disappear after a grace period
+    last_seen = mark_seen(load_last_seen(), seen_ids)
+    merged, stale, last_seen = drop_stale(merged, last_seen, {sc.name for sc in scrapers}, all_healthy)
+    save_last_seen(last_seen)
+    for ev in stale:
+        print(f"[sync] Carrera ya no listada por ninguna fuente, omitida: {ev['name']} ({ev['date']})")
+    if not all_healthy:
+        print("[sync] Alguna fuente se ve dañada: no se omiten carreras desaparecidas en esta corrida.")
+
+    merged = fill_elevation(merged)
     merged = improve_links(merged)
+    from enrich import enrich_from_welcu
+    improved = enrich_from_welcu(merged)
+    if improved:
+        print(f"[sync] {improved} carreras completaron distancias o desnivel desde su página de Welcu.")
     merged = drop_dead_links(merged)
     print(f"[sync] Resumen: +{added} nuevas carreras agregadas, {updated} actualizadas.")
     print(f"[sync] Total final en catálogo: {len(merged)} carreras.")
 
-    save_events(merged)
+    geocoder = None
+    if os.environ.get("PEDALEO_SKIP_GEOCODE") != "1":
+        from geocode import Geocoder
+        geocoder = Geocoder(region_centroids())
+    save_events(merged, geocoder)
+    if geocoder:
+        geocoder.save()
+        if geocoder.lookups:
+            print(f"[sync] {geocoder.lookups} lugares consultados al geocodificador (resultados en caché).")
     print("[sync] Sincronización completada con éxito.")
 
 

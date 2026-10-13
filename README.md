@@ -37,7 +37,8 @@ Inspirado directamente en la simplicidad, velocidad y funcionalidad de **corre.c
    - Base de datos centralizada en `data/events.json`.
    - Pipeline de sincronización y scrapers en Python (`scripts/`).
    - Automatización mediante **GitHub Actions** (`.github/workflows/deploy.yml`) que ejecuta las pruebas, consulta cada día las fuentes chilenas (Bicineta, GUCA, Ridechile, Tusdesafios, CiclismoChile, TicketSport), valida los datos y despliega sin intervención manual.
-   - Las carreras cuyo sitio web ya no funciona se omiten automáticamente.
+   - Las carreras cuyo sitio web ya no funciona, las canceladas y las que ninguna fuente lista hace semanas se omiten automáticamente.
+   - Los pines del mapa se ubican por comuna, geocodificación en caché o (si no hay otra opción) como referencia regional aproximada.
    - Se descartan carreras de running, triatlón y de otros países; las que no tienen ubicación confirmada se guardan aparte y se pueden mostrar con el botón **Incluir sin ubicación confirmada**.
    - Asistente CLI interactivo (`scripts/add_event.py`) para registrar nuevas carreras en segundos.
 
@@ -98,7 +99,10 @@ Pedaleo.cl/
 tests/
 ├── test_pipeline.py                 # Pruebas unitarias del pipeline de datos
 ├── test_sources.py                  # Pruebas de cobertura de fuentes, ubicaciones sin confirmar y fusión
-└── test_new_sources.py              # Pruebas de Tusdesafios, CiclismoChile y verificación de enlaces
+├── test_new_sources.py              # Pruebas de Tusdesafios, CiclismoChile, enlaces, estados y distancias
+├── test_welcu_links.py              # Pruebas de enlaces de Welcu
+├── test_health.py                   # Pruebas de salud de fuentes y carreras desaparecidas
+└── test_geo.py                      # Pruebas de geocodificación y precisión de pines
 ```
 
 ---

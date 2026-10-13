@@ -11,7 +11,7 @@ import re
 from typing import Dict, List, Optional
 
 from bs4 import BeautifulSoup
-from .base_scraper import BaseScraper
+from .base_scraper import BaseScraper, extract_elevation
 
 SECTIONS = [
     ("ciclismo-ruta", "Ruta"),
@@ -48,8 +48,7 @@ class TusdesafiosScraper(BaseScraper):
                     known["disciplines"].append(discipline)  # same race listed in two sections
 
         events: Dict[str, Dict] = {}
-        for card in cards.values():
-            ev = self.event_from_detail(card)
+        for ev in self.map_parallel(self.event_from_detail, cards.values()):
             if ev and ev["id"] not in events:
                 events[ev["id"]] = ev
         return list(events.values())
@@ -141,8 +140,13 @@ class TusdesafiosScraper(BaseScraper):
         if len(description) > MAX_DESCRIPTION:
             description = description[:MAX_DESCRIPTION].rsplit(" ", 1)[0] + "…"
 
+        # The page has the whole text; the structured-data description is cut short
+        body = soup.select_one(".show2-description")
+        full_text = body.get_text(" ", strip=True) if body else data.get("description") or ""
+
         official = self._official_link(soup)
         return self.build_event(
+            elevation_gain_m=extract_elevation(full_text),
             title=title,
             date=start,
             end_date=end,

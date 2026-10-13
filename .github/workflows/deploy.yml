@@ -60,7 +60,7 @@ jobs:
         run: |
           git config --local user.email "bot@pedaleo.cl"
           git config --local user.name "PedaleoBot"
-          git add data/events.json data/link_checks.json
+          git add data/events.json data/link_checks.json data/source_stats.json data/last_seen.json data/geocode_cache.json
           if ! git diff --cached --quiet; then
             echo "Se detectaron nuevas carreras o actualizaciones."
             git commit -m "[auto] Actualizar calendario de carreras [skip ci]"

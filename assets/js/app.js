@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /** Events that the month pills / default listing work with (hides finished / unlocated races unless requested). */
     baseEvents() {
       return this.events.filter(ev =>
+        ev.status !== 'cancelled' &&
         (this.filters.showPast || !Utils.isPast(ev, this.today)) &&
         (this.filters.showUnlocated || !this.isUnlocated(ev))
       );
@@ -423,6 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const showPast = f.showPast;
 
       this.filteredEvents = this.events.filter(ev => {
+        if (ev.status === 'cancelled') return false; // suspended / cancelled races are not listed
         if (!showPast && Utils.isPast(ev, this.today)) return false;
         const unlocated = this.isUnlocated(ev);
         if (unlocated && !f.showUnlocated) return false;
@@ -550,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           let metricsHtml = '';
           if (distText) metricsHtml += `<span class="dist-meta">🏁 ${Utils.esc(distText)}</span>`;
-          if (elevText) metricsHtml += `<span class="elev-meta">⛰️ ${elevText}</span>`;
+          if (elevText) metricsHtml += `<span class="elev-meta" title="Desnivel acumulado${(ev.distances || []).length > 1 ? ' (la ruta con más desnivel)' : ''}">⛰️ ${elevText}</span>`;
 
           const unlocated = this.isUnlocated(ev);
           const regName = unlocated
@@ -562,6 +564,7 @@ document.addEventListener('DOMContentLoaded', () => {
             : Utils.cleanLocality(ev, regName);
           const stateTag = isPast
             ? '<span class="event-state-tag">Finalizada</span>'
+            : ev.status === 'postponed' ? '<span class="event-state-tag is-warn" title="Los organizadores anunciaron un cambio de fecha: confirma en su sitio">Reprogramada</span>'
             : isOngoing ? '<span class="event-state-tag is-live">En curso</span>' : '';
 
           html += `
@@ -772,6 +775,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="badge-reg${unlocated ? ' badge-unlocated' : ''}">${Utils.esc(regName)}</span>
           ${ev.price_type === 'free' ? '<span class="badge-reg badge-free">GRATIS</span>' : ''}
           ${isPast ? '<span class="badge-reg">Finalizada</span>' : ''}
+          ${ev.status === 'postponed' && !isPast ? '<span class="badge-reg badge-unlocated">Reprogramada: confirma la fecha</span>' : ''}
         </div>
 
         <p class="detail-description">
@@ -782,7 +786,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div><strong>Fecha:</strong> ${Utils.esc(Utils.formatDateLong(ev))}</div>
           <div><strong>Lugar:</strong> ${Utils.esc(unlocated ? (ev.location || 'Por confirmar') : (ev.location || ev.commune))}${unlocated ? ' <em>(sin confirmar en las fuentes)</em>' : ''}</div>
           <div><strong>Distancias:</strong> ${Utils.esc(distances)}</div>
-          <div><strong>Desnivel:</strong> ${ev.elevation_gain_m ? '+' + Utils.esc(ev.elevation_gain_m) + ' m' : 'No especificado'}</div>
+          <div><strong>${(ev.distances || []).length > 1 && ev.elevation_gain_m ? 'Desnivel máx.' : 'Desnivel'}:</strong> ${ev.elevation_gain_m ? '+' + Utils.esc(ev.elevation_gain_m.toLocaleString('es-CL')) + ' m' : 'No especificado'}</div>
           <div><strong>Organizador:</strong> ${Utils.esc(ev.organizer || 'Organización oficial')}</div>
         </div>
 
@@ -923,7 +927,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /** schema.org SportsEvent markup for upcoming races (helps Google show rich results). */
     injectStructuredData() {
-      const upcoming = this.events.filter(ev => !Utils.isPast(ev, this.today) && !this.isUnlocated(ev));
+      const upcoming = this.events.filter(ev => ev.status !== 'cancelled' && !Utils.isPast(ev, this.today) && !this.isUnlocated(ev));
       if (!upcoming.length) return;
 
       const graph = upcoming.map(ev => ({
@@ -931,7 +935,7 @@ document.addEventListener('DOMContentLoaded', () => {
         name: ev.name,
         startDate: ev.date,
         endDate: Utils.eventEnd(ev),
-        eventStatus: 'https://schema.org/EventScheduled',
+        eventStatus: ev.status === 'postponed' ? 'https://schema.org/EventPostponed' : 'https://schema.org/EventScheduled',
         eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
         sport: (ev.disciplines || []).join(', ') || 'Cycling',
         description: ev.description || undefined,

@@ -10,7 +10,7 @@ import re
 from typing import Dict, List, Optional
 
 from bs4 import BeautifulSoup
-from .base_scraper import BaseScraper, CYCLING_HINTS, MONTHS_ES, strip_accents
+from .base_scraper import BaseScraper, CYCLING_HINTS, MONTHS_ES, extract_elevation, parse_distances, strip_accents
 
 EVENT_LINK_SELECTOR = 'a[href*="/att_tickets/public/e/"]'
 DATE_RE = re.compile(r"(\d{1,2})\s+de\s+([a-záéíóú]+)\s+de\s+(\d{4})", re.IGNORECASE)
@@ -37,9 +37,12 @@ class GucaScraper(BaseScraper):
             print(f"[guca_scraper] Error conectando a {self.base_url}: {e}")
             return events
 
+        def build(candidate):
+            href, card_text = candidate
+            return self.event_from_detail(href, card_text) or self.event_from_card(href, card_text)
+
         seen_ids = set()
-        for href, card_text in self.list_candidates(soup):
-            ev = self.event_from_detail(href, card_text) or self.event_from_card(href, card_text)
+        for ev in self.map_parallel(build, self.list_candidates(soup)):
             if ev and ev["id"] not in seen_ids:
                 seen_ids.add(ev["id"])
                 events.append(ev)
@@ -128,6 +131,8 @@ class GucaScraper(BaseScraper):
 
         short = description if len(description) <= MAX_DESCRIPTION else description[:MAX_DESCRIPTION].rsplit(" ", 1)[0] + "…"
         return self.build_event(
+            distances=self.ticket_distances(soup),
+            elevation_gain_m=extract_elevation(description),
             title=title,
             date=dates[0],
             end_date=dates[-1],
@@ -138,6 +143,15 @@ class GucaScraper(BaseScraper):
             organizer=organizer or "GUCA / Club Organizador",
             description=short or f"Competencia cronometrada por GUCA en {place}.",
         )
+
+    @staticmethod
+    def ticket_distances(soup) -> List[str]:
+        """Ticket names often carry the distance ("90K Ruta Costa - Early Bird $79.000"); only that section is read."""
+        text = re.sub(r"\s+", " ", soup.get_text(" ", strip=True))
+        start, end = text.find("Tickets"), text.find("Detalles del Evento")
+        section = text[start:end] if 0 <= start < end else ""
+        labels = parse_distances([section])[0] or []
+        return labels if 0 < len(labels) <= 6 else []
 
     # ------------------------------------------------------------------ card fallback
 

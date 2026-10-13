@@ -60,7 +60,7 @@ const MapView = {
       return {
         lat: ev.lat,
         lng: ev.lng,
-        isCentroid: false,
+        isCentroid: ev.geo === 'region', // only the region capital is known: shown as a regional reference
         regionName: ev.region_name || 'Chile'
       };
     }

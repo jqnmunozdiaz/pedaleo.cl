@@ -2133,3 +2133,9 @@ body.modal-open {
 .dropdown-calendar.is-open .cal-dropdown-menu {
   display: block;
 }
+
+.event-state-tag.is-warn {
+  background: #fffbeb;
+  color: #92400e;
+  border-color: #fde68a;
+}

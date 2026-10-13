@@ -21,7 +21,7 @@ VALID_REGIONS = {
     "VII", "XVI", "VIII", "IX", "XIV", "X", "XI", "XII"
 }
 
-VALID_STATUSES = {"open", "upcoming", "closed", "sold_out", "cancelled"}
+VALID_STATUSES = {"open", "upcoming", "closed", "sold_out", "cancelled", "postponed"}
 
 REQUIRED_FIELDS = ["id", "name", "date", "disciplines"]
 
@@ -106,6 +106,13 @@ def validate_event(idx, ev, region_names):
             errors.append(f"{label}: '{field}' debe ser un número positivo o null")
     if isinstance(lo, (int, float)) and isinstance(hi, (int, float)) and lo > hi:
         errors.append(f"{label}: distance_min_km ({lo}) es mayor que distance_max_km ({hi})")
+
+    # Elevation gain (metres): a number; negative is allowed for descent-only races
+    gain = ev.get("elevation_gain_m")
+    if gain is not None and (isinstance(gain, bool) or not isinstance(gain, (int, float))):
+        errors.append(f"{label}: 'elevation_gain_m' debe ser un número")
+    elif isinstance(gain, (int, float)) and abs(gain) > 12000:
+        warnings.append(f"{label}: desnivel de {gain} m parece irreal")
 
     # Status
     if ev.get("status") and ev["status"] not in VALID_STATUSES:

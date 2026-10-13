@@ -17,6 +17,7 @@ sys.path.insert(0, SCRIPTS_DIR)
 import link_check  # noqa: E402
 from scrapers.base_scraper import BaseScraper  # noqa: E402
 from scrapers.ciclismochile_scraper import CiclismoChileScraper  # noqa: E402
+from scrapers.guca_scraper import GucaScraper  # noqa: E402
 from scrapers.tusdesafios_scraper import TusdesafiosScraper  # noqa: E402
 from test_pipeline import make_event  # noqa: E402
 
@@ -206,6 +207,130 @@ class LinkCheckTests(unittest.TestCase):
         with mock.patch("link_check.requests.head", return_value=self.resp(500)), \
                 mock.patch("link_check.requests.get", return_value=self.resp(500)):
             self.assertEqual(link_check.check_url("https://broken.cl/x", pause=0), link_check.DEAD)
+
+
+class StatusDetectionTests(unittest.TestCase):
+    def test_title_announcements(self):
+        from scrapers.base_scraper import detect_status
+        self.assertEqual(detect_status("Gran Fondo Demo (SUSPENDIDO)"), "cancelled")
+        self.assertEqual(detect_status("Rally Demo - Cancelada por lluvia"), "cancelled")
+        self.assertEqual(detect_status("Copa Demo REPROGRAMADA"), "postponed")
+        self.assertEqual(detect_status("Copa Demo"), "open")
+
+    def test_ordinary_sentences_are_not_announcements(self):
+        from scrapers.base_scraper import detect_status
+        self.assertEqual(detect_status("Copa Demo", "La carrera no se suspende por lluvia."), "open")
+        self.assertEqual(detect_status("Copa Demo", "x" * 300 + " cancelada"), "open")  # far from the start
+
+    def test_build_event_and_merge_use_it(self):
+        from sync_events import enrich_match
+        ev = BaseScraper("demo").build_event(title="Carrera Demo (SUSPENDIDA)", date="2026-11-01", region_code="V")
+        self.assertEqual(ev["status"], "cancelled")
+        match = make_event(status="open")
+        enrich_match(match, ev)
+        self.assertEqual(match["status"], "cancelled")
+        enrich_match(match, make_event(status="open"))   # a source that says nothing does not revive it
+        self.assertEqual(match["status"], "cancelled")
+
+
+class DistanceExtractionTests(unittest.TestCase):
+    def test_titles_that_state_the_distance(self):
+        from scrapers.base_scraper import distances_from_title
+        self.assertEqual(distances_from_title("Brevet 300 - Ultra Gravel Ñuble"), ["300 km"])
+        self.assertEqual(distances_from_title("BREVET RM 600K Desafío 4 Lagos"), ["600 km"])
+        self.assertEqual(distances_from_title("Gran Fondo Demo 120K"), ["120 km"])
+        self.assertEqual(distances_from_title("Copa Chile Downhill #3"), [])  # "#3" is an edition, not km
+
+    def test_build_event_uses_the_title_only_when_no_distance_is_given(self):
+        scraper = BaseScraper("demo")
+        self.assertEqual(scraper.build_event(title="Brevet 200", date="2026-11-07", region_code="RM")["distances"], ["200 km"])
+        self.assertEqual(scraper.build_event(title="Brevet 200", date="2026-11-07", region_code="RM", distances=["45K"])["distances"], ["45 km"])
+        self.assertEqual(scraper.build_event(title="Rally Demo", date="2026-11-07", region_code="RM")["distances"], ["Ver bases"])
+
+    def test_guca_ticket_names(self):
+        html = ("<html><body><h1>GFP</h1><div>Tickets 90K Ruta Costa - Early Bird $79.000 115K Ruta Cumbre $89.000 "
+                "Aplicar descuento Detalles del Evento Recorridos de 3 km a la meta</div></body></html>")
+        labels = GucaScraper.ticket_distances(BeautifulSoup(html, "html.parser"))
+        self.assertEqual(labels, ["115 km", "90 km"])
+
+    def test_guca_tickets_without_distances_give_nothing(self):
+        html = "<html><body>Tickets Inscripción $22.000 Aplicar descuento Detalles del Evento Ruta de 40 km</body></html>"
+        self.assertEqual(GucaScraper.ticket_distances(BeautifulSoup(html, "html.parser")), [])
+
+    def test_welcu_meta_description(self):
+        from enrich import page_distances
+        page = '<head><meta property="og:description" content="Colliguay Gravel Quest: 190K, 110K y 65K por caminos de tierra."></head>'
+        self.assertEqual(page_distances(page), (["190 km", "110 km", "65 km"], 65.0, 190.0))
+        self.assertIsNone(page_distances('<head><meta name="description" content="Una fiesta de la bicicleta."></head>'))
+
+    def test_enrich_only_touches_races_missing_data_with_a_specific_welcu_page(self):
+        import enrich
+
+        def race(id, distances, link, gain=0):
+            return make_event(id=id, distances=distances, url=link, registration_url=link, elevation_gain_m=gain)
+
+        events = [
+            race("a", ["Ver bases"], "https://welcu.com/org/race-a"),
+            race("b", ["50 km"], "https://welcu.com/org/race-b", gain=700),   # nothing missing
+            race("c", ["Ver bases"], "https://welcu.com/org"),                 # generic link
+            race("d", ["Ver bases"], "https://example.cl/race"),               # not Welcu
+            race("e", ["50 km"], "https://welcu.com/org/race-e"),              # only elevation missing
+        ]
+        text = "Recorridos de 80K con +1.200 m de desnivel."
+        with mock.patch("enrich._fetch", return_value=text) as fetch:
+            self.assertEqual(enrich.enrich_from_welcu(events), 2)
+        self.assertEqual({c.args[0] for c in fetch.call_args_list}, {"https://welcu.com/org/race-a", "https://welcu.com/org/race-e"})
+        self.assertEqual((events[0]["distances"], events[0]["elevation_gain_m"]), (["80 km"], 1200))
+        self.assertEqual((events[1]["distances"], events[1]["elevation_gain_m"]), (["50 km"], 700))
+        self.assertEqual((events[4]["distances"], events[4]["elevation_gain_m"]), (["50 km"], 1200))  # distances kept
+
+
+class ElevationTests(unittest.TestCase):
+    def test_formats_seen_in_real_descriptions(self):
+        from scrapers.base_scraper import extract_elevation as gain
+        cases = {
+            "más de 400 km con más de 6.000 metros de ascenso acumulado": 6000,
+            "18 km de senderos de enduro con 2.200 m de desnivel": 2200,
+            "300 km · +4.330 m y 130 km · +1.640 m": 4330,            # largest route
+            "gravel de 294 km y más de 5.400 metros de desnivel acumulado": 5400,
+            "desnivel positivo: 1.250 m": 1250,
+            "desnivel de +850m": 850,
+            "1450 m D+": 1450,
+            "D+ 1200": 1200,
+        }
+        for text, expected in cases.items():
+            self.assertEqual(gain(text), expected, text)
+
+    def test_altitudes_distances_and_noise_are_not_elevation_gain(self):
+        from scrapers.base_scraper import extract_elevation as gain
+        for text in ("meta en 5000 metros sobre el nivel del mar", "Un recorrido de 114 kilómetros",
+                     "Etapa 2: 33 km de ascenso intenso", "a 40 m del lago", "+30 m", "D+ 120 km", "", None):
+            self.assertIsNone(gain(text), text)
+
+    def test_build_event_reads_it_from_the_description_unless_given(self):
+        scraper = BaseScraper("demo")
+        ev = scraper.build_event(title="Rally", date="2026-11-01", region_code="V", description="Con 900 m de desnivel.")
+        self.assertEqual(ev["elevation_gain_m"], 900)
+        ev = scraper.build_event(title="Rally", date="2026-11-01", region_code="V", description="Con 900 m de desnivel.", elevation_gain_m=1200)
+        self.assertEqual(ev["elevation_gain_m"], 1200)
+        self.assertEqual(scraper.build_event(title="Rally", date="2026-11-01", region_code="V")["elevation_gain_m"], 0)
+
+    def test_tusdesafios_uses_the_full_page_text_not_the_cut_description(self):
+        html = TusdesafiosTests.DETAIL.replace("</body>", '<div class="show2-description"><p>Un tour de 400 km con 6.000 metros de ascenso acumulado.</p></div></body>')
+        card = TusdesafiosScraper().parse_cards(BeautifulSoup(TusdesafiosTests.LIST, "html.parser"), "Ruta")[0]
+        ev = TusdesafiosScraper().parse_detail(BeautifulSoup(html, "html.parser"), card, "https://tusdesafios.com/events/x")
+        self.assertEqual(ev["elevation_gain_m"], 6000)
+
+    def test_merge_fills_but_never_overwrites_elevation(self):
+        from sync_events import enrich_match, fill_elevation
+        match = make_event(elevation_gain_m=0)
+        enrich_match(match, make_event(elevation_gain_m=1500))
+        self.assertEqual(match["elevation_gain_m"], 1500)
+        enrich_match(match, make_event(elevation_gain_m=900))
+        self.assertEqual(match["elevation_gain_m"], 1500)
+        existing = [make_event(id="x", elevation_gain_m=0, description="Gran desafío con 2.100 metros de desnivel acumulado.")]
+        fill_elevation(existing)
+        self.assertEqual(existing[0]["elevation_gain_m"], 2100)
 
 
 if __name__ == "__main__":

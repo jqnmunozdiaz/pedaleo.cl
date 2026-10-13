@@ -61,12 +61,19 @@ Pedaleo.cl/
 │   ├── communes_regions.json        # Comuna/localidad -> código de región (usado por los scrapers)
 │   ├── excluded_events.json         # IDs que los scrapers nunca deben volver a agregar (duplicados, descartes)
 │   ├── link_checks.json             # Caché de la verificación de enlaces (la actualiza el workflow)
+│   ├── geocode_cache.json           # Caché de geocodificación (cada lugar se consulta una sola vez)
+│   ├── source_stats.json            # Cuántas carreras suele devolver cada scraper (línea base de salud)
+│   ├── last_seen.json               # Última vez que alguna fuente listó cada carrera (se refresca semanalmente)
 │   ├── events.json                  # Catálogo central de carreras (fuente única de verdad)
 │   └── regions.json                 # Catálogo oficial de las 16 regiones de Chile
 └── scripts/
     ├── requirements.txt             # Dependencias Python (requests, beautifulsoup4)
     ├── sync_events.py               # Orquestador de sincronización, deduplicación y guardado
     ├── link_check.py                # Verifica que el sitio de cada carrera funcione; omite las que no
+    ├── welcu_links.py               # Limpia enlaces de Welcu y busca la página propia de cada evento
+    ├── source_health.py             # Alerta si una fuente se rompe y retira carreras que ninguna fuente lista
+    ├── geocode.py                   # Geocodificador (Nominatim) con caché para comunas sin coordenadas
+    ├── enrich.py                    # Completa distancias desde la descripción de la página de Welcu
     ├── validate_events.py           # Validador de esquemas e integridad (fechas reales, regiones, URLs, coordenadas)
     ├── add_event.py                 # Asistente CLI interactivo para ingreso manual rápido
     └── scrapers/
@@ -124,6 +131,8 @@ Cada carrera debe cumplir con la siguiente estructura JSON validada por `scripts
 - `lat` / `lng`: Deben venir juntas y estar dentro de Chile.
 - `location_unverified`: `true` cuando las fuentes no confirman comuna/región. En ese caso `region`, `region_name`, `commune`, `lat` y `lng` pueden faltar; la carrera se oculta por defecto en la web (botón "Incluir sin ubicación confirmada", `?sinubicacion=1`) y no se dibuja en el mapa.
 - `distance_min_km` / `distance_max_km`: Números, o `null` cuando la distancia no se conoce (nunca valores inventados).
+- `status`: `open`, `upcoming`, `closed`, `sold_out`, `cancelled` o `postponed`. Los scrapers detectan "SUSPENDIDO/CANCELADA" y "REPROGRAMADA" en el título; las canceladas no se listan y las reprogramadas llevan una etiqueta.
+- `geo` (precisión del pin): `commune` (tabla), `geocoded` (Nominatim), `region` (solo la capital regional; el mapa lo marca como referencia aproximada) o `manual`.
 - `region`: Debe pertenecer al conjunto de 16 códigos válidos: `["XV", "I", "II", "III", "IV", "V", "RM", "VI", "VII", "XVI", "VIII", "IX", "XIV", "X", "XI", "XII"]`.
 - `id`: No pueden existir claves duplicadas.
 
@@ -144,6 +153,12 @@ Cada carrera debe cumplir con la siguiente estructura JSON validada por `scripts
    - Una comuna conocida manda sobre la región que marca el organizador (Bicineta a veces se equivoca). Agrega comunas nuevas a `data/communes_regions.json` para que las carreras queden ubicadas.
    - **Enlaces de Welcu**: `scripts/welcu_links.py` quita parámetros de seguimiento (`utm_*`), fuerza https en Welcu y, si una carrera solo tiene el enlace genérico de Welcu (o el perfil de un organizador), busca la página propia del evento en el perfil del organizador (exige coincidir en las palabras distintivas y en el número de fecha).
    - **Sitios caídos**: tras sincronizar, `scripts/link_check.py` revisa el enlace de inscripción de cada carrera próxima. Solo cuenta como caído lo definitivo y repetido (dominio inexistente, conexión rechazada, 404/410 o error 5xx en cada intento); bloqueos a bots (403/429), timeouts y redes sociales (que no se pueden verificar) se consideran vivos. Una carrera con el sitio caído se omite de inmediato y vuelve sola si el sitio se recupera. Si fallan más de 15% de los enlaces en una corrida se asume un problema de red y no se omite nada. Para saltarse la verificación (pruebas/offline): `PEDALEO_SKIP_LINK_CHECK=1`.
+   - **Salud de fuentes**: `source_health.py` guarda cuántas carreras devuelve normalmente cada scraper; si una corrida devuelve menos de la mitad, se emite una alerta de GitHub Actions y esa noche no se retira ninguna carrera.
+   - **Carreras desaparecidas**: una carrera que vino de un scraper y que ninguna fuente lista durante 28 días se retira (cancelada o eliminada). Las ingresadas a mano nunca se retiran.
+   - **Velocidad**: los scrapers corren en paralelo y las páginas de detalle con pocas conexiones simultáneas (la sincronización completa toma ~1,5 minutos).
+   - **Geocodificación**: las comunas que no están en `communes_coords.json` se buscan en Nominatim (1 consulta/segundo, máximo 60 por corrida, todo en caché). Nombres de región ("Araucanía") no se geocodifican.
+   - **Desnivel**: `extract_elevation()` (base_scraper.py) lee frases como "6.000 metros de ascenso acumulado", "2.200 m de desnivel", "+4.330 m" o "D+ 1200" en las descripciones completas (Bicineta, GUCA, página de Tusdesafios, meta de Welcu) y en las ya guardadas; ignora altitudes ("sobre el nivel del mar"). Con varias rutas se guarda el mayor desnivel.
+   - **Distancias**: además de lo que declara cada fuente se leen títulos ("Brevet 300" = 300 km), nombres de tickets de GUCA ("90K Ruta Costa") y la meta descripción de la página de Welcu.
    - Para agregar una fuente nueva: comprobar que el sitio responde, que la fecha es explícita (con año) y que la ubicación se puede resolver; reutilizar `BaseScraper.build_event()` y `locate()`; registrar el scraper en `scrapers/__init__.py` y `sync_events.py`; agregar pruebas.
    - Bicineta solo muestra 16 carreras en HTML; el scraper recorre su endpoint JSON `/eventos/fetch_more` (el feed no trae año: se deduce del orden cronológico).
    - Duplicados entre fuentes se fusionan por enlace de inscripción (salvo enlaces de redes sociales compartidos por toda una serie) o por fecha + región + título parecido; los que la heurística no detecta se registran en `data/excluded_events.json`. Al fusionar, una fuente puede completar la ubicación o las distancias que faltaban.

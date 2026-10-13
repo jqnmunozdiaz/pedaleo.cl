@@ -12,7 +12,7 @@ from datetime import date, timedelta
 from typing import Dict, List, Optional
 
 from bs4 import BeautifulSoup
-from .base_scraper import BaseScraper, MONTHS_ES, REGION_NAMES, infer_year, strip_accents
+from .base_scraper import BaseScraper, MONTHS_ES, REGION_NAMES, extract_elevation, infer_year, strip_accents
 
 FEED_PATH = "/eventos/fetch_more"
 FEED_PAGE_SIZE = 8
@@ -51,7 +51,8 @@ class BicinetaScraper(BaseScraper):
     def fetch_events(self):
         events_by_id: Dict[str, Dict] = {}
 
-        feeds = [self._fetch_feed()] + [self._fetch_feed(tag) for tag in EXTRA_TAG_FEEDS]
+        # The main feed and the tag feeds are independent: read them side by side
+        feeds = self.map_parallel(self._fetch_feed, [None] + EXTRA_TAG_FEEDS, workers=len(EXTRA_TAG_FEEDS) + 1)
         items = []
         for feed in feeds:
             self._assign_dates(feed)  # each feed is chronological on its own
@@ -231,6 +232,7 @@ class BicinetaScraper(BaseScraper):
             place=place,
             region_code=region_code,
             disciplines=disciplines or ["MTB"],
+            elevation_gain_m=extract_elevation(item.get("description")),
             url=link,
             organizer=(organizer or "").strip() or "Bicineta / Organización Local",
             description=self._short(item.get("description")) or f"Competencia de ciclismo: {title} en {place}.",
