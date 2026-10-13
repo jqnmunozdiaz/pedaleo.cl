@@ -181,12 +181,7 @@ const MapView = {
       const key = `${loc.lat.toFixed(3)},${loc.lng.toFixed(3)}`;
 
       if (!this.localityGroups[key]) {
-        let rawLoc = ev.commune || ev.location || '';
-        let cleanCom = rawLoc
-          .split(',')[0]
-          .split('-')[0]
-          .replace(/\b(Regi[oó]n\s+[A-Za-z\s]+|RM|XV|XVI|XIV|XII|XI|VIII|VII|VI|IV|III|II|I|X|V)\b/gi, '')
-          .trim();
+        let cleanCom = Utils.cleanLocality(ev);
 
         if (loc.isCentroid || !cleanCom) {
           cleanCom = `${loc.regionName}`;
@@ -237,7 +232,7 @@ const MapView = {
       // Single event OR zoomed-out multi-event: render consolidated cluster pin
       if (count === 1 || !isDetailedZoom) {
         const iconHtml = `
-          <div class="custom-map-pin ${count > 1 ? 'is-cluster' : ''} ${group.isCentroid ? 'is-centroid' : ''}" style="--pin-color: ${primaryColor}" title="${count > 1 ? `${count} carreras en ${group.commune}` : group.events[0].name}">
+          <div class="custom-map-pin ${count > 1 ? 'is-cluster' : ''} ${group.isCentroid ? 'is-centroid' : ''}" style="--pin-color: ${primaryColor}" title="${Utils.esc(count > 1 ? `${count} carreras en ${group.commune}` : group.events[0].name)}">
             <div class="pin-bubble">
               <span class="pin-symbol">🚴</span>
               ${count > 1 ? `<span class="pin-count">${count}</span>` : ''}
@@ -286,10 +281,10 @@ const MapView = {
           const mLng = group.lng + lngOffset;
 
           const discColor = this.getDisciplineColor(ev.disciplines);
-          const discShort = ev.disciplines[0] ? ev.disciplines[0].substring(0, 3).toUpperCase() : 'MTB';
+          const discShort = Utils.esc(ev.disciplines[0] ? ev.disciplines[0].substring(0, 3).toUpperCase() : 'MTB');
 
           const singlePinHtml = `
-            <div class="custom-map-pin single-race-pin ${group.isCentroid ? 'is-centroid' : ''}" style="--pin-color: ${discColor}" title="${ev.name} (${ev.disciplines[0] || 'MTB'})">
+            <div class="custom-map-pin single-race-pin ${group.isCentroid ? 'is-centroid' : ''}" style="--pin-color: ${discColor}" title="${Utils.esc(ev.name)} (${Utils.esc(ev.disciplines[0] || 'MTB')})">
               <div class="pin-bubble">
                 <span class="pin-symbol">🚴</span>
                 <span class="pin-disc-mini">${discShort}</span>
@@ -324,8 +319,8 @@ const MapView = {
     let popupHtml = `
       <div class="map-popup-card">
         <header class="map-popup-header">
-          <h4 class="map-popup-commune">${group.commune}</h4>
-          <span class="map-popup-region">${group.regionName}</span>
+          <h4 class="map-popup-commune">${Utils.esc(group.commune)}</h4>
+          <span class="map-popup-region">${Utils.esc(group.regionName)}</span>
           ${group.isCentroid ? '<span class="map-ref-tag">📍 Referencia Regional</span>' : ''}
         </header>
         <div class="map-popup-list">
@@ -334,11 +329,9 @@ const MapView = {
     group.events.forEach(ev => {
       const discBadgesMap = (Array.isArray(ev.disciplines) && ev.disciplines.length > 0 ? ev.disciplines : ['MTB']).map(d => {
         const color = this.getDisciplineColor([d]);
-        return `<span class="map-race-disc-tag" style="background:${color}15; color:${color}; border-color:${color}40">${d}</span>`;
+        return `<span class="map-race-disc-tag" style="background:${color}15; color:${color}; border-color:${color}40">${Utils.esc(d)}</span>`;
       }).join(' ');
-      const distText = ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases'
-        ? ev.distances.join(' • ')
-        : '';
+      const distText = Utils.esc(Utils.distanceText(ev));
       const elevText = ev.elevation_gain_m ? `+${ev.elevation_gain_m}m` : '';
 
       popupHtml += `
@@ -347,16 +340,16 @@ const MapView = {
             <div style="display:flex; flex-wrap:wrap; gap:0.25rem">
               ${discBadgesMap}
             </div>
-            <span class="map-race-date">${ev.date}</span>
+            <span class="map-race-date">${Utils.esc(ev.date)}</span>
           </div>
-          <div class="map-popup-race-name">${ev.name}</div>
+          <div class="map-popup-race-name">${Utils.esc(ev.name)}</div>
           <div class="map-popup-race-meta">
             ${distText ? `<span>🏁 ${distText}</span>` : ''}
             ${elevText ? `<span>⛰️ ${elevText}</span>` : ''}
           </div>
           <div class="map-popup-actions">
-            <button class="map-btn-detail" data-id="${ev.id}">Ver Ficha</button>
-            <a href="${ev.registration_url || ev.url}" target="_blank" rel="noopener" class="map-btn-register">Inscripción &rarr;</a>
+            <button class="map-btn-detail" data-id="${Utils.esc(ev.id)}">Ver Ficha</button>
+            <a href="${Utils.eventHref(ev)}" target="_blank" rel="noopener" class="map-btn-register">Inscripción &rarr;</a>
           </div>
         </div>
       `;
@@ -381,18 +374,16 @@ const MapView = {
   createSingleEventPopupHtml(ev, group) {
     const discBadgesSingleMap = (Array.isArray(ev.disciplines) && ev.disciplines.length > 0 ? ev.disciplines : ['MTB']).map(d => {
       const color = this.getDisciplineColor([d]);
-      return `<span class="map-race-disc-tag" style="background:${color}15; color:${color}; border-color:${color}40">${d}</span>`;
+      return `<span class="map-race-disc-tag" style="background:${color}15; color:${color}; border-color:${color}40">${Utils.esc(d)}</span>`;
     }).join(' ');
-    const distText = ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases'
-      ? ev.distances.join(' • ')
-      : '';
+    const distText = Utils.esc(Utils.distanceText(ev));
     const elevText = ev.elevation_gain_m ? `+${ev.elevation_gain_m}m` : '';
 
     return `
       <div class="map-popup-card">
         <header class="map-popup-header">
-          <h4 class="map-popup-commune">${group.commune}</h4>
-          <span class="map-popup-region">${group.regionName}</span>
+          <h4 class="map-popup-commune">${Utils.esc(group.commune)}</h4>
+          <span class="map-popup-region">${Utils.esc(group.regionName)}</span>
           ${group.isCentroid ? '<span class="map-ref-tag">📍 Referencia Regional</span>' : ''}
         </header>
         <div class="map-popup-list">
@@ -401,16 +392,16 @@ const MapView = {
               <div style="display:flex; flex-wrap:wrap; gap:0.25rem">
                 ${discBadgesSingleMap}
               </div>
-              <span class="map-race-date">${ev.date}</span>
+              <span class="map-race-date">${Utils.esc(ev.date)}</span>
             </div>
-            <div class="map-popup-race-name" style="font-size:1rem; font-weight:800">${ev.name}</div>
+            <div class="map-popup-race-name" style="font-size:1rem; font-weight:800">${Utils.esc(ev.name)}</div>
             <div class="map-popup-race-meta">
               ${distText ? `<span>🏁 ${distText}</span>` : ''}
               ${elevText ? `<span>⛰️ ${elevText}</span>` : ''}
             </div>
             <div class="map-popup-actions" style="margin-top:0.75rem">
-              <button class="map-btn-detail" data-id="${ev.id}">Ver Ficha Completa</button>
-              <a href="${ev.registration_url || ev.url}" target="_blank" rel="noopener" class="map-btn-register">Inscripción &rarr;</a>
+              <button class="map-btn-detail" data-id="${Utils.esc(ev.id)}">Ver Ficha Completa</button>
+              <a href="${Utils.eventHref(ev)}" target="_blank" rel="noopener" class="map-btn-register">Inscripción &rarr;</a>
             </div>
           </div>
         </div>
@@ -441,7 +432,8 @@ const MapView = {
   },
 
   autoZoom(boundsList) {
-    if (!this.map || !boundsList.length) {
+    if (!this.map) return;
+    if (!boundsList.length) {
       this.map.setView([-35.6751, -71.5430], 5);
       setTimeout(() => this.updateVisibleLocalitiesGrid(), 200);
       return;
@@ -549,14 +541,14 @@ const MapView = {
     let html = '';
     list.forEach(group => {
       html += `
-        <div class="map-locality-card" data-key="${group.key}" data-lat="${group.lat}" data-lng="${group.lng}">
+        <div class="map-locality-card" data-key="${Utils.esc(group.key)}" data-lat="${group.lat}" data-lng="${group.lng}">
           <div class="loc-card-header">
-            <strong>${group.commune}</strong>
+            <strong>${Utils.esc(group.commune)}</strong>
             <span class="loc-badge">${group.events.length}</span>
           </div>
-          <div class="loc-card-region">${group.regionName}${group.isCentroid ? ' · Referencia Regional' : ''}</div>
+          <div class="loc-card-region">${Utils.esc(group.regionName)}${group.isCentroid ? ' · Referencia Regional' : ''}</div>
           <div class="loc-card-races">
-            ${group.events.slice(0, 2).map(e => `<span>• ${e.name}</span>`).join('')}
+            ${group.events.slice(0, 2).map(e => `<span>• ${Utils.esc(e.name)}</span>`).join('')}
             ${group.events.length > 2 ? `<span class="loc-more">+${group.events.length - 2} más</span>` : ''}
           </div>
         </div>

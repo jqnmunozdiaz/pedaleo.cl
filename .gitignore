@@ -49,3 +49,4 @@ npm-debug.log*
 *.mkv
 *.dump
 *.raw
+.claude/

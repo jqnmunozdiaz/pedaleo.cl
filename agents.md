@@ -12,7 +12,7 @@ Proporciona a los ciclistas:
 2. Filtros avanzados por región, disciplina, distancia y texto.
 3. Vista de calendario mensual visual equilibrada.
 4. Exportación directa de cada carrera a **Google Calendar** y **Apple Calendar (.ics)**.
-5. Un sistema de propuesta de carreras conectado a **GitHub Issues** para notificaciones inmediatas al mantenedor.
+5. Un formulario "Publicar Carrera" que prepara un correo a `contacto@pedaleo.cl` para que el mantenedor revise y publique la carrera.
 
 ---
 
@@ -40,6 +40,7 @@ Pedaleo.cl/
 ├── index.html                       # Página principal (SPA estática ligera)
 ├── .nojekyll                        # Asegura que GitHub Pages sirva archivos estáticos puros
 ├── agents.md                        # Este documento de reglas y arquitectura
+├── robots.txt / sitemap.xml         # SEO básico (la URL canónica es https://pedaleo.cl/)
 ├── README.md                        # Documentación general de usuario y despliegue
 ├── .github/
 │   └── workflows/
@@ -48,7 +49,8 @@ Pedaleo.cl/
 │   ├── css/
 │   │   └── style.css                # Estilos sobrios, accesibles y CSS Grid para calendario
 │   ├── js/
-│   │   ├── app.js                   # Controlador de la aplicación, filtros en tiempo real y URLs
+│   │   ├── utils.js                 # Helpers compartidos: escape HTML, URLs seguras, fechas locales, búsqueda sin tildes
+│   │   ├── app.js                   # Controlador de la aplicación, filtros, modales accesibles, enlaces directos (#carrera=id)
 │   │   ├── calendar-exporter.js     # Generador de enlaces a Google Calendar y archivos .ics
 │   │   ├── calendar-view.js         # Vista de grilla mensual con columnas de ancho fijo (CSS Grid)
 │   │   └── map-view.js              # Mapa interactivo de Chile con pines por disciplina y auto-zoom
@@ -56,19 +58,24 @@ Pedaleo.cl/
 │       └── logo.svg                 # Identidad visual sobria de Pedaleo.cl
 ├── data/
 │   ├── communes_coords.json         # Coordenadas geográficas de referencia por comuna y región
+│   ├── communes_regions.json        # Comuna/localidad -> código de región (usado por los scrapers)
+│   ├── excluded_events.json         # IDs que los scrapers nunca deben volver a agregar (duplicados, descartes)
 │   ├── events.json                  # Catálogo central de carreras (fuente única de verdad)
 │   └── regions.json                 # Catálogo oficial de las 16 regiones de Chile
 └── scripts/
     ├── requirements.txt             # Dependencias Python (requests, beautifulsoup4)
     ├── sync_events.py               # Orquestador de sincronización, deduplicación y guardado
-    ├── validate_events.py           # Validador de esquemas e integridad (fechas ISO y regiones)
+    ├── validate_events.py           # Validador de esquemas e integridad (fechas reales, regiones, URLs, coordenadas)
     ├── add_event.py                 # Asistente CLI interactivo para ingreso manual rápido
     └── scrapers/
         ├── __init__.py              # Exportador de scrapers
         ├── base_scraper.py          # Clase base con resolución geográfica y de disciplinas
-        ├── bicineta_scraper.py      # Scraper multietiqueta de Bicineta.cl
-        ├── guca_scraper.py          # Scraper de tickets oficiales de GUCA.cl
+        ├── bicineta_scraper.py      # Scraper de Bicineta.cl (feed JSON /eventos/fetch_more con todas las carreras)
+        ├── guca_scraper.py          # Scraper de GUCA.cl (home + página de detalle de cada carrera)
+        ├── ridechile_scraper.py     # Scraper del "Nuevo Calendario" de Ridechile.cl (con distancias)
         └── ticketsport_scraper.py   # Scraper de TicketSport.cl
+tests/
+└── test_pipeline.py                 # Pruebas unitarias (scrapers, deduplicación, validador)
 ```
 
 ---
@@ -106,7 +113,13 @@ Cada carrera debe cumplir con la siguiente estructura JSON validada por `scripts
 ```
 
 ### Reglas de Validación:
-- `date`: Formato estricto `YYYY-MM-DD`.
+- `date` / `end_date`: Fechas reales con formato `YYYY-MM-DD`; `end_date` no puede ser anterior a `date`.
+- `id`: Slug en minúsculas (`a-z`, `0-9` y guiones).
+- `url` / `registration_url`: Solo `http://` o `https://` (se renderizan como enlaces).
+- `region_name`: Debe coincidir con el nombre corto de `data/regions.json`.
+- `lat` / `lng`: Deben venir juntas y estar dentro de Chile.
+- `location_unverified`: `true` cuando las fuentes no confirman comuna/región. En ese caso `region`, `region_name`, `commune`, `lat` y `lng` pueden faltar; la carrera se oculta por defecto en la web (botón "Incluir sin ubicación confirmada", `?sinubicacion=1`) y no se dibuja en el mapa.
+- `distance_min_km` / `distance_max_km`: Números, o `null` cuando la distancia no se conoce (nunca valores inventados).
 - `region`: Debe pertenecer al conjunto de 16 códigos válidos: `["XV", "I", "II", "III", "IV", "V", "RM", "VI", "VII", "XVI", "VIII", "IX", "XIV", "X", "XI", "XII"]`.
 - `id`: No pueden existir claves duplicadas.
 
@@ -117,12 +130,20 @@ Cada carrera debe cumplir con la siguiente estructura JSON validada por `scripts
 1. **Ejecución Manual**:
    ```powershell
    conda activate py313
+   python -m unittest discover -s tests
    python scripts/sync_events.py
    python scripts/validate_events.py
    ```
+   Reglas de los scrapers:
+   - Nunca se inventa una región ni una fecha: sin fecha el evento se omite. Si el lugar no se puede ubicar (`data/communes_regions.json`) la carrera **se conserva** con `location_unverified: true`; si el lugar es extranjero se descarta.
+   - Se descartan eventos extranjeros y que no son de ciclismo (running, triatlón, aguas abiertas, etc.).
+   - Una comuna conocida manda sobre la región que marca el organizador (Bicineta a veces se equivoca). Agrega comunas nuevas a `data/communes_regions.json` para que las carreras queden ubicadas.
+   - Bicineta solo muestra 16 carreras en HTML; el scraper recorre su endpoint JSON `/eventos/fetch_more` (el feed no trae año: se deduce del orden cronológico).
+   - Duplicados entre fuentes se fusionan por enlace de inscripción (salvo enlaces de redes sociales compartidos por toda una serie) o por fecha + región + título parecido; los que la heurística no detecta se registran en `data/excluded_events.json`. Al fusionar, una fuente puede completar la ubicación o las distancias que faltaban.
+   - Para una fuente, un cambio de fecha actualiza la carrera existente; otras fuentes nunca pisan fechas curadas manualmente.
 2. **Ejecución Automática**:
    El flujo `.github/workflows/deploy.yml` corre diariamente a las `06:00 UTC`.
-   Si detecta carreras nuevas o actualizaciones en `data/events.json`, genera un commit automático con `[skip ci]` y redespliega en GitHub Pages.
+   Ejecuta las pruebas, sincroniza, valida, y si detecta cambios en `data/events.json` genera un commit automático con `[skip ci]`. Antes de desplegar reemplaza el `?v=` de los assets en `index.html` por el hash del commit (invalida la caché del navegador).
 
 ---
 
@@ -136,5 +157,10 @@ Cada carrera debe cumplir con la siguiente estructura JSON validada por `scripts
 2. **Calendario Mensual**:
    - Utilizar **CSS Grid con 7 columnas idénticas** (`repeat(7, minmax(0, 1fr))`) para garantizar que ningún día de la semana sea comprimido.
    - Limitar el contenido de días con muchas carreras y ofrecer interacción para visualizar la lista completa sin desbordar los límites del contenedor.
-3. **Notificaciones de Nuevas Carreras**:
-   - El formulario "Publicar Carrera" genera una Issue con plantilla estructurada en el repositorio de GitHub (`https://github.com/jqnmunozdiaz/pedaleo.cl/issues/new`), lo que activa las alertas móviles y por correo oficiales de GitHub para el mantenedor sin requerir servidores intermediarios.
+3. **Propuesta de Nuevas Carreras**:
+   - El formulario "Publicar Carrera" abre el cliente de correo con un mensaje estructurado hacia `contacto@pedaleo.cl` (sin servidores intermediarios). El mantenedor agrega la carrera con `scripts/add_event.py`.
+4. **Seguridad y Accesibilidad Frontend**:
+   - Todo dato de `events.json` (viene de scrapers) se inserta en el DOM con `Utils.esc()`; los enlaces pasan por `Utils.safeUrl()` / `Utils.eventHref()`. Nunca interpolar datos de eventos en `innerHTML` sin escapar.
+   - Las fechas son strings `YYYY-MM-DD`: usar `Utils.todayStr()` / `Utils.parseDate()` (no `toISOString()`, que usa UTC y cambia el día en Chile).
+   - Los modales se abren con `App.showModal(id)` (gestiona foco, `Escape`, bloqueo de scroll).
+   - Por defecto solo se listan carreras que aún no terminan; el interruptor "Incluir pasadas" (`?pasadas=1`) muestra el historial.

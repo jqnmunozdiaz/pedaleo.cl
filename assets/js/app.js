@@ -4,38 +4,55 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const VALID_VIEWS = ['agenda', 'map', 'calendar'];
+  const MODAL_FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
   const App = {
     events: [],
     regions: [],
     filteredEvents: [],
+    today: Utils.todayStr(),
 
     filters: {
       search: '',
       region: '',
       disciplines: [],
-      months: []
+      months: [],
+      showPast: false,
+      showUnlocated: false
     },
 
-    currentView: 'agenda', // 'agenda' | 'calendar'
+    currentView: 'agenda', // 'agenda' | 'map' | 'calendar'
+    lastFocused: null,
 
     async init() {
       await this.loadData();
       this.initFiltersFromURL();
+      this.populateMonthPills();
+      this.updateUnlocatedCount();
       this.setupDOMListeners();
       this.initStickyOffsets();
       this.applyFilters();
+      this.openEventFromHash();
+      this.injectStructuredData();
     },
 
     async loadData() {
       try {
         const [eventsRes, regionsRes] = await Promise.all([
-          fetch('data/events.json'),
-          fetch('data/regions.json')
+          fetch('data/events.json', { cache: 'no-cache' }),
+          fetch('data/regions.json', { cache: 'no-cache' })
         ]);
+        if (!eventsRes.ok || !regionsRes.ok) throw new Error('Respuesta HTTP no válida');
         this.events = await eventsRes.json();
+        this.showDataDate(eventsRes.headers.get('Last-Modified'));
         this.regions = await regionsRes.json();
+        this.events.forEach(ev => {
+          ev._search = Utils.normalize(
+            [ev.name, ev.location, ev.commune, ev.region_name, ev.organizer, ev.description].join(' ')
+          );
+        });
         this.populateRegionSelect();
-        this.populateMonthPills();
       } catch (err) {
         console.error('Error cargando los datos:', err);
         const container = document.getElementById('view-agenda');
@@ -46,7 +63,17 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           `;
         }
+        const countEl = document.getElementById('results-count');
+        if (countEl) countEl.textContent = 'sin datos';
       }
+    },
+
+    /** "Datos actualizados el 13 de octubre de 2026" from the data file's Last-Modified header. */
+    showDataDate(lastModified) {
+      const el = document.getElementById('footer-updated');
+      const date = lastModified ? new Date(lastModified) : null;
+      if (!el || !date || isNaN(date)) return;
+      el.textContent = `Datos actualizados el ${date.getDate()} de ${Utils.MONTH_NAMES[date.getMonth()].toLowerCase()} de ${date.getFullYear()}.`;
     },
 
     populateRegionSelect() {
@@ -64,110 +91,97 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     },
 
+    /** True when the sources did not give a confirmed place for the race. */
+    isUnlocated(ev) {
+      return ev.location_unverified === true || !ev.region;
+    },
+
+    /** Events that the month pills / default listing work with (hides finished / unlocated races unless requested). */
+    baseEvents() {
+      return this.events.filter(ev =>
+        (this.filters.showPast || !Utils.isPast(ev, this.today)) &&
+        (this.filters.showUnlocated || !this.isUnlocated(ev))
+      );
+    },
+
+    updateUnlocatedCount() {
+      const el = document.getElementById('unlocated-count');
+      if (!el) return;
+      const n = this.events.filter(ev => this.isUnlocated(ev) && (this.filters.showPast || !Utils.isPast(ev, this.today))).length;
+      el.textContent = ` (${n})`;
+    },
+
     populateMonthPills() {
       const container = document.getElementById('filter-month-group');
       if (!container) return;
 
       const monthSet = new Set();
-      this.events.forEach(ev => {
-        if (ev.date && ev.date.length >= 7) {
-          monthSet.add(ev.date.substring(0, 7));
-        }
+      this.baseEvents().forEach(ev => {
+        if (ev.date && ev.date.length >= 7) monthSet.add(ev.date.substring(0, 7));
       });
-
       const sortedMonths = Array.from(monthSet).sort();
-      const monthNamesShort = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
 
-      const hasActiveMonths = this.filters.months && this.filters.months.length > 0;
-      let html = `<button class="pill-btn pill-month ${hasActiveMonths ? '' : 'active'}" data-month="">Todos</button>`;
+      // Drop selected months that no longer exist (e.g. after hiding past races)
+      this.filters.months = this.filters.months.filter(m => monthSet.has(m));
+
+      const hasActiveMonths = this.filters.months.length > 0;
+      let html = `<button type="button" class="pill-btn pill-month ${hasActiveMonths ? '' : 'active'}" data-month="">Todos</button>`;
       sortedMonths.forEach(mKey => {
         const [year, month] = mKey.split('-').map(Number);
-        const label = `${monthNamesShort[month - 1]} ${year}`;
+        const label = `${Utils.MONTH_SHORT[month - 1]} ${year}`;
         const isActive = this.filters.months.includes(mKey);
-        html += `<button class="pill-btn pill-month ${isActive ? 'active' : ''}" data-month="${mKey}">${label}</button>`;
+        html += `<button type="button" class="pill-btn pill-month ${isActive ? 'active' : ''}" data-month="${mKey}">${label}</button>`;
       });
-
       container.innerHTML = html;
+    },
 
-      container.querySelectorAll('.pill-month').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const val = (e.currentTarget.dataset.month || '').trim();
-          if (!val) {
-            // Click en "Todos": limpia selecciones activas
-            this.filters.months = [];
-          } else {
-            // Alternar selección múltiple del mes
-            const idx = this.filters.months.indexOf(val);
-            if (idx > -1) {
-              this.filters.months.splice(idx, 1);
-            } else {
-              this.filters.months.push(val);
-            }
-          }
+    syncMonthPills() {
+      const hasSelected = this.filters.months.length > 0;
+      document.querySelectorAll('.pill-month').forEach(b => {
+        const bVal = (b.dataset.month || '').trim();
+        b.classList.toggle('active', bVal ? this.filters.months.includes(bVal) : !hasSelected);
+      });
+    },
 
-          const hasSelected = this.filters.months.length > 0;
-          container.querySelectorAll('.pill-month').forEach(b => {
-            const bVal = (b.dataset.month || '').trim();
-            if (!bVal) {
-              b.classList.toggle('active', !hasSelected);
-            } else {
-              b.classList.toggle('active', this.filters.months.includes(bVal));
-            }
-          });
-
-          this.applyFilters();
-        });
+    syncDisciplinePills() {
+      const hasActive = this.filters.disciplines.length > 0;
+      document.querySelectorAll('.pill-discipline').forEach(b => {
+        const val = Utils.normalize((b.dataset.discipline || '').trim());
+        b.classList.toggle('active', val ? this.filters.disciplines.includes(val) : !hasActive);
       });
     },
 
     initFiltersFromURL() {
       const params = new URLSearchParams(window.location.search);
-      if (params.get('region')) this.filters.region = params.get('region');
+      const urlRegion = (params.get('region') || '').trim().toUpperCase();
+      if (urlRegion && this.regions.some(r => r.id === urlRegion)) this.filters.region = urlRegion;
+      const regionSelect = document.getElementById('filter-region');
+      if (regionSelect) regionSelect.value = this.filters.region;
       if (params.get('disciplina')) {
         this.filters.disciplines = params.get('disciplina')
           .split(',')
-          .map(d => d.trim().toLowerCase())
+          .map(d => Utils.normalize(d.trim()))
           .filter(Boolean);
-      } else {
-        this.filters.disciplines = [];
       }
       if (params.get('meses')) {
         this.filters.months = params.get('meses').split(',').map(m => m.trim()).filter(Boolean);
       } else if (params.get('mes')) {
         this.filters.months = [params.get('mes').trim()];
-      } else {
-        this.filters.months = [];
       }
-      if (params.get('buscar')) this.filters.search = params.get('buscar');
-      if (params.get('vista')) this.currentView = params.get('vista');
+      if (params.get('buscar')) this.filters.search = Utils.normalize(params.get('buscar').trim());
+      if (params.get('pasadas') === '1') this.filters.showPast = true;
+      if (params.get('sinubicacion') === '1') this.filters.showUnlocated = true;
+      if (VALID_VIEWS.includes(params.get('vista'))) this.currentView = params.get('vista');
 
       const searchInput = document.getElementById('search-input');
-      if (searchInput && this.filters.search) {
-        searchInput.value = this.filters.search;
-      }
+      if (searchInput && params.get('buscar')) searchInput.value = params.get('buscar').trim();
 
-      // Discipline pills active state
-      const hasDisciplines = this.filters.disciplines.length > 0;
-      document.querySelectorAll('.pill-discipline').forEach(b => {
-        const dVal = (b.dataset.discipline || '').toLowerCase();
-        if (!dVal) {
-          b.classList.toggle('active', !hasDisciplines);
-        } else {
-          b.classList.toggle('active', this.filters.disciplines.includes(dVal));
-        }
-      });
+      const pastToggle = document.getElementById('toggle-past');
+      if (pastToggle) pastToggle.checked = this.filters.showPast;
+      const unlocatedToggle = document.getElementById('toggle-unlocated');
+      if (unlocatedToggle) unlocatedToggle.checked = this.filters.showUnlocated;
 
-      // Month pills active state
-      const hasMonths = this.filters.months.length > 0;
-      document.querySelectorAll('.pill-month').forEach(b => {
-        const mVal = (b.dataset.month || '').trim();
-        if (!mVal) {
-          b.classList.toggle('active', !hasMonths);
-        } else {
-          b.classList.toggle('active', this.filters.months.includes(mVal));
-        }
-      });
-
+      this.syncDisciplinePills();
       this.updateViewButtons();
     },
 
@@ -201,10 +215,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (this.filters.region) params.set('region', this.filters.region);
       if (this.filters.disciplines.length > 0) params.set('disciplina', this.filters.disciplines.join(','));
       if (this.filters.months.length > 0) params.set('meses', this.filters.months.join(','));
-      if (this.filters.search) params.set('buscar', this.filters.search);
+      const searchInput = document.getElementById('search-input');
+      const rawSearch = searchInput ? searchInput.value.trim() : this.filters.search;
+      if (rawSearch) params.set('buscar', rawSearch);
+      if (this.filters.showPast) params.set('pasadas', '1');
+      if (this.filters.showUnlocated) params.set('sinubicacion', '1');
       if (this.currentView !== 'agenda') params.set('vista', this.currentView);
 
-      const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+      const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
       window.history.replaceState({}, '', newUrl);
     },
 
@@ -213,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const searchInput = document.getElementById('search-input');
       if (searchInput) {
         searchInput.addEventListener('input', (e) => {
-          this.filters.search = e.target.value.trim().toLowerCase();
+          this.filters.search = Utils.normalize(e.target.value.trim());
           this.applyFilters();
         });
       }
@@ -227,64 +245,74 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Discipline Pills (Botones interactivos multi-selección no excluyente)
-      const discButtons = document.querySelectorAll('.pill-discipline');
-      discButtons.forEach(btn => {
+      // Discipline Pills (multi-selección no excluyente)
+      document.querySelectorAll('.pill-discipline').forEach(btn => {
         btn.addEventListener('click', (e) => {
-          const val = (e.currentTarget.dataset.discipline || '').trim().toLowerCase();
+          const val = Utils.normalize((e.currentTarget.dataset.discipline || '').trim());
           if (!val) {
-            // Click en "Todas": limpia selecciones activas
             this.filters.disciplines = [];
           } else {
-            // Alternar disciplina individual seleccionada
             const idx = this.filters.disciplines.indexOf(val);
-            if (idx > -1) {
-              this.filters.disciplines.splice(idx, 1);
-            } else {
-              this.filters.disciplines.push(val);
-            }
+            if (idx > -1) this.filters.disciplines.splice(idx, 1);
+            else this.filters.disciplines.push(val);
           }
-
-          const hasActive = this.filters.disciplines.length > 0;
-          discButtons.forEach(b => {
-            const bVal = (b.dataset.discipline || '').trim().toLowerCase();
-            if (!bVal) {
-              b.classList.toggle('active', !hasActive);
-            } else {
-              b.classList.toggle('active', this.filters.disciplines.includes(bVal));
-            }
-          });
-
+          this.syncDisciplinePills();
           this.applyFilters();
         });
       });
 
-      // Clear Filters
-      const clearBtn = document.getElementById('clear-filters');
-      if (clearBtn) {
-        clearBtn.addEventListener('click', () => {
-          this.filters.search = '';
-          this.filters.region = '';
-          this.filters.disciplines = [];
+      // Month Pills (delegated: the pills are rebuilt when the past-races toggle changes)
+      document.getElementById('filter-month-group')?.addEventListener('click', (e) => {
+        const btn = e.target.closest('.pill-month');
+        if (!btn) return;
+        const val = (btn.dataset.month || '').trim();
+        if (!val) {
           this.filters.months = [];
+        } else {
+          const idx = this.filters.months.indexOf(val);
+          if (idx > -1) this.filters.months.splice(idx, 1);
+          else this.filters.months.push(val);
+        }
+        this.syncMonthPills();
+        this.applyFilters();
+      });
 
-          if (searchInput) searchInput.value = '';
-          if (regionSelect) regionSelect.value = '';
+      // Show / hide finished races
+      document.getElementById('toggle-past')?.addEventListener('change', (e) => {
+        this.filters.showPast = e.target.checked;
+        this.populateMonthPills();
+        this.updateUnlocatedCount();
+        this.applyFilters();
+      });
 
-          discButtons.forEach(b => {
-            b.classList.toggle('active', (b.dataset.discipline || '') === '');
-          });
+      // Show / hide races whose location is not confirmed
+      document.getElementById('toggle-unlocated')?.addEventListener('change', (e) => {
+        this.filters.showUnlocated = e.target.checked;
+        this.populateMonthPills();
+        this.applyFilters();
+      });
 
-          const monthContainer = document.getElementById('filter-month-group');
-          if (monthContainer) {
-            monthContainer.querySelectorAll('.pill-month').forEach(b => {
-              b.classList.toggle('active', (b.dataset.month || '') === '');
-            });
-          }
+      // Clear Filters
+      document.getElementById('clear-filters')?.addEventListener('click', () => {
+        this.filters.search = '';
+        this.filters.region = '';
+        this.filters.disciplines = [];
+        this.filters.months = [];
+        this.filters.showPast = false;
+        this.filters.showUnlocated = false;
 
-          this.applyFilters();
-        });
-      }
+        if (searchInput) searchInput.value = '';
+        if (regionSelect) regionSelect.value = '';
+        const pastToggle = document.getElementById('toggle-past');
+        if (pastToggle) pastToggle.checked = false;
+        const unlocatedToggle = document.getElementById('toggle-unlocated');
+        if (unlocatedToggle) unlocatedToggle.checked = false;
+        this.updateUnlocatedCount();
+
+        this.syncDisciplinePills();
+        this.populateMonthPills();
+        this.applyFilters();
+      });
 
       // View Switcher Buttons
       document.querySelectorAll('.view-btn').forEach(btn => {
@@ -296,13 +324,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
-      // Publicar Carrera Modal
+      // Publicar Carrera / Contacto
       document.getElementById('nav-publish')?.addEventListener('click', (e) => {
         e.preventDefault();
         this.openPublishModal();
       });
-
-      // Contacto Modal
       document.getElementById('nav-contact')?.addEventListener('click', (e) => {
         e.preventDefault();
         this.openContactModal();
@@ -312,17 +338,26 @@ document.addEventListener('DOMContentLoaded', () => {
         this.openContactModal();
       });
 
-      // Modals
-      document.getElementById('modal-close-detail')?.addEventListener('click', () => this.closeModals());
-      document.getElementById('modal-close-publish')?.addEventListener('click', () => this.closeModals());
-      document.getElementById('modal-close-contact')?.addEventListener('click', () => this.closeModals());
+      // Modals: close buttons, backdrop click, Escape, focus trap
+      document.querySelectorAll('[data-close-modal]').forEach(btn => {
+        btn.addEventListener('click', () => this.closeModals());
+      });
       document.querySelectorAll('.modal-overlay').forEach(ov => {
         ov.addEventListener('click', (e) => {
           if (e.target === ov) this.closeModals();
         });
       });
+      document.addEventListener('keydown', (e) => this.handleModalKeys(e));
+      document.addEventListener('click', () => this.closeCalendarMenus());
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') this.closeCalendarMenus(); });
 
-      // Form Submit Race -> GitHub Issue
+      // Back/forward or a pasted #carrera=<id> link while the page is open
+      window.addEventListener('hashchange', () => {
+        if (window.location.hash.startsWith('#carrera=')) this.openEventFromHash();
+        else if (document.querySelector('#modal-detail.active')) this.closeModals({ restoreFocus: false });
+      });
+
+      // Forms
       const publishForm = document.getElementById('publish-race-form');
       if (publishForm) {
         publishForm.addEventListener('submit', (e) => {
@@ -330,8 +365,6 @@ document.addEventListener('DOMContentLoaded', () => {
           this.handlePublishFormSubmit(publishForm);
         });
       }
-
-      // Form Submit Contact
       const contactForm = document.getElementById('contact-form');
       if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -340,13 +373,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Mensajes de validación nativos del navegador en español ("Por favor completa este campo")
+      // Mensajes de validación nativos del navegador en español
       document.addEventListener('invalid', (e) => {
         const el = e.target;
         if (!el || !el.validity) return;
 
         if (el.validity.valueMissing) {
-          el.setCustomValidity('Por favor completa este campo.');
+          el.setCustomValidity(el.tagName === 'SELECT' ? 'Por favor selecciona una opción.' : 'Por favor completa este campo.');
         } else if (el.validity.typeMismatch && el.type === 'email') {
           el.setCustomValidity('Por favor ingresa un correo electrónico válido.');
         } else if (el.validity.typeMismatch && el.type === 'url') {
@@ -358,112 +391,102 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }, true);
 
-      document.addEventListener('input', (e) => {
+      const clearValidity = (e) => {
         if (e.target && typeof e.target.setCustomValidity === 'function') {
           e.target.setCustomValidity('');
         }
-      }, true);
+      };
+      document.addEventListener('input', clearValidity, true);
+      document.addEventListener('change', clearValidity, true);
 
-      document.addEventListener('change', (e) => {
-        if (e.target && typeof e.target.setCustomValidity === 'function') {
-          e.target.setCustomValidity('');
+      // Keep "today" fresh if the tab stays open past midnight
+      document.addEventListener('visibilitychange', () => {
+        const now = Utils.todayStr();
+        if (!document.hidden && now !== this.today) {
+          this.today = now;
+          this.populateMonthPills();
+          this.applyFilters();
         }
-      }, true);
+      });
     },
 
     updateViewButtons() {
       document.querySelectorAll('.view-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.view === this.currentView);
+        const active = btn.dataset.view === this.currentView;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', String(active));
       });
     },
 
     applyFilters() {
+      const f = this.filters;
+      const showPast = f.showPast;
+
       this.filteredEvents = this.events.filter(ev => {
-        // Search text
-        if (this.filters.search) {
-          const q = this.filters.search;
-          const matchName = ev.name.toLowerCase().includes(q);
-          const matchLoc = (ev.location || '').toLowerCase().includes(q);
-          const matchCom = (ev.commune || '').toLowerCase().includes(q);
-          const matchOrg = (ev.organizer || '').toLowerCase().includes(q);
-          const matchDesc = (ev.description || '').toLowerCase().includes(q);
-          if (!matchName && !matchLoc && !matchCom && !matchOrg && !matchDesc) return false;
-        }
+        if (!showPast && Utils.isPast(ev, this.today)) return false;
+        const unlocated = this.isUnlocated(ev);
+        if (unlocated && !f.showUnlocated) return false;
+        if (f.search && !ev._search.includes(f.search)) return false;
+        // Races without a confirmed region can't be excluded by region: they stay while "sin ubicación" is on
+        if (f.region && !unlocated && ev.region !== f.region) return false;
 
-        // Region
-        if (this.filters.region && ev.region !== this.filters.region) {
-          return false;
-        }
-
-        // Discipline (Multi-select no excluyente)
-        if (this.filters.disciplines && this.filters.disciplines.length > 0) {
-          const match = ev.disciplines.some(d => {
-            const dLower = d.toLowerCase();
-            return this.filters.disciplines.some(sel => dLower.includes(sel));
+        if (f.disciplines.length > 0) {
+          const match = (ev.disciplines || []).some(d => {
+            const dNorm = Utils.normalize(d);
+            return f.disciplines.some(sel => dNorm.includes(sel));
           });
           if (!match) return false;
         }
 
-        // Month (Multi-selección no excluyente)
-        if (this.filters.months && this.filters.months.length > 0) {
-          const match = this.filters.months.some(m => ev.date.startsWith(m));
-          if (!match) return false;
-        }
-
+        if (f.months.length > 0 && !f.months.some(m => ev.date.startsWith(m))) return false;
 
         return true;
       });
 
-      // Sort chronologically
-      this.filteredEvents.sort((a, b) => a.date.localeCompare(b.date));
+      this.filteredEvents.sort((a, b) => a.date.localeCompare(b.date) || a.name.localeCompare(b.name));
 
+      CalendarView.resetMonth();
       this.updateURL();
+      this.render();
+    },
+
+    updateResultsCount() {
       const countEl = document.getElementById('results-count');
       if (countEl) {
-        countEl.textContent = `${this.filteredEvents.length} carrera${this.filteredEvents.length === 1 ? '' : 's'}`;
-      }
-
-      if (this.currentView === 'map') {
-        MapView.updateMarkers(this.filteredEvents);
-      } else if (this.currentView === 'calendar') {
-        const calContainer = document.getElementById('view-calendar');
-        if (calContainer) {
-          CalendarView.render(calContainer, this.filteredEvents, (ev) => this.openDetailModal(ev));
-        }
-      } else {
-        const agendaContainer = document.getElementById('view-agenda');
-        if (agendaContainer) {
-          this.renderAgendaView(agendaContainer);
-        }
+        const n = this.filteredEvents.length;
+        countEl.textContent = `${n} carrera${n === 1 ? '' : 's'}`;
       }
     },
 
     render() {
-      const countEl = document.getElementById('results-count');
-      if (countEl) {
-        countEl.textContent = `${this.filteredEvents.length} carrera${this.filteredEvents.length === 1 ? '' : 's'}`;
-      }
+      this.updateResultsCount();
 
       const agendaContainer = document.getElementById('view-agenda');
       const mapContainer = document.getElementById('view-map');
       const calContainer = document.getElementById('view-calendar');
-
       if (!agendaContainer || !mapContainer || !calContainer) return;
 
+      const mapWasHidden = mapContainer.style.display === 'none';
+      agendaContainer.style.display = this.currentView === 'agenda' ? 'block' : 'none';
+      mapContainer.style.display = this.currentView === 'map' ? 'block' : 'none';
+      calContainer.style.display = this.currentView === 'calendar' ? 'block' : 'none';
+
       if (this.currentView === 'map') {
-        agendaContainer.style.display = 'none';
-        mapContainer.style.display = 'block';
-        calContainer.style.display = 'none';
-        MapView.show(this.filteredEvents, (ev) => this.openDetailModal(ev));
+        // Races with no confirmed place can't be pinned
+        const mappable = this.filteredEvents.filter(ev => !this.isUnlocated(ev));
+        const hidden = this.filteredEvents.length - mappable.length;
+        const note = document.getElementById('map-unlocated-note');
+        if (note) {
+          note.style.display = hidden > 0 ? '' : 'none';
+          note.textContent = hidden > 0
+            ? `${hidden} carrera${hidden === 1 ? '' : 's'} sin ubicación confirmada no se muestra${hidden === 1 ? '' : 'n'} en el mapa (están en la vista Lista y Mes).`
+            : '';
+        }
+        if (mapWasHidden) MapView.show(mappable, (ev) => this.openDetailModal(ev));
+        else MapView.updateMarkers(mappable);
       } else if (this.currentView === 'calendar') {
-        agendaContainer.style.display = 'none';
-        mapContainer.style.display = 'none';
-        calContainer.style.display = 'block';
         CalendarView.render(calContainer, this.filteredEvents, (ev) => this.openDetailModal(ev));
       } else {
-        agendaContainer.style.display = 'block';
-        mapContainer.style.display = 'none';
-        calContainer.style.display = 'none';
         this.renderAgendaView(agendaContainer);
       }
     },
@@ -475,10 +498,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (this.filteredEvents.length === 0) {
         container.innerHTML = `
           <div class="empty-state">
-            <div style="font-size:2rem; margin-bottom:0.5rem">🚴</div>
-            <h3 style="font-weight:700">No se encontraron carreras con los filtros seleccionados</h3>
-            <p style="margin-top:0.25rem; font-size:0.9rem">Prueba seleccionando otra región, disciplina o restablece los filtros.</p>
-            <button class="cal-btn" style="margin-top:1rem" id="empty-clear-btn">Restablecer Filtros</button>
+            <div class="empty-state-icon">🚴</div>
+            <h3>No se encontraron carreras con los filtros seleccionados</h3>
+            <p>Prueba seleccionando otra región, disciplina o restablece los filtros.</p>
+            <button type="button" class="cal-btn" id="empty-clear-btn">Restablecer Filtros</button>
           </div>
         `;
         document.getElementById('empty-clear-btn')?.addEventListener('click', () => {
@@ -487,25 +510,18 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Group by Month ("YYYY-MM")
-      const groups = {};
+      // Group by Month ("YYYY-MM"), keeping chronological order
+      const groups = new Map();
       this.filteredEvents.forEach(ev => {
         const monthKey = ev.date.substring(0, 7);
-        if (!groups[monthKey]) groups[monthKey] = [];
-        groups[monthKey].push(ev);
+        if (!groups.has(monthKey)) groups.set(monthKey, []);
+        groups.get(monthKey).push(ev);
       });
 
       let html = '';
-      const monthNames = [
-        'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-        'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-      ];
-      const monthShorts = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
-      const dowShorts = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-
-      for (const [monthKey, monthEvents] of Object.entries(groups)) {
+      for (const [monthKey, monthEvents] of groups) {
         const [year, month] = monthKey.split('-').map(Number);
-        const monthTitle = `${monthNames[month - 1]} ${year}`;
+        const monthTitle = `${Utils.MONTH_NAMES[month - 1]} ${year}`;
 
         html += `
           <section class="month-block">
@@ -517,96 +533,76 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         monthEvents.forEach(ev => {
-          const dObj = new Date(ev.date + 'T12:00:00');
+          const dObj = Utils.parseDate(ev.date);
           const dayNum = dObj.getDate();
-          const monthShort = monthShorts[dObj.getMonth()];
-          const dowShort = dowShorts[dObj.getDay()];
+          const dowShort = Utils.DOW_SHORT[dObj.getDay()];
+          const isPast = Utils.isPast(ev, this.today);
+          const isOngoing = !isPast && ev.date <= this.today && Utils.eventEnd(ev) >= this.today;
 
-          const disciplinesList = Array.isArray(ev.disciplines) && ev.disciplines.length > 0
-            ? ev.disciplines
-            : ['MTB'];
-
-          const formatDisc = (d) => {
-            const clean = (d || 'MTB').trim();
-            const lower = clean.toLowerCase();
-            if (lower.includes('ultra') || lower.includes('bikepacking')) return { key: 'ultra', label: 'Ultra', full: clean };
-            if (lower.includes('enduro')) return { key: 'enduro', label: 'Enduro', full: clean };
-            if (lower.includes('descenso') || lower.includes('downhill') || lower.includes('dh')) return { key: 'enduro', label: 'DH', full: clean };
-            if (lower.includes('gravel')) return { key: 'gravel', label: 'Gravel', full: clean };
-            if (lower.includes('ruta') || lower.includes('carretera')) return { key: 'ruta', label: 'Ruta', full: clean };
-            if (lower.includes('mtb') || lower.includes('mountain')) return { key: 'mtb', label: 'MTB', full: clean };
-            if (lower.includes('cicloturismo')) return { key: 'mtb', label: 'Turismo', full: clean };
-            return { key: lower.split('/')[0], label: clean.length > 7 ? clean.substring(0, 6) : clean, full: clean };
-          };
-
-          const formattedDiscs = disciplinesList.map(formatDisc);
-          const discBadgesHtml = formattedDiscs.map(item => {
-            return `<span class="badge-discipline badge-${item.key}" title="${item.full}">${item.label}</span>`;
+          const disciplinesList = Array.isArray(ev.disciplines) && ev.disciplines.length > 0 ? ev.disciplines : ['MTB'];
+          const discBadgesHtml = disciplinesList.map(d => {
+            const item = Utils.disciplineInfo(d);
+            return `<span class="badge-discipline badge-${item.key}" title="${Utils.esc(item.full)}">${Utils.esc(item.label)}</span>`;
           }).join('');
 
-          const distText = ev.distances && ev.distances.length && ev.distances[0] !== 'Ver bases'
-            ? ev.distances.join(' • ')
-            : '';
+          const distText = Utils.distanceText(ev);
           const elevText = ev.elevation_gain_m ? `+${ev.elevation_gain_m.toLocaleString('es-CL')}m` : '';
 
           let metricsHtml = '';
-          if (distText) metricsHtml += `<span class="dist-meta">🏁 ${distText}</span>`;
+          if (distText) metricsHtml += `<span class="dist-meta">🏁 ${Utils.esc(distText)}</span>`;
           if (elevText) metricsHtml += `<span class="elev-meta">⛰️ ${elevText}</span>`;
 
-          // Region official name without numbers
-          const regName = ev.region_name || (this.regions.find(r => r.id === ev.region)?.short) || ev.region;
-
-          // Clean locality to avoid repeating region
-          let rawLoc = ev.commune || ev.location || '';
-          let cleanLoc = rawLoc
-            .split(',')[0]
-            .split('-')[0]
-            .replace(/\b(Regi[oó]n\s+[A-Za-z\s]+|RM|XV|XVI|XIV|XII|XI|VIII|VII|VI|IV|III|II|I|X|V)\b/gi, '')
-            .trim();
-          if (!cleanLoc) cleanLoc = regName;
+          const unlocated = this.isUnlocated(ev);
+          const regName = unlocated
+            ? 'Sin región'
+            : ev.region_name || (this.regions.find(r => r.id === ev.region)?.short) || ev.region;
+          const hasPlaceText = unlocated && ev.location && ev.location !== 'Ubicación por confirmar';
+          const cleanLoc = unlocated
+            ? (hasPlaceText ? `${ev.location} (por confirmar)` : 'Ubicación por confirmar')
+            : Utils.cleanLocality(ev, regName);
+          const stateTag = isPast
+            ? '<span class="event-state-tag">Finalizada</span>'
+            : isOngoing ? '<span class="event-state-tag is-live">En curso</span>' : '';
 
           html += `
-            <article class="event-item" data-id="${ev.id}">
-              <!-- Columna 1: Fecha (ej. Sáb 10) -->
-              <div class="event-col-date" title="${dowShort} ${dayNum} de ${monthTitle}">
+            <article class="event-item${isPast ? ' is-past' : ''}" data-id="${Utils.esc(ev.id)}">
+              <div class="event-col-date" title="${Utils.esc(Utils.formatDateLong(ev))}">
                 <span class="chip-dow">${dowShort}</span>
                 <span class="chip-day">${dayNum}</span>
               </div>
 
-              <!-- Columna 2: Título de Carrera y Subtítulo de Disciplinas + Métricas -->
               <div class="event-col-title">
-                <a href="#" class="event-link" data-id="${ev.id}" title="${ev.name}">${ev.name}</a>
+                <a href="#carrera=${encodeURIComponent(ev.id)}" class="event-link" data-id="${Utils.esc(ev.id)}" title="${Utils.esc(ev.name)}">${Utils.esc(ev.name)}</a>
                 <div class="event-subtitle-row">
-                  <div class="event-tags-sub" title="Disciplinas: ${disciplinesList.join(', ')}">
+                  <div class="event-tags-sub" title="Disciplinas: ${Utils.esc(disciplinesList.join(', '))}">
                     ${discBadgesHtml}
                   </div>
+                  ${stateTag}
                   ${metricsHtml ? `<span class="meta-separator">•</span> ${metricsHtml}` : ''}
                 </div>
               </div>
 
-              <!-- Columna 3: Ubicación y Región (alineada independientemente) -->
               <div class="event-col-loc">
-                <span class="meta-location">📍 ${cleanLoc}</span>
-                <span class="badge-reg">${regName}</span>
+                <span class="meta-location">📍 ${Utils.esc(cleanLoc)}</span>
+                <span class="badge-reg${unlocated ? ' badge-unlocated' : ''}">${Utils.esc(regName)}</span>
               </div>
 
-              <!-- Columna 4: Acciones -->
               <div class="event-col-actions">
                 <div class="dropdown-calendar">
-                  <button class="btn-cal-export" title="Agendar en Google o Apple Calendar">
+                  <button type="button" class="btn-cal-export" title="Agendar en Google o Apple Calendar" aria-haspopup="true">
                     📅 <span class="hide-mobile">Agendar</span>
                   </button>
                   <div class="cal-dropdown-menu">
-                    <button class="cal-dropdown-item btn-export-google" data-id="${ev.id}">
+                    <button type="button" class="cal-dropdown-item btn-export-google" data-id="${Utils.esc(ev.id)}">
                       Google Calendar
                     </button>
-                    <button class="cal-dropdown-item btn-export-apple" data-id="${ev.id}">
+                    <button type="button" class="cal-dropdown-item btn-export-apple" data-id="${Utils.esc(ev.id)}">
                       Apple / Outlook (.ics)
                     </button>
                   </div>
                 </div>
 
-                <a href="${ev.registration_url || ev.url}" target="_blank" rel="noopener" class="btn-action-primary">
+                <a href="${Utils.eventHref(ev)}" target="_blank" rel="noopener" class="btn-action-primary">
                   Inscripción &rarr;
                 </a>
               </div>
@@ -624,15 +620,23 @@ document.addEventListener('DOMContentLoaded', () => {
       this.attachEventRowListeners(container);
     },
 
+    closeCalendarMenus() {
+      document.querySelectorAll('.dropdown-calendar.is-open').forEach(el => {
+        el.classList.remove('is-open');
+        el.querySelector('.btn-cal-export')?.setAttribute('aria-expanded', 'false');
+      });
+    },
+
+    findEvent(id) {
+      return this.events.find(it => it.id === id);
+    },
+
     attachEventRowListeners(container) {
       // Event row click -> Detail Modal (if not clicking on link or button)
       container.querySelectorAll('.event-item').forEach(item => {
         item.addEventListener('click', (e) => {
-          if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.dropdown-calendar')) {
-            return;
-          }
-          const id = item.dataset.id;
-          const ev = this.events.find(it => it.id === id);
+          if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.dropdown-calendar')) return;
+          const ev = this.findEvent(item.dataset.id);
           if (ev) this.openDetailModal(ev);
         });
       });
@@ -641,103 +645,207 @@ document.addEventListener('DOMContentLoaded', () => {
       container.querySelectorAll('.event-link').forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
-          const id = e.currentTarget.dataset.id;
-          const ev = this.events.find(item => item.id === id);
+          const ev = this.findEvent(e.currentTarget.dataset.id);
           if (ev) this.openDetailModal(ev);
         });
       });
 
-      // Per-Race Google Calendar Export
+      // The menu also opens on hover/focus via CSS; the click toggle is for touch screens
+      // (iOS Safari does not focus a button when it is tapped).
+      container.querySelectorAll('.btn-cal-export').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const wrap = btn.closest('.dropdown-calendar');
+          const willOpen = !wrap.classList.contains('is-open');
+          this.closeCalendarMenus();
+          wrap.classList.toggle('is-open', willOpen);
+          btn.setAttribute('aria-expanded', String(willOpen));
+        });
+      });
+
       container.querySelectorAll('.btn-export-google').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
-          const id = e.currentTarget.dataset.id;
-          const ev = this.events.find(item => item.id === id);
+          this.closeCalendarMenus();
+          const ev = this.findEvent(e.currentTarget.dataset.id);
           if (ev) CalendarExporter.exportToGoogle(ev);
         });
       });
 
-      // Per-Race Apple Calendar (.ics) Export
       container.querySelectorAll('.btn-export-apple').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
-          const id = e.currentTarget.dataset.id;
-          const ev = this.events.find(item => item.id === id);
+          this.closeCalendarMenus();
+          const ev = this.findEvent(e.currentTarget.dataset.id);
           if (ev) CalendarExporter.exportToICS(ev);
         });
       });
     },
 
+    // ---------------------------------------------------------------- Modals
+
+    showModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      if (!document.querySelector('.modal-overlay.active')) {
+        this.lastFocused = document.activeElement;
+      }
+      this.closeModals({ restoreFocus: false, keepHash: true });
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      const first = modal.querySelector('.modal-close-btn') || modal.querySelector(MODAL_FOCUSABLE);
+      if (first) first.focus({ preventScroll: true });
+    },
+
+    closeModals({ restoreFocus = true, keepHash = false } = {}) {
+      const wasOpen = document.querySelector('.modal-overlay.active');
+      document.querySelectorAll('.modal-overlay').forEach(ov => {
+        ov.classList.remove('active');
+        ov.setAttribute('aria-hidden', 'true');
+      });
+      document.body.classList.remove('modal-open');
+
+      if (!keepHash && window.location.hash.startsWith('#carrera=')) {
+        window.history.replaceState({}, '', window.location.pathname + window.location.search);
+      }
+      if (wasOpen && restoreFocus && this.lastFocused && document.contains(this.lastFocused)) {
+        this.lastFocused.focus({ preventScroll: true });
+      }
+    },
+
+    handleModalKeys(e) {
+      const modal = document.querySelector('.modal-overlay.active');
+      if (!modal) return;
+
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        this.closeModals();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        const focusable = Array.from(modal.querySelectorAll(MODAL_FOCUSABLE)).filter(el => el.offsetParent !== null);
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    },
+
+    openEventFromHash() {
+      const match = window.location.hash.match(/^#carrera=(.+)$/);
+      if (!match) return;
+      const ev = this.findEvent(decodeURIComponent(match[1]));
+      if (ev) this.openDetailModal(ev);
+    },
+
     openDetailModal(ev) {
-      const modal = document.getElementById('modal-detail');
       const body = document.getElementById('modal-detail-body');
       const title = document.getElementById('modal-detail-title');
-
-      if (!modal || !body || !title) return;
+      if (!body || !title) return;
 
       title.textContent = ev.name;
 
-      const regName = ev.region_name || (this.regions.find(r => r.id === ev.region)?.short) || ev.region;
+      const unlocated = this.isUnlocated(ev);
+      const regName = unlocated
+        ? 'Ubicación por confirmar'
+        : ev.region_name || (this.regions.find(r => r.id === ev.region)?.short) || ev.region;
+      const isPast = Utils.isPast(ev, this.today);
 
       const modalBadgesHtml = (Array.isArray(ev.disciplines) && ev.disciplines.length > 0 ? ev.disciplines : ['MTB']).map(d => {
-        const dKey = d.toLowerCase().split('/')[0].trim();
-        return `<span class="badge-discipline badge-${dKey}">${d}</span>`;
+        const info = Utils.disciplineInfo(d);
+        return `<span class="badge-discipline badge-${info.key}">${Utils.esc(d)}</span>`;
       }).join(' ');
 
+      const distances = Utils.distanceText(ev, ', ') || 'Ver bases';
+      const sourceLabel = ev.source ? ev.source.toUpperCase() : 'Pedaleo.cl';
+
       body.innerHTML = `
-        <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem">
+        <div class="detail-badges">
           ${modalBadgesHtml}
-          <span class="badge-reg">${regName}</span>
-          ${ev.price_type === 'free' ? '<span class="badge-reg" style="color:#166534; font-weight:700">GRATIS</span>' : ''}
+          <span class="badge-reg${unlocated ? ' badge-unlocated' : ''}">${Utils.esc(regName)}</span>
+          ${ev.price_type === 'free' ? '<span class="badge-reg badge-free">GRATIS</span>' : ''}
+          ${isPast ? '<span class="badge-reg">Finalizada</span>' : ''}
         </div>
 
-        <p style="margin-bottom:1.25rem; font-size:0.92rem; color:#334155; line-height:1.6">
-          ${ev.description || 'Sin descripción detallada disponible.'}
+        <p class="detail-description">
+          ${Utils.esc(ev.description || 'Sin descripción detallada disponible.')}
         </p>
 
         <div class="detail-grid">
-          <div><strong>Fecha:</strong> ${ev.date} ${ev.end_date && ev.end_date !== ev.date ? 'al ' + ev.end_date : ''}</div>
-          <div><strong>Lugar:</strong> ${ev.location || ev.commune}</div>
-          <div><strong>Distancias:</strong> ${ev.distances ? ev.distances.join(', ') : 'Ver bases'}</div>
-          <div><strong>Desnivel:</strong> ${ev.elevation_gain_m ? '+' + ev.elevation_gain_m + ' m' : 'No especificado'}</div>
-          <div><strong>Organizador:</strong> ${ev.organizer || 'Organización oficial'}</div>
-          <div><strong>Fuente:</strong> ${ev.source ? ev.source.toUpperCase() : 'Pedaleo.cl'}</div>
+          <div><strong>Fecha:</strong> ${Utils.esc(Utils.formatDateLong(ev))}</div>
+          <div><strong>Lugar:</strong> ${Utils.esc(unlocated ? (ev.location || 'Por confirmar') : (ev.location || ev.commune))}${unlocated ? ' <em>(sin confirmar en las fuentes)</em>' : ''}</div>
+          <div><strong>Distancias:</strong> ${Utils.esc(distances)}</div>
+          <div><strong>Desnivel:</strong> ${ev.elevation_gain_m ? '+' + Utils.esc(ev.elevation_gain_m) + ' m' : 'No especificado'}</div>
+          <div><strong>Organizador:</strong> ${Utils.esc(ev.organizer || 'Organización oficial')}</div>
+          <div><strong>Fuente:</strong> ${Utils.esc(sourceLabel)}</div>
         </div>
 
-        <div style="display:flex; flex-wrap:wrap; gap:0.6rem; align-items:center; justify-content:space-between; margin-top:1.5rem">
-          <div style="display:flex; gap:0.4rem">
-            <button class="cal-btn-mini" id="modal-export-google">📅 Google Calendar</button>
-            <button class="cal-btn-mini" id="modal-export-apple">🍏 Apple Calendar (.ics)</button>
+        <div class="detail-actions">
+          <div class="detail-actions-left">
+            <button type="button" class="cal-btn-mini" id="modal-export-google">📅 Google Calendar</button>
+            <button type="button" class="cal-btn-mini" id="modal-export-apple">🍏 Apple Calendar (.ics)</button>
+            <button type="button" class="cal-btn-mini" id="modal-share">🔗 Compartir</button>
           </div>
-          <a href="${ev.registration_url || ev.url}" target="_blank" rel="noopener" class="btn-action-primary">
+          <a href="${Utils.eventHref(ev)}" target="_blank" rel="noopener" class="btn-action-primary">
             Inscripción Oficial &rarr;
           </a>
         </div>
       `;
 
-      document.getElementById('modal-export-google')?.addEventListener('click', () => {
-        CalendarExporter.exportToGoogle(ev);
-      });
+      document.getElementById('modal-export-google')?.addEventListener('click', () => CalendarExporter.exportToGoogle(ev));
+      document.getElementById('modal-export-apple')?.addEventListener('click', () => CalendarExporter.exportToICS(ev));
+      document.getElementById('modal-share')?.addEventListener('click', (e) => this.shareEvent(ev, e.currentTarget));
 
-      document.getElementById('modal-export-apple')?.addEventListener('click', () => {
-        CalendarExporter.exportToICS(ev);
-      });
+      window.history.replaceState({}, '', window.location.pathname + window.location.search + `#carrera=${encodeURIComponent(ev.id)}`);
+      this.showModal('modal-detail');
+    },
 
-      modal.classList.add('active');
+    async shareEvent(ev, button) {
+      const url = `${window.location.origin}${window.location.pathname}#carrera=${encodeURIComponent(ev.id)}`;
+      const text = `${ev.name} — ${Utils.formatDateLong(ev)}`;
+      const original = button.textContent;
+      try {
+        if (navigator.share) {
+          await navigator.share({ title: ev.name, text, url });
+          return;
+        }
+        await navigator.clipboard.writeText(url);
+        button.textContent = '✔ Enlace copiado';
+      } catch (err) {
+        if (err && err.name === 'AbortError') return;
+        window.prompt('Copia el enlace de la carrera:', url);
+        return;
+      }
+      setTimeout(() => { button.textContent = original; }, 2000);
     },
 
     openPublishModal() {
-      const modal = document.getElementById('modal-publish');
       const feedback = document.getElementById('publish-feedback');
       if (feedback) feedback.style.display = 'none';
-      if (modal) modal.classList.add('active');
+      this.showModal('modal-publish');
     },
 
     openContactModal() {
-      const modal = document.getElementById('modal-contact');
       const feedback = document.getElementById('contact-feedback');
       if (feedback) feedback.style.display = 'none';
-      if (modal) modal.classList.add('active');
+      this.showModal('modal-contact');
+    },
+
+    showFormFeedback(el, html) {
+      if (!el) return;
+      el.style.display = 'block';
+      el.style.background = '#dcfce7';
+      el.style.color = '#166534';
+      el.style.border = '1px solid #bbf7d0';
+      el.innerHTML = html;
     },
 
     handleContactFormSubmit(form) {
@@ -756,17 +864,10 @@ document.addEventListener('DOMContentLoaded', () => {
         `---\nEnviado desde Pedaleo.cl`
       );
 
-      // Open email client
       window.location.href = `mailto:contacto@pedaleo.cl?subject=${mailtoSubject}&body=${mailtoBody}`;
 
       const feedback = document.getElementById('contact-feedback');
-      if (feedback) {
-        feedback.style.display = 'block';
-        feedback.style.background = '#dcfce7';
-        feedback.style.color = '#166534';
-        feedback.style.border = '1px solid #bbf7d0';
-        feedback.innerHTML = `¡Gracias por tu mensaje, <strong>${name}</strong>! Se ha generado tu correo hacia <strong>contacto@pedaleo.cl</strong>.`;
-      }
+      this.showFormFeedback(feedback, `¡Gracias por tu mensaje, <strong>${Utils.esc(name)}</strong>! Se ha generado tu correo hacia <strong>contacto@pedaleo.cl</strong>.`);
 
       setTimeout(() => {
         this.closeModals();
@@ -775,13 +876,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 3500);
     },
 
-    closeModals() {
-      document.querySelectorAll('.modal-overlay').forEach(ov => ov.classList.remove('active'));
-    },
-
     /**
      * Handles race submission as a contact email to contacto@pedaleo.cl
-     * No longer opens any external GitHub page
      */
     handlePublishFormSubmit(form) {
       const formData = new FormData(form);
@@ -813,26 +909,59 @@ document.addEventListener('DOMContentLoaded', () => {
         `---\nEnviado desde el formulario oficial de Pedaleo.cl`
       );
 
-      // Open email client
       window.location.href = `mailto:contacto@pedaleo.cl?subject=${mailtoSubject}&body=${mailtoBody}`;
 
       const feedback = document.getElementById('publish-feedback');
-      if (feedback) {
-        feedback.style.display = 'block';
-        feedback.style.background = '#dcfce7';
-        feedback.style.color = '#166534';
-        feedback.style.border = '1px solid #bbf7d0';
-        feedback.innerHTML = `¡Solicitud enviada! Se ha preparado tu correo a <strong>contacto@pedaleo.cl</strong> para revisar y publicar <strong>${name}</strong>.`;
-      }
+      this.showFormFeedback(feedback, `¡Solicitud enviada! Se ha preparado tu correo a <strong>contacto@pedaleo.cl</strong> para revisar y publicar <strong>${Utils.esc(name)}</strong>.`);
 
       setTimeout(() => {
         this.closeModals();
         form.reset();
         if (feedback) feedback.style.display = 'none';
       }, 3500);
+    },
+
+    // ------------------------------------------------------------------- SEO
+
+    /** schema.org SportsEvent markup for upcoming races (helps Google show rich results). */
+    injectStructuredData() {
+      const upcoming = this.events.filter(ev => !Utils.isPast(ev, this.today) && !this.isUnlocated(ev));
+      if (!upcoming.length) return;
+
+      const graph = upcoming.map(ev => ({
+        '@type': 'SportsEvent',
+        name: ev.name,
+        startDate: ev.date,
+        endDate: Utils.eventEnd(ev),
+        eventStatus: 'https://schema.org/EventScheduled',
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        sport: (ev.disciplines || []).join(', ') || 'Cycling',
+        description: ev.description || undefined,
+        url: Utils.safeUrl(ev.registration_url || ev.url),
+        location: {
+          '@type': 'Place',
+          name: ev.location || ev.commune,
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: ev.commune,
+            addressRegion: ev.region_name,
+            addressCountry: 'CL'
+          }
+        },
+        organizer: ev.organizer ? { '@type': 'Organization', name: ev.organizer } : undefined
+      }));
+
+      let script = document.getElementById('ld-events');
+      if (!script) {
+        script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.id = 'ld-events';
+        document.head.appendChild(script);
+      }
+      script.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
     }
   };
 
-  App.init();
   window.App = App;
+  App.init();
 });

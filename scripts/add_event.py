@@ -8,6 +8,8 @@ import json
 import os
 import re
 import sys
+import unicodedata
+from datetime import datetime
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_FILE = os.path.join(PROJECT_DIR, "data", "events.json")
@@ -17,6 +19,21 @@ REGIONS_FILE = os.path.join(PROJECT_DIR, "data", "regions.json")
 def load_regions():
     with open(REGIONS_FILE, "r", encoding="utf-8") as f:
         return {r["id"]: r["name"] for r in json.load(f)}
+
+
+def slugify(text):
+    """'Gran Fondo Machalí' -> 'gran-fondo-machali' (accents removed, not dropped)."""
+    text = unicodedata.normalize("NFD", text)
+    text = "".join(c for c in text if unicodedata.category(c) != "Mn")
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def is_valid_date(value):
+    try:
+        datetime.strptime(value, "%Y-%m-%d")
+        return True
+    except ValueError:
+        return False
 
 
 def prompt_input(prompt_text, default=None, required=True):
@@ -40,8 +57,8 @@ def main():
 
     name = prompt_input("Nombre de la carrera")
     date_val = prompt_input("Fecha (formato YYYY-MM-DD, ej: 2026-11-20)")
-    while not re.match(r"^\d{4}-\d{2}-\d{2}$", date_val):
-        print("  -> Formato inválido. Debe ser YYYY-MM-DD.")
+    while not is_valid_date(date_val):
+        print("  -> Fecha inválida. Debe ser una fecha real en formato YYYY-MM-DD.")
         date_val = prompt_input("Fecha (YYYY-MM-DD)")
 
     print("\nRegiones disponibles:")
@@ -75,8 +92,8 @@ def main():
     description = prompt_input("Breve descripción del evento", default=f"Competencia de {', '.join(disciplines)} en {commune}.")
 
     # Generate slug ID
-    clean_name = re.sub(r"[^a-zA-Z0-9]+", "-", name.lower()).strip("-")
-    event_id = f"{clean_name}-{date_val[:4]}"
+    clean_name = slugify(name)
+    event_id = clean_name if date_val[:4] in clean_name else f"{clean_name}-{date_val[:4]}"
 
     new_event = {
         "id": event_id,
@@ -112,6 +129,13 @@ def main():
     if any(e["id"] == event_id for e in events):
         print(f"\n[AVISO] Ya existía un evento con ID '{event_id}'. Se actualizará.")
         events = [e for e in events if e["id"] != event_id]
+
+    # Geolocate by commune/region so the event gets a pin on the map
+    try:
+        from sync_events import assign_coordinates
+        assign_coordinates([new_event])
+    except Exception as e:  # scraper dependencies missing: the map falls back to the regional centroid
+        print(f"[AVISO] No se pudieron asignar coordenadas: {e}")
 
     events.append(new_event)
     events.sort(key=lambda x: (x.get("date", ""), x.get("name", "")))
