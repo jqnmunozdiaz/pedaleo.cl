@@ -311,7 +311,8 @@ def merge_events(existing_events, new_scraped_events):
         if match and match["id"] == new_ev["id"] and match.get("end_date", match["date"]) < today \
                 and new_ev["date"] != match["date"] and new_ev["date"] >= today:
             new_ev = dict(new_ev, id=f"{new_ev['id']}-{new_ev['date']}")
-            match = None
+            # The next edition may already have been added by a previous run
+            match = existing_map.get(new_ev["id"])
 
         if match:
             if match.get("source") == new_ev.get("source"):

@@ -264,6 +264,15 @@ class MergeCoverageTests(unittest.TestCase):
         self.assertEqual({e["date"] for e in merged}, {"2026-01-10", "2099-12-19"})
         self.assertEqual(len({e["id"] for e in merged}), 2)
 
+    def test_next_edition_is_not_added_twice_on_the_following_run(self):
+        old = make_event(id="tour-dh-5-2026", name="Tour DH #5", date="2026-01-10", end_date="2026-01-11", source="bicineta")
+        new = make_event(id="tour-dh-5-2026", name="Tour DH #5", date="2099-12-19", end_date="2099-12-19", source="bicineta")
+        merged, _, _ = merge_events([old], [dict(new)])
+        merged, added, _ = merge_events(merged, [dict(new)])  # the nightly job runs again
+        self.assertEqual(added, 0)
+        ids = [e["id"] for e in merged]
+        self.assertEqual((len(ids), len(set(ids))), (2, 2))
+
     def test_distances_are_enriched_from_another_source(self):
         match = make_event(distances=["Ver bases"], distance_min_km=None, distance_max_km=None)
         new = make_event(distances=["90 km", "60 km"], distance_min_km=60.0, distance_max_km=90.0)

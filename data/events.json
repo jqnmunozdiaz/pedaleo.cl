@@ -4347,6 +4347,35 @@
     "lng": -73.2459
   },
   {
+    "id": "campeonato-panamericano-mtb-2027",
+    "name": "Campeonato Panamericano MTB",
+    "date": "2027-03-11",
+    "end_date": "2027-03-14",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Valdivia",
+    "location": "Valdivia, Región Los Ríos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/p/DcZDVx9KtqY/",
+    "registration_url": "https://www.instagram.com/p/DcZDVx9KtqY/",
+    "description": "CAMPEONATO PANAMERICANO ELITE/SUB23/JUNIOR MTB XCO/XCC/XCR/XCE 2027 🇨🇱 💥El próximo 2027 llega el esperado Campeonato Panamericano MTB XC PRE OLÍMPICO al circuito de Valdivia, Chile.",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.8142,
+    "lng": -73.2459
+  },
+  {
     "id": "atacama-challenger-2027",
     "name": "Atacama Challenger 2027 (3 Días MTB)",
     "date": "2027-03-12",
