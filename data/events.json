@@ -2285,6 +2285,37 @@
     "geo": "geocoded"
   },
   {
+    "id": "atacamaspirits-xtreme-mtb-race-2026",
+    "name": "Atacamaspirits Xtreme MTB Race 2026",
+    "date": "2026-11-09",
+    "end_date": "2026-11-16",
+    "disciplines": [
+      "MTB",
+      "Ultra/Bikepacking"
+    ],
+    "region": "II",
+    "region_name": "Antofagasta",
+    "commune": "Calama",
+    "location": "Calama, Región Antofagasta",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Atacama Spirits",
+    "url": "https://atacamaspirits.com/ultramaraton/",
+    "registration_url": "https://atacamaspirits.com/ultramaraton/",
+    "description": "MTB Stagerace. 7 days, 6 stages, >550K. Reaching 5700 meters above sea level, we are the Highest MTB race on Earth.🏔️🚴🚴‍♀️🔥",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -22.4544,
+    "lng": -68.9294,
+    "geo": "commune"
+  },
+  {
     "id": "curico-tour-2026",
     "name": "Curicó Tour 2026",
     "date": "2026-11-13",
@@ -4087,6 +4118,37 @@
     "geo": "commune"
   },
   {
+    "id": "copa-cascadas-lagos-y-cordillera-3-2026",
+    "name": "Copa Cascadas Lagos y Cordillera #3",
+    "date": "2026-12-13",
+    "end_date": "2026-12-13",
+    "disciplines": [
+      "MTB",
+      "Gravel"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "San Juan de la Costa",
+    "location": "San Juan de la Costa, Región Los Lagos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
+    "registration_url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
+    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.85,
+    "lng": -72.8333,
+    "geo": "commune"
+  },
+  {
     "id": "desafio-el-carbon-2026",
     "name": "Desafío El Carbón MTB 2026",
     "date": "2026-12-13",
@@ -4903,6 +4965,37 @@
     "url": "https://www.refugiokurileufu.com/proximos-eventos/",
     "registration_url": "https://www.refugiokurileufu.com/proximos-eventos/",
     "description": "Más pronto info",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.85,
+    "lng": -72.8333,
+    "geo": "commune"
+  },
+  {
+    "id": "copa-cascadas-lagos-y-cordillera-4-2027",
+    "name": "Copa Cascadas Lagos y Cordillera #4",
+    "date": "2027-02-28",
+    "end_date": "2027-02-28",
+    "disciplines": [
+      "MTB",
+      "Gravel"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "Las Cascadas",
+    "location": "Las Cascadas, Región Los Lagos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
+    "registration_url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
+    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
