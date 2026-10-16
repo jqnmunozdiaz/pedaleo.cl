@@ -1140,6 +1140,36 @@
     "geo": "commune"
   },
   {
+    "id": "conoce-el-nuevo-fullbike-2026",
+    "name": "Conoce el nuevo FULLBIKE",
+    "date": "2026-10-21",
+    "end_date": "2026-10-21",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Santiago",
+    "location": "Santiago, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://welcu.com/fullbikesports/conoce-el-nuevo-fullbike",
+    "registration_url": "https://welcu.com/fullbikesports/conoce-el-nuevo-fullbike",
+    "description": "Conoce el nuevo FULLBIKE. Ciclismo.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -33.4489,
+    "lng": -70.6693,
+    "geo": "commune"
+  },
+  {
     "id": "vuelta-master-o-higgins-2026",
     "name": "Vuelta Master O'Higgins 2026",
     "date": "2026-10-21",
@@ -2009,6 +2039,36 @@
     "geo": "commune"
   },
   {
+    "id": "copa-chile-xco-cmpc-angol-2026",
+    "name": "Copa Chile XCO, CMPC ANGOL 2026",
+    "date": "2026-11-07",
+    "end_date": "2026-11-08",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Angol",
+    "location": "Angol, Región La Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Mountainbike Angol",
+    "url": "https://guca.cl/att_tickets/public/e/827/copa-chile-xco-cmpc-angol-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/827/copa-chile-xco-cmpc-angol-2026",
+    "description": "Club Deportivo MTB Angol, tiene el agrado de invitar a todos los deportistas a la tercera fecha de Copa Chile XCO, CMPC ANGOL 2026, evento a desarrollarse entre los días 7 y 8 de noviembre de 2026. Esta competencia es una fecha de Cross Country Olímpico inserta en el Calendario de la Federación Nacional de Ciclismo de Chile, Fedenacich, cuenta con el patrocinio de la Federación Deportiva Nacional de Ciclismo de Chile, la Ilustre Municipalidad de Angol y Empresas CMPC, quienes desde cerca de 10…",
+    "featured": false,
+    "source": "guca",
+    "lat": -37.7989,
+    "lng": -72.7139,
+    "geo": "commune"
+  },
+  {
     "id": "dnc-series-primavera-2026",
     "name": "DNC Series Primavera",
     "date": "2026-11-07",
@@ -2253,6 +2313,37 @@
     "source": "ridechile",
     "lat": -30.6,
     "lng": -71.2,
+    "geo": "commune"
+  },
+  {
+    "id": "mtb-ruta-de-la-violeta-2026",
+    "name": "MTB ruta de la Violeta 2026",
+    "date": "2026-11-08",
+    "end_date": "2026-11-08",
+    "disciplines": [
+      "MTB",
+      "Ruta"
+    ],
+    "region": "XVI",
+    "region_name": "Ñuble",
+    "commune": "San Carlos",
+    "location": "San Carlos, Región Ñuble",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://bikerace.cl/evento?id=3510",
+    "registration_url": "https://bikerace.cl/evento?id=3510",
+    "description": "MTB ruta de la Violeta 2026. bike.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -36.4247,
+    "lng": -71.9581,
     "geo": "commune"
   },
   {
@@ -2739,7 +2830,7 @@
     ],
     "distance_min_km": null,
     "distance_max_km": null,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 102,
     "price_type": "paid",
     "status": "open",
     "organizer": "GUCA / Club Organizador",
@@ -4241,6 +4332,34 @@
     "lat": -39.8142,
     "lng": -73.2459,
     "geo": "commune"
+  },
+  {
+    "id": "segunda-edicion-mtb-xcm-desafio-valle-de-patagual-quetra-2026",
+    "name": "SEGUNDA EDICIÓN MTB - XCM DESAFÍO VALLE DE PATAGUAL - QUETRA 2026",
+    "date": "2026-12-20",
+    "end_date": "2026-12-20",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": null,
+    "region_name": null,
+    "commune": "Patagual",
+    "location": "Patagual",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Comité de Adelanto Patagual Sur",
+    "url": "https://guca.cl/att_tickets/public/e/828/segunda-edicion-mtb-xcm-desafio-valle-de-patagual-quetra-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/828/segunda-edicion-mtb-xcm-desafio-valle-de-patagual-quetra-2026",
+    "description": "Nos complace anunciar la Segunda edición del Desafío MTB -XCM Patagual - Quetra 2026 una emocionante actividad organizada y patrocinada por el Comité de Adelanto de Patagual Sur. Este gran desafío está dirigido a todos los bikers que se atrevan a enfrentar esta ruta única, que recorrerá aproximadamente 35 km de caminos, ripiados y senderos, en un recorrido altimetría de 1.300 acumulados aproximadamente. Durante la travesía, podrán disfrutar de paisajes y una conexión con la naturaleza, Además,…",
+    "featured": false,
+    "source": "guca",
+    "location_unverified": true
   },
   {
     "id": "bikepacking-odisea-caleta-condor-2027",
