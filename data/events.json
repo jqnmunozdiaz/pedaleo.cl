@@ -5003,6 +5003,36 @@
     "geo": "commune"
   },
   {
+    "id": "vuelta-del-puma-2027",
+    "name": "Vuelta del Puma",
+    "date": "2027-02-20",
+    "end_date": "2027-02-20",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Corral",
+    "location": "Corral, Región Los Ríos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Liga Ratonneur",
+    "url": "https://www.instagram.com/liga_ratonneur",
+    "registration_url": "https://www.instagram.com/liga_ratonneur",
+    "description": "Pronto más información ...",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.88774,
+    "lng": -73.43145,
+    "geo": "geocoded"
+  },
+  {
     "id": "desafio-el-vuelo-del-pato-2027",
     "name": "Desafío El Vuelo del Pato 2027",
     "date": "2027-02-21",
