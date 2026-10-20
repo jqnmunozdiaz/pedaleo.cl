@@ -3150,6 +3150,36 @@
     "geo": "commune"
   },
   {
+    "id": "copa-rengo-final-cro-2026",
+    "name": "Copa Rengo - FINAL CRO 2026",
+    "date": "2026-11-22",
+    "end_date": "2026-11-22",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Rengo",
+    "location": "Rengo, Región O'Higgins",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Campeonato Regional O'Higgins",
+    "url": "https://guca.cl/att_tickets/public/e/829/copa-rengo-final-cro-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/829/copa-rengo-final-cro-2026",
+    "description": "Copa Rengo - FINAL CRO 2026 Descripción del Evento Con el objetivo de fomentar y dar a conocer nuestro deporte, además de mostrar las zonas y cada uno de los atractivos existentes en nuestra región, los Team organizadores los invitan a participar y disfrutar de la cuarta versión del CAMPEONATO REGIONAL O'HIGGINS 2026. El C.R.O. 2026 contará con un total de 6 fechas, las cuales se realizarán en diferentes sectores de la Región de O’Higgins, quedando cada fecha con un Team organizador…",
+    "featured": false,
+    "source": "guca",
+    "lat": -34.4067,
+    "lng": -70.8583,
+    "geo": "commune"
+  },
+  {
     "id": "fecha-0-parque-lo-piedra-2026",
     "name": "Fecha 0 - Parque Lo Piedra 2026",
     "date": "2026-11-22",
@@ -4209,6 +4239,36 @@
     "lat": -33.0472,
     "lng": -71.6127,
     "geo": "commune"
+  },
+  {
+    "id": "desafio-mtb-valle-de-lolol-2026",
+    "name": "Desafio MTB Valle de Lolol",
+    "date": "2026-12-13",
+    "end_date": "2026-12-13",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Lolol",
+    "location": "Lolol, Región O'Higgins",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 800,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Municipalidad de Lolol",
+    "url": "https://guca.cl/att_tickets/public/e/830/desafio-mtb-valle-de-lolol",
+    "registration_url": "https://guca.cl/att_tickets/public/e/830/desafio-mtb-valle-de-lolol",
+    "description": "QUINTA EDICION DESAFIO MTB VALLE DE LOLOL 2026 La Ilustre Municipalidad de Lolol a través de su Oficina de Deportes, invita a participar en la V Edición del Desafío MTB Valle de Lolol 2026, evento deportivo que se desarrollará el día domingo 13 de diciembre de 2026, teniendo como punto de largada y meta la Plaza de Armas de Lolol. La actividad tiene como objetivo promover la práctica del ciclismo de montaña, la actividad física, la vida saludable y la participación deportiva, generando además…",
+    "featured": false,
+    "source": "guca",
+    "lat": -34.72784,
+    "lng": -71.64408,
+    "geo": "geocoded"
   },
   {
     "id": "desafio-el-carbon-2026",
