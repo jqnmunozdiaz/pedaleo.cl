@@ -3797,6 +3797,36 @@
     "geo": "commune"
   },
   {
+    "id": "vuelta-al-biobio-2026",
+    "name": "Vuelta al Biobío 2026",
+    "date": "2026-12-01",
+    "end_date": "2026-12-06",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "VIII",
+    "region_name": "Biobío",
+    "commune": "Concepción",
+    "location": "Concepción, Región Biobío",
+    "distances": [
+      "660 km"
+    ],
+    "distance_min_km": 660.0,
+    "distance_max_km": 660.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "UCI Cycling",
+    "url": "https://www.ridechile.cl/nuevo-calendario/",
+    "registration_url": "https://www.ridechile.cl/nuevo-calendario/",
+    "description": "Vuelta al Biobío 2026: Ruta · 660K en total. Fuente: calendario de Ridechile.cl.",
+    "featured": false,
+    "source": "ridechile",
+    "lat": -36.827,
+    "lng": -73.0503,
+    "geo": "commune"
+  },
+  {
     "id": "travesia-conguillio-2026",
     "name": "Travesía Conguillío",
     "date": "2026-12-04",
@@ -4238,6 +4268,37 @@
     "source": "bicineta",
     "lat": -33.0472,
     "lng": -71.6127,
+    "geo": "commune"
+  },
+  {
+    "id": "copa-cascadas-lagos-y-cordillera-3-2026",
+    "name": "Copa Cascadas Lagos y Cordillera #3",
+    "date": "2026-12-13",
+    "end_date": "2026-12-13",
+    "disciplines": [
+      "MTB",
+      "Gravel"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "San Juan de la Costa",
+    "location": "San Juan de la Costa, Región Los Lagos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
+    "registration_url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
+    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.85,
+    "lng": -72.8333,
     "geo": "commune"
   },
   {
@@ -5146,6 +5207,37 @@
     "url": "https://www.refugiokurileufu.com/proximos-eventos/",
     "registration_url": "https://www.refugiokurileufu.com/proximos-eventos/",
     "description": "Más pronto info",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.85,
+    "lng": -72.8333,
+    "geo": "commune"
+  },
+  {
+    "id": "copa-cascadas-lagos-y-cordillera-4-2027",
+    "name": "Copa Cascadas Lagos y Cordillera #4",
+    "date": "2027-02-28",
+    "end_date": "2027-02-28",
+    "disciplines": [
+      "MTB",
+      "Gravel"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "Las Cascadas",
+    "location": "Las Cascadas, Región Los Lagos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
+    "registration_url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
+    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
