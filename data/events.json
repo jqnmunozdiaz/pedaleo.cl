@@ -3155,7 +3155,8 @@
     "date": "2026-11-22",
     "end_date": "2026-11-22",
     "disciplines": [
-      "Ruta"
+      "Ruta",
+      "MTB"
     ],
     "region": "VI",
     "region_name": "O'Higgins",
@@ -3269,6 +3270,36 @@
     "lat": -34.1708,
     "lng": -70.7444,
     "geo": "region"
+  },
+  {
+    "id": "pre-brevet-noviembre-2026",
+    "name": "Pre brevet Noviembre 2026",
+    "date": "2026-11-22",
+    "end_date": "2026-11-22",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Valdivia",
+    "location": "Valdivia, Región Los Ríos",
+    "distances": [
+      "200 km"
+    ],
+    "distance_min_km": 200.0,
+    "distance_max_km": 200.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://welcu.com/ciclismoenvaldivia/prebrevetnoviembre2026",
+    "registration_url": "https://welcu.com/ciclismoenvaldivia/prebrevetnoviembre2026",
+    "description": "Pre brevet Noviembre 2026. Ciclismo.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -39.8142,
+    "lng": -73.2459,
+    "geo": "commune"
   },
   {
     "id": "raid-nahuelbuta-3-2026",
@@ -4271,37 +4302,6 @@
     "geo": "commune"
   },
   {
-    "id": "copa-cascadas-lagos-y-cordillera-3-2026",
-    "name": "Copa Cascadas Lagos y Cordillera #3",
-    "date": "2026-12-13",
-    "end_date": "2026-12-13",
-    "disciplines": [
-      "MTB",
-      "Gravel"
-    ],
-    "region": "X",
-    "region_name": "Los Lagos",
-    "commune": "San Juan de la Costa",
-    "location": "San Juan de la Costa, Región Los Lagos",
-    "distances": [
-      "Ver bases"
-    ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Bicineta / Organización Local",
-    "url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
-    "registration_url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
-    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
-    "featured": false,
-    "source": "bicineta",
-    "lat": -39.85,
-    "lng": -72.8333,
-    "geo": "commune"
-  },
-  {
     "id": "desafio-mtb-valle-de-lolol-2026",
     "name": "Desafio MTB Valle de Lolol",
     "date": "2026-12-13",
@@ -5214,37 +5214,6 @@
     "geo": "commune"
   },
   {
-    "id": "copa-cascadas-lagos-y-cordillera-4-2027",
-    "name": "Copa Cascadas Lagos y Cordillera #4",
-    "date": "2027-02-28",
-    "end_date": "2027-02-28",
-    "disciplines": [
-      "MTB",
-      "Gravel"
-    ],
-    "region": "X",
-    "region_name": "Los Lagos",
-    "commune": "Las Cascadas",
-    "location": "Las Cascadas, Región Los Lagos",
-    "distances": [
-      "Ver bases"
-    ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Bicineta / Organización Local",
-    "url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
-    "registration_url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
-    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
-    "featured": false,
-    "source": "bicineta",
-    "lat": -39.85,
-    "lng": -72.8333,
-    "geo": "commune"
-  },
-  {
     "id": "fireflies-patagonia-2027",
     "name": "Fireflies Patagonia 2027",
     "date": "2027-03-04",
@@ -5457,6 +5426,38 @@
     "source": "bicineta",
     "lat": -32.723,
     "lng": -71.414,
+    "geo": "commune"
+  },
+  {
+    "id": "l-etape-chile-by-tour-de-france-2027",
+    "name": "L´'Etape Chile by Tour de France",
+    "date": "2027-03-21",
+    "end_date": "2027-03-21",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Pucón",
+    "location": "Pucón, Región La Araucanía",
+    "distances": [
+      "150 km",
+      "73 km",
+      "30 km"
+    ],
+    "distance_min_km": 30.0,
+    "distance_max_km": 150.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "World Centric Group",
+    "url": "https://pucon.letapeseries.com/",
+    "registration_url": "https://pucon.letapeseries.com/",
+    "description": "L´'Etape Chile by Tour de France: Ruta · 150K, 73K y 30K. Fuente: calendario de Ridechile.cl.",
+    "featured": false,
+    "source": "ridechile",
+    "lat": -39.2822,
+    "lng": -71.9744,
     "geo": "commune"
   },
   {
