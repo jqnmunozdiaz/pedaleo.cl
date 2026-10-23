@@ -3028,6 +3028,36 @@
     "geo": "commune"
   },
   {
+    "id": "vuelta-master-o-higgins-2026-2026-11-21",
+    "name": "Vuelta Master O'Higgins",
+    "date": "2026-11-21",
+    "end_date": "2026-11-22",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Marchigüe",
+    "location": "Marchigüe, Región O'Higgins",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 1000,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://tusdesafios.com/events/vuelta-master-o-higgins-2026",
+    "registration_url": "http://guca.cl/att_tickets/public/e/821/vuelta-master-ohiggins-2026",
+    "description": "Descubre la primera Vuelta Master de la Región El Club de Ciclismo Coltauco invita a todos los amantes del ciclismo a vivir una experiencia única con la primera Vuelta Master de la Región. Esta exigente competencia se llevará a cabo en dos etapas emocionantes, con un sistema de clasificación por puntos que pondrá a prueba la resistencia y estrategia de cada corredor. Detalles del evento La presentación oficial será el 21 de noviembre en el Sector Yerba Buena de Marchigüe, un lugar perfecto pa...",
+    "featured": false,
+    "source": "tusdesafios",
+    "lat": -34.36687,
+    "lng": -71.64215,
+    "geo": "geocoded"
+  },
+  {
     "id": "xcm-olmue-3-2026",
     "name": "XCM Olmué #3",
     "date": "2026-11-21",
@@ -4462,10 +4492,10 @@
     "disciplines": [
       "MTB"
     ],
-    "region": null,
-    "region_name": null,
+    "region": "V",
+    "region_name": "Valparaíso",
     "commune": "Patagual",
-    "location": "Patagual",
+    "location": "Patagual, Región Valparaíso",
     "distances": [
       "Ver bases"
     ],
@@ -4480,7 +4510,9 @@
     "description": "Nos complace anunciar la Segunda edición del Desafío MTB -XCM Patagual - Quetra 2026 una emocionante actividad organizada y patrocinada por el Comité de Adelanto de Patagual Sur. Este gran desafío está dirigido a todos los bikers que se atrevan a enfrentar esta ruta única, que recorrerá aproximadamente 35 km de caminos, ripiados y senderos, en un recorrido altimetría de 1.300 acumulados aproximadamente. Durante la travesía, podrán disfrutar de paisajes y una conexión con la naturaleza, Además,…",
     "featured": false,
     "source": "guca",
-    "location_unverified": true
+    "lat": -33.0472,
+    "lng": -71.6127,
+    "geo": "commune"
   },
   {
     "id": "bikepacking-odisea-caleta-condor-2027",

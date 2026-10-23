@@ -1,31 +1,35 @@
 {
  "http://delfuegorace.com/inscripciones": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "http://eventos.portalanfibio.cl/evento/390": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "http://granfondofindelmundo.cl/producto/gravel-tour-araucania/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "http://granfondofindelmundo.cl/producto/ruta-tour-maule/": {
   "verdict": "ok",
   "checked": "2026-10-18"
  },
+ "http://guca.cl/att_tickets/public/e/821/vuelta-master-ohiggins-2026": {
+  "verdict": "ok",
+  "checked": "2026-10-23"
+ },
  "http://www.firefliespatagonia.com": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "http://www.granfondovalledeelqui.cl/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "http://www.valdiviamtbchallenge.cl/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://acrossandes.cc/inscripciones": {
   "verdict": "dead",
@@ -33,51 +37,51 @@
  },
  "https://antiatajo.ripio.cc/v/manihuales-primavera-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://atacamaspirits.com/ultramaraton/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://biciadostienda.sumupstore.com/product/andacollo-ultra-gravel-general": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://bikerace.cl/evento?id=2916": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://bikerace.cl/evento?id=3312": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://bikerace.cl/evento?id=3510": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://clob.app/e/Tulahuen-Fest-2026-3c131caf": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://deache-series.cl/america-series-la-parva-2026/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://deamiles.cl": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://deamiles.cl/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://desafiochilebylavuelta.cl/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://desafiomaule.cl/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://enduroseries.cl/4-lo-barnechea/": {
   "verdict": "ok",
@@ -85,15 +89,15 @@
  },
  "https://fad.cl/xco-olmue/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://fdnciclismochile.cl": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://fdnciclismochile.cl/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://fdnciclismochile.cl/eventos": {
   "fails": 1,
@@ -102,19 +106,19 @@
  },
  "https://granfondofindelmundo.cl/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/756/gfp-2027": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/766/1er-desafio-copa-xco-k2-2026-final": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/787/desafio-columpio-de-los-deseos-2026": {
   "verdict": "ok",
@@ -122,19 +126,19 @@
  },
  "https://guca.cl/att_tickets/public/e/795/100-desafio-xcm-los-maitenes-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/799/push-bike-cup-empedrado-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/801/3er-desafio-xcm-cholchol-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/803/iii-ruta-de-los-indios": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/810/amt-xco-series-2026-temuco": {
   "verdict": "ok",
@@ -150,11 +154,11 @@
  },
  "https://guca.cl/att_tickets/public/e/818/copa-chile-xco-santiago-2026-2": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/820/v-version-desafio-pumanque-tierra-de-condores-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/821/vuelta-master-ohiggins-2026": {
   "verdict": "ok",
@@ -162,79 +166,79 @@
  },
  "https://guca.cl/att_tickets/public/e/822/desafio-el-vuelo-del-pato-2027": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/824/carrera-ciclismo-ruta-villa-alegre": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/825/xco-yungay-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/827/copa-chile-xco-cmpc-angol-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/828/segunda-edicion-mtb-xcm-desafio-valle-de-patagual-quetra-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/829/copa-rengo-final-cro-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://guca.cl/att_tickets/public/e/830/desafio-mtb-valle-de-lolol": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://huilohuilooutdoorexperience.cl/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://kurileufu.sumupstore.com/producto/inscripcion-everesting-south-of-the-world-2027": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://outdoorsweek.cl/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://patagoniagravel.com/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://pucon.letapeseries.com/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://ticketplus.cl": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://tickets.grandprixlagoranco.cl/actividades/160164": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://ticketsport.cl": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://timingfp.com/?c=PublicoEventos&m=ver&id=61": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://timingfp.com/?c=PublicoEventos&m=ver&id=63": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://transandeschallenge.com/inscripcion": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://tusdesafios.com/events/titan-forest-patagonia-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://vueltachiloe.cl": {
   "verdict": "dead",
@@ -242,55 +246,55 @@
  },
  "https://welcu.com/acrossandes/acrossandes2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/aventura-aconcagua/desafio-termas-del-flaco-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/chile-finisher/girodellago2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/ciclismoenvaldivia/brevet-200-los-puentes-de-valdivia": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/ciclismoenvaldivia/prebrevetnoviembre2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/conquista-chile/ascenso_volcan_osorno_2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/conquista-chile/cvo_2027": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/cycling-school/1ra-travesia-ascencion-a-las-7-tazas": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/deacheseries/dhs_america_series_chile_2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/deacheseries/dhs_puchuncavi_2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/demaria/-1k67": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/demaria/desafiosubaru": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/enduro-life/enduro-de-la-ctm-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/fullbikesports/conoce-el-nuevo-fullbike": {
   "verdict": "ok",
@@ -298,15 +302,15 @@
  },
  "https://welcu.com/malku-amauta-producciones/atacamachallnger2027": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/malku-amauta-producciones/el-tp-buscando-el-tesoro-de-los-pincheira": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/mangosta/ow26": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/mauna-apparel/social-ride-stgo-x-mauna-apparel": {
   "verdict": "ok",
@@ -314,7 +318,7 @@
  },
  "https://welcu.com/mtbelnoviciado/colliguay-gravel-quest-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://welcu.com/municipalidad-de-chiguayante-2025/-1ogl": {
   "verdict": "ok",
@@ -322,19 +326,19 @@
  },
  "https://wigoo.cl/?id=20260819131043": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://wigoo.cl/?id=20260902100850": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://wigoo.cl/?id=20261005100343": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.bicineta.cl/eventos": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.bikerace.cl/evento?id=2949": {
   "verdict": "ok",
@@ -342,75 +346,75 @@
  },
  "https://www.bikerace.cl/evento?id=3081": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.bikerace.cl/evento?id=3180": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.brevet.cl": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.brevetsur.com/proximos-eventos/desafio-4-lagos-600-km-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.desafiosubaru.cl/inscripciones.html": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.eventrid.cl/eventos/sherpaproducciones/tourdesafioantofagasta?srsltid=AU7gw4WWC_rGDLPC68XUHURr9HlQCTUJgh0BCU0Ka-Y2AWZMMS8FZeLV": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.eventrid.cl/eventos/worldcentricgroup/l-etape-chile-by-tour-de-france-2026": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.finalfrontierpatagonia.com/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.firefliespatagonia.com/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.forestgravelraceseries.com/event-details/serie-01-coast": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.forestgravelraceseries.com/event-details/serie-02-river": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.forestgravelraceseries.com/event-details/serie-03-wild": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.guca.cl/event_detail.php?id=1258": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.hellopucon.cl/producto/desafio-curarrehue-2026/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/atacamaspiritsgravel/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/campeonatopueblosdelmaule/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/campeonatoxcozonasur/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/ciclismolosparientes/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/copachilexcm/": {
   "verdict": "unknown",
@@ -418,71 +422,71 @@
  },
  "https://www.instagram.com/delfuegorace/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/fast_line2026/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/fireflies_patagonia/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/leyendasgravel/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/liga_ratonneur": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/losriosdhcup/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/p/DWRbK8mEWEa/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/p/Da57J1AFq3n/?img_index=1": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/p/DbbmX2cpzs2/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/p/DbdiMsNx5x7/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/p/Dc44LvvoWAL/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/p/Dc6GaQVxSUI/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/p/DcHduGDOiWd/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/p/DcZDVx9KtqY/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/p/DcbMZfalm6W/?img_index=1": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/p/DdWbgLYx2ks/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/pedalsur/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/productora_patagonia_indomita/": {
   "verdict": "unknown",
@@ -490,23 +494,23 @@
  },
  "https://www.instagram.com/raidmtbnahuelbuta/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/ramal_contulmo_race": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/rcchdownhill/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/rutalosvallesfutaleufu/?hl=es": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/team.mapu.pudahuel/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.instagram.com/ultra_gravel_nuble/": {
   "verdict": "unknown",
@@ -514,46 +518,46 @@
  },
  "https://www.instagram.com/vueltafemeninaoficialmolina/": {
   "verdict": "unknown",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras": {
   "verdict": "dead",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.redbull.com": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.refugiokurileufu.com/proximos-eventos/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.refugiokurileufu.com/proximos-eventos/dnc-series-invierno/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.refugiokurileufu.com/proximos-eventos/odisea-caleta-condor/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.ridechile.cl/nuevo-calendario/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.ripio.cc/brevet-patagonia-28-nov": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.timingfp.com/?c=PublicoEventos&m=ver&id=61": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.tocketicket.cl/events/6aa4b3cca61b9484409c8579": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  },
  "https://www.ucigranfondochile.com/": {
   "verdict": "ok",
-  "checked": "2026-10-22"
+  "checked": "2026-10-23"
  }
 }
