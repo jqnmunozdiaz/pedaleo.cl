@@ -2844,6 +2844,36 @@
     "geo": "geocoded"
   },
   {
+    "id": "vuelta-master-o-higgins-2026-2026-11-16",
+    "name": "Vuelta Master O'Higgins 2026",
+    "date": "2026-11-16",
+    "end_date": "2026-11-22",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Marchigüe",
+    "location": "Marchigüe, Región O'Higgins",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Club Ciclismo Coltauco",
+    "url": "https://guca.cl/att_tickets/public/e/821/vuelta-master-ohiggins-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/821/vuelta-master-ohiggins-2026",
+    "description": "BASES COMPETENCIA PRESENTACIÓN DEL EVENTO El Club de Ciclismo Coltauco, tiene el agrado de invitarlos a participar en la primera Vuelta Master de la Región que contemplara dos etapas, con una clasificación por puntos, la presentación de la Vuelta se Realizara el día 21 de Noviembre en el Sector Yerba Buena de Marchigue. ORGANIZACIÓN Organiza: Club Ciclismo Coltauco Control Técnico: Jueces Federación Ciclista de Chile. Patrocina: Municipalidades y Localidades de la competencia. Colaboran:…",
+    "featured": false,
+    "source": "guca",
+    "lat": -34.36687,
+    "lng": -71.64215,
+    "geo": "geocoded"
+  },
+  {
     "id": "campeonato-panamericano-bmx-uci-c1-2026",
     "name": "Campeonato Panamericano BMX UCI C1",
     "date": "2026-11-17",
