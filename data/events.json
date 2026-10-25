@@ -1639,6 +1639,36 @@
     "geo": "commune"
   },
   {
+    "id": "cicletada-familiar-de-disfraces-municipalidad-de-chiguayante-2026",
+    "name": "Cicletada Familiar de Disfraces Municipalidad de Chiguayante 2026",
+    "date": "2026-10-30",
+    "end_date": "2026-10-30",
+    "disciplines": [
+      "Cicloturismo"
+    ],
+    "region": "VIII",
+    "region_name": "Biobío",
+    "commune": "Chiguayante",
+    "location": "Chiguayante, Región Biobío",
+    "distances": [
+      "2.5 km"
+    ],
+    "distance_min_km": 2.5,
+    "distance_max_km": 2.5,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://welcu.com/municipalidad-de-chiguayante-2025/cicletada-familiar-de-disfraces-municipalidad-de-chiguayante-2026",
+    "registration_url": "https://welcu.com/municipalidad-de-chiguayante-2025/cicletada-familiar-de-disfraces-municipalidad-de-chiguayante-2026",
+    "description": "Cicletada Familiar de Disfraces Municipalidad de Chiguayante 2026. Ciclismo.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -36.9167,
+    "lng": -73.0167,
+    "geo": "commune"
+  },
+  {
     "id": "copa-chile-downhill-centro-3-2026",
     "name": "Copa Chile Downhill Centro #3",
     "date": "2026-10-30",
