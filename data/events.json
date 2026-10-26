@@ -2069,6 +2069,36 @@
     "geo": "commune"
   },
   {
+    "id": "cicletada-teleton-2026",
+    "name": "Cicletada Teletón",
+    "date": "2026-11-07",
+    "end_date": "2026-11-07",
+    "disciplines": [
+      "Cicloturismo"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Plaza Baquedano",
+    "location": "Plaza Baquedano, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/cicletadaoficialteleton/",
+    "registration_url": "https://www.instagram.com/cicletadaoficialteleton/",
+    "description": "Cicletada Teletón regresa con toda la energía al lugar que la vio nacer, regresamos a plaza baquedanos, sábado 7 de noviembre desde las 9:30 hrs. Los esperamos!!!",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -33.43669,
+    "lng": -70.63412,
+    "geo": "geocoded"
+  },
+  {
     "id": "copa-chile-xco-cmpc-angol-2026",
     "name": "Copa Chile XCO, CMPC ANGOL 2026",
     "date": "2026-11-07",
