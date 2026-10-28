@@ -2069,6 +2069,37 @@
     "geo": "commune"
   },
   {
+    "id": "brevet-200-vuelta-chacabuco-2026",
+    "name": "Brevet 200 Vuelta Chacabuco",
+    "date": "2026-11-07",
+    "end_date": "2026-11-07",
+    "disciplines": [
+      "Ultra/Bikepacking",
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Santiago",
+    "location": "Santiago, Región Metropolitana",
+    "distances": [
+      "200 km"
+    ],
+    "distance_min_km": 200.0,
+    "distance_max_km": 200.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Brevet Chile",
+    "url": "https://www.brevet.cl/eventos/brevet-200km-vuelta-chacabuco",
+    "registration_url": "https://www.brevet.cl/eventos/brevet-200km-vuelta-chacabuco",
+    "description": "Una ruta de 200 km ideal para quienes buscan un desafío de fondo y quieren poner a prueba su resistencia sobre la bicicleta. El recorrido nos lleva hacia la Cuesta Chacabuco, donde enfrentaremos sus pendientes y disfrutaremos de los paisajes del valle, para luego emprender el regreso por Pie Andino. Una salida que combina exigencia física, desnivel y kilómetros de carretera, perfecta para seguir sumando experiencia y superar nuevos desafíos sobre dos ruedas.",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -33.4489,
+    "lng": -70.6693,
+    "geo": "commune"
+  },
+  {
     "id": "cicletada-teleton-2026",
     "name": "Cicletada Teletón",
     "date": "2026-11-07",
