@@ -2499,6 +2499,34 @@
     "geo": "commune"
   },
   {
+    "id": "cicletada-familiar-esc-basica-pataguas-cerro-2026",
+    "name": "Cicletada Familiar Esc. Básica Pataguas cerro",
+    "date": "2026-11-11",
+    "end_date": "2026-11-11",
+    "disciplines": [
+      "Cicloturismo"
+    ],
+    "region": null,
+    "region_name": null,
+    "commune": "Pichidegua",
+    "location": "Pichidegua",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://welcu.com/escuela-basica-pataguas-cerro/cicletada-familiar2026",
+    "registration_url": "https://welcu.com/escuela-basica-pataguas-cerro/cicletada-familiar2026",
+    "description": "Cicletada Familiar Esc. Básica Pataguas cerro. Ciclismo.",
+    "featured": false,
+    "source": "ciclismochile",
+    "location_unverified": true
+  },
+  {
     "id": "curico-tour-2026",
     "name": "Curicó Tour 2026",
     "date": "2026-11-13",
@@ -5142,7 +5170,7 @@
     ],
     "distance_min_km": null,
     "distance_max_km": null,
-    "elevation_gain_m": 0,
+    "elevation_gain_m": 1500,
     "price_type": "paid",
     "status": "open",
     "organizer": "Ramal Contulmo Race",
