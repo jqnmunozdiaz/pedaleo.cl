@@ -4511,6 +4511,34 @@
     "geo": "geocoded"
   },
   {
+    "id": "desafio-cerro-grande-2026",
+    "name": "Desafío Cerro Grande 2026",
+    "date": "2026-12-13",
+    "end_date": "2026-12-13",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": null,
+    "region_name": null,
+    "commune": "Pencahue",
+    "location": "Pencahue",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Club Thunderbike",
+    "url": "https://guca.cl/att_tickets/public/e/838/desafio-cerro-grande-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/838/desafio-cerro-grande-2026",
+    "description": "DESAFÍO CERRO GRANDE CROSSCOUNTRY MARATÓN 2026 El Club de Ciclismo de Montaña Thunder Bike, fundado el 16 de junio de 1998 en la ciudad de Talca, tiene el agrado de invitar a toda la comunidad ciclista a participar en el Desafío Cerro Grande XCM 2026, que se llevará a cabo el domingo 13 de diciembre de 2026 en la comuna de Pencahue, provincia de Talca, Región del Maule. Acontinuación, se presentan las bases oficiales que regirán el desarrollo de esta competencia. 1.ANTECEDENTES GENERALES…",
+    "featured": false,
+    "source": "guca",
+    "location_unverified": true
+  },
+  {
     "id": "desafio-el-carbon-2026",
     "name": "Desafío El Carbón MTB 2026",
     "date": "2026-12-13",
@@ -5640,6 +5668,36 @@
     "lat": -39.2822,
     "lng": -71.9744,
     "geo": "commune"
+  },
+  {
+    "id": "carrera-xco-multihogar-2026-2027",
+    "name": "Carrera XCO Multihogar 2026",
+    "date": "2027-03-28",
+    "end_date": "2027-03-28",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Parque cerro Carlos Condell",
+    "location": "Parque cerro Carlos Condell, Región Maule",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://timingfp.com/?c=PublicoEventos&m=ver&id=63",
+    "registration_url": "https://timingfp.com/?c=PublicoEventos&m=ver&id=63",
+    "description": "Carrera XCO Multihogar 2026. MTB.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -34.98006,
+    "lng": -71.22955,
+    "geo": "geocoded"
   },
   {
     "id": "del-fuego-gravel-race-2027",
