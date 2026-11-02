@@ -2777,6 +2777,40 @@
     "geo": "geocoded"
   },
   {
+    "id": "campeonato-xco-infantil-2026-2026-11-15",
+    "name": "Campeonato XCO Infantil",
+    "date": "2026-11-15",
+    "end_date": "2026-11-15",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Colbún",
+    "location": "Colbún, Región Maule",
+    "distances": [
+      "7.5 km",
+      "5.7 km",
+      "4.8 km",
+      "3.2 km",
+      "1.2 km"
+    ],
+    "distance_min_km": 1.2,
+    "distance_max_km": 7.5,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Halcones Kids MTB Colbún",
+    "url": "https://www.ridechile.cl/nuevo-calendario/",
+    "registration_url": "https://www.ridechile.cl/nuevo-calendario/",
+    "description": "Campeonato XCO Infantil: MTB · 7.5K, 5.7K, 4.8K, 3.2K, 1.2K y 400m. Fuente: calendario de Ridechile.cl.",
+    "featured": false,
+    "source": "ridechile",
+    "lat": -35.698,
+    "lng": -71.411,
+    "geo": "commune"
+  },
+  {
     "id": "copa-los-parientes-2026",
     "name": "Copa Los Parientes",
     "date": "2026-11-15",
