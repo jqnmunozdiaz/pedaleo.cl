@@ -200,10 +200,10 @@ class MergeCoverageTests(unittest.TestCase):
         self.assertEqual((added, len(merged)), (1, 2))
 
     def test_same_id_reschedule_updates_the_date(self):
-        existing = [make_event(id="a", source="guca", date="2026-11-21", end_date="2026-11-21")]
-        scraped = [make_event(id="a", source="guca", date="2026-11-28", end_date="2026-11-28")]
+        existing = [make_event(id="a", source="guca", date="2099-11-21", end_date="2099-11-21")]
+        scraped = [make_event(id="a", source="guca", date="2099-11-28", end_date="2099-11-28")]
         merged, added, _ = merge_events(existing, scraped)
-        self.assertEqual((added, merged[0]["date"]), (0, "2026-11-28"))
+        self.assertEqual((added, merged[0]["date"]), (0, "2099-11-28"))
 
     def test_single_distinctive_word_matches_only_in_the_same_place(self):
         a = make_event(id="a", name="La Minga", commune="Puerto Varas", region="X", source="bicineta")

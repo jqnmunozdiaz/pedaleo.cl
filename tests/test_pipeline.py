@@ -23,10 +23,10 @@ from validate_events import validate_event  # noqa: E402
 
 def make_event(**overrides):
     ev = {
-        "id": "carrera-demo-2026",
+        "id": "carrera-demo-2099",
         "name": "Carrera Demo",
-        "date": "2026-11-01",
-        "end_date": "2026-11-01",
+        "date": "2099-11-01",
+        "end_date": "2099-11-01",
         "disciplines": ["MTB"],
         "region": "RM",
         "region_name": "Metropolitana",
@@ -197,16 +197,16 @@ class MergeTests(unittest.TestCase):
 
     def test_same_source_reschedule_updates_date(self):
         existing = [make_event(source="guca")]
-        scraped = [make_event(source="guca", date="2026-11-15", end_date="2026-11-15")]
+        scraped = [make_event(source="guca", date="2099-11-15", end_date="2099-11-15")]
         merged, added, updated = merge_events(existing, scraped)
         self.assertEqual((added, updated), (0, 2))
-        self.assertEqual(merged[0]["date"], "2026-11-15")
+        self.assertEqual(merged[0]["date"], "2099-11-15")
 
     def test_other_source_does_not_override_curated_date(self):
         existing = [make_event(source="organizer")]
-        scraped = [make_event(source="guca", date="2026-11-15")]
+        scraped = [make_event(source="guca", date="2099-11-15")]
         merged, _, _ = merge_events(existing, scraped)
-        self.assertEqual(merged[0]["date"], "2026-11-01")
+        self.assertEqual(merged[0]["date"], "2099-11-01")
 
 
 class ValidatorTests(unittest.TestCase):

@@ -318,7 +318,7 @@ def dedupe_existing(events: list) -> tuple:
     return kept, removed
 
 
-def merge_events(existing_events, new_scraped_events, seen=None):
+def merge_events(existing_events, new_scraped_events, seen=None, today=None):
     """
     Merges scraped events into existing events without overwriting manual edits.
     Events from the same source get their dates refreshed (races get rescheduled).
@@ -331,7 +331,8 @@ def merge_events(existing_events, new_scraped_events, seen=None):
 
     added_count = 0
     updated_count = 0
-    today = date.today().isoformat()
+    if today is None:
+        today = date.today().isoformat()
 
     for new_ev in new_scraped_events:
         match = find_match(new_ev, existing_events, existing_map)
