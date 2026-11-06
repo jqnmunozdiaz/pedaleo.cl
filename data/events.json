@@ -5012,10 +5012,10 @@
     "commune": "Región del Maule",
     "location": "Región del Maule, Región Maule",
     "distances": [
-      "Ver bases"
+      "460 km"
     ],
-    "distance_min_km": null,
-    "distance_max_km": null,
+    "distance_min_km": 460.0,
+    "distance_max_km": 460.0,
     "elevation_gain_m": 0,
     "price_type": "paid",
     "status": "open",
