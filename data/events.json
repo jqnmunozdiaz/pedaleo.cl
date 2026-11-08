@@ -3731,6 +3731,36 @@
     "geo": "commune"
   },
   {
+    "id": "copa-chile-xco-canete-2026",
+    "name": "COPA CHILE XCO CAÑETE 2026",
+    "date": "2026-11-28",
+    "end_date": "2026-11-29",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VIII",
+    "region_name": "Biobío",
+    "commune": "Cañete",
+    "location": "Cañete, Región Biobío",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Ciclismo Ruta Montaña Cañete",
+    "url": "https://guca.cl/att_tickets/public/e/840/copa-chile-xco-canete-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/840/copa-chile-xco-canete-2026",
+    "description": "La Federación Nacional de Ciclismo de Chile y el Club de Ciclismo Ruta Montaña Cañete, tiene el agrado de invitar a participar a todos los deportistas federados y no federados a Copa Chile XCO Cañete 2026 con el patrocinio de la “Ilustre Municipalidad de Cañete” y CMPC, este evento se realizará el 28 y 29 de Noviembre del presente año, en el sector fundo Santa Clarisa, Ruta P 560 km 5, de la comuna de Cañete. Cañete, es una comuna ubicada en el corazón de la Provincia de Arauco, Región del Bio…",
+    "featured": false,
+    "source": "guca",
+    "lat": -37.8,
+    "lng": -73.4,
+    "geo": "commune"
+  },
+  {
     "id": "copa-chile-mtb-xco-santiago-2026",
     "name": "Copa Chile MTB XCO 2026 - Fecha Parque Metropolitano",
     "date": "2026-11-28",
