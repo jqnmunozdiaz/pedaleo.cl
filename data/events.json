@@ -2714,6 +2714,36 @@
     "geo": "geocoded"
   },
   {
+    "id": "her-peace-2026",
+    "name": "HER PEACE",
+    "date": "2026-11-14",
+    "end_date": "2026-11-14",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Vitacura",
+    "location": "Vitacura, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://welcu.com/viviana-saez/her-peace",
+    "registration_url": "https://welcu.com/viviana-saez/her-peace",
+    "description": "HER PEACE. Ciclismo.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -33.38711,
+    "lng": -70.57645,
+    "geo": "geocoded"
+  },
+  {
     "id": "pucon-deamiles-2026",
     "name": "Pucón Deamiles",
     "date": "2026-11-14",
@@ -3979,6 +4009,36 @@
     "geo": "commune"
   },
   {
+    "id": "desafio-trek-subaru-2026-2026-11-29",
+    "name": "Desafío Trek Subarú 2026",
+    "date": "2026-11-29",
+    "end_date": "2026-11-29",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Mall Sport",
+    "location": "Mall Sport, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.desafiosubaru.cl/",
+    "registration_url": "https://www.desafiosubaru.cl/",
+    "description": "Es la carrera de mayor tradición y convocatoria de Chile. 4 Metas : 16 K Parador del ciclista 25 K Mirador 1800 33 K Farellones 45 K Valle Nevado",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -33.37058,
+    "lng": -70.50666,
+    "geo": "geocoded"
+  },
+  {
     "id": "desafio-vigia-bbc-2026",
     "name": "Desafío Vigía BBC",
     "date": "2026-11-29",
@@ -4572,6 +4632,37 @@
     "source": "bicineta",
     "lat": -33.0472,
     "lng": -71.6127,
+    "geo": "commune"
+  },
+  {
+    "id": "copa-cascadas-lagos-y-cordillera-3-2026",
+    "name": "Copa Cascadas Lagos y Cordillera #3",
+    "date": "2026-12-13",
+    "end_date": "2026-12-13",
+    "disciplines": [
+      "MTB",
+      "Gravel"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "San Juan de la Costa",
+    "location": "San Juan de la Costa, Región Los Lagos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
+    "registration_url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
+    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.85,
+    "lng": -72.8333,
     "geo": "commune"
   },
   {
@@ -5510,6 +5601,37 @@
     "url": "https://www.refugiokurileufu.com/proximos-eventos/",
     "registration_url": "https://www.refugiokurileufu.com/proximos-eventos/",
     "description": "Más pronto info",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.85,
+    "lng": -72.8333,
+    "geo": "commune"
+  },
+  {
+    "id": "copa-cascadas-lagos-y-cordillera-4-2027",
+    "name": "Copa Cascadas Lagos y Cordillera #4",
+    "date": "2027-02-28",
+    "end_date": "2027-02-28",
+    "disciplines": [
+      "MTB",
+      "Gravel"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "Las Cascadas",
+    "location": "Las Cascadas, Región Los Lagos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
+    "registration_url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
+    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
