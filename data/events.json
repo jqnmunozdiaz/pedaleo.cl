@@ -2933,6 +2933,36 @@
     "geo": "geocoded"
   },
   {
+    "id": "desafio-mtb-descabezado-xcm-curanilahue-2026",
+    "name": "Desafío MTB Descabezado XCM Curanilahue",
+    "date": "2026-11-15",
+    "end_date": "2026-11-15",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VIII",
+    "region_name": "Biobío",
+    "commune": "Curanilahue",
+    "location": "Curanilahue, Región Biobío",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://wigoo.cl/?id=20261023135135",
+    "registration_url": "https://wigoo.cl/?id=20261023135135",
+    "description": "Invitamos a todas y todos los amantes del ciclismo de montaña a participar del Desafío MTB DESCABEZADO XCM, evento que se desarrollará en la comuna de Curanilahue, región del Bio Bio, modalidad XCM (Cross Country Maraton).",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -37.4789,
+    "lng": -73.3444,
+    "geo": "commune"
+  },
+  {
     "id": "downhill-race-fundo-huemul-2026",
     "name": "Downhill Race Fundo Huemul",
     "date": "2026-11-15",
@@ -3851,6 +3881,36 @@
     "geo": "region"
   },
   {
+    "id": "gran-fondo-partner-bike-2026",
+    "name": "Gran Fondo Partner Bike",
+    "date": "2026-11-28",
+    "end_date": "2026-11-28",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Plaza de Armas",
+    "location": "Plaza de Armas, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://granfondopartnerbike.neocities.org/",
+    "registration_url": "https://granfondopartnerbike.neocities.org/",
+    "description": "Y llegó el día, los invitamos a participar en nuestro primer gran fondo partner bike 2026. En el link encontrarán toda la información ℹ️. Desafío tus límites 🚲",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -33.43742,
+    "lng": -70.65128,
+    "geo": "geocoded"
+  },
+  {
     "id": "3er-desafio-xcm-cholchol-2026",
     "name": "3ER DESAFIO XCM CHOLCHOL 2026",
     "date": "2026-11-29",
@@ -4632,37 +4692,6 @@
     "source": "bicineta",
     "lat": -33.0472,
     "lng": -71.6127,
-    "geo": "commune"
-  },
-  {
-    "id": "copa-cascadas-lagos-y-cordillera-3-2026",
-    "name": "Copa Cascadas Lagos y Cordillera #3",
-    "date": "2026-12-13",
-    "end_date": "2026-12-13",
-    "disciplines": [
-      "MTB",
-      "Gravel"
-    ],
-    "region": "X",
-    "region_name": "Los Lagos",
-    "commune": "San Juan de la Costa",
-    "location": "San Juan de la Costa, Región Los Lagos",
-    "distances": [
-      "Ver bases"
-    ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Bicineta / Organización Local",
-    "url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
-    "registration_url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
-    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
-    "featured": false,
-    "source": "bicineta",
-    "lat": -39.85,
-    "lng": -72.8333,
     "geo": "commune"
   },
   {
@@ -5458,6 +5487,38 @@
     "geo": "commune"
   },
   {
+    "id": "medio-maraton-montana-activa-2027",
+    "name": "Medio Maraton Montaña Activa 2027",
+    "date": "2027-02-14",
+    "end_date": "2027-02-14",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Teno",
+    "location": "Teno, Región Maule",
+    "distances": [
+      "21 km",
+      "10 km",
+      "5 km"
+    ],
+    "distance_min_km": 5.0,
+    "distance_max_km": 21.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Montaña Activa",
+    "url": "https://guca.cl/att_tickets/public/e/843/medio-maraton-montana-activa-2027",
+    "registration_url": "https://guca.cl/att_tickets/public/e/843/medio-maraton-montana-activa-2027",
+    "description": "La Carrera de Running de Montaña Activa 2027 celebra su sexta versión con el formato de Media Maratón, consolidándose como uno de los eventos más desafiantes del calendario nacional. La competencia se desarrolla en Camino La Montaña, comuna de Teno, Región del Maule, Chile, recorriendo la Ruta J-25 en el cajón del Rio Teno. El recinto oficial del evento funciona como punto de encuentro central, donde se realizará la charla técnica, la entrega de kits y la largada de todas las distancias. Cada…",
+    "featured": false,
+    "source": "guca",
+    "lat": -34.8668,
+    "lng": -71.16122,
+    "geo": "geocoded"
+  },
+  {
     "id": "red-bull-valparaiso-cerro-abajo-2027",
     "name": "Red Bull Valparaíso Cerro Abajo 2027",
     "date": "2027-02-14",
@@ -5601,37 +5662,6 @@
     "url": "https://www.refugiokurileufu.com/proximos-eventos/",
     "registration_url": "https://www.refugiokurileufu.com/proximos-eventos/",
     "description": "Más pronto info",
-    "featured": false,
-    "source": "bicineta",
-    "lat": -39.85,
-    "lng": -72.8333,
-    "geo": "commune"
-  },
-  {
-    "id": "copa-cascadas-lagos-y-cordillera-4-2027",
-    "name": "Copa Cascadas Lagos y Cordillera #4",
-    "date": "2027-02-28",
-    "end_date": "2027-02-28",
-    "disciplines": [
-      "MTB",
-      "Gravel"
-    ],
-    "region": "X",
-    "region_name": "Los Lagos",
-    "commune": "Las Cascadas",
-    "location": "Las Cascadas, Región Los Lagos",
-    "distances": [
-      "Ver bases"
-    ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Bicineta / Organización Local",
-    "url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
-    "registration_url": "https://www.praxisport.cl/producto/campeonato-copa-cascadas-lagosycordilleras",
-    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
     "featured": false,
     "source": "bicineta",
     "lat": -39.85,
