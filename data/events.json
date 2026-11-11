@@ -4411,6 +4411,36 @@
     "geo": "geocoded"
   },
   {
+    "id": "campeonato-nacional-xcm-angol-2026",
+    "name": "Campeonato Nacional XCM Angol 2026",
+    "date": "2026-12-06",
+    "end_date": "2026-12-06",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Angol",
+    "location": "Angol, Región La Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Mountainbike Angol",
+    "url": "https://guca.cl/att_tickets/public/e/842/campeonato-nacional-xcm-angol-2026",
+    "registration_url": "https://guca.cl/att_tickets/public/e/842/campeonato-nacional-xcm-angol-2026",
+    "description": "La FEDERACION DEPORTIVA NACIONAL DE CICLISMO DE CHILE Y CLUB DEPORTIVO SOCIAL Y CULTURAL MOUNTAINBIKE ANGOL, tienen el agrado de invitar a participar a todos los deportistas federados al Campeonato Nacional de Cross Country Maratón XCM Angol 2026, a realizarse en la Ciudad de Angol, Región de La Araucanía, específicamente en Parque CMPC Junquillar. Este magno evento cuanta con el patrocinio de Empresas CMPC, la Ilustre Municipalidad de Angol y el Instituto Nacional del Deporte IND. El…",
+    "featured": false,
+    "source": "guca",
+    "lat": -37.7989,
+    "lng": -72.7139,
+    "geo": "commune"
+  },
+  {
     "id": "clasica-desafio-ascension-coquimbo-andacollo-2026",
     "name": "Clásica Desafío Ascensión Coquimbo Andacollo",
     "date": "2026-12-06",
