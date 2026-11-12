@@ -2622,6 +2622,36 @@
     "geo": "commune"
   },
   {
+    "id": "dnc-series-primavera-2026-2026-11-14",
+    "name": "DNC Series Primavera",
+    "date": "2026-11-14",
+    "end_date": "2026-11-14",
+    "disciplines": [
+      "Cicloturismo"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "Refugio Kurileufu",
+    "location": "Refugio Kurileufu, Región Los Lagos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Refugio Kurileufu",
+    "url": "https://www.refugiokurileufu.com/proximos-eventos/dnc-series-primavera/",
+    "registration_url": "https://www.refugiokurileufu.com/proximos-eventos/dnc-series-primavera/",
+    "description": "Un DNC (Desafío No Competitivo) es una experiencia para quienes disfrutan del ciclismo y el Trail Running, la aventura y la naturaleza, sin la presión de una competencia tradicional.",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.85,
+    "lng": -72.8333,
+    "geo": "commune"
+  },
+  {
     "id": "enduro-de-la-ctm-2026",
     "name": "Enduro de la CTM",
     "date": "2026-11-14",
@@ -2702,7 +2732,7 @@
     "distance_max_km": null,
     "elevation_gain_m": 0,
     "price_type": "paid",
-    "status": "open",
+    "status": "cancelled",
     "organizer": "Forest Gravel Race Series",
     "url": "https://www.forestgravelraceseries.com/event-details/serie-01-coast",
     "registration_url": "https://www.forestgravelraceseries.com/event-details/serie-01-coast",
@@ -3791,6 +3821,37 @@
     "geo": "commune"
   },
   {
+    "id": "brevet-300-vuelta-villa-alemana-2026",
+    "name": "Brevet 300 Vuelta Villa Alemana",
+    "date": "2026-11-28",
+    "end_date": "2026-11-28",
+    "disciplines": [
+      "Ultra/Bikepacking",
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Santiago",
+    "location": "Santiago, Región Metropolitana",
+    "distances": [
+      "300 km"
+    ],
+    "distance_min_km": 300.0,
+    "distance_max_km": 300.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Brevet Chile",
+    "url": "https://www.brevet.cl/eventos/brevet-300km-vuelta-villa-alemana",
+    "registration_url": "https://www.brevet.cl/eventos/brevet-300km-vuelta-villa-alemana",
+    "description": "Última fecha de 300 km del 2026 en Santiago",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -33.4489,
+    "lng": -70.6693,
+    "geo": "commune"
+  },
+  {
     "id": "copa-chile-xco-canete-2026",
     "name": "COPA CHILE XCO CAÑETE 2026",
     "date": "2026-11-28",
@@ -4283,37 +4344,6 @@
     "geo": "commune"
   },
   {
-    "id": "copa-chile-downhill-sur-2-2026",
-    "name": "Copa Chile Downhill Sur #2",
-    "date": "2026-12-05",
-    "end_date": "2026-12-06",
-    "disciplines": [
-      "Enduro",
-      "MTB"
-    ],
-    "region": "VIII",
-    "region_name": "Biobío",
-    "commune": "Santa Bárbara",
-    "location": "Santa Bárbara, Región Biobío",
-    "distances": [
-      "Ver bases"
-    ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Bicineta / Organización Local",
-    "url": "https://www.instagram.com/rcchdownhill/",
-    "registration_url": "https://www.instagram.com/rcchdownhill/",
-    "description": "🔴 SANTA BÁRBARA 17-18 de Octubre 🔴 SANTA BÁRBARA 05-06 Diciembre 🔴 VIÑA 12-13 de Diciembre",
-    "featured": false,
-    "source": "bicineta",
-    "lat": -37.6694,
-    "lng": -71.9042,
-    "geo": "commune"
-  },
-  {
     "id": "desafio-curarrehue-2026",
     "name": "Desafío Curarrehue",
     "date": "2026-12-05",
@@ -4564,6 +4594,37 @@
     "source": "bicineta",
     "lat": -33.0244,
     "lng": -71.5518,
+    "geo": "commune"
+  },
+  {
+    "id": "copa-chile-downhill-sur-2-2026",
+    "name": "Copa Chile Downhill Sur #2",
+    "date": "2026-12-12",
+    "end_date": "2026-12-13",
+    "disciplines": [
+      "Enduro",
+      "MTB"
+    ],
+    "region": "VIII",
+    "region_name": "Biobío",
+    "commune": "Santa Bárbara",
+    "location": "Santa Bárbara, Región Biobío",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/rcchdownhill/",
+    "registration_url": "https://www.instagram.com/rcchdownhill/",
+    "description": "🔴 SANTA BÁRBARA 17-18 de Octubre 🔴 SANTA BÁRBARA 05-06 Diciembre 🔴 VIÑA 12-13 de Diciembre",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -37.6694,
+    "lng": -71.9042,
     "geo": "commune"
   },
   {
@@ -4876,6 +4937,36 @@
     "geo": "commune"
   },
   {
+    "id": "brevet-intercomunal-2026",
+    "name": "BREVET intercomunal",
+    "date": "2026-12-20",
+    "end_date": "2026-12-20",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "XVI",
+    "region_name": "Ñuble",
+    "commune": "Coelemu",
+    "location": "Coelemu, Región Ñuble",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://bikerace.cl/evento?id=3576",
+    "registration_url": "https://bikerace.cl/evento?id=3576",
+    "description": "BREVET intercomunal. bike.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -36.4876,
+    "lng": -72.70233,
+    "geo": "geocoded"
+  },
+  {
     "id": "campeonato-zona-sur-xco-4-2026",
     "name": "Campeonato Zona Sur XCO #4",
     "date": "2026-12-20",
@@ -5120,6 +5211,38 @@
     "geo": "commune"
   },
   {
+    "id": "brevet-fest-2027",
+    "name": "Brevet Fest 2027",
+    "date": "2027-01-15",
+    "end_date": "2027-01-17",
+    "disciplines": [
+      "MTB",
+      "Ultra/Bikepacking",
+      "Ruta"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "Refugio Kurileufu",
+    "location": "Refugio Kurileufu, Región Los Lagos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Refugio Kurileufu",
+    "url": "https://www.refugiokurileufu.com/proximos-eventos/odisea-caleta-condor/",
+    "registration_url": "https://www.refugiokurileufu.com/proximos-eventos/odisea-caleta-condor/",
+    "description": "RUTA 600 KM",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.85,
+    "lng": -72.8333,
+    "geo": "commune"
+  },
+  {
     "id": "leyendas-gravel-el-cruce-de-los-andes-2027",
     "name": "Leyendas Gravel El Cruce de los Andes",
     "date": "2027-01-15",
@@ -5148,36 +5271,6 @@
     "lat": -34.87258,
     "lng": -71.16717,
     "geo": "geocoded"
-  },
-  {
-    "id": "brevet-fest-2027",
-    "name": "Brevet Fest 2027",
-    "date": "2027-01-16",
-    "end_date": "2027-01-16",
-    "disciplines": [
-      "MTB"
-    ],
-    "region": "X",
-    "region_name": "Los Lagos",
-    "commune": "Refugio Kurileufu",
-    "location": "Refugio Kurileufu, Región Los Lagos",
-    "distances": [
-      "Ver bases"
-    ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Refugio Kurileufu",
-    "url": "https://www.refugiokurileufu.com/proximos-eventos/odisea-caleta-condor/",
-    "registration_url": "https://www.refugiokurileufu.com/proximos-eventos/odisea-caleta-condor/",
-    "description": "RUTA 600 KM",
-    "featured": false,
-    "source": "bicineta",
-    "lat": -39.85,
-    "lng": -72.8333,
-    "geo": "commune"
   },
   {
     "id": "transandes-challenge-2027",
