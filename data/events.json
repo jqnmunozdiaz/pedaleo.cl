@@ -6256,6 +6256,36 @@
     "geo": "geocoded"
   },
   {
+    "id": "gran-fondo-curacavi-2027",
+    "name": "Gran Fondo Curacaví 2027",
+    "date": "2027-04-18",
+    "end_date": "2027-04-18",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Curacavi",
+    "location": "Curacavi, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://welcu.com/epic-rides-chile-spa/gran-fondo-curacavi-2027",
+    "registration_url": "https://welcu.com/epic-rides-chile-spa/gran-fondo-curacavi-2027",
+    "description": "Gran Fondo Curacaví 2027. Ciclismo.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -33.4078,
+    "lng": -71.1378,
+    "geo": "commune"
+  },
+  {
     "id": "atacamaspirits-gravel-race-2027",
     "name": "Atacamaspirits Gravel Race 2027",
     "date": "2027-04-19",
