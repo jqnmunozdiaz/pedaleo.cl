@@ -3012,7 +3012,7 @@
     "distance_max_km": null,
     "elevation_gain_m": 0,
     "price_type": "paid",
-    "status": "open",
+    "status": "cancelled",
     "organizer": "Bicineta / Organización Local",
     "url": "https://www.timingfp.com/?c=PublicoEventos&m=ver&id=61",
     "registration_url": "https://www.timingfp.com/?c=PublicoEventos&m=ver&id=61",
@@ -3910,6 +3910,36 @@
     "lat": -33.4069,
     "lng": -70.6433,
     "geo": "commune"
+  },
+  {
+    "id": "desafio-mtb-ruta-del-kuel-2026",
+    "name": "Desafío MTB - Ruta del Kuel",
+    "date": "2026-11-28",
+    "end_date": "2026-11-28",
+    "disciplines": [
+      "MTB",
+      "Ruta"
+    ],
+    "region": null,
+    "region_name": null,
+    "commune": "Lumaco",
+    "location": "Lumaco",
+    "distances": [
+      "30 km",
+      "5 km"
+    ],
+    "distance_min_km": 5.0,
+    "distance_max_km": 30.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Ilustre Municipalidad de Lumaco",
+    "url": "https://guca.cl/att_tickets/public/e/845/desafio-mtb-ruta-del-kuel",
+    "registration_url": "https://guca.cl/att_tickets/public/e/845/desafio-mtb-ruta-del-kuel",
+    "description": "La Municipalidad de Lumaco, a través de su Coordinación de Deportes, organiza el Desafío MTB 30K – Ruta del Kuel, actividad deportiva y recreativa destinada a fomentar la práctica del ciclismo, la vida activa, la participación familiar y el encuentro comunitario. El evento contempla una competencia de mountain bike de 30 kilómetros y una ruta familiar recreativa de 5 kilómetros.",
+    "featured": false,
+    "source": "guca",
+    "location_unverified": true
   },
   {
     "id": "el-tp-buscando-el-tesoro-de-los-pincheira-2026",
@@ -5760,6 +5790,36 @@
     "lat": -34.97749,
     "lng": -71.80121,
     "geo": "geocoded"
+  },
+  {
+    "id": "media-maraton-golfo-de-arauco-2027",
+    "name": "MEDIA MARATON GOLFO DE ARAUCO 2027",
+    "date": "2027-02-21",
+    "end_date": "2027-02-21",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VIII",
+    "region_name": "Biobío",
+    "commune": "Arauco",
+    "location": "Arauco, Región Biobío",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Arauco Adventures",
+    "url": "https://guca.cl/att_tickets/public/e/846/media-maraton-golfo-de-arauco-2027",
+    "registration_url": "https://guca.cl/att_tickets/public/e/846/media-maraton-golfo-de-arauco-2027",
+    "description": "MEDIA MARATON GOLFO DE ARAUCO 2027 Se realizará una competencia de atletismo en la comuna de Arauco, Región del Biobío, el 21 de febrero de 2027, organizada con el objetivo de promover la actividad física, el deporte y la participación de atletas de distintas edades. La competencia contempla tres distancias: 5 K 14 K 21 K",
+    "featured": false,
+    "source": "guca",
+    "lat": -37.2464,
+    "lng": -73.3175,
+    "geo": "commune"
   },
   {
     "id": "vuelta-lago-ranco-2027",
