@@ -3297,6 +3297,36 @@
     "geo": "commune"
   },
   {
+    "id": "volvemos-a-la-montana-3-0-2026",
+    "name": "Volvemos a la Montaña 3.0",
+    "date": "2026-11-21",
+    "end_date": "2026-11-21",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Santiago",
+    "location": "Santiago, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://welcu.com/wattsco/volvemos-a-la-montana",
+    "registration_url": "https://welcu.com/wattsco/volvemos-a-la-montana",
+    "description": "Volvemos a la Montaña 3.0. Ciclismo.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -33.4489,
+    "lng": -70.6693,
+    "geo": "commune"
+  },
+  {
     "id": "vuelta-master-o-higgins-2026-2026-11-21",
     "name": "Vuelta Master O'Higgins",
     "date": "2026-11-21",
@@ -4060,39 +4090,6 @@
     "geo": "region"
   },
   {
-    "id": "desafio-bci-subaru-2026",
-    "name": "Desafío Bci Subaru 2026",
-    "date": "2026-11-29",
-    "end_date": "2026-11-29",
-    "disciplines": [
-      "Ruta"
-    ],
-    "region": "RM",
-    "region_name": "Metropolitana",
-    "commune": "Las Condes",
-    "location": "Las Condes, Región Metropolitana",
-    "distances": [
-      "45 km",
-      "33 km",
-      "25 km",
-      "16 km"
-    ],
-    "distance_min_km": 16.0,
-    "distance_max_km": 45.0,
-    "elevation_gain_m": 0,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Organización oficial",
-    "url": "https://welcu.com/demaria/desafiosubaru",
-    "registration_url": "https://welcu.com/demaria/desafiosubaru",
-    "description": "Desafío Bci Subaru 2026. Ciclismo.",
-    "featured": false,
-    "source": "ciclismochile",
-    "lat": -33.4117,
-    "lng": -70.58,
-    "geo": "commune"
-  },
-  {
     "id": "desafio-subaru-2026",
     "name": "Desafío Subaru",
     "date": "2026-11-29",
@@ -4782,6 +4779,37 @@
     "geo": "commune"
   },
   {
+    "id": "copa-cascadas-lagos-y-cordillera-3-2026",
+    "name": "Copa Cascadas Lagos y Cordillera #3",
+    "date": "2026-12-13",
+    "end_date": "2026-12-13",
+    "disciplines": [
+      "MTB",
+      "Gravel"
+    ],
+    "region": "X",
+    "region_name": "Los Lagos",
+    "commune": "San Juan de la Costa",
+    "location": "San Juan de la Costa, Región Los Lagos",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.cronoschile.cl/eventos/evento.php?e=9542e6d1648f767f42e97a0167967d40",
+    "registration_url": "https://www.cronoschile.cl/eventos/evento.php?e=9542e6d1648f767f42e97a0167967d40",
+    "description": "Nuevo campeonato 4 fechas. Premios en efectivo y muchas sorpresas",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.85,
+    "lng": -72.8333,
+    "geo": "commune"
+  },
+  {
     "id": "desafio-mtb-valle-de-lolol-2026",
     "name": "Desafio MTB Valle de Lolol",
     "date": "2026-12-13",
@@ -4810,6 +4838,39 @@
     "lat": -34.72784,
     "lng": -71.64408,
     "geo": "geocoded"
+  },
+  {
+    "id": "desafio-bci-subaru-2026",
+    "name": "Desafío Bci Subaru 2026",
+    "date": "2026-12-13",
+    "end_date": "2026-12-13",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Las Condes",
+    "location": "Las Condes, Región Metropolitana",
+    "distances": [
+      "45 km",
+      "33 km",
+      "25 km",
+      "16 km"
+    ],
+    "distance_min_km": 16.0,
+    "distance_max_km": 45.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://welcu.com/demaria/desafiosubaru",
+    "registration_url": "https://welcu.com/demaria/desafiosubaru",
+    "description": "Desafío Bci Subaru 2026. Ciclismo.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -33.4117,
+    "lng": -70.58,
+    "geo": "commune"
   },
   {
     "id": "desafio-cerro-grande-2026",
@@ -5541,6 +5602,38 @@
     "source": "bicineta",
     "lat": -36.90504,
     "lng": -73.12717,
+    "geo": "geocoded"
+  },
+  {
+    "id": "azuda-mtb-pichidegua-2027",
+    "name": "Azuda MTB Pichidegua 2027",
+    "date": "2027-01-31",
+    "end_date": "2027-01-31",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Pichidegua",
+    "location": "Pichidegua, Región O'Higgins",
+    "distances": [
+      "35 km",
+      "25 km",
+      "15 km"
+    ],
+    "distance_min_km": 15.0,
+    "distance_max_km": 35.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://welcu.com/azuda-mtb/azuda-mtb-pichidegua-27",
+    "registration_url": "https://welcu.com/azuda-mtb/azuda-mtb-pichidegua-27",
+    "description": "AZUDA MTB PICHIDEGUA, es un evento de mountainbike XCM competitivo y recreacional, emplazado en el valle de Almahue, región de O’Higgins, encadenando el valor histórico de la zona y la acción social con la comunidad.",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -34.35841,
+    "lng": -71.28271,
     "geo": "geocoded"
   },
   {
