@@ -3387,6 +3387,36 @@
     "geo": "commune"
   },
   {
+    "id": "x-corrida-familiar-red-educacional-santo-tomas-de-aquino-2026",
+    "name": "Xª Corrida Familiar Red Educacional Santo Tomas de Aquino 2026",
+    "date": "2026-11-21",
+    "end_date": "2026-11-21",
+    "disciplines": [
+      "Cicloturismo"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Cerrillos",
+    "location": "Cerrillos, Región Metropolitana",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "free",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://www.tocketicket.cl/events/6ae8f8b5e1ff6092c77eb468",
+    "registration_url": "https://www.tocketicket.cl/events/6ae8f8b5e1ff6092c77eb468",
+    "description": "Xª Corrida Familiar Red Educacional Santo Tomas de Aquino 2026. Deportes.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -33.50234,
+    "lng": -70.71584,
+    "geo": "geocoded"
+  },
+  {
     "id": "across-andes-volcano-edition-2026",
     "name": "Across Andes Volcano Edition",
     "date": "2026-11-22",
@@ -3754,6 +3784,37 @@
     "geo": "commune"
   },
   {
+    "id": "bikepacking-mantagua-2026",
+    "name": "Bikepacking Mantagua",
+    "date": "2026-11-28",
+    "end_date": "2026-11-29",
+    "disciplines": [
+      "Ultra/Bikepacking",
+      "Cicloturismo"
+    ],
+    "region": "V",
+    "region_name": "Valparaíso",
+    "commune": "Reloj de flores",
+    "location": "Reloj de flores, Región Valparaíso",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Gravel Quinta Región",
+    "url": "https://www.instagram.com/gravel_quinta_region/",
+    "registration_url": "https://www.instagram.com/gravel_quinta_region/",
+    "description": "Nos vamos 2 días a desconectar. También si lo deseas puedes ir por el día sábado a compartir con la comunidad en el camping. 50 KMS EN TOTAL · PISCINA + MAR · CAMPING + FIESTA",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -33.0472,
+    "lng": -71.6127,
+    "geo": "commune"
+  },
+  {
     "id": "brevet-300-2026",
     "name": "Brevet 300",
     "date": "2026-11-28",
@@ -4088,39 +4149,6 @@
     "lat": -38.7359,
     "lng": -72.5904,
     "geo": "region"
-  },
-  {
-    "id": "desafio-subaru-2026",
-    "name": "Desafío Subaru",
-    "date": "2026-11-29",
-    "end_date": "2026-11-29",
-    "disciplines": [
-      "Ruta"
-    ],
-    "region": "RM",
-    "region_name": "Metropolitana",
-    "commune": "Farellones",
-    "location": "Farellones, Región Metropolitana",
-    "distances": [
-      "45 km",
-      "33 km",
-      "25 km",
-      "16 km"
-    ],
-    "distance_min_km": 16.0,
-    "distance_max_km": 45.0,
-    "elevation_gain_m": 0,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Demaria Marketing Deportivo",
-    "url": "https://www.desafiosubaru.cl/inscripciones.html",
-    "registration_url": "https://www.desafiosubaru.cl/inscripciones.html",
-    "description": "Desafío Subaru: Ruta · 45K, 33K, 25K y 16K. Fuente: calendario de Ridechile.cl.",
-    "featured": false,
-    "source": "ridechile",
-    "lat": -33.3542,
-    "lng": -70.3108,
-    "geo": "commune"
   },
   {
     "id": "desafio-trek-subaru-2026-2026-11-29",
@@ -4652,6 +4680,37 @@
     "geo": "commune"
   },
   {
+    "id": "cronoescalada-trail-vs-mtb-2026",
+    "name": "Cronoescalada Trail vs MTB",
+    "date": "2026-12-12",
+    "end_date": "2026-12-12",
+    "disciplines": [
+      "MTB",
+      "Ruta"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Caburga",
+    "location": "Caburga, Región La Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://guca.cl/att_tickets/public/e/841/cronoescalada-mtb-vs-trail-running",
+    "registration_url": "https://guca.cl/att_tickets/public/e/841/cronoescalada-mtb-vs-trail-running",
+    "description": "Team D’Toros y la Asociación de Triatlón Pucón, en conjunto con la Coordinación de Deportes Municipal, tienen el agrado de invitar al primer “Desafío de Cronoescalada MTB v/s Trail Running 11K”, que se desarrollará en la comuna de Pucón, sector Playa Negra, Caburgua.",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -38.52165,
+    "lng": -72.44096,
+    "geo": "geocoded"
+  },
+  {
     "id": "desafio-termas-del-flaco-2026",
     "name": "Desafío Termas del Flaco",
     "date": "2026-12-12",
@@ -4929,6 +4988,39 @@
     "source": "guca",
     "lat": -37.4789,
     "lng": -73.3444,
+    "geo": "commune"
+  },
+  {
+    "id": "desafio-subaru-2026",
+    "name": "Desafío Subaru",
+    "date": "2026-12-13",
+    "end_date": "2026-12-13",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "RM",
+    "region_name": "Metropolitana",
+    "commune": "Farellones",
+    "location": "Farellones, Región Metropolitana",
+    "distances": [
+      "45 km",
+      "33 km",
+      "25 km",
+      "16 km"
+    ],
+    "distance_min_km": 16.0,
+    "distance_max_km": 45.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Demaria Marketing Deportivo",
+    "url": "https://www.desafiosubaru.cl/inscripciones.html",
+    "registration_url": "https://www.desafiosubaru.cl/inscripciones.html",
+    "description": "Desafío Subaru: Ruta · 45K, 33K, 25K y 16K. Fuente: calendario de Ridechile.cl.",
+    "featured": false,
+    "source": "ridechile",
+    "lat": -33.3542,
+    "lng": -70.3108,
     "geo": "commune"
   },
   {
