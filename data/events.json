@@ -4462,6 +4462,37 @@
     "geo": "geocoded"
   },
   {
+    "id": "cancelado-palguin-cerro-abajo-5-2026",
+    "name": "[CANCELADO] Palguín Cerro Abajo #5",
+    "date": "2026-12-05",
+    "end_date": "2026-12-06",
+    "disciplines": [
+      "MTB",
+      "Enduro"
+    ],
+    "region": "IX",
+    "region_name": "La Araucanía",
+    "commune": "Palguín Alto",
+    "location": "Palguín Alto, Región La Araucanía",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "cancelled",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://www.instagram.com/fast_line2026/",
+    "registration_url": "https://www.instagram.com/fast_line2026/",
+    "description": "Palguin una vez más será la sede de la junta rider's más esperada por muchos, atrévete a medir tus límites en un circuito que levanta revoluciones.",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -39.42951,
+    "lng": -71.7592,
+    "geo": "geocoded"
+  },
+  {
     "id": "campeonato-nacional-xcm-angol-2026",
     "name": "Campeonato Nacional XCM Angol 2026",
     "date": "2026-12-06",
