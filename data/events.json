@@ -3357,36 +3357,6 @@
     "geo": "geocoded"
   },
   {
-    "id": "xcm-olmue-3-2026",
-    "name": "XCM Olmué #3",
-    "date": "2026-11-21",
-    "end_date": "2026-11-22",
-    "disciplines": [
-      "MTB"
-    ],
-    "region": "V",
-    "region_name": "Valparaíso",
-    "commune": "Valparaíso",
-    "location": "Valparaíso, Región Valparaíso",
-    "distances": [
-      "Ver bases"
-    ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 0,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Bicineta / Organización Local",
-    "url": "https://fad.cl/xco-olmue/",
-    "registration_url": "https://fad.cl/xco-olmue/",
-    "description": "Junto con saludarles cordialmente y darles la bienvenida a XCO Olmué Capeonato 2026",
-    "featured": false,
-    "source": "bicineta",
-    "lat": -33.0472,
-    "lng": -71.6127,
-    "geo": "commune"
-  },
-  {
     "id": "x-corrida-familiar-red-educacional-santo-tomas-de-aquino-2026",
     "name": "Xª Corrida Familiar Red Educacional Santo Tomas de Aquino 2026",
     "date": "2026-11-21",
@@ -3752,6 +3722,36 @@
     "lat": -33.4489,
     "lng": -70.6693,
     "geo": "region"
+  },
+  {
+    "id": "social-ride-mauna-x-redbull-x-youtopia-2026",
+    "name": "Social Ride Mauna x Redbull x Youtopia",
+    "date": "2026-11-27",
+    "end_date": "2026-11-27",
+    "disciplines": [
+      "Ruta"
+    ],
+    "region": "XIV",
+    "region_name": "Los Ríos",
+    "commune": "Valdivia",
+    "location": "Valdivia, Región Los Ríos",
+    "distances": [
+      "40 km"
+    ],
+    "distance_min_km": 40.0,
+    "distance_max_km": 40.0,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://welcu.com/mauna-apparel/social-ride-mauna-apparel-valdivia",
+    "registration_url": "https://welcu.com/mauna-apparel/social-ride-mauna-apparel-valdivia",
+    "description": "Social Ride Mauna x Redbull x Youtopia. Ciclismo.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -39.8142,
+    "lng": -73.2459,
+    "geo": "commune"
   },
   {
     "id": "1er-desafio-copa-xco-k2-2026-final",
@@ -4271,6 +4271,36 @@
     "lat": -37.98296,
     "lng": -72.82918,
     "geo": "geocoded"
+  },
+  {
+    "id": "xcm-olmue-3-2026",
+    "name": "XCM Olmué #3",
+    "date": "2026-11-29",
+    "end_date": "2026-11-29",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "V",
+    "region_name": "Valparaíso",
+    "commune": "Valparaíso",
+    "location": "Valparaíso, Región Valparaíso",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Bicineta / Organización Local",
+    "url": "https://fad.cl/xco-olmue/",
+    "registration_url": "https://fad.cl/xco-olmue/",
+    "description": "Junto con saludarles cordialmente y darles la bienvenida a XCO Olmué Capeonato 2026",
+    "featured": false,
+    "source": "bicineta",
+    "lat": -33.0472,
+    "lng": -71.6127,
+    "geo": "commune"
   },
   {
     "id": "gravel-tour-araucania-2026",
@@ -5175,6 +5205,36 @@
     "lat": -39.8142,
     "lng": -73.2459,
     "geo": "commune"
+  },
+  {
+    "id": "desafio-bosques-de-machicura-2026",
+    "name": "Desafío Bosques de Machicura 2026",
+    "date": "2026-12-20",
+    "end_date": "2026-12-20",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VII",
+    "region_name": "Maule",
+    "commune": "Retiro",
+    "location": "Retiro, Región Maule",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://bikerace.cl/evento?id=3609",
+    "registration_url": "https://bikerace.cl/evento?id=3609",
+    "description": "Desafío Bosques de Machicura 2026. bike.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -36.05544,
+    "lng": -71.76506,
+    "geo": "geocoded"
   },
   {
     "id": "segunda-edicion-mtb-xcm-desafio-valle-de-patagual-quetra-2026",
