@@ -5727,37 +5727,6 @@
     "geo": "commune"
   },
   {
-    "id": "everesting-kurileufu-2027",
-    "name": "Everesting Kurileufu 2027",
-    "date": "2027-01-30",
-    "end_date": "2027-01-30",
-    "disciplines": [
-      "Ultra/Bikepacking",
-      "Ruta"
-    ],
-    "region": "X",
-    "region_name": "Los Lagos",
-    "commune": "Refugio Kurileufu",
-    "location": "Refugio Kurileufu, Región Los Lagos",
-    "distances": [
-      "Ver bases"
-    ],
-    "distance_min_km": null,
-    "distance_max_km": null,
-    "elevation_gain_m": 8848,
-    "price_type": "paid",
-    "status": "open",
-    "organizer": "Refugio Kurileufu",
-    "url": "https://kurileufu.sumupstore.com/producto/inscripcion-everesting-south-of-the-world-2027",
-    "registration_url": "https://kurileufu.sumupstore.com/producto/inscripcion-everesting-south-of-the-world-2027",
-    "description": "📜 Evento oficial autorizado por Everesting Challenge SL 📍 Una experiencia épica para ciclistas y runners en el sur de Chile",
-    "featured": false,
-    "source": "bicineta",
-    "lat": -39.85,
-    "lng": -72.8333,
-    "geo": "commune"
-  },
-  {
     "id": "gravel-forest-race-river-2027",
     "name": "Gravel Forest Race RIVER",
     "date": "2027-01-30",
@@ -6648,6 +6617,36 @@
     "lat": -22.9087,
     "lng": -68.1997,
     "geo": "commune"
+  },
+  {
+    "id": "rally-xcm-las-cortaderas-2027",
+    "name": "Rally XCM - Las Cortaderas 2027",
+    "date": "2027-04-25",
+    "end_date": "2027-04-25",
+    "disciplines": [
+      "MTB"
+    ],
+    "region": "VI",
+    "region_name": "O'Higgins",
+    "commune": "Santa Cruz",
+    "location": "Santa Cruz, Región O'Higgins",
+    "distances": [
+      "Ver bases"
+    ],
+    "distance_min_km": null,
+    "distance_max_km": null,
+    "elevation_gain_m": 0,
+    "price_type": "paid",
+    "status": "open",
+    "organizer": "Organización oficial",
+    "url": "https://bikerace.cl/evento?id=3642",
+    "registration_url": "https://bikerace.cl/evento?id=3642",
+    "description": "Rally XCM - Las Cortaderas 2027. bike.",
+    "featured": false,
+    "source": "ciclismochile",
+    "lat": -34.64032,
+    "lng": -71.36613,
+    "geo": "geocoded"
   },
   {
     "id": "clasica-primero-de-mayo-2027",
